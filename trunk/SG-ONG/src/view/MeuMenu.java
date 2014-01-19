@@ -27,6 +27,7 @@ public class MeuMenu extends MenuBar {
 		//Parte de Consulta.
 		MenuItem cSocio = new MenuItem("Sócio");
 		MenuItem cPaciente = new MenuItem("Paciente");
+		MenuItem cDoacao = new MenuItem("Itens doados");
 		
 		//Parte de Balanço.
 		MenuItem gerarBalanco = new MenuItem("Gerar Balanço");	
@@ -37,7 +38,7 @@ public class MeuMenu extends MenuBar {
 		MenuItem sobre = new MenuItem("Sobre");		
 		
 		cadastrar.getItems().addAll(paciente,socio, doacao, despesas);
-		consultar.getItems().addAll(cPaciente,cSocio);
+		consultar.getItems().addAll(cPaciente,cSocio,cDoacao);
 		financas.getItems().addAll(gerarBalanco,gerarTotalSocio);
 		ajuda.getItems().addAll(ajudaD,sobre);
 		
