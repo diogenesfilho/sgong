@@ -27,7 +27,7 @@ public class MeuMenu extends MenuBar {
 		//Parte de Consulta.
 		MenuItem cSocio = new MenuItem("Sócio");
 		MenuItem cPaciente = new MenuItem("Paciente");
-		MenuItem cDoacao = new MenuItem("Itens doados");
+		MenuItem cDoacao = new MenuItem("Itens doados");//OBS. Coloquei isso pois seria bom ter uma ideia dos itens que foram doados. Pode ser implementado futuramente.
 		
 		//Parte de Balanço.
 		MenuItem gerarBalanco = new MenuItem("Gerar Balanço");	
