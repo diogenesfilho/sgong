@@ -76,7 +76,7 @@ public class CadastroSocio extends BorderPane {
 		
 		
 		//Será função após cadastar.
-		Socio socio = new Socio(nomeField.getText(),
+		/*Socio socio = new Socio(nomeField.getText(),
 				enderecoField.getText(), 
 				bairroField.getText(), 
 				cidadeField.getText(), 
@@ -92,7 +92,7 @@ public class CadastroSocio extends BorderPane {
 				tipoSocioField.getText(), 
 				dataArreField.getText(), 
 				profissaoField.getText(),
-				Double.parseDouble(valorArreField.getText()));
+				Double.parseDouble(valorArreField.getText()));*/
 		
 	
 		//Conjunto linha 1.

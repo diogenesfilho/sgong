@@ -1,6 +1,5 @@
 package view;
 
-import javax.swing.JTextField;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
