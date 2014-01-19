@@ -8,7 +8,6 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import view.MeuMenu;
 
@@ -26,8 +25,8 @@ public class GrafBar extends BorderPane {
         final BarChart<String,Number> balanco = new BarChart<String,Number>(xAxis,yAxis);
         
         balanco.setTitle("Balanço Anual");
-        xAxis.setLabel("Meses");   //Nome que fica na horizontal.    
-        yAxis.setLabel("Valores"); // Nome que fica na vertical.
+        xAxis.setLabel("Meses");   //Nome que fica na horizontal.
+        yAxis.setLabel("Valores(R$) "); // Nome que fica na vertical.
  
         
         //Representa todas as barras De entrada ou seja doação.
