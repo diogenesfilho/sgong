@@ -1,5 +1,7 @@
 package view;
 
+import com.sun.javafx.scene.layout.region.BackgroundImage;
+
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
@@ -9,7 +11,7 @@ public class TelaPrincipal extends BorderPane {
 		
 		MeuMenu menu = new MeuMenu();	
 		//MenuPrincipalW8 menuW = new MenuPrincipalW8();
-		
+	
 		
 		VBox vbox = new VBox(20);
 		vbox.getChildren().addAll(menu);
