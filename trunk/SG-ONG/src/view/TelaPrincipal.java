@@ -1,6 +1,5 @@
 package view;
 
-import com.sun.javafx.scene.layout.region.BackgroundImage;
 
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
