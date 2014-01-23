@@ -13,11 +13,15 @@ package app;
  * 
  */
 import javafx.application.Application;
+import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import view.TelaLoguin;
+
 
 public class Main extends Application {
 	
@@ -31,7 +35,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		TelaLoguin root = new TelaLoguin();
-		SCENE = new Scene(root,1240,600,Color.LIGHTGRAY);
+		SCENE = new Scene(root,1240,600, Color.LIGHTGRAY);
 	
 		primaryStage.setTitle("SG ONG");
 		primaryStage.setScene(SCENE);
