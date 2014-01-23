@@ -43,67 +43,100 @@ public class CadastroPaciente extends BorderPane {
 		Danilinho.setNome(fulaninho);*/
 		
 		TextField nomeField = new TextField();
-		nomeField.setPrefSize(700.0, 25.0);
+		nomeField.setPrefSize(700.0, 27.0);
+		
 		TextField enderecoField = new TextField();
-		enderecoField.setPrefSize(500.0, 25.0);
+		enderecoField.setPrefSize(540.0, 27.0);
+		
 		TextField bairroField = new TextField();
+		bairroField.setPrefSize(200.0, 27.0 );
+		
 		TextField nField = new TextField();
+		nField.setPrefSize(170.0, 27.0);
+		
 		TextField cidadeField = new TextField();
+		cidadeField.setPrefSize(170.0, 27.0);
+		
 		TextField estadoField = new TextField();
+		estadoField.setPrefSize(170.0, 27.0);
+		
 		TextField rgField = new TextField();
+		rgField.setPrefSize(200.0, 27.0);
+		
 		TextField cpfField = new TextField();
+		cpfField.setPrefSize(170.0, 27.0);
+		
 		TextField nasciField = new TextField();
+		nasciField.setPrefSize(170.0, 27.0);
+		
 		TextField celularField = new TextField();
+		celularField.setPrefSize(170.0, 27.0);
+		
 		TextField telefoneField = new TextField();
+		telefoneField.setPrefSize(200.0, 27.0);
+		
 		TextArea compleArea = new TextArea();
+		
 		TextField dataFiliField = new TextField();
+		dataFiliField.setPrefSize(200.0, 27.0);
+		
 		TextField emailField = new TextField();
+		emailField.setPrefSize(170.0, 27.0);
+		
 		TextField tipoSocioField = new TextField();
+		tipoSocioField.setPrefSize(200.0, 27.0);
+		
 		TextField valorArreField = new TextField();
+		valorArreField.setPrefSize(170.0, 27.0);
+		
 		TextField dataArreField = new TextField();
+		dataArreField.setPrefSize(170.0, 27.0);
+		
 		TextField profissaoField = new TextField();
+		profissaoField.setPrefSize(200.0, 27.0);
+		
 		Button cadastrar = new Button("Cadastrar");
 		Button cancelar = new Button("Cancelar");
 		
 	
 		//Conjunto linha 1.
-		HBox hbox1 = new HBox(35);
+		HBox hbox1 = new HBox(62);
 		hbox1.getChildren().addAll(nomeTexto,nomeField);
 		
 		//Conjunto linha 2.
-		HBox hbox2E1 = new HBox(10);
+		HBox hbox2E1 = new HBox(40);
 		hbox2E1.getChildren().addAll(enderecoTexto,enderecoField);
 		
 		HBox hbox2E2 = new HBox(10);
 		hbox2E2.getChildren().addAll(bairroTexto,bairroField);
 		
-		HBox hbox2E3 = new HBox(10);
+		HBox hbox2E3 = new HBox(62);
 		hbox2E3.getChildren().addAll(nTexto,nField);
 		
 		HBox hbox2 = new HBox(55);
 		hbox2.getChildren().addAll(hbox2E1,hbox2E2,hbox2E3);
 		
 		//Conjunto Linha 3.		
-		HBox hbox3eE1 = new HBox(25);
+		HBox hbox3eE1 = new HBox(62);
 		hbox3eE1.getChildren().addAll(bairroTexto,bairroField);
 		
-		HBox hbox3E2 = new HBox(10);
+		HBox hbox3E2 = new HBox(45);
 		hbox3E2.getChildren().addAll(cidadeTexto,cidadeField);
 		
-		HBox hbox3E3 = new HBox(10);
+		HBox hbox3E3 = new HBox(61);
 		hbox3E3.getChildren().addAll(estadoTexto,estadoField);
 
 		HBox hbox3 = new HBox(70);
 		hbox3.getChildren().addAll(hbox3eE1,hbox3E2,hbox3E3);
 		
 		//Conjunto Linha 4.
-		HBox hbox4E1 = new HBox(35);
+		HBox hbox4E1 = new HBox(81);
 		hbox4E1.getChildren().addAll(rgTexto,rgField);
 		
-		HBox hbox4E2 = new HBox(20);
+		HBox hbox4E2 = new HBox(38);
 		hbox4E2.getChildren().addAll(cpfTexto,cpfField);
 		
-		HBox hbox4E3 = new HBox(10);
+		HBox hbox4E3 = new HBox(5);
 		hbox4E3.getChildren().addAll(nasciTexto,nasciField);
 		
 		HBox hbox4 = new HBox(97);
@@ -111,10 +144,10 @@ public class CadastroPaciente extends BorderPane {
 		
 		
 		//Conjunto linha 5.
-		HBox hbox5E1 = new HBox(10);
+		HBox hbox5E1 = new HBox(45);
 		hbox5E1.getChildren().addAll(telefoneTexto,telefoneField);
 		
-		HBox hbox5E2 = new HBox(10);
+		HBox hbox5E2 = new HBox(30);
 		hbox5E2.getChildren().addAll(celularTexto,celularField);
 		
 		HBox hbox5 = new HBox(82);
@@ -122,7 +155,7 @@ public class CadastroPaciente extends BorderPane {
 	
 		//Conjunto linha 7.
 	
-		HBox hbox7E2 = new HBox(10);
+		HBox hbox7E2 = new HBox(43);
 		hbox7E2.getChildren().addAll(profissaoTexto,profissaoField);
 		
 		HBox hbox7 = new HBox(50);
