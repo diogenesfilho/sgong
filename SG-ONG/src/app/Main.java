@@ -32,7 +32,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		TelaLoguin root = new TelaLoguin();
 		SCENE = new Scene(root,1240,600,Color.LIGHTGRAY);
-		
+	
 		primaryStage.setTitle("SG ONG");
 		primaryStage.setScene(SCENE);
 		primaryStage.show();
