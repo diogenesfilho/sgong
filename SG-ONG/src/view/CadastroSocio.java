@@ -114,7 +114,7 @@ public class CadastroSocio extends BorderPane {
 		dataArreField.setPrefSize(170.0, 27.0);
 		
 		TextField profissaoField = new TextField();
-		profissaoField.setPrefSize(200.0, 27.0);
+		profissaoField.setPrefSize(170.0, 27.0);
 		
 		Button cadastrar = new Button("Cadastrar");
 		Button cancelar = new Button("Cancelar");
