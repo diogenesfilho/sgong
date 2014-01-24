@@ -179,8 +179,11 @@ public class CadastroPaciente extends BorderPane {
 		VBox vboxTitulo = new VBox(30);
 		vboxTitulo.getChildren().addAll(titulo);
 		
-		VBox vbox = new VBox(15);
-		vbox.getChildren().addAll(vboxTitulo,hbox1,hbox2,hbox3,hbox4,hbox5,hbox7,hbox8,hbox9);
+		VBox vboxAtributos = new VBox(15);
+		vboxAtributos.getChildren().addAll(hbox1,hbox2,hbox3,hbox4,hbox5,hbox7,hbox8,hbox9);
+		
+		VBox vbox = new VBox(40);
+		vbox.getChildren().addAll(vboxTitulo,vboxAtributos);
 		
 		//Sets Alinhamento
 		vboxTitulo.setAlignment(Pos.CENTER);
