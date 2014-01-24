@@ -1,6 +1,9 @@
 package view;
 
 
+import app.Main;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -186,16 +189,29 @@ public class CadastroPaciente extends BorderPane {
 		//Distância da borda.
 		vbox.setPadding(new Insets(10,100,10,100));
 		
-		//Setando menuBar sempre no topo.
+		//Setando formulário no centro.
 		setCenter(vbox);
-		setTop(vboxtop);
 		
 		// Fundo
 		Image fundo = new Image("/image/telaprinc.png");
 		ImageView verFundo = new ImageView(fundo);
 		StackPane stack = new StackPane();
 		stack.getChildren().addAll(verFundo,vbox);
+		
 		setCenter(stack);
+		setTop(vboxtop);
+		
+		
+		//Função Botão cancelar.
+		cancelar.setOnAction(new EventHandler<ActionEvent>() {
+			
+			@Override
+			public void handle(ActionEvent event) {
+				Main.mudarTela(new TelaPrincipal());
+				
+			}
+		});
+		
 		
 	}
 }

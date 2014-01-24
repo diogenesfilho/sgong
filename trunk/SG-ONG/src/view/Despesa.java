@@ -9,8 +9,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 
@@ -52,7 +55,16 @@ public class Despesa extends BorderPane {
 		vbox.setPadding(new Insets(10,100,10,100));
 				
 		setCenter(vbox);
-		setTop(vboxtop);
+
+		
+		//Background.
+		Image fundo = new Image("/image/telaprinc.png");
+		ImageView verFundo = new ImageView(fundo);
+		StackPane stack = new StackPane();
+		stack.getChildren().addAll(verFundo,vbox);
+		
+		setCenter(stack);
+		setTop(vboxtop);//Setando menuBar sempre no topo.
 				
 		cancelar.setOnAction(new EventHandler<ActionEvent>() {
 					
