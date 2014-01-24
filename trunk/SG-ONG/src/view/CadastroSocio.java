@@ -26,10 +26,10 @@ public class CadastroSocio extends BorderPane {
 		
 		//Set Título futura imagem.
 		Label titulo = new Label("Cadastrar Sócio");
-		titulo.setFont(new Font(20));
+		titulo.setFont(new Font(30));
 		
 		
-		MeuMenu vboxtop = new MeuMenu(); //Warning!
+		MeuMenu menuBar = new MeuMenu(); //Warning!
 		
 		Label nomeTexto = new Label("Nome: ");
 		Label enderecoTexto = new Label("Endereço: ");
@@ -235,7 +235,7 @@ public class CadastroSocio extends BorderPane {
 		hbox9.getChildren().addAll(cadastrar,cancelar);
 		
 		
-		VBox vboxTitulo = new VBox(10);
+		VBox vboxTitulo = new VBox(30);
 		vboxTitulo.getChildren().addAll(titulo);
 		
 		VBox vbox = new VBox(15);
@@ -259,7 +259,7 @@ public class CadastroSocio extends BorderPane {
 		stack.getChildren().addAll(verFundo,vbox);
 		
 		setCenter(stack);
-		setTop(vboxtop);//Setando menuBar sempre no topo.
+		setTop(menuBar);//Setando menuBar sempre no topo.
 		
 		//Função Botão cancelar.
 		cancelar.setOnAction(new EventHandler<ActionEvent>() {

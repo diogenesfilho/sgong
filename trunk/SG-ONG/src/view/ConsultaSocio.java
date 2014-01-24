@@ -5,8 +5,11 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 
@@ -14,7 +17,7 @@ public class ConsultaSocio extends BorderPane {
 	
 	public ConsultaSocio(){
 		
-		MeuMenu menu = new MeuMenu();
+		MeuMenu menuBar = new MeuMenu();
 		
 		Label titulo = new Label("Procurar Sócio");
 		titulo.setFont(new Font(20));
@@ -28,14 +31,21 @@ public class ConsultaSocio extends BorderPane {
 		hbox.getChildren().addAll(procuraNome,procuraField,procurar);
 		
 		VBox vbox = new VBox(20);
-		vbox.getChildren().addAll(titulo,hbox);
+		vbox.getChildren().addAll(menuBar,titulo,hbox);
 		
-		VBox vboxP = new VBox(20);
-		vboxP.getChildren().addAll(menu,vbox);
 		
 		hbox.setAlignment(Pos.CENTER);
 		vbox.setAlignment(Pos.CENTER);
-		setTop(vboxP);
+
+		// Fundo
+		Image fundo = new Image("/image/telaprinc.png");
+		ImageView verFundo = new ImageView(fundo);
+		StackPane stack = new StackPane();
+		stack.getChildren().addAll(verFundo,vbox);
+
+		setCenter(stack);
+		setTop(vbox);
+
 
 		
 	}
