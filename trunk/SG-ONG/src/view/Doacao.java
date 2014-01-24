@@ -66,6 +66,7 @@ public class Doacao extends BorderPane {
 		vbox.setPadding(new Insets(10,100,10,100));
 		
 		setCenter(vbox);
+
 		setTop(vboxtop);
 		
 		cancelar.setOnAction(new EventHandler<ActionEvent>() {
