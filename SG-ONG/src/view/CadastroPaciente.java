@@ -7,8 +7,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 
@@ -176,16 +179,23 @@ public class CadastroPaciente extends BorderPane {
 		VBox vbox = new VBox(15);
 		vbox.getChildren().addAll(vboxTitulo,hbox1,hbox2,hbox3,hbox4,hbox5,hbox7,hbox8,hbox9);
 		
-		//Sets Alig..
+		//Sets Alinhamento
 		vboxTitulo.setAlignment(Pos.CENTER);
 		hbox9.setAlignment(Pos.BOTTOM_RIGHT);
 		
 		//Distância da borda.
 		vbox.setPadding(new Insets(10,100,10,100));
 		
-		
+		//Setando menuBar sempre no topo.
 		setCenter(vbox);
-		setTop(vboxtop);//Setando menuBar sempre no topo.
+		setTop(vboxtop);
+		
+		// Fundo
+		Image fundo = new Image("/image/telaprinc.png");
+		ImageView verFundo = new ImageView(fundo);
+		StackPane stack = new StackPane();
+		stack.getChildren().addAll(verFundo,vbox);
+		setCenter(stack);
 		
 	}
 }

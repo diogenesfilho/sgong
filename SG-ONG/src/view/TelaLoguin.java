@@ -43,12 +43,11 @@ public class TelaLoguin extends BorderPane {
 		hbox2.setAlignment(Pos.CENTER);
 		vbox.setAlignment(Pos.CENTER);
 		
+		// Fundo
 		Image fundo = new Image("/image/telalogin.png");
 		ImageView verFundo = new ImageView(fundo);
-		
 		StackPane stack = new StackPane();
 		stack.getChildren().addAll(verFundo,vbox);
-
 		setCenter(stack);
 
 		entrar.setOnAction(new EventHandler<ActionEvent>() {
