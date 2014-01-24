@@ -1,6 +1,6 @@
 package model;
 
-public class Pessoa {
+public abstract class Pessoa {
 	private String nome,endereco,bairro,cidade,estado,rG,cPF,nascimento,celular,telefone,complemento,dataFili,email;
 	
 	public Pessoa(){
