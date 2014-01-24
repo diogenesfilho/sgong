@@ -7,7 +7,7 @@ package app;
  * 
  * @author Diogenes Laertius Silva de Oliveira Filho
  * @author José Arnóbio de Oliveira Júnior
- * @author João Vitor Silva de Oliveira
+ * @author João Vitor Silva Oliveira
  * 
  * @version 1.0
  * 
