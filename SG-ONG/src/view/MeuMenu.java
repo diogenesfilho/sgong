@@ -92,5 +92,23 @@ public class MeuMenu extends MenuBar {
 			}
 		});
 		
+		cSocio.setOnAction(new EventHandler<ActionEvent>() {
+			
+			@Override
+			public void handle(ActionEvent arg0) {
+				Main.mudarTela(new ConsultaSocio());
+				
+			}
+		}); 
+		
+		cPaciente.setOnAction(new EventHandler<ActionEvent>() {
+			
+			@Override
+			public void handle(ActionEvent arg0) {
+				Main.mudarTela(new ConsultaPaciente());
+				
+			}
+		}); 
+		
 	}
 }
