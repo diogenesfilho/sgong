@@ -1,6 +1,8 @@
 package view;
 
 
+import javax.swing.JOptionPane;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -23,17 +25,17 @@ public class TelaLoguin extends BorderPane {
 	public  TelaLoguin(){
 		
 		
-		Label nome = new Label("Nome");
-		Label senha = new Label("Senha");
-		TextField textNome = new TextField();
-		PasswordField textSenha = new PasswordField();//senha
+		Label nome = new Label("Usuário:");
+		Label senha = new Label("Senha:");
+		final TextField textNome = new TextField();
+		final PasswordField textSenha = new PasswordField();//senha
 		Button entrar = new Button("Entrar");
 		
 		
-		HBox hbox1 = new HBox(30);
+		HBox hbox1 = new HBox(35);
 		hbox1.getChildren().addAll(nome,textNome);
 		
-		HBox hbox2 = new HBox(30);
+		HBox hbox2 = new HBox(40);
 		hbox2.getChildren().addAll(senha,textSenha);
 		
 		VBox vbox = new VBox(30);
@@ -54,8 +56,12 @@ public class TelaLoguin extends BorderPane {
 			
 			@Override
 			public void handle(ActionEvent arg0) {
-				// TODO Auto-generated method stub
-				Main.mudarTela(new TelaPrincipal());
+				if (textNome.getText().equals("adm") &&  (textSenha.getText().equals("adm"))){
+					Main.mudarTela(new TelaPrincipal());
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "Usuário e/ou senha inválidos! (tente Usuário: adm e senha: adm  :P");
+				}
 				
 			}
 		});
