@@ -23,11 +23,11 @@ import javafx.scene.text.Font;
 public class CadastroPaciente extends BorderPane {
 	public CadastroPaciente(){
 		
-		//Set Título futura imagem.
+		//Set Título
 		Label titulo = new Label("Cadastrar Paciente");
 		titulo.setFont(new Font(30));
 		
-		MeuMenu menuBar = new MeuMenu(); //Warning!
+		MeuMenu menuBar = new MeuMenu();
 		
 		Label nomeTexto = new Label("Nome: ");
 		Label enderecoTexto = new Label("Endereço: ");
@@ -179,7 +179,7 @@ public class CadastroPaciente extends BorderPane {
 		VBox vboxTitulo = new VBox(30);
 		vboxTitulo.getChildren().addAll(titulo);
 		
-		VBox vboxAtributos = new VBox(15);
+		VBox vboxAtributos = new VBox(20);
 		vboxAtributos.getChildren().addAll(hbox1,hbox2,hbox3,hbox4,hbox5,hbox7,hbox8,hbox9);
 		
 		VBox vbox = new VBox(40);
@@ -190,7 +190,7 @@ public class CadastroPaciente extends BorderPane {
 		hbox9.setAlignment(Pos.BOTTOM_RIGHT);
 		
 		//Distância da borda.
-		vbox.setPadding(new Insets(10,100,10,100));
+		vbox.setPadding(new Insets(50,100,10,100));
 		
 		//Setando formulário no centro.
 		setCenter(vbox);

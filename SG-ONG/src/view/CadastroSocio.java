@@ -247,7 +247,7 @@ public class CadastroSocio extends BorderPane {
 		hbox9.setAlignment(Pos.BOTTOM_RIGHT);
 		
 		//Distância da borda.
-		vbox.setPadding(new Insets(10,100,10,100));
+		vbox.setPadding(new Insets(50,100,10,100));
 		
 		//Setando elementos do formulário no Centro.
 		setCenter(vbox);
