@@ -1,7 +1,5 @@
 package view;
 
-
-
 import app.Main;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

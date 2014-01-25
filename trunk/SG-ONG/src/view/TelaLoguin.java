@@ -1,45 +1,45 @@
 package view;
 
-
-import javax.swing.JOptionPane;
-
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
-import javafx.scene.Group;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCombination;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 import app.Main;
 
 public class TelaLoguin extends BorderPane {
+	
 	public  TelaLoguin(){
 		
 		
 		Label nome = new Label("Usuário:");
 		Label senha = new Label("Senha:");
-		final TextField textNome = new TextField();
-		final PasswordField textSenha = new PasswordField();//senha
+		
+		final TextField nomeField = new TextField();
+		final PasswordField senhaField = new PasswordField();//senha
+		
 		Button entrar = new Button("Entrar");
 		
-		
+		final Label informacao = new Label();
+
 		HBox hbox1 = new HBox(35);
-		hbox1.getChildren().addAll(nome,textNome);
+		hbox1.getChildren().addAll(nome,nomeField);
 		
 		HBox hbox2 = new HBox(40);
-		hbox2.getChildren().addAll(senha,textSenha);
+		hbox2.getChildren().addAll(senha,senhaField);
 		
 		VBox vbox = new VBox(30);
-		vbox.getChildren().addAll(hbox1,hbox2,entrar);
+		vbox.getChildren().addAll(hbox1,hbox2,entrar,informacao);
 		
 		hbox1.setAlignment(Pos.CENTER);
 		hbox2.setAlignment(Pos.CENTER);
@@ -51,20 +51,21 @@ public class TelaLoguin extends BorderPane {
 		StackPane stack = new StackPane();
 		stack.getChildren().addAll(verFundo,vbox);
 		setCenter(stack);
+		
 
 		entrar.setOnAction(new EventHandler<ActionEvent>() {
 			
 			@Override
 			public void handle(ActionEvent arg0) {
-				if (textNome.getText().equals("adm") &&  (textSenha.getText().equals("adm"))){
+				if (nomeField.getText().equals("adm") &&  (senhaField.getText().equals("adm"))){
 					Main.mudarTela(new TelaPrincipal());
+				}else if(nomeField.getText().equals("") || senhaField.getText().equals("")){
+					informacao.setText("Digite usuário e senha!");
 				}
 				else {
-					JOptionPane.showMessageDialog(null, "Usuário e/ou senha inválidos! (tente Usuário: adm e senha: adm  :P");
+					informacao.setText("Este usuário não tem permissão!");
 				}
-				
 			}
 		});
 	}
-
 }
