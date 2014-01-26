@@ -36,33 +36,22 @@ public class CadastroSocio extends BorderPane {
 		Label enderecoTexto = new Label("Endereço: ");
 		Label bairroTexto = new Label("Bairro: ");
 		Label nTexto = new Label("Nº.");
-		
-		Label cidadeTexto = new Label("Cidade: ");
-		cidadeTexto.setAlignment(Pos.CENTER_RIGHT);
-		
+		Label cidadeTexto = new Label("Cidade: ");	
 		Label estadoTexto = new Label("Estado: ");
 		Label rgTexto = new Label("RG: ");
-		
 		Label cpfTexto = new Label("CPF: ");
-		cpfTexto.setAlignment(Pos.CENTER_RIGHT);
-		
 		Label nasciTexto = new Label("Nascimento: ");
-		
 		Label celularTexto = new Label("Celular: ");
-		celularTexto.setAlignment(Pos.CENTER_RIGHT);
-		
 		Label telefoneTexto = new Label("Telefone: ");
 		Label compleTexto = new Label("Complemento: ");
 		Label dataFiliTexto = new Label("Data Filiacão: ");
 		Label emailTexto = new Label("Email: ");
 		Label tipoSocioTexto = new Label("Tipo de Sócio: ");//Olhar.
-		
 		Label valorArreTexto = new Label("Valor arrecadação: ");
-		valorArreTexto.setAlignment(Pos.CENTER_RIGHT);
-		
 		Label dataArrecaTexto = new Label("Data Arrecadação: ");
 		Label profissaoTexto = new Label("Profissão: ");
-		profissaoTexto.setAlignment(Pos.CENTER_LEFT);
+		
+		
 		
 		
 		/*String fulaninho = nomeField.getText();//Pega o texto para string.

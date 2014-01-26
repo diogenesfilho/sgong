@@ -42,6 +42,8 @@ public class CadastroPaciente extends BorderPane {
 		Label telefoneTexto = new Label("Telefone: ");
 		Label compleTexto = new Label("Complemento: ");
 		Label profissaoTexto = new Label("Profissão: ");
+		Label obsMedicasTexto = new Label("Obs. Médicas: ");
+		Label residentesCasaTexto = new Label("Residente: ");
 		
 		
 		/*String fulaninho = nomeField.getText();//Pega o texto para string.
@@ -101,6 +103,12 @@ public class CadastroPaciente extends BorderPane {
 		TextField profissaoField = new TextField();
 		profissaoField.setPrefSize(200.0, 27.0);
 		
+		TextField obsMedicasField = new TextField();
+		obsMedicasField.setPrefSize(530.0, 27.0);
+		
+		TextField residentesCasaField = new TextField();
+		residentesCasaField.setPrefSize(170.0, 27.0);
+		
 		Button cadastrar = new Button("Cadastrar");
 		Button cancelar = new Button("Cancelar");
 		
@@ -156,16 +164,24 @@ public class CadastroPaciente extends BorderPane {
 		HBox hbox5E2 = new HBox(30);
 		hbox5E2.getChildren().addAll(celularTexto,celularField);
 		
+		HBox hbox5E3 = new HBox(30);
+		hbox5E3.getChildren().addAll(residentesCasaTexto, residentesCasaField);
+		
 		HBox hbox5 = new HBox(82);
-		hbox5.getChildren().addAll(hbox5E1,hbox5E2);
+		hbox5.getChildren().addAll(hbox5E1,hbox5E2,hbox5E3);
 	
 		//Conjunto linha 7.
 	
 		HBox hbox7E2 = new HBox(43);
 		hbox7E2.getChildren().addAll(profissaoTexto,profissaoField);
 		
-		HBox hbox7 = new HBox(50);
-		hbox7.getChildren().addAll(hbox7E2);
+		HBox hbox7E3 = new HBox(50);
+		hbox7E3.getChildren().addAll(obsMedicasTexto, obsMedicasField);
+		
+		
+		
+		HBox hbox7 = new HBox(20);
+		hbox7.getChildren().addAll(hbox7E2, hbox7E3);
 		
 		//Conjunto linha 8.
 		HBox hbox8 = new HBox(10);
