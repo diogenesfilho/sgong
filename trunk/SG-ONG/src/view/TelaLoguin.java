@@ -2,6 +2,7 @@ package view;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -9,8 +10,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCombination;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
@@ -26,7 +25,7 @@ public class TelaLoguin extends BorderPane {
 		Label senha = new Label("Senha:");
 		
 		final TextField nomeField = new TextField();
-		final PasswordField senhaField = new PasswordField();//senha
+		final PasswordField senhaField = new PasswordField();
 		
 		Button entrar = new Button("Entrar");
 		
@@ -44,14 +43,15 @@ public class TelaLoguin extends BorderPane {
 		hbox1.setAlignment(Pos.CENTER);
 		hbox2.setAlignment(Pos.CENTER);
 		vbox.setAlignment(Pos.CENTER);
+		vbox.setPadding(new Insets(200,10,10,10));
 		
 		// Fundo
 		Image fundo = new Image("/image/telalogin.png");
 		ImageView verFundo = new ImageView(fundo);
 		StackPane stack = new StackPane();
 		stack.getChildren().addAll(verFundo,vbox);
+		stack.setPadding(new Insets(100,10,10,10));
 		setCenter(stack);
-		
 
 		entrar.setOnAction(new EventHandler<ActionEvent>() {
 			
@@ -63,7 +63,7 @@ public class TelaLoguin extends BorderPane {
 					informacao.setText("Digite usuário e senha!");
 				}
 				else {
-					informacao.setText("Este usuário não tem permissão!");
+					informacao.setText("Usuário e/ou senha inválido(s)!");
 				}
 			}
 		});
