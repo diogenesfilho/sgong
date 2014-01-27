@@ -37,16 +37,14 @@ public class CaPacienteGUI extends BorderPane {
 		Label estadoTexto = new Label("Estado: ");
 		Label rgTexto = new Label("RG: ");
 		Label cpfTexto = new Label("CPF: ");
-		Label nasciTexto = new Label("Nascimento: ");
+		Label nasciTexto = new Label("Data de" +"\n"+ " nascimento: ");
 		Label celularTexto = new Label("Celular: ");
 		Label telefoneTexto = new Label("Telefone: ");
-		Label compleTexto = new Label("Complemento: ");
 		Label profissaoTexto = new Label("Profissão: ");
-		Label obsMedicasTexto = new Label("Obs. Médicas: ");
-		Label residentesCasaTexto = new Label("Residente: ");
+		Label obsMedicasTexto = new Label("Observações: ");
 		
 		TextField nomeField = new TextField();
-		nomeField.setPrefSize(700.0, 27.0);
+		nomeField.setPrefSize(540.0, 27.0);
 		
 		TextField enderecoField = new TextField();
 		enderecoField.setPrefSize(540.0, 27.0);
@@ -78,8 +76,6 @@ public class CaPacienteGUI extends BorderPane {
 		TextField telefoneField = new TextField();
 		telefoneField.setPrefSize(200.0, 27.0);
 		
-		TextArea compleArea = new TextArea();
-		
 		TextField dataFiliField = new TextField();
 		dataFiliField.setPrefSize(200.0, 27.0);
 		
@@ -98,8 +94,8 @@ public class CaPacienteGUI extends BorderPane {
 		TextField profissaoField = new TextField();
 		profissaoField.setPrefSize(200.0, 27.0);
 		
-		TextField obsMedicasField = new TextField();
-		obsMedicasField.setPrefSize(530.0, 27.0);
+		TextArea obsMedicasField = new TextArea();
+		obsMedicasField.setPrefSize(530.0, 60.0);
 		
 		TextField residentesCasaField = new TextField();
 		residentesCasaField.setPrefSize(170.0, 27.0);
@@ -159,11 +155,8 @@ public class CaPacienteGUI extends BorderPane {
 		HBox hbox5E2 = new HBox(30);
 		hbox5E2.getChildren().addAll(celularTexto,celularField);
 		
-		HBox hbox5E3 = new HBox(30);
-		hbox5E3.getChildren().addAll(residentesCasaTexto, residentesCasaField);
-		
 		HBox hbox5 = new HBox(82);
-		hbox5.getChildren().addAll(hbox5E1,hbox5E2,hbox5E3);
+		hbox5.getChildren().addAll(hbox5E1,hbox5E2);
 	
 		//Conjunto linha 7.
 	
@@ -178,25 +171,21 @@ public class CaPacienteGUI extends BorderPane {
 		
 		//Conjunto linha 8.
 		HBox hbox8 = new HBox(10);
-		hbox8.getChildren().addAll(compleTexto,compleArea);
-		
-		//Conjunto linha 9.
-		HBox hbox9 = new HBox(10);
-		hbox9.getChildren().addAll(cadastrar,cancelar);
+		hbox8.getChildren().addAll(cadastrar,cancelar);
 		
 		
 		VBox vboxTitulo = new VBox(30);
 		vboxTitulo.getChildren().addAll(titulo);
 		
 		VBox vboxAtributos = new VBox(20);
-		vboxAtributos.getChildren().addAll(hbox1,hbox2,hbox3,hbox4,hbox5,hbox7,hbox8,hbox9);
+		vboxAtributos.getChildren().addAll(hbox1,hbox2,hbox3,hbox4,hbox5,hbox7,hbox8);
 		
 		VBox vbox = new VBox(40);
 		vbox.getChildren().addAll(vboxTitulo,vboxAtributos);
 		
 		//Sets Alinhamento
 		vboxTitulo.setAlignment(Pos.CENTER);
-		hbox9.setAlignment(Pos.BOTTOM_RIGHT);
+		hbox8.setAlignment(Pos.BOTTOM_RIGHT);
 		
 		//Distância da borda.
 		vbox.setPadding(new Insets(50,100,10,100));

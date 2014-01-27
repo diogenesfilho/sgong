@@ -2,23 +2,23 @@ package model;
 
 public class Paciente extends Pessoa {
 
-	private String obsMedicas;
+	private String observacoes;
 	private int residentesCasa;
 	
-	public Paciente(String nome, String endereco, String bairro, String cidade, String estado,String rG, String cPF, String nascimento,String celular, String telefone, String complemento, String dataFili, String email,String obsMedicas, int residentesCasa) {
+	public Paciente(String nome, String endereco, String bairro, String cidade, String estado,String rG, String cPF, String nascimento,String celular, String telefone, String complemento, String dataFili, String email,String observacoes, int residentesCasa) {
 		super(nome,endereco,bairro,cidade,estado,rG,cPF,nascimento,celular,telefone,complemento,dataFili,email);
-		this.obsMedicas = obsMedicas;
+		this.observacoes = observacoes;
 		this.residentesCasa = residentesCasa;
 				
 	}
 
 	//Gets e Sets;
-	public String getObsMedicas() {
-		return obsMedicas;
+	public String getObservacoes() {
+		return observacoes;
 	}
 
-	public void setObsMedicas(String obsMedicas) {
-		this.obsMedicas = obsMedicas;
+	public void setObservacoes(String observacoes) {
+		this.observacoes = observacoes;
 	}
 
 	public int getResidentesCasa() {
