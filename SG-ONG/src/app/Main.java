@@ -34,7 +34,7 @@ public class Main extends Application {
 		LoginGUI root = new LoginGUI();
 		SCENE = new Scene(root,1240,600, Color.LIGHTGRAY);
 	
-		primaryStage.setTitle("SG ONG");
+		primaryStage.setTitle("SG ONG - Sistema Gerenciador de ONG");
 		primaryStage.setScene(SCENE);
 		primaryStage.show();
 
