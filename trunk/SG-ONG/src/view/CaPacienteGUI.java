@@ -20,8 +20,8 @@ import javafx.scene.text.Font;
 
 
 
-public class CadastroPaciente extends BorderPane {
-	public CadastroPaciente(){
+public class CaPacienteGUI extends BorderPane {
+	public CaPacienteGUI(){
 		
 		//Set Título
 		Label titulo = new Label("Cadastrar Paciente");
