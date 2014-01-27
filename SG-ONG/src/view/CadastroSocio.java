@@ -22,12 +22,12 @@ import javafx.scene.text.Font;
 public class CadastroSocio extends BorderPane {
 	public CadastroSocio(){
 		
-		//Set Título futura imagem.
+		//Set Título
 		Label titulo = new Label("Cadastrar Sócio");
 		titulo.setFont(new Font(30));
 		
 		
-		MeuMenu menuBar = new MeuMenu(); //Warning!
+		MeuMenu menuBar = new MeuMenu(); 
 		
 		Label nomeTexto = new Label("Nome: ");
 		Label enderecoTexto = new Label("Endereço: ");
@@ -47,13 +47,6 @@ public class CadastroSocio extends BorderPane {
 		Label valorArreTexto = new Label("Valor arrecadação: ");
 		Label dataArrecaTexto = new Label("Data Arrecadação: ");
 		Label profissaoTexto = new Label("Profissão: ");
-		
-		
-		
-		
-		/*String fulaninho = nomeField.getText();//Pega o texto para string.
-		Pessoa Danilinho = new Pessoa();
-		Danilinho.setNome(fulaninho);*/
 		
 		TextField nomeField = new TextField();
 		nomeField.setPrefSize(700.0, 27.0);
@@ -111,27 +104,6 @@ public class CadastroSocio extends BorderPane {
 		
 		Button cadastrar = new Button("Cadastrar");
 		Button cancelar = new Button("Cancelar");
-		
-		
-		//Será função após cadastar.
-		/*Socio socio = new Socio(nomeField.getText(),
-				enderecoField.getText(), 
-				bairroField.getText(), 
-				cidadeField.getText(), 
-				estadoField.getText(),
-				rgField.getText(), 
-				cpfField.getText(), 
-				nasciField.getText(),
-				celularField.getText(), 
-				telefoneField.getText(), 
-				compleArea.getText(), 
-				dataFiliField.getText(), 
-				emailField.getText(),
-				tipoSocioField.getText(), 
-				dataArreField.getText(), 
-				profissaoField.getText(),
-				Double.parseDouble(valorArreField.getText()));*/
-		
 	
 		//Conjunto linha 1.
 		HBox hbox1 = new HBox(62);
@@ -228,7 +200,7 @@ public class CadastroSocio extends BorderPane {
 		VBox vbox = new VBox(15);
 		vbox.getChildren().addAll(vboxTitulo,hbox1,hbox2,hbox3,hbox4,hbox5,hbox6,hbox7,hbox8,hbox9);
 		
-		//Sets Alig..
+		//Sets Alinhamento
 		vboxTitulo.setAlignment(Pos.CENTER);
 		hbox9.setAlignment(Pos.BOTTOM_RIGHT);
 		
@@ -244,11 +216,10 @@ public class CadastroSocio extends BorderPane {
 		ImageView verFundo = new ImageView(fundo);
 		StackPane stack = new StackPane();
 		stack.getChildren().addAll(verFundo,vbox);
-		
 		setCenter(stack);
-		setTop(menuBar);//Setando menuBar sempre no topo.
+		setTop(menuBar);     //Setando menuBar sempre no topo.
 		
-		//Função Botão cancelar.
+		//Função Botão cancelar
 		cancelar.setOnAction(new EventHandler<ActionEvent>() {
 			
 			@Override

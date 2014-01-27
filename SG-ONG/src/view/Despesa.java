@@ -30,7 +30,7 @@ public class Despesa extends BorderPane {
 		Button cadastrar = new Button("Cadastrar");
 		Button cancelar = new Button("Cancelar");
 		
-		MeuMenu vboxtop = new MeuMenu(); //Warning!
+		MeuMenu vboxtop = new MeuMenu(); 
 
 		HBox hbox1 = new HBox(30);
 		hbox1.getChildren().addAll(valor,textoValor);
@@ -57,14 +57,14 @@ public class Despesa extends BorderPane {
 		setCenter(vbox);
 
 		
-		//Background.
+		//Background
 		Image fundo = new Image("/image/telaprinc.png");
 		ImageView verFundo = new ImageView(fundo);
 		StackPane stack = new StackPane();
 		stack.getChildren().addAll(verFundo,vbox);
 		
 		setCenter(stack);
-		setTop(vboxtop);//Setando menuBar sempre no topo.
+		setTop(vboxtop);     //Setando menuBar sempre no topo
 				
 		cancelar.setOnAction(new EventHandler<ActionEvent>() {
 					

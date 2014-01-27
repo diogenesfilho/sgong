@@ -27,19 +27,17 @@ public class MeuMenu extends MenuBar {
 		//Parte de Consulta.
 		MenuItem cSocio = new MenuItem("Sócio");
 		MenuItem cPaciente = new MenuItem("Paciente");
-		MenuItem cDoacao = new MenuItem("Itens doados");//OBS. Coloquei isso pois seria bom ter uma ideia dos itens que foram doados. Pode ser implementado futuramente.
 		
 		//Parte de Balanço.
 		MenuItem gerarBalanco = new MenuItem("Gerar Balanço");	
-		MenuItem gerarTotalSocio = new MenuItem("População Ativa");//OBS
 		
 		//Parte de Ajuda.
 		MenuItem ajudaD = new MenuItem("Ajuda Dinâmica");
 		MenuItem sobre = new MenuItem("Sobre");		
 		
 		cadastrar.getItems().addAll(paciente,socio, doacao, despesas);
-		consultar.getItems().addAll(cPaciente,cSocio,cDoacao);
-		financas.getItems().addAll(gerarBalanco,gerarTotalSocio);
+		consultar.getItems().addAll(cPaciente,cSocio);
+		financas.getItems().addAll(gerarBalanco);
 		ajuda.getItems().addAll(ajudaD,sobre);
 		
 		getMenus().addAll(cadastrar,consultar,financas,ajuda);

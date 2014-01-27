@@ -21,7 +21,7 @@ import javafx.scene.text.Font;
 public class Doacao extends BorderPane {
 	public Doacao(){
 	
-		//Criando os objetos.
+		//Criando os objetos
 		Label textoAux = new Label("Caso a doação seja em ITENS , o valor informado deverá ser 0 e terá que haver uma descrição com a quantidade.");
 		textoAux.setFont(new Font(10));
 
@@ -36,10 +36,10 @@ public class Doacao extends BorderPane {
 		Button cadastrar = new Button("Cadastrar");
 		Button cancelar = new Button("Cancelar");
 		
-		MeuMenu vboxtop = new MeuMenu(); //Warning!
+		MeuMenu vboxtop = new MeuMenu(); 
 		
 	
-		//Juntando elementos na horizontal.
+		//Juntando elementos na horizontal
 		HBox hboxTexAux = new HBox();
 		hboxTexAux.getChildren().addAll(textoAux);
 		
@@ -75,7 +75,7 @@ public class Doacao extends BorderPane {
 		stack.getChildren().addAll(verFundo,vbox);
 		
 		setCenter(stack);
-		setTop(vboxtop);//Setando menuBar sempre no topo.
+		setTop(vboxtop);      //Setando menuBar sempre no topo.
 		
 		cancelar.setOnAction(new EventHandler<ActionEvent>() {
 			

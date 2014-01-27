@@ -12,11 +12,7 @@ public class Socio extends Pessoa {
 		this.profissao = profissao;
 		this.valorContri = valorContri;
 	}
-	
-	//inset rows.
-	public void consultaSocio(){
-		
-	}
+
 	
 	//Gets e Sets;
 	public String getTipoSocio() {

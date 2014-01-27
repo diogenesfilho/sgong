@@ -25,7 +25,7 @@ public class GrafBar extends BorderPane {
         final BarChart<String,Number> balanco = new BarChart<String,Number>(xAxis,yAxis);
         
         balanco.setTitle("Balanço Anual");
-        xAxis.setLabel("Meses");   //Nome que fica na horizontal.
+        xAxis.setLabel("Meses");        //Nome que fica na horizontal.
         yAxis.setLabel("Valores(R$) "); // Nome que fica na vertical.
  
         
@@ -68,7 +68,7 @@ public class GrafBar extends BorderPane {
         
         Button valores = new Button("Valores Exatos");
 
-        balanco.getData().addAll(series1, series2);//,series3
+        balanco.getData().addAll(series1, series2);
         
         VBox vbox = new VBox();
         vbox.getChildren().addAll(balanco,valores);
