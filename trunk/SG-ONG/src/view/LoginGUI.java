@@ -57,14 +57,14 @@ public class LoginGUI extends BorderPane {
 			
 			@Override
 			public void handle(ActionEvent arg0) {
-				if (nomeField.getText().equals("adm") &&  (senhaField.getText().equals("adm"))){
+//				if (nomeField.getText().equals("adm") &&  (senhaField.getText().equals("adm"))){
 					Main.mudarTela(new TelaPrincipal());
-				}else if(nomeField.getText().equals("") || senhaField.getText().equals("")){
-					informacao.setText("Digite usuário e senha!");
-				}
-				else {
-					informacao.setText("Usuário e/ou senha inválido(s)!");
-				}
+//				}else if(nomeField.getText().equals("") || senhaField.getText().equals("")){
+//					informacao.setText("Digite usuário e senha!");
+//				}
+//				else {
+//					informacao.setText("Usuário e/ou senha inválido(s)!");
+//				}
 			}
 		});
 	}
