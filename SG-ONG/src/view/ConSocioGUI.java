@@ -13,9 +13,9 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 
-public class ConsultaSocio extends BorderPane {
+public class ConSocioGUI extends BorderPane {
 	
-	public ConsultaSocio(){
+	public ConSocioGUI(){
 		
 		MeuMenu menuBar = new MeuMenu();
 		

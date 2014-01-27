@@ -10,12 +10,12 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 
-public class ConsultaPaciente extends BorderPane {
+public class ConPacienteGUI extends BorderPane {
 
 	private TableView tabela = new TableView();
 	
 	@SuppressWarnings("unchecked")
-	public ConsultaPaciente() {
+	public ConPacienteGUI() {
 		
 		Label titulo = new Label("Relação de Pacientes");
 		titulo.setFont(new Font(30));

@@ -19,8 +19,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 
 
-public class CadastroSocio extends BorderPane {
-	public CadastroSocio(){
+public class CaSocioGUI extends BorderPane {
+	public CaSocioGUI(){
 		
 		//Set Título
 		Label titulo = new Label("Cadastrar Sócio");

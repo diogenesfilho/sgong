@@ -59,7 +59,7 @@ public class MeuMenu extends MenuBar {
 			
 			@Override
 			public void handle(ActionEvent arg0) {
-				Main.mudarTela(new CadastroSocio());
+				Main.mudarTela(new CaSocioGUI());
 				
 			}
 		});
@@ -68,7 +68,7 @@ public class MeuMenu extends MenuBar {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				Main.mudarTela(new CadastroPaciente());
+				Main.mudarTela(new CaPacienteGUI());
 			}
 		});
 		
@@ -94,7 +94,7 @@ public class MeuMenu extends MenuBar {
 			
 			@Override
 			public void handle(ActionEvent arg0) {
-				Main.mudarTela(new ConsultaSocio());
+				Main.mudarTela(new ConSocioGUI());
 				
 			}
 		}); 
@@ -103,7 +103,7 @@ public class MeuMenu extends MenuBar {
 			
 			@Override
 			public void handle(ActionEvent arg0) {
-				Main.mudarTela(new ConsultaPaciente());
+				Main.mudarTela(new ConPacienteGUI());
 				
 			}
 		}); 
