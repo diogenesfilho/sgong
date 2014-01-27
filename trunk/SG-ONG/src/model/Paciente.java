@@ -12,11 +12,6 @@ public class Paciente extends Pessoa {
 				
 	}
 	
-	//?
-	public void consultaPaciente(){
-		
-	}
-	
 	//Gets e Sets;
 	public String getObsMedicas() {
 		return obsMedicas;

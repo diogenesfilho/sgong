@@ -12,7 +12,6 @@ public class TelaPrincipal extends BorderPane {
 		
 		
 		MeuMenu menu = new MeuMenu();	
-		//MenuPrincipalW8 menuW = new MenuPrincipalW8();
 	
 		ImageView verFundo = new ImageView("/image/telaprinc.png");
 		StackPane stack = new StackPane();
@@ -25,9 +24,7 @@ public class TelaPrincipal extends BorderPane {
 		stack.getChildren().addAll(verFundo,vbox);
 
 		setCenter(stack);
-		setTop(vbox); // Tem que ser declarado aqui que ficará no top senão será sobreposto ou ficar com aparência não desejada.
+		setTop(vbox);
 
-		//setCenter(menuW);
-		
 	}
 }

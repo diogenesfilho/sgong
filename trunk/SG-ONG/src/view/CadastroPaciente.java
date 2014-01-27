@@ -32,7 +32,7 @@ public class CadastroPaciente extends BorderPane {
 		Label nomeTexto = new Label("Nome: ");
 		Label enderecoTexto = new Label("Endereço: ");
 		Label bairroTexto = new Label("Bairro: ");
-		Label nTexto = new Label("Nº.");
+		Label nTexto = new Label("Nº: ");
 		Label cidadeTexto = new Label("Cidade: ");
 		Label estadoTexto = new Label("Estado: ");
 		Label rgTexto = new Label("RG: ");
@@ -44,11 +44,6 @@ public class CadastroPaciente extends BorderPane {
 		Label profissaoTexto = new Label("Profissão: ");
 		Label obsMedicasTexto = new Label("Obs. Médicas: ");
 		Label residentesCasaTexto = new Label("Residente: ");
-		
-		
-		/*String fulaninho = nomeField.getText();//Pega o texto para string.
-		Pessoa Danilinho = new Pessoa();
-		Danilinho.setNome(fulaninho);*/
 		
 		TextField nomeField = new TextField();
 		nomeField.setPrefSize(700.0, 27.0);
@@ -178,8 +173,6 @@ public class CadastroPaciente extends BorderPane {
 		HBox hbox7E3 = new HBox(50);
 		hbox7E3.getChildren().addAll(obsMedicasTexto, obsMedicasField);
 		
-		
-		
 		HBox hbox7 = new HBox(20);
 		hbox7.getChildren().addAll(hbox7E2, hbox7E3);
 		
@@ -216,7 +209,6 @@ public class CadastroPaciente extends BorderPane {
 		ImageView verFundo = new ImageView(fundo);
 		StackPane stack = new StackPane();
 		stack.getChildren().addAll(verFundo,vbox);
-		
 		setCenter(stack);
 		setTop(menuBar);
 		
