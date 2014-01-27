@@ -11,7 +11,7 @@ public class Paciente extends Pessoa {
 		this.residentesCasa = residentesCasa;
 				
 	}
-	
+
 	//Gets e Sets;
 	public String getObsMedicas() {
 		return obsMedicas;
