@@ -16,9 +16,9 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import app.Main;
 
-public class TelaLoguin extends BorderPane {
+public class LoginGUI extends BorderPane {
 	
-	public  TelaLoguin(){
+	public  LoginGUI(){
 		
 		
 		Label nome = new Label("Usuário:");

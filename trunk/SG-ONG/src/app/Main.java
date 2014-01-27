@@ -17,7 +17,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import view.TelaLoguin;
+import view.LoginGUI;
 
 
 public class Main extends Application {
@@ -31,7 +31,7 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		TelaLoguin root = new TelaLoguin();
+		LoginGUI root = new LoginGUI();
 		SCENE = new Scene(root,1240,600, Color.LIGHTGRAY);
 	
 		primaryStage.setTitle("SG ONG");
