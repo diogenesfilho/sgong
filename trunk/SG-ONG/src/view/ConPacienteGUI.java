@@ -1,10 +1,14 @@
 package view;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -18,7 +22,7 @@ public class ConPacienteGUI extends BorderPane {
 
 	private TableView tabela = new TableView();
 	
-	@SuppressWarnings("unchecked") // 
+	@SuppressWarnings("unchecked") // Toma pro sua conta os erros e os ignora.
 	public ConPacienteGUI() {
 		
 		Label titulo = new Label("Relação de Pacientes");

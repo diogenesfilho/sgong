@@ -22,6 +22,11 @@ import javafx.scene.text.Font;
 
 
 public class CaPacienteGUI extends BorderPane {
+	
+	private TextField nomeField, enderecoField,bairroField,nField,cidadeField,estadoField,rgField,cpfField,
+	nasciField,celularField,telefoneField;
+	private TextArea observacoesField;
+	
 	public CaPacienteGUI(){
 		
 		//Set Título
@@ -44,40 +49,40 @@ public class CaPacienteGUI extends BorderPane {
 		Label observacoesTexto = new Label("Observações: ");
 
 		
-		final TextField nomeField = new TextField();
+		nomeField = new TextField();
 		nomeField.setPrefSize(540.0, 27.0);
 		
-		final TextField enderecoField = new TextField();
+		enderecoField = new TextField();
 		enderecoField.setPrefSize(540.0, 27.0);
 		
-		final TextField bairroField = new TextField();
+		bairroField = new TextField();
 		bairroField.setPrefSize(200.0, 27.0 );
 		
-		final TextField nField = new TextField();
+		nField = new TextField();
 		nField.setPrefSize(150.0, 27.0);
 		
-		final TextField cidadeField = new TextField();
+		cidadeField = new TextField();
 		cidadeField.setPrefSize(150.0, 27.0);
 		
-		final TextField estadoField = new TextField();
+		estadoField = new TextField();
 		estadoField.setPrefSize(150.0, 27.0);
 		
-		final TextField rgField = new TextField();
+		rgField = new TextField();
 		rgField.setPrefSize(200.0, 27.0);
 		
-		final TextField cpfField = new TextField();
+		cpfField = new TextField();
 		cpfField.setPrefSize(150.0, 27.0);
 		
-		final TextField nasciField = new TextField();
+		nasciField = new TextField();
 		nasciField.setPrefSize(150.0, 27.0);
 		
-		final TextField celularField = new TextField();
+		celularField = new TextField();
 		celularField.setPrefSize(150.0, 27.0);
 		
-		final TextField telefoneField = new TextField();
+		telefoneField = new TextField();
 		telefoneField.setPrefSize(200.0, 27.0);		
 
-		final TextArea observacoesField = new TextArea();
+		observacoesField = new TextArea();
 		observacoesField.setPrefSize(350.0, 80.0);
 
 		Button cadastrar = new Button("Cadastrar");

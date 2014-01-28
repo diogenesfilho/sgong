@@ -1,11 +1,14 @@
 package view;
 
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -20,6 +23,12 @@ import app.Main;
 
 
 public class CaSocioGUI extends BorderPane {
+	
+	private ChoiceBox choice;
+	private TextField nomeField,enderecoField,bairroField,nField,cidadeField,estadoField,rgField,cpfField,
+	nasciField,celularField,telefoneField,dataFiliField,emailField,tipoSocioField,valorArreField,dataArreField,
+	profissaoField;
+	
 	public CaSocioGUI(){
 		
 		//Set Título
@@ -46,56 +55,63 @@ public class CaSocioGUI extends BorderPane {
 		Label valorArreTexto = new Label("Valor arrecadação: ");
 		Label dataArrecaTexto = new Label("Data Arrecadação: ");
 		Label profissaoTexto = new Label("Profissão: ");
+			
+		ObservableList<String>TpSocio = FXCollections.observableArrayList();
+		TpSocio.addAll("Contribuinte","Voluntário");
 		
-		final TextField nomeField = new TextField();
+		choice = new ChoiceBox<String>();
+		choice.setItems(TpSocio);
+		choice.setPrefSize(200.0, 27.0);
+		
+		nomeField = new TextField();
 		nomeField.setPrefSize(700.0, 27.0);
 		
-		final TextField enderecoField = new TextField();
+		enderecoField = new TextField();
 		enderecoField.setPrefSize(540.0, 27.0);
 		
-		final TextField bairroField = new TextField();
+		bairroField = new TextField();
 		bairroField.setPrefSize(200.0, 27.0 );
 		
-		final TextField nField = new TextField();
+		nField = new TextField();
 		nField.setPrefSize(170.0, 27.0);
 		
-		final TextField cidadeField = new TextField();
+		cidadeField = new TextField();
 		cidadeField.setPrefSize(170.0, 27.0);
 		
-		final TextField estadoField = new TextField();
+		estadoField = new TextField();
 		estadoField.setPrefSize(170.0, 27.0);
 		
-		final TextField rgField = new TextField();
+		rgField = new TextField();
 		rgField.setPrefSize(200.0, 27.0);
 		
-		final TextField cpfField = new TextField();
+		cpfField = new TextField();
 		cpfField.setPrefSize(170.0, 27.0);
 		
-		final TextField nasciField = new TextField();
+		nasciField = new TextField();
 		nasciField.setPrefSize(170.0, 27.0);
-		
-		final TextField celularField = new TextField();
+
+		celularField = new TextField();
 		celularField.setPrefSize(170.0, 27.0);
 		
-		final TextField telefoneField = new TextField();
+		telefoneField = new TextField();
 		telefoneField.setPrefSize(200.0, 27.0);
 		
-		final TextField dataFiliField = new TextField();
+		dataFiliField = new TextField();
 		dataFiliField.setPrefSize(200.0, 27.0);
 		
-		final TextField emailField = new TextField();
+		emailField = new TextField();
 		emailField.setPrefSize(170.0, 27.0);
 		
-		final TextField tipoSocioField = new TextField();
+		tipoSocioField = new TextField();
 		tipoSocioField.setPrefSize(200.0, 27.0);
 		
-		final TextField valorArreField = new TextField();
+		valorArreField = new TextField();
 		valorArreField.setPrefSize(170.0, 27.0);
 		
-		final TextField dataArreField = new TextField();
+		dataArreField = new TextField();
 		dataArreField.setPrefSize(170.0, 27.0);
 		
-		final TextField profissaoField = new TextField();
+		profissaoField = new TextField();
 		profissaoField.setPrefSize(170.0, 27.0);
 		
 		Button cadastrar = new Button("Cadastrar");
@@ -160,7 +176,7 @@ public class CaSocioGUI extends BorderPane {
 		
 		//Conjunto linha 6.
 		HBox hbox6E1 = new HBox(15);
-		hbox6E1.getChildren().addAll(tipoSocioTexto,tipoSocioField);
+		hbox6E1.getChildren().addAll(tipoSocioTexto,choice);
 		
 		HBox hbox6E2 = new HBox(10);
 		hbox6E2.getChildren().addAll(valorArreTexto,valorArreField);
@@ -178,7 +194,7 @@ public class CaSocioGUI extends BorderPane {
 		HBox hbox7E2 = new HBox(50);
 		hbox7E2.getChildren().addAll(profissaoTexto,profissaoField);
 		
-		HBox hbox7 = new HBox(50);
+		HBox hbox7 = new HBox(50);		
 		hbox7.getChildren().addAll(hbox7E1,hbox7E2);
 
 		
@@ -228,7 +244,7 @@ public class CaSocioGUI extends BorderPane {
 			public void handle(ActionEvent event) {
 				Socio socio = new Socio(nomeField.getText(), enderecoField.getText(), bairroField.getText(),
 						cidadeField.getText(), estadoField.getText(), rgField.getText(), cpfField.getText(), nasciField.getText(), celularField.getText(),
-						telefoneField.getText(), dataFiliField.getText(), tipoSocioField.getText(), dataArreField.getText(), profissaoField.getText(),
+						telefoneField.getText(), dataFiliField.getText(), choice.getSelectionModel().getSelectedItem()+"", dataArreField.getText(), profissaoField.getText(),
 						emailField.getText(),Double.parseDouble(valorArreField.getText()));
 				//Mensagem de confirmação.
 				
