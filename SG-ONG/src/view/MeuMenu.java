@@ -117,5 +117,14 @@ public class MeuMenu extends MenuBar {
 			}
 		}); 
 		
+		ajudaD.setOnAction(new EventHandler<ActionEvent>() {
+			
+			@Override
+			public void handle(ActionEvent arg0) {
+				Main.mudarTela(new Ajuda());
+				
+			}
+		}); 
+		
 	}
 }
