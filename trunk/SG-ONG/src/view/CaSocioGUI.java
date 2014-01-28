@@ -229,7 +229,7 @@ public class CaSocioGUI extends BorderPane {
 				Socio socio = new Socio(nomeField.getText(), enderecoField.getText(), bairroField.getText(),
 						cidadeField.getText(), estadoField.getText(), rgField.getText(), cpfField.getText(), nasciField.getText(), celularField.getText(),
 						telefoneField.getText(), dataFiliField.getText(), tipoSocioField.getText(), dataArreField.getText(), profissaoField.getText(),
-						Double.parseDouble(valorArreField.getText()));
+						emailField.getText(),Double.parseDouble(valorArreField.getText()));
 				//Mensagem de confirmação.
 				
 			}
