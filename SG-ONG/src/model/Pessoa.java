@@ -1,12 +1,12 @@
 package model;
 
 public abstract class Pessoa {
-	private String nome,endereco,bairro,cidade,estado,rG,cPF,nascimento,celular,telefone,complemento,dataFili,email;
+	private String nome,endereco,bairro,cidade,estado,rG,cPF,nascimento,celular,telefone,dataFili;
 	
 	public Pessoa(){
 	}
 	
-	public Pessoa(String nome, String endereco, String bairro, String cidade, String estado,String rG, String cPF, String nascimento,String celular, String telefone, String complemento, String dataFili, String email){
+	public Pessoa(String nome, String endereco, String bairro, String cidade, String estado,String rG, String cPF, String nascimento,String celular, String telefone, String dataFili){
 		this.nome = nome;
 		this.endereco = endereco;
 		this.bairro = bairro;
@@ -17,9 +17,7 @@ public abstract class Pessoa {
 		this.nascimento = nascimento;
 		this.celular = celular;
 		this.telefone = telefone;
-		this.complemento = complemento;
-		this.dataFili = dataFili;
-		this.email = email;		
+		this.dataFili = dataFili;	
 		
 	}
 
@@ -186,24 +184,6 @@ public abstract class Pessoa {
 	public void setTelefone2(String telefone) {
 		this.telefone = telefone;
 	}
-	
-	
-	/**
-	 * 
-	 * @return informacao armazenada em complemento.
-	 */
-	public String getComplemento() {
-		return complemento;
-	}
-
-	/**
-	 * Este metodo sera chamado quando for necessario ser armazenado o complemento.
-	 * @param complemento
-	 */
-	public void setComplemento(String complemento) {
-		this.complemento = complemento;
-	}
-
 	/**
 	 * 
 	 * @return informacao armazenada em dataFili, que corresponde a data da filiacao.
@@ -218,21 +198,5 @@ public abstract class Pessoa {
 	 */
 	public void setDataFili(String dataFili) {
 		this.dataFili = dataFili;
-	}
-
-	/**
-	 * 
-	 * @return informacao armazenada em email.
-	 */
-	public String getEmail() {
-		return email;
-	}
-
-	/**
-	 * Este metodo sera chamado quando for necessario ser armazenado o email.
-	 * @param email
-	 */
-	public void setEmail(String email) {
-		this.email = email;
 	}
 }

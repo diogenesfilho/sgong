@@ -5,8 +5,8 @@ public class Socio extends Pessoa {
 	private String TipoSocio,dataArrecada,profissao;
 	private double valorContri;
 	
-	public Socio(String nome, String endereco, String bairro, String cidade, String estado,String rG, String cPF, String nascimento,String celular, String telefone, String complemento, String dataFili, String email,String TipoSocio, String dataArrecada, String profissao, double valorContri) {
-		super(nome,endereco,bairro,cidade,estado,rG,cPF,nascimento,celular,telefone,complemento,dataFili,email);
+	public Socio(String nome, String endereco, String bairro, String cidade, String estado,String rG, String cPF, String nascimento,String celular, String telefone,String dataFili,String TipoSocio, String dataArrecada, String profissao, double valorContri) {
+		super(nome,endereco,bairro,cidade,estado,rG,cPF,nascimento,celular,telefone,dataFili);
 		this.TipoSocio = TipoSocio;
 		this.dataArrecada = dataArrecada;
 		this.profissao = profissao;
