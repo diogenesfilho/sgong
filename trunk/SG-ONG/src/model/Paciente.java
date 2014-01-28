@@ -5,8 +5,8 @@ public class Paciente extends Pessoa {
 	private String observacoes;
 	private int residentesCasa;
 	
-	public Paciente(String nome, String endereco, String bairro, String cidade, String estado,String rG, String cPF, String nascimento,String celular, String telefone, String complemento, String dataFili, String email,String observacoes, int residentesCasa) {
-		super(nome,endereco,bairro,cidade,estado,rG,cPF,nascimento,celular,telefone,complemento,dataFili,email);
+	public Paciente(String nome, String endereco, String bairro, String cidade, String estado,String rG, String cPF, String nascimento,String celular, String telefone, String dataFili,String observacoes, int residentesCasa) {
+		super(nome,endereco,bairro,cidade,estado,rG,cPF,nascimento,celular,telefone,dataFili);
 		this.observacoes = observacoes;
 		this.residentesCasa = residentesCasa;
 				

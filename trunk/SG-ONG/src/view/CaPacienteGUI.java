@@ -1,6 +1,8 @@
 package view;
 
 
+import model.Paciente;
+import model.Pessoa;
 import app.Main;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -43,61 +45,52 @@ public class CaPacienteGUI extends BorderPane {
 		Label profissaoTexto = new Label("Profissão: ");
 		Label obsMedicasTexto = new Label("Observações: ");
 		
-		TextField nomeField = new TextField();
+		final TextField nomeField = new TextField();
 		nomeField.setPrefSize(540.0, 27.0);
 		
-		TextField enderecoField = new TextField();
+		final TextField enderecoField = new TextField();
 		enderecoField.setPrefSize(540.0, 27.0);
 		
-		TextField bairroField = new TextField();
+		final TextField bairroField = new TextField();
 		bairroField.setPrefSize(200.0, 27.0 );
 		
-		TextField nField = new TextField();
+		final TextField nField = new TextField();
 		nField.setPrefSize(170.0, 27.0);
 		
-		TextField cidadeField = new TextField();
+		final TextField cidadeField = new TextField();
 		cidadeField.setPrefSize(170.0, 27.0);
 		
-		TextField estadoField = new TextField();
+		final TextField estadoField = new TextField();
 		estadoField.setPrefSize(170.0, 27.0);
 		
-		TextField rgField = new TextField();
+		final TextField rgField = new TextField();
 		rgField.setPrefSize(200.0, 27.0);
 		
-		TextField cpfField = new TextField();
+		final TextField cpfField = new TextField();
 		cpfField.setPrefSize(170.0, 27.0);
 		
-		TextField nasciField = new TextField();
+		final TextField nasciField = new TextField();
 		nasciField.setPrefSize(170.0, 27.0);
 		
-		TextField celularField = new TextField();
+		final TextField celularField = new TextField();
 		celularField.setPrefSize(170.0, 27.0);
 		
-		TextField telefoneField = new TextField();
+		final TextField telefoneField = new TextField();
 		telefoneField.setPrefSize(200.0, 27.0);
 		
-		TextField dataFiliField = new TextField();
+		final TextField dataFiliField = new TextField();
 		dataFiliField.setPrefSize(200.0, 27.0);
 		
-		TextField emailField = new TextField();
+		final TextField emailField = new TextField();
 		emailField.setPrefSize(170.0, 27.0);
 		
-		TextField tipoSocioField = new TextField();
-		tipoSocioField.setPrefSize(200.0, 27.0);
-		
-		TextField valorArreField = new TextField();
-		valorArreField.setPrefSize(170.0, 27.0);
-		
-		TextField dataArreField = new TextField();
-		dataArreField.setPrefSize(170.0, 27.0);
-		
-		TextField profissaoField = new TextField();
+		final TextField profissaoField = new TextField();
 		profissaoField.setPrefSize(200.0, 27.0);
 		
-		TextArea obsMedicasField = new TextArea();
+		final TextArea obsMedicasField = new TextArea();
 		obsMedicasField.setPrefSize(530.0, 60.0);
 		
-		TextField residentesCasaField = new TextField();
+		final TextField residentesCasaField = new TextField();
 		residentesCasaField.setPrefSize(170.0, 27.0);
 		
 		Button cadastrar = new Button("Cadastrar");
@@ -208,6 +201,17 @@ public class CaPacienteGUI extends BorderPane {
 			@Override
 			public void handle(ActionEvent event) {
 				Main.mudarTela(new TelaPrincipal());
+				
+			}
+		});
+		
+		cadastrar.setOnAction(new EventHandler<ActionEvent>() {
+			
+			@Override
+			public void handle(ActionEvent event) {
+				Paciente paciente = new Paciente(nomeField.getText(),enderecoField.getText(),bairroField.getText(),cidadeField.getText(),
+						estadoField.getText(),rgField.getText(),cpfField.getText(),nasciField.getText(),celularField.getText(),telefoneField.getText(),
+						dataFiliField.getText(),obsMedicasField.getText(),Integer.parseInt(residentesCasaField.getText()));
 				
 			}
 		});
