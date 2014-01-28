@@ -1,5 +1,7 @@
 package view;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -57,6 +59,15 @@ public class ConPacienteGUI extends BorderPane {
 		boxTop.getChildren().addAll(new MeuMenu(), titulo,hboxProcu, boxTable, hbox);
 
 		setTop(boxTop);
+		
+		procurar.setOnAction(new EventHandler<ActionEvent>() {
+			
+			@Override
+			public void handle(ActionEvent arg0) {
+				// Método que será responsável por fazer a procura no banco. SELECT *
+				
+			}
+		});
 		
 		
 	}
