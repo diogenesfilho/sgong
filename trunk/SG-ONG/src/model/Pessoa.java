@@ -180,7 +180,7 @@ public abstract class Pessoa {
 	 * Este metodo sera chamado quando for necessario ser armazenado o telefone.
 	 * @param telefone
 	 */
-	public void setTelefone2(String telefone) {
+	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
 }
