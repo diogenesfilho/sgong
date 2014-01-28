@@ -32,7 +32,7 @@ public class CaSocioGUI extends BorderPane {
 		Label nomeTexto = new Label("Nome: ");
 		Label enderecoTexto = new Label("Endereço: ");
 		Label bairroTexto = new Label("Bairro: ");
-		Label nTexto = new Label("Nº.");
+		Label nTexto = new Label("Nº: ");
 		Label cidadeTexto = new Label("Cidade: ");	
 		Label estadoTexto = new Label("Estado: ");
 		Label rgTexto = new Label("RG: ");
@@ -43,7 +43,7 @@ public class CaSocioGUI extends BorderPane {
 		Label compleTexto = new Label("Complemento: ");
 		Label dataFiliTexto = new Label("Data Filiacão: ");
 		Label emailTexto = new Label("Email: ");
-		Label tipoSocioTexto = new Label("Tipo de Sócio: ");//Olhar.
+		Label tipoSocioTexto = new Label("Tipo de Sócio: ");
 		Label valorArreTexto = new Label("Valor arrecadação: ");
 		Label dataArrecaTexto = new Label("Data Arrecadação: ");
 		Label profissaoTexto = new Label("Profissão: ");
@@ -80,9 +80,6 @@ public class CaSocioGUI extends BorderPane {
 		
 		TextField telefoneField = new TextField();
 		telefoneField.setPrefSize(200.0, 27.0);
-		
-		TextArea compleArea = new TextArea();
-		
 		
 		TextField dataFiliField = new TextField();
 		dataFiliField.setPrefSize(200.0, 27.0);
@@ -184,25 +181,22 @@ public class CaSocioGUI extends BorderPane {
 		
 		HBox hbox7 = new HBox(50);
 		hbox7.getChildren().addAll(hbox7E1,hbox7E2);
+
 		
 		//Conjunto linha 8.
 		HBox hbox8 = new HBox(10);
-		hbox8.getChildren().addAll(compleTexto,compleArea);
-		
-		//Conjunto linha 9.
-		HBox hbox9 = new HBox(10);
-		hbox9.getChildren().addAll(cadastrar,cancelar);
+		hbox8.getChildren().addAll(cadastrar,cancelar);
 		
 		
 		VBox vboxTitulo = new VBox(30);
 		vboxTitulo.getChildren().addAll(titulo);
 		
 		VBox vbox = new VBox(15);
-		vbox.getChildren().addAll(vboxTitulo,hbox1,hbox2,hbox3,hbox4,hbox5,hbox6,hbox7,hbox8,hbox9);
+		vbox.getChildren().addAll(vboxTitulo,hbox1,hbox2,hbox3,hbox4,hbox5,hbox6,hbox7,hbox8);
 		
 		//Sets Alinhamento
 		vboxTitulo.setAlignment(Pos.CENTER);
-		hbox9.setAlignment(Pos.BOTTOM_RIGHT);
+		hbox8.setAlignment(Pos.BOTTOM_RIGHT);
 		
 		//Distância da borda.
 		vbox.setPadding(new Insets(50,100,10,100));
