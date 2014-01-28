@@ -9,7 +9,7 @@ package app;
  * @author José Arnóbio de Oliveira Júnior
  * @author João Vitor Silva Oliveira
  * 
- * @version 1.0
+ * @version 1.5
  * 
  */
 import javafx.application.Application;
