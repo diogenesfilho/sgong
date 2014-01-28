@@ -43,7 +43,7 @@ public class CaPacienteGUI extends BorderPane {
 		Label celularTexto = new Label("Celular: ");
 		Label telefoneTexto = new Label("Telefone: ");
 		Label profissaoTexto = new Label("Profissão: ");
-		Label obsMedicasTexto = new Label("Observações: ");
+		Label observacoesTexto = new Label("Observações: ");
 		
 		final TextField nomeField = new TextField();
 		nomeField.setPrefSize(540.0, 27.0);
@@ -87,8 +87,8 @@ public class CaPacienteGUI extends BorderPane {
 		final TextField profissaoField = new TextField();
 		profissaoField.setPrefSize(200.0, 27.0);
 		
-		final TextArea obsMedicasField = new TextArea();
-		obsMedicasField.setPrefSize(530.0, 60.0);
+		final TextArea observacoesField = new TextArea();
+		observacoesField.setPrefSize(530.0, 60.0);
 		
 		final TextField residentesCasaField = new TextField();
 		residentesCasaField.setPrefSize(170.0, 27.0);
@@ -157,7 +157,7 @@ public class CaPacienteGUI extends BorderPane {
 		hbox7E2.getChildren().addAll(profissaoTexto,profissaoField);
 		
 		HBox hbox7E3 = new HBox(50);
-		hbox7E3.getChildren().addAll(obsMedicasTexto, obsMedicasField);
+		hbox7E3.getChildren().addAll(observacoesTexto, observacoesField);
 		
 		HBox hbox7 = new HBox(20);
 		hbox7.getChildren().addAll(hbox7E2, hbox7E3);
@@ -211,7 +211,7 @@ public class CaPacienteGUI extends BorderPane {
 			public void handle(ActionEvent event) {
 				Paciente paciente = new Paciente(nomeField.getText(),enderecoField.getText(),bairroField.getText(),cidadeField.getText(),
 						estadoField.getText(),rgField.getText(),cpfField.getText(),nasciField.getText(),celularField.getText(),telefoneField.getText(),
-						dataFiliField.getText(),obsMedicasField.getText(),Integer.parseInt(residentesCasaField.getText()));
+						dataFiliField.getText(),observacoesField.getText());
 				
 			}
 		});

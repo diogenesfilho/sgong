@@ -23,17 +23,19 @@ public class DoacaoGUI extends BorderPane {
 	public DoacaoGUI(){
 	
 		//Criando os objetos
-		Label textoAux = new Label("Caso a doação seja em ITENS , o valor informado deverá ser 0 e terá que haver uma descrição com a quantidade.");
-		textoAux.setFont(new Font(10));
+		Label textoAux = new Label("Caso a doação seja em ITENS, informe 0 e uma descrição.");
+		textoAux.setFont(new Font(20));
 
 		Label valor = new Label("Valor:");
 		Label descri = new Label("Descrição:");
 		
 		Label titulo = new Label("Cadastrar Doação");
-		titulo.setFont(new Font(50));
+		titulo.setFont(new Font(30));
 		
 		final TextField valorField = new TextField();
+		
 		final TextArea descField = new TextArea();
+		descField.setPrefSize(150, 100);
 		
 		Button cadastrar = new Button("Cadastrar");
 		Button cancelar = new Button("Cancelar");
@@ -63,7 +65,7 @@ public class DoacaoGUI extends BorderPane {
 		hboxTexAux.setAlignment(Pos.CENTER);
 		hbox1.setAlignment(Pos.CENTER);
 		hbox3.setAlignment(Pos.CENTER);
-		hbox4.setAlignment(Pos.CENTER);
+		hbox4.setAlignment(Pos.TOP_CENTER);
 		vbox.setAlignment(Pos.CENTER);
 		
 		vbox.setPadding(new Insets(10,100,10,100));
