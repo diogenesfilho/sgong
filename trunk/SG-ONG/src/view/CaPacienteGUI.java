@@ -2,7 +2,6 @@ package view;
 
 
 import model.Paciente;
-import model.Pessoa;
 import app.Main;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -209,9 +208,9 @@ public class CaPacienteGUI extends BorderPane {
 			
 			@Override
 			public void handle(ActionEvent event) {
-				Paciente paciente = new Paciente(nomeField.getText(),enderecoField.getText(),bairroField.getText(),cidadeField.getText(),
-						estadoField.getText(),rgField.getText(),cpfField.getText(),nasciField.getText(),celularField.getText(),telefoneField.getText(),
-						dataFiliField.getText(),observacoesField.getText());
+//				Paciente paciente = new Paciente(nomeField.getText(),enderecoField.getText(),bairroField.getText(),cidadeField.getText(),
+//						estadoField.getText(),rgField.getText(),cpfField.getText(),nasciField.getText(),celularField.getText(),telefoneField.getText(),
+//						dataFiliField.getText(),observacoesField.getText());
 				
 			}
 		});

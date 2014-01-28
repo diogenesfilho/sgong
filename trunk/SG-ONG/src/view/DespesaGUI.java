@@ -27,10 +27,12 @@ public class DespesaGUI extends BorderPane {
 		Label descri = new Label("Descrição:");
 		
 		Label titulo = new Label("Cadastrar Despesa");
-		titulo.setFont(new Font(50));
+		titulo.setFont(new Font(40));
 		
 		final TextField valorField = new TextField();
 		final TextArea descField = new TextArea();
+		descField.setPrefSize(400, 100);
+		
 		Button cadastrar = new Button("Cadastrar");
 		Button cancelar = new Button("Cancelar");
 		
