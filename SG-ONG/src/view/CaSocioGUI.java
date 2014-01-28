@@ -1,7 +1,6 @@
 package view;
 
 
-import app.Main;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -16,6 +15,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
+import model.Socio;
+import app.Main;
 
 
 public class CaSocioGUI extends BorderPane {
@@ -46,55 +47,55 @@ public class CaSocioGUI extends BorderPane {
 		Label dataArrecaTexto = new Label("Data Arrecadação: ");
 		Label profissaoTexto = new Label("Profissão: ");
 		
-		TextField nomeField = new TextField();
+		final TextField nomeField = new TextField();
 		nomeField.setPrefSize(700.0, 27.0);
 		
-		TextField enderecoField = new TextField();
+		final TextField enderecoField = new TextField();
 		enderecoField.setPrefSize(540.0, 27.0);
 		
-		TextField bairroField = new TextField();
+		final TextField bairroField = new TextField();
 		bairroField.setPrefSize(200.0, 27.0 );
 		
-		TextField nField = new TextField();
+		final TextField nField = new TextField();
 		nField.setPrefSize(170.0, 27.0);
 		
-		TextField cidadeField = new TextField();
+		final TextField cidadeField = new TextField();
 		cidadeField.setPrefSize(170.0, 27.0);
 		
-		TextField estadoField = new TextField();
+		final TextField estadoField = new TextField();
 		estadoField.setPrefSize(170.0, 27.0);
 		
-		TextField rgField = new TextField();
+		final TextField rgField = new TextField();
 		rgField.setPrefSize(200.0, 27.0);
 		
-		TextField cpfField = new TextField();
+		final TextField cpfField = new TextField();
 		cpfField.setPrefSize(170.0, 27.0);
 		
-		TextField nasciField = new TextField();
+		final TextField nasciField = new TextField();
 		nasciField.setPrefSize(170.0, 27.0);
 		
-		TextField celularField = new TextField();
+		final TextField celularField = new TextField();
 		celularField.setPrefSize(170.0, 27.0);
 		
-		TextField telefoneField = new TextField();
+		final TextField telefoneField = new TextField();
 		telefoneField.setPrefSize(200.0, 27.0);
 		
-		TextField dataFiliField = new TextField();
+		final TextField dataFiliField = new TextField();
 		dataFiliField.setPrefSize(200.0, 27.0);
 		
-		TextField emailField = new TextField();
+		final TextField emailField = new TextField();
 		emailField.setPrefSize(170.0, 27.0);
 		
-		TextField tipoSocioField = new TextField();
+		final TextField tipoSocioField = new TextField();
 		tipoSocioField.setPrefSize(200.0, 27.0);
 		
-		TextField valorArreField = new TextField();
+		final TextField valorArreField = new TextField();
 		valorArreField.setPrefSize(170.0, 27.0);
 		
-		TextField dataArreField = new TextField();
+		final TextField dataArreField = new TextField();
 		dataArreField.setPrefSize(170.0, 27.0);
 		
-		TextField profissaoField = new TextField();
+		final TextField profissaoField = new TextField();
 		profissaoField.setPrefSize(170.0, 27.0);
 		
 		Button cadastrar = new Button("Cadastrar");
@@ -225,8 +226,11 @@ public class CaSocioGUI extends BorderPane {
 			
 			@Override
 			public void handle(ActionEvent event) {
-				//Paciente paciente = new Paciente();
-				
+				Socio socio = new Socio(nomeField.getText(), enderecoField.getText(), bairroField.getText(),
+						cidadeField.getText(), estadoField.getText(), rgField.getText(), cpfField.getText(), nasciField.getText(), celularField.getText(),
+						telefoneField.getText(), dataFiliField.getText(), tipoSocioField.getText(), dataArreField.getText(), profissaoField.getText(),
+						Double.parseDouble(valorArreField.getText()));
+				//Mensagem de confirmação.
 				
 			}
 		});
