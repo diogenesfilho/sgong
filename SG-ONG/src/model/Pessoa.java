@@ -2,10 +2,7 @@ package model;
 
 public abstract class Pessoa {
 	private String nome,endereco,bairro,cidade,estado,rG,cPF,nascimento,celular,telefone;
-	
-	public Pessoa(){
-	}
-	
+
 	public Pessoa(String nome, String endereco, String bairro, String cidade, String estado,String rG, String cPF, String nascimento,String celular, String telefone){
 		this.nome = nome;
 		this.endereco = endereco;
