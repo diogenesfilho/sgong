@@ -2,9 +2,11 @@ package view;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -19,6 +21,14 @@ public class ConPacienteGUI extends BorderPane {
 		
 		Label titulo = new Label("Relação de Pacientes");
 		titulo.setFont(new Font(30));
+		
+		Label procuraText = new Label("Procurar por nome:");
+		TextField procuraField = new TextField();
+		procuraField.setPrefSize(620.0, 27.0); 
+		Button procurar = new Button("Procurar");
+		
+		HBox hboxProcu = new HBox(20);
+		hboxProcu.getChildren().addAll(procuraText,procuraField,procurar);
 		
 		tabela.setEditable(true);
 		
@@ -39,11 +49,13 @@ public class ConPacienteGUI extends BorderPane {
 
 		VBox boxTop = new VBox(20);
 		boxTop.setAlignment(Pos.CENTER);
+		hboxProcu.setAlignment(Pos.CENTER);
 		
 		VBox boxTable = new VBox();
 		boxTable.setPadding(new Insets(0, 10, 0, 10));
 		boxTable.getChildren().add(tabela);
-		boxTop.getChildren().addAll(new MeuMenu(), titulo, boxTable, hbox);
+		boxTop.getChildren().addAll(new MeuMenu(), titulo,hboxProcu, boxTable, hbox);
+
 		setTop(boxTop);
 		
 		
