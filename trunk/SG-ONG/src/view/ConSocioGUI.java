@@ -22,6 +22,7 @@ public class ConSocioGUI extends BorderPane {
 	
 	private TableView tabela = new TableView();
 	
+	@SuppressWarnings("unchecked")
 	public ConSocioGUI(){
 		
 		Label titulo = new Label("Relação de Sócios");
