@@ -2,25 +2,36 @@ package model;
 
 public class Socio extends Pessoa {
 
-	private String TipoSocio,dataArrecada,profissao;
+	private String tipoSocio,dataArrecada,profissao,dataFili;
 	private double valorContri;
 	
-	public Socio(String nome, String endereco, String bairro, String cidade, String estado,String rG, String cPF, String nascimento,String celular, String telefone,String dataFili,String TipoSocio, String dataArrecada, String profissao, double valorContri) {
-		super(nome,endereco,bairro,cidade,estado,rG,cPF,nascimento,celular,telefone,dataFili);
-		this.TipoSocio = TipoSocio;
+	public Socio(String nome, String endereco, String bairro, String cidade, String estado,String rG, String cPF, String nascimento,String celular, String telefone,String dataFili,String tipoSocio, String dataArrecada, String profissao, double valorContri) {
+		super(nome,endereco,bairro,cidade,estado,rG,cPF,nascimento,celular,telefone);
+		this.tipoSocio = tipoSocio;
+		this.dataFili = dataFili;
 		this.dataArrecada = dataArrecada;
 		this.profissao = profissao;
 		this.valorContri = valorContri;
 	}
 
 	
+
 	//Gets e Sets;
+	public String getDataFili() {
+		return dataFili;
+	}
+
+
+	public void setDataFili(String dataFili) {
+		this.dataFili = dataFili;
+	}
+
 	public String getTipoSocio() {
-		return TipoSocio;
+		return tipoSocio;
 	}
 
 	public void setTipoSocio(String tipoSocio) {
-		TipoSocio = tipoSocio;
+		this.tipoSocio = tipoSocio;
 	}
 
 	public String getDataArrecada() {
