@@ -18,7 +18,7 @@ public class ConPacienteGUI extends BorderPane {
 
 	private TableView tabela = new TableView();
 	
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings("unchecked") // 
 	public ConPacienteGUI() {
 		
 		Label titulo = new Label("Relação de Pacientes");

@@ -145,15 +145,15 @@ public class CaPacienteGUI extends BorderPane {
 		
 		//Conjunto linha 7
 		
-		HBox hbox7 = new HBox(10);
-		hbox7.getChildren().addAll(observacoesTexto, observacoesField);
+//		HBox hbox7 = new HBox(40);
+//		hbox7.getChildren().addAll(observacoesTexto, observacoesField);
 		
 		// Vboxe's
 		VBox vboxTitulo = new VBox(30);
 		vboxTitulo.getChildren().addAll(titulo);
 		
 		VBox vboxAtributos = new VBox(20);
-		vboxAtributos.getChildren().addAll(hbox1,hbox2,hbox3,hbox4,hbox5,hbox6, hbox7);
+		vboxAtributos.getChildren().addAll(hbox1,hbox2,hbox3,hbox4,hbox5,hbox6);
 		
 		VBox vbox = new VBox(40);
 		vbox.getChildren().addAll(vboxTitulo,vboxAtributos);
@@ -186,6 +186,7 @@ public class CaPacienteGUI extends BorderPane {
 				
 			}
 		});
+	
 		
 		
 	}
