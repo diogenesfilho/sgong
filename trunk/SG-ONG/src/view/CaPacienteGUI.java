@@ -41,44 +41,44 @@ public class CaPacienteGUI extends BorderPane {
 		Label nasciTexto = new Label("Data de" +"\n"+ " nascimento: ");
 		Label celularTexto = new Label("   Celular: ");
 		Label telefoneTexto = new Label("Telefone: ");
-		Label observacoesTexto = new Label("                  Observações: ");
+		Label observacoesTexto = new Label("Observações: ");
 
 		
-		TextField nomeField = new TextField();
+		final TextField nomeField = new TextField();
 		nomeField.setPrefSize(540.0, 27.0);
 		
-		TextField enderecoField = new TextField();
+		final TextField enderecoField = new TextField();
 		enderecoField.setPrefSize(540.0, 27.0);
 		
-		TextField bairroField = new TextField();
+		final TextField bairroField = new TextField();
 		bairroField.setPrefSize(200.0, 27.0 );
 		
-		TextField nField = new TextField();
+		final TextField nField = new TextField();
 		nField.setPrefSize(150.0, 27.0);
 		
-		TextField cidadeField = new TextField();
+		final TextField cidadeField = new TextField();
 		cidadeField.setPrefSize(150.0, 27.0);
 		
-		TextField estadoField = new TextField();
+		final TextField estadoField = new TextField();
 		estadoField.setPrefSize(150.0, 27.0);
 		
-		TextField rgField = new TextField();
+		final TextField rgField = new TextField();
 		rgField.setPrefSize(200.0, 27.0);
 		
-		TextField cpfField = new TextField();
+		final TextField cpfField = new TextField();
 		cpfField.setPrefSize(150.0, 27.0);
 		
-		TextField nasciField = new TextField();
+		final TextField nasciField = new TextField();
 		nasciField.setPrefSize(150.0, 27.0);
 		
-		TextField celularField = new TextField();
+		final TextField celularField = new TextField();
 		celularField.setPrefSize(150.0, 27.0);
 		
-		TextField telefoneField = new TextField();
+		final TextField telefoneField = new TextField();
 		telefoneField.setPrefSize(200.0, 27.0);		
 
-		TextArea observacoesField = new TextArea();
-		observacoesField.setPrefSize(150.0, 27.0);
+		final TextArea observacoesField = new TextArea();
+		observacoesField.setPrefSize(350.0, 80.0);
 
 		Button cadastrar = new Button("Cadastrar");
 		Button cancelar = new Button("Cancelar");
@@ -145,15 +145,15 @@ public class CaPacienteGUI extends BorderPane {
 		
 		//Conjunto linha 7
 		
-//		HBox hbox7 = new HBox(40);
-//		hbox7.getChildren().addAll(observacoesTexto, observacoesField);
+		HBox hbox7 = new HBox(20);
+		hbox7.getChildren().addAll(observacoesTexto, observacoesField);
 		
 		// Vboxe's
 		VBox vboxTitulo = new VBox(30);
 		vboxTitulo.getChildren().addAll(titulo);
 		
 		VBox vboxAtributos = new VBox(20);
-		vboxAtributos.getChildren().addAll(hbox1,hbox2,hbox3,hbox4,hbox5,hbox6);
+		vboxAtributos.getChildren().addAll(hbox1,hbox2,hbox3,hbox4,hbox5,hbox7,hbox6);
 		
 		VBox vbox = new VBox(40);
 		vbox.getChildren().addAll(vboxTitulo,vboxAtributos);
@@ -187,7 +187,16 @@ public class CaPacienteGUI extends BorderPane {
 			}
 		});
 	
-		
-		
+		//Função Botão cadastrar.
+		cadastrar.setOnAction(new EventHandler<ActionEvent>() {
+					
+			@Override
+			public void handle(ActionEvent event) {
+				Paciente paciente = new Paciente(nomeField.getText(),enderecoField.getText(),bairroField.getText(),
+						cidadeField.getText(),estadoField.getText(),rgField.getText(),cpfField.getText(),
+						nasciField.getText(),celularField.getText(),telefoneField.getText(),observacoesField.getText());
+						
+			}
+		});	
 	}
 }
