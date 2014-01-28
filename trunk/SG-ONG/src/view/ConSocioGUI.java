@@ -1,9 +1,14 @@
 package view;
 
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -15,38 +20,57 @@ import javafx.scene.text.Font;
 
 public class ConSocioGUI extends BorderPane {
 	
+	private TableView tabela = new TableView();
+	
 	public ConSocioGUI(){
 		
-		MeuMenu menuBar = new MeuMenu();
+		Label titulo = new Label("Relação de Sócios");
+		titulo.setFont(new Font(30));
 		
-		Label titulo = new Label("Procurar Sócio");
-		titulo.setFont(new Font(20));
-		
-		Label procuraNome = new Label("Procurar por nome:");
+		Label procuraText = new Label("Procurar por nome:");
 		TextField procuraField = new TextField();
 		procuraField.setPrefSize(620.0, 27.0); 
 		Button procurar = new Button("Procurar");
 		
+		HBox hboxProcu = new HBox(20);
+		hboxProcu.getChildren().addAll(procuraText,procuraField,procurar);
+		
+		tabela.setEditable(true);
+		
+		TableColumn colunaNome = new TableColumn("Nome");
+		TableColumn colunaEndereco = new TableColumn("Endereço");
+		TableColumn colunaBairro = new TableColumn("Bairro");
+		TableColumn colunaCidade = new TableColumn("Cidade");
+		TableColumn colunaEstado = new TableColumn("Estado");
+		TableColumn colunaRG = new TableColumn("RG");
+		TableColumn colunaCPF = new TableColumn("CPF");
+		TableColumn colunaDataNasc = new TableColumn("Data de Nascimento");
+		
+		tabela.getColumns().addAll(colunaNome, colunaEndereco, colunaBairro, colunaCidade, colunaEstado, colunaRG, colunaCPF, colunaDataNasc);
+//		tableView.setFocusTraversable(true);
+		
 		HBox hbox = new HBox(20);
-		hbox.getChildren().addAll(procuraNome,procuraField,procurar);
+		hbox.setAlignment(Pos.BASELINE_CENTER);
+
+		VBox boxTop = new VBox(20);
+		boxTop.setAlignment(Pos.CENTER);
+		hboxProcu.setAlignment(Pos.CENTER);
 		
-		VBox vbox = new VBox(20);
-		vbox.getChildren().addAll(menuBar,titulo,hbox);
+		VBox boxTable = new VBox();
+		boxTable.setPadding(new Insets(0, 10, 0, 10));
+		boxTable.getChildren().add(tabela);
+		boxTop.getChildren().addAll(new MeuMenu(), titulo,hboxProcu, boxTable, hbox);
+
+		setTop(boxTop);
 		
-		
-		hbox.setAlignment(Pos.CENTER);
-		vbox.setAlignment(Pos.CENTER);
-
-		// Fundo
-		Image fundo = new Image("/image/telaprinc.png");
-		ImageView verFundo = new ImageView(fundo);
-		StackPane stack = new StackPane();
-		stack.getChildren().addAll(verFundo,vbox);
-
-		setCenter(stack);
-		setTop(vbox);
-
-
+		procurar.setOnAction(new EventHandler<ActionEvent>() {
+			
+			@Override
+			public void handle(ActionEvent event) {
+				// Método que será responsável por fazer a procura no banco. SELECT *
+				
+			}
+		});
 		
 	}
 

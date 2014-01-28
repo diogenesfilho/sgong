@@ -8,7 +8,6 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -40,7 +39,6 @@ public class CaSocioGUI extends BorderPane {
 		Label nasciTexto = new Label("Nascimento: ");
 		Label celularTexto = new Label("Celular: ");
 		Label telefoneTexto = new Label("Telefone: ");
-		Label compleTexto = new Label("Complemento: ");
 		Label dataFiliTexto = new Label("Data Filiacão: ");
 		Label emailTexto = new Label("Email: ");
 		Label tipoSocioTexto = new Label("Tipo de Sócio: ");
