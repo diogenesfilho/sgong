@@ -20,6 +20,10 @@ import app.Main;
 
 
 public class DoacaoGUI extends BorderPane {
+	
+	private TextField valorField;
+	private TextArea descField;
+	
 	public DoacaoGUI(){
 	
 		//Criando os objetos
@@ -32,8 +36,8 @@ public class DoacaoGUI extends BorderPane {
 		Label titulo = new Label("Cadastrar Doação");
 		titulo.setFont(new Font(40));
 		
-		final TextField valorField = new TextField();
-		final TextArea descField = new TextArea();
+		valorField = new TextField();
+		descField = new TextArea();
 		descField.setPrefSize(400, 100);
 		
 		Button cadastrar = new Button("Cadastrar");
