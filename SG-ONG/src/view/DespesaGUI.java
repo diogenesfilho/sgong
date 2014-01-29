@@ -20,6 +20,8 @@ import app.Main;
 
 public class DespesaGUI extends BorderPane {
 	
+	private TextField valorField ;
+	private TextArea descField;
 	
 	public DespesaGUI(){
 		
@@ -29,8 +31,8 @@ public class DespesaGUI extends BorderPane {
 		Label titulo = new Label("Cadastrar Despesa");
 		titulo.setFont(new Font(40));
 		
-		final TextField valorField = new TextField();
-		final TextArea descField = new TextArea();
+		valorField = new TextField();
+		descField = new TextArea();
 		descField.setPrefSize(400, 100);
 		
 		Button cadastrar = new Button("Cadastrar");
