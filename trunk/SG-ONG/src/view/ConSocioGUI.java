@@ -70,6 +70,19 @@ public class ConSocioGUI extends BorderPane {
 			}
 		});
 		
+//		//Função Double Click para editar.
+//		tabela.setOnMouseClicked(new EventHandler<MouseEvent>() {
+//            @Override
+//            public void handle(MouseEvent mouseEvent) {
+//                if(mouseEvent.getButton().equals(MouseButton.PRIMARY)){
+//                    if(mouseEvent.getClickCount() == 2){
+//                        System.out.println("Double clicked");
+//                    }
+//                }
+//            }
+//        });
+		
+		
 	}
 
 }
