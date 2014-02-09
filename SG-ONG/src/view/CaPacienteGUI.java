@@ -197,7 +197,7 @@ public class CaPacienteGUI extends BorderPane {
 					
 			@Override
 			public void handle(ActionEvent event) {
-				Paciente paciente = new Paciente(nomeField.getText(),enderecoField.getText(),bairroField.getText(),
+				Paciente paciente = new Paciente(nomeField.getText(),enderecoField.getText(),nField.getText(),bairroField.getText(),
 						cidadeField.getText(),estadoField.getText(),rgField.getText(),cpfField.getText(),
 						nasciField.getText(),celularField.getText(),telefoneField.getText(),observacoesField.getText());
 						
