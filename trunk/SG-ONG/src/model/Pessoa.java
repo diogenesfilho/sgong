@@ -1,9 +1,9 @@
 package model;
 
 public abstract class Pessoa {
-	private String nome,endereco,bairro,cidade,estado,rG,cPF,nascimento,celular,telefone;
+	private String nome,endereco,compleN,bairro,cidade,estado,rG,cPF,nascimento,celular,telefone;
 
-	public Pessoa(String nome, String endereco, String bairro, String cidade, String estado,String rG, String cPF, String nascimento,String celular, String telefone){
+	public Pessoa(String nome, String endereco,String compleN, String bairro, String cidade, String estado,String rG, String cPF, String nascimento,String celular, String telefone){
 		this.nome = nome;
 		this.endereco = endereco;
 		this.bairro = bairro;
@@ -14,6 +14,7 @@ public abstract class Pessoa {
 		this.nascimento = nascimento;
 		this.celular = celular;
 		this.telefone = telefone;
+		this.setCompleN(compleN);
 		
 	}
 
@@ -179,5 +180,20 @@ public abstract class Pessoa {
 	 */
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
+	}
+
+	/**
+	 * 
+	 * @return  informacao armazenada em complemento Número..
+	 */
+	public String getCompleN() {
+		return compleN;
+	}
+	/**
+	 * Este metodo sera chamado quando for necessario ser armazenado o complemento relativo ao Endereço.
+	 * @param telefone
+	 */
+	public void setCompleN(String compleN) {
+		this.compleN = compleN;
 	}
 }

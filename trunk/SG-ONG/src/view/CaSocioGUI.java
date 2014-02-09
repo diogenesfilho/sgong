@@ -243,7 +243,7 @@ public class CaSocioGUI extends BorderPane {
 			
 			@Override
 			public void handle(ActionEvent event) {
-				Socio socio = new Socio(nomeField.getText(), enderecoField.getText(), bairroField.getText(),
+				Socio socio = new Socio(nomeField.getText(), enderecoField.getText(), nField.getText(),bairroField.getText(),
 						cidadeField.getText(), choiceEstado.getSelectionModel().getSelectedItem()+"", rgField.getText(), cpfField.getText(), nasciField.getText(), celularField.getText(),
 						telefoneField.getText(), dataFiliField.getText(), choiceSocio.getSelectionModel().getSelectedItem()+"", dataArreField.getText(), profissaoField.getText(),
 						emailField.getText(),Double.parseDouble(valorArreField.getText()));
