@@ -25,8 +25,8 @@ import app.Main;
 public class CaSocioGUI extends BorderPane {
 	
 	private ChoiceBox<String> choiceSocio, choiceEstado;
-	private TextField nomeField,enderecoField,bairroField,nField,cidadeField,estadoField,rgField,cpfField,
-	nasciField,celularField,telefoneField,dataFiliField,emailField,tipoSocioField,valorArreField,dataArreField,
+	private TextField nomeField,enderecoField,bairroField,nField,cidadeField,rgField,cpfField,
+	nasciField,celularField,telefoneField,dataFiliField,emailField,valorArreField,dataArreField,
 	profissaoField;
 	
 	public CaSocioGUI(){
@@ -244,7 +244,7 @@ public class CaSocioGUI extends BorderPane {
 			@Override
 			public void handle(ActionEvent event) {
 				Socio socio = new Socio(nomeField.getText(), enderecoField.getText(), nField.getText(),bairroField.getText(),
-						cidadeField.getText(), choiceEstado.getSelectionModel().getSelectedItem()+"", rgField.getText(), cpfField.getText(), nasciField.getText(), celularField.getText(),
+						cidadeField.getText(), choiceEstado.getSelectionModel().getSelectedItem(), rgField.getText(), cpfField.getText(), nasciField.getText(), celularField.getText(),
 						telefoneField.getText(), dataFiliField.getText(), choiceSocio.getSelectionModel().getSelectedItem()+"", dataArreField.getText(), profissaoField.getText(),
 						emailField.getText(),Double.parseDouble(valorArreField.getText()));
 				//Mensagem de confirmação.

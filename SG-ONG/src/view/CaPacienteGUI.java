@@ -3,11 +3,14 @@ package view;
 
 import model.Paciente;
 import app.Main;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -23,9 +26,10 @@ import javafx.scene.text.Font;
 
 public class CaPacienteGUI extends BorderPane {
 	
-	private TextField nomeField, enderecoField,bairroField,nField,cidadeField,estadoField,rgField,cpfField,
+	private TextField nomeField, enderecoField,bairroField,nField,cidadeField,rgField,cpfField,
 	nasciField,celularField,telefoneField;
 	private TextArea observacoesField;
+	private ChoiceBox<String> choiceEstado;
 	
 	public CaPacienteGUI(){
 		
@@ -48,6 +52,12 @@ public class CaPacienteGUI extends BorderPane {
 		Label telefoneTexto = new Label("Telefone: ");
 		Label observacoesTexto = new Label("Observações: ");
 
+		ObservableList<String>TpEstado = FXCollections.observableArrayList();
+		TpEstado.addAll("AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO");
+		
+		choiceEstado = new ChoiceBox<String>();
+		choiceEstado.setItems(TpEstado);
+		choiceEstado.setPrefSize(200.0, 27.0);
 		
 		nomeField = new TextField();
 		nomeField.setPrefSize(540.0, 27.0);
@@ -63,9 +73,6 @@ public class CaPacienteGUI extends BorderPane {
 		
 		cidadeField = new TextField();
 		cidadeField.setPrefSize(150.0, 27.0);
-		
-		estadoField = new TextField();
-		estadoField.setPrefSize(150.0, 27.0);
 		
 		rgField = new TextField();
 		rgField.setPrefSize(200.0, 27.0);
@@ -114,7 +121,7 @@ public class CaPacienteGUI extends BorderPane {
 		hbox3E2.getChildren().addAll(cidadeTexto,cidadeField);
 		
 		HBox hbox3E3 = new HBox(39);
-		hbox3E3.getChildren().addAll(estadoTexto,estadoField);
+		hbox3E3.getChildren().addAll(estadoTexto,choiceEstado);
 
 		HBox hbox3 = new HBox(70);
 		hbox3.getChildren().addAll(hbox3eE1,hbox3E2,hbox3E3);
@@ -198,9 +205,8 @@ public class CaPacienteGUI extends BorderPane {
 			@Override
 			public void handle(ActionEvent event) {
 				Paciente paciente = new Paciente(nomeField.getText(),enderecoField.getText(),nField.getText(),bairroField.getText(),
-						cidadeField.getText(),estadoField.getText(),rgField.getText(),cpfField.getText(),
+						cidadeField.getText(),choiceEstado.getSelectionModel().getSelectedItem(),rgField.getText(),cpfField.getText(),
 						nasciField.getText(),celularField.getText(),telefoneField.getText(),observacoesField.getText());
-						
 			}
 		});	
 	}
