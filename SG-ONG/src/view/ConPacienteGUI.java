@@ -22,6 +22,7 @@ import javafx.scene.text.Font;
 
 public class ConPacienteGUI extends BorderPane {
 	
+	
 	public TextField procuraField;
 	private TableView tabela = new TableView();
 	
