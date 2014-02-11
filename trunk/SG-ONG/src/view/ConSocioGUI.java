@@ -17,6 +17,7 @@ import javafx.scene.text.Font;
 
 public class ConSocioGUI extends BorderPane {
 	
+	public TextField procuraField;
 	private TableView tabela = new TableView();
 	
 	@SuppressWarnings("unchecked")
@@ -26,7 +27,7 @@ public class ConSocioGUI extends BorderPane {
 		titulo.setFont(new Font(30));
 		
 		Label procuraText = new Label("Procurar por nome:");
-		TextField procuraField = new TextField();
+		procuraField = new TextField();
 		procuraField.setPrefSize(620.0, 27.0); 
 		Button procurar = new Button("Procurar");
 		
@@ -65,6 +66,7 @@ public class ConSocioGUI extends BorderPane {
 			
 			@Override
 			public void handle(ActionEvent event) {
+				String nomeProcurar = procuraField.getText();
 				// Método que será responsável por fazer a procura no banco. SELECT *
 				
 			}
