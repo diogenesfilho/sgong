@@ -21,7 +21,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 
 public class ConPacienteGUI extends BorderPane {
-
+	
+	public TextField procuraField;
 	private TableView tabela = new TableView();
 	
 	@SuppressWarnings("unchecked") // Toma pro sua conta os erros e os ignora.
@@ -31,7 +32,7 @@ public class ConPacienteGUI extends BorderPane {
 		titulo.setFont(new Font(30));
 		
 		Label procuraText = new Label("Procurar por nome:");
-		TextField procuraField = new TextField();
+		procuraField = new TextField();
 		procuraField.setPrefSize(620.0, 27.0); 
 		Button procurar = new Button("Procurar");
 		
@@ -70,7 +71,8 @@ public class ConPacienteGUI extends BorderPane {
 			
 			@Override
 			public void handle(ActionEvent arg0) {
-				// Método que será responsável por fazer a procura no banco. SELECT *
+				String nomeProcurar = procuraField.getText();
+				// Método que será responsável por fazer a procura no banco. SELECT * FROM BANCO WHERE nome LIKE "nomeProcurar";
 				
 			}
 		});
