@@ -14,7 +14,7 @@ public abstract class Pessoa {
 		this.nascimento = nascimento;
 		this.celular = celular;
 		this.telefone = telefone;
-		this.setCompleN(compleN);
+		this.compleN = compleN;
 		
 	}
 
