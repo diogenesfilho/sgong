@@ -22,7 +22,7 @@ import view.LoginGUI;
 
 public class Main extends Application {
 	
-	
+
 	private static Scene SCENE;
 	
 	public static void mudarTela(Parent root){

@@ -62,7 +62,7 @@ public class ConPacienteGUI extends BorderPane {
 		hboxProcu.setAlignment(Pos.CENTER);
 		
 		VBox boxTable = new VBox();
-		boxTable.setPadding(new Insets(0, 10, 0, 10));
+		boxTable.setPadding(new Insets(20, 10, 0, 10));
 		boxTable.getChildren().add(tabela);
 		boxTop.getChildren().addAll(new MeuMenu(), titulo,hboxProcu, boxTable, hbox);
 
