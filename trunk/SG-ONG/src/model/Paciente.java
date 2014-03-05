@@ -18,5 +18,9 @@ public class Paciente extends Pessoa {
 	public void setObservacoes(String observacoes) {
 		this.observacoes = observacoes;
 	}
-
+	
+	
+	public String toString(){
+		return getNome();
+	}
 }
