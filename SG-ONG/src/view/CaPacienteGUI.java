@@ -220,7 +220,7 @@ public class CaPacienteGUI extends BorderPane {
 				Banco banco = Main.getBanco();
 			
 				banco.addObjeto(paciente);
-				JOptionPane.showMessageDialog(null, "Paciente cadastrado!");
+				new TelaAvisoCadastro();
 
 				System.out.println(banco.listaPacientes());
 				}
