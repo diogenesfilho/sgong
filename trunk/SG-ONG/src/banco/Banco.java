@@ -32,5 +32,10 @@ public class Banco {
 		ObjectSet lista = db.query(Socio.class);
 		return lista;	
 	}
+
+
+	public void close() {
+		db.close();
+	}
 	
 }
