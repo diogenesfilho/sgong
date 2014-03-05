@@ -10,6 +10,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class TelaProcuraVazia extends Stage {
@@ -29,6 +30,7 @@ public class TelaProcuraVazia extends Stage {
 		texto.setFont(new Font(20));
 		setScene(scene);
 		setOpacity(0.9);
+		initModality(Modality.APPLICATION_MODAL); //Responsável por só ser possível voltar ao sg ong se fechar a janela.
 		show();
 		
 	}
