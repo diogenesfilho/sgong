@@ -1,6 +1,14 @@
 package view;
 
 
+import javax.swing.JOptionPane;
+
+import banco.Banco;
+
+import com.db4o.Db4oEmbedded;
+import com.db4o.ObjectContainer;
+import com.db4o.ObjectSet;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -18,6 +26,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
+import model.Paciente;
 import model.Socio;
 import app.Main;
 
@@ -247,8 +256,12 @@ public class CaSocioGUI extends BorderPane {
 						cidadeField.getText(), choiceEstado.getSelectionModel().getSelectedItem(), rgField.getText(), cpfField.getText(), nasciField.getText(), celularField.getText(),
 						telefoneField.getText(), dataFiliField.getText(), choiceSocio.getSelectionModel().getSelectedItem()+"", dataArreField.getText(), profissaoField.getText(),
 						emailField.getText(),Double.parseDouble(valorArreField.getText()));
-				//Mensagem de confirmação.
+				Banco banco = Main.getBanco();
 				
+				banco.addObjeto(socio);
+				JOptionPane.showMessageDialog(null, "Socio cadastrado!");
+
+				System.out.println(banco.listaSocios());
 			}
 		});
 	}

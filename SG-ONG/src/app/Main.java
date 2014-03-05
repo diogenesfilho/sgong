@@ -12,6 +12,7 @@ package app;
  * @version 1.5
  * 
  */
+import banco.Banco;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -22,8 +23,12 @@ import view.LoginGUI;
 
 public class Main extends Application {
 	
-
+	private static Banco bd;
 	private static Scene SCENE;
+	
+	public static Banco getBanco(){
+		return bd;
+	}
 	
 	public static void mudarTela(Parent root){
 		Main.SCENE.setRoot(root);
@@ -31,6 +36,11 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
+		
+		if(bd == null){
+			bd = new Banco();	
+		}
+		
 		LoginGUI root = new LoginGUI();
 		SCENE = new Scene(root,1240,600, Color.LIGHTGRAY);
 	
@@ -39,7 +49,7 @@ public class Main extends Application {
 		primaryStage.show();
 
 	}
-
+	
 	public static void main(String[] args) {
 		launch(args);
 

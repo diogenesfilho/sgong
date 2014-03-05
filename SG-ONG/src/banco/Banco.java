@@ -1,57 +1,36 @@
 package banco;
 
-import java.util.List;
-
-import model.Despesa;
-import model.Doacao;
 import model.Paciente;
 import model.Socio;
 
 import com.db4o.Db4oEmbedded;
 import com.db4o.ObjectContainer;
+import com.db4o.ObjectSet;
+
+import exceções.DadosException;
 
 public class Banco {
 	
-	private List <Paciente> listaPacientes;
-	private List <Socio> listaSocio;
-	private List <Doacao> listaDoacao;
-	private List <Despesa> listaDespesas;
-	
 	private ObjectContainer db;
-	private String nomeBanco;
 	
-	public Banco(String nomeBanco){
-		this.nomeBanco = nomeBanco;
-		this.db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), nomeBanco);	
+	// criando
+	public Banco() {
+		db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), "db");
 	}
 	
-	public void addPaciente(Paciente paciente){
-		db.store(paciente);
-		
+	
+	public void addObjeto(Object o){
+		db.store(o);
 	}
 	
-	public void addSocio(Socio socio){
-		db.store(socio);
-		
+	public ObjectSet listaPacientes(){
+		ObjectSet lista = db.query(Paciente.class);
+		return lista;	
 	}
 	
-	public Paciente verPaciente(String nome){
-		listaPacientes = db.query(Paciente.class);
-		for (Paciente p : listaPacientes){
-			if (p.getNome().equals(nome)){
-				return p;
-			}
-		}
-		return null;
+	public ObjectSet listaSocios(){
+		ObjectSet lista = db.query(Socio.class);
+		return lista;	
 	}
 	
-	public Socio verSocio(String nome){
-		listaSocio = db.query(Socio.class);
-		for (Socio s : listaSocio){
-			if (s.getNome().equals(nome)){
-				return s;
-			}
-		}
-		return null;
-	}
 }

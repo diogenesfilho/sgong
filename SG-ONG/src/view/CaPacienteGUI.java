@@ -1,6 +1,14 @@
 package view;
 
 
+import javax.swing.JOptionPane;
+
+import com.db4o.Db4oEmbedded;
+import com.db4o.ObjectContainer;
+import com.db4o.ObjectSet;
+import com.db4o.query.Query;
+
+import banco.Banco;
 import model.Paciente;
 import app.Main;
 import javafx.collections.FXCollections;
@@ -32,6 +40,7 @@ public class CaPacienteGUI extends BorderPane {
 	private ChoiceBox<String> choiceEstado;
 	
 	public CaPacienteGUI(){
+		
 		
 		//Set Título
 		Label titulo = new Label("Cadastrar Paciente");
@@ -207,7 +216,14 @@ public class CaPacienteGUI extends BorderPane {
 				Paciente paciente = new Paciente(nomeField.getText(),enderecoField.getText(),nField.getText(),bairroField.getText(),
 						cidadeField.getText(),choiceEstado.getSelectionModel().getSelectedItem(),rgField.getText(),cpfField.getText(),
 						nasciField.getText(),celularField.getText(),telefoneField.getText(),observacoesField.getText());
-			}
+				
+				Banco banco = Main.getBanco();
+			
+				banco.addObjeto(paciente);
+				JOptionPane.showMessageDialog(null, "Paciente cadastrado!");
+
+				System.out.println(banco.listaPacientes());
+				}
 		});	
 	}
 }
