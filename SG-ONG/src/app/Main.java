@@ -14,10 +14,12 @@ package app;
  */
 import banco.Banco;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import view.LoginGUI;
 
 
@@ -44,6 +46,13 @@ public class Main extends Application {
 		LoginGUI root = new LoginGUI();
 		SCENE = new Scene(root,1240,600, Color.LIGHTGRAY);
 	
+		primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+			
+			@Override
+			public void handle(WindowEvent arg0) {
+				bd.close();
+			}
+		});
 		primaryStage.setTitle("SG ONG - Sistema Gerenciador de ONG");
 		primaryStage.setScene(SCENE);
 		primaryStage.show();

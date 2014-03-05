@@ -38,6 +38,7 @@ public class CaPacienteGUI extends BorderPane {
 	nasciField,celularField,telefoneField;
 	private TextArea observacoesField;
 	private ChoiceBox<String> choiceEstado;
+		
 	
 	public CaPacienteGUI(){
 		
@@ -148,7 +149,6 @@ public class CaPacienteGUI extends BorderPane {
 		HBox hbox4 = new HBox(97);
 		hbox4.getChildren().addAll(hbox4E1,hbox4E2,hbox4E3);
 		
-		
 		//Conjunto linha 5.
 		HBox hbox5E1 = new HBox(45);
 		hbox5E1.getChildren().addAll(telefoneTexto,telefoneField);
@@ -198,6 +198,8 @@ public class CaPacienteGUI extends BorderPane {
 		setTop(menuBar);
 		
 		
+		
+		
 		//Função Botão cancelar.
 		cancelar.setOnAction(new EventHandler<ActionEvent>() {
 			
@@ -221,9 +223,27 @@ public class CaPacienteGUI extends BorderPane {
 			
 				banco.addObjeto(paciente);
 				new TelaAvisoCadastro();
+				limpaCampos();
+				
 
 				System.out.println(banco.listaPacientes());
 				}
+			
+			public void limpaCampos(){
+				
+				nomeField.setText("");
+				enderecoField.setText("");
+				bairroField.setText("");
+				nField.setText("");
+				cidadeField.setText("");
+				rgField.setText("");
+				cpfField.setText("");
+				nasciField.setText("");
+				celularField.setText("");
+				telefoneField.setText("");	
+				observacoesField.setText("");
+				choiceEstado.setItems(null);
+			}
 		});	
 	}
 }

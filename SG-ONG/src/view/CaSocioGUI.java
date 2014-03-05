@@ -259,10 +259,33 @@ public class CaSocioGUI extends BorderPane {
 				Banco banco = Main.getBanco();
 				
 				banco.addObjeto(socio);
-				JOptionPane.showMessageDialog(null, "Socio cadastrado!");
+				new TelaAvisoCadastro();
+				limpaCampos();
 
 				System.out.println(banco.listaSocios());
 			}
+
+			private void limpaCampos() {
+				nomeField.setText("");
+				enderecoField.setText("");
+				bairroField.setText("");
+				nField.setText("");
+				cidadeField.setText("");
+				rgField.setText("");
+				cpfField.setText("");
+				nasciField.setText("");
+				emailField.setText("");
+				celularField.setText("");
+				telefoneField.setText("");
+				dataFiliField.setText("");
+				dataArreField.setText("");
+				profissaoField.setText("");
+				valorArreField.setText("");
+				choiceEstado.setItems(null);
+				
+			}
+			
+			
 		});
 	}
 }
