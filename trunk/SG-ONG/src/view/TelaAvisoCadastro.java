@@ -28,6 +28,7 @@ public class TelaAvisoCadastro extends Stage {
 		texto.setFont(new Font(20));
 		setScene(scene);
 		setOpacity(0.9);
+		initModality(Modality.APPLICATION_MODAL);//Responsável por só ser possível voltar ao sg ong se fechar a janela.
 		show();
 		
 	}
