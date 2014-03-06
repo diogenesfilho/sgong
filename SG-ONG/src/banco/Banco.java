@@ -1,5 +1,7 @@
 package banco;
 
+import model.Despesa;
+import model.Doacao;
 import model.Paciente;
 import model.Socio;
 
@@ -7,7 +9,7 @@ import com.db4o.Db4oEmbedded;
 import com.db4o.ObjectContainer;
 import com.db4o.ObjectSet;
 
-import exceções.DadosException;
+import excecoes.DadosException;
 
 public class Banco {
 	
@@ -30,6 +32,16 @@ public class Banco {
 	
 	public ObjectSet listaSocios(){
 		ObjectSet lista = db.query(Socio.class);
+		return lista;	
+	}
+	
+	public ObjectSet listaDoacoes(){
+		ObjectSet lista = db.query(Doacao.class);
+		return lista;	
+	}
+	
+	public ObjectSet listaDespesas(){
+		ObjectSet lista = db.query(Despesa.class);
 		return lista;	
 	}
 

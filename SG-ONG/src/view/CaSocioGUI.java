@@ -281,7 +281,7 @@ public class CaSocioGUI extends BorderPane {
 				dataArreField.setText("");
 				profissaoField.setText("");
 				valorArreField.setText("");
-				choiceEstado.setItems(null);
+//				choiceEstado.setItems(null);
 				
 			}
 			

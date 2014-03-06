@@ -67,4 +67,7 @@ public class Socio extends Pessoa {
 		this.email = email;
 	}
 	
+	public String toString(){
+		return getNome();
+	}
 }
