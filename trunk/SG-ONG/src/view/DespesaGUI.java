@@ -1,5 +1,6 @@
 package view;
 
+import banco.Banco;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -88,9 +89,24 @@ public class DespesaGUI extends BorderPane {
 			
 			@Override
 			public void handle(ActionEvent event) {
-				Despesa despesas  = new Despesa(Double.parseDouble(valorField.getText()),descField.getText());
-				//Após isso talvez uma janela pop-up ou de aviso seja exibida na tela.		
+				Despesa despesa  = new Despesa(Double.parseDouble(valorField.getText()),descField.getText());
+				
+				Banco banco = Main.getBanco();
+				
+				banco.addObjeto(despesa);
+				new TelaAvisoCadastro();
+				limpaCampos();
+				
+
+				System.out.println(banco.listaDespesas());
+				}
+
+			private void limpaCampos() {
+				valorField.setText(null);
+				descField.setText(null);
+				
 			}
+	
 		});
 	}
 }

@@ -242,7 +242,7 @@ public class CaPacienteGUI extends BorderPane {
 				celularField.setText("");
 				telefoneField.setText("");	
 				observacoesField.setText("");
-				choiceEstado.setItems(null);
+//				choiceEstado.setItems(null);
 			}
 		});	
 	}

@@ -1,5 +1,6 @@
 package view;
 
+import banco.Banco;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -94,9 +95,24 @@ public class DoacaoGUI extends BorderPane {
 			@Override
 			public void handle(ActionEvent event) {
 				Doacao doacao = new Doacao(Double.parseDouble(valorField.getText()),descField.getText());
-				//Após isso talvez uma janela pop-up ou de aviso seja exibida na tela.
+				
+				Banco banco = Main.getBanco();
+				
+				banco.addObjeto(doacao);
+				new TelaAvisoCadastro();
+				limpaCampos();
+				
+
+				System.out.println(banco.listaDoacoes());
+				}
+
+			private void limpaCampos() {
+				valorField.setText(null);
+				descField.setText(null);
 				
 			}
+				
+
 			
 		});
 	}

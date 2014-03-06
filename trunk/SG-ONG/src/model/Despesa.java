@@ -22,4 +22,9 @@ public class Despesa {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+	
+	public String toString(){
+		return "Valor: " + valor + " Descrição: " + descricao;
+	}
 }
+
