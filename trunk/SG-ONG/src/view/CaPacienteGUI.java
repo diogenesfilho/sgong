@@ -63,7 +63,7 @@ public class CaPacienteGUI extends BorderPane {
 		Label observacoesTexto = new Label("Observações: ");
 
 		ObservableList<String>TpEstado = FXCollections.observableArrayList();
-		TpEstado.addAll("AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO");
+		TpEstado.addAll(" ", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO");
 		
 		choiceEstado = new ChoiceBox<String>();
 		choiceEstado.setItems(TpEstado);
@@ -226,7 +226,7 @@ public class CaPacienteGUI extends BorderPane {
 				limpaCampos();
 				
 
-				System.out.println(banco.listaPacientes());
+				System.out.println(banco.listaObjeto(Paciente.class));
 				}
 			
 			public void limpaCampos(){
@@ -242,7 +242,7 @@ public class CaPacienteGUI extends BorderPane {
 				celularField.setText("");
 				telefoneField.setText("");	
 				observacoesField.setText("");
-//				choiceEstado.setItems(null);
+				choiceEstado.setValue(" ");
 			}
 		});	
 	}

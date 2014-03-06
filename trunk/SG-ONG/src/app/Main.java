@@ -35,7 +35,7 @@ public class Main extends Application {
 	public static void mudarTela(Parent root){
 		Main.SCENE.setRoot(root);
 	}
-
+ 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		

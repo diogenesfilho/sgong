@@ -1,21 +1,19 @@
 package banco;
 
-import model.Despesa;
-import model.Doacao;
+import java.util.ArrayList;
+
+import javafx.collections.ObservableList;
 import model.Paciente;
-import model.Socio;
 
 import com.db4o.Db4oEmbedded;
 import com.db4o.ObjectContainer;
 import com.db4o.ObjectSet;
 
-import excecoes.DadosException;
-
 public class Banco {
 	
 	private ObjectContainer db;
+	private ObjectSet<Paciente> resultPaciente;
 	
-	// criando
 	public Banco() {
 		db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), "db");
 	}
@@ -24,30 +22,29 @@ public class Banco {
 	public void addObjeto(Object o){
 		db.store(o);
 	}
-	
-	public ObjectSet listaPacientes(){
-		ObjectSet lista = db.query(Paciente.class);
-		return lista;	
-	}
-	
-	public ObjectSet listaSocios(){
-		ObjectSet lista = db.query(Socio.class);
-		return lista;	
-	}
-	
-	public ObjectSet listaDoacoes(){
-		ObjectSet lista = db.query(Doacao.class);
-		return lista;	
-	}
-	
-	public ObjectSet listaDespesas(){
-		ObjectSet lista = db.query(Despesa.class);
-		return lista;	
-	}
 
+	public ObjectSet listaObjeto(Class c){
+		ObjectSet lista = db.query(c);
+		return lista;
+	}
 
 	public void close() {
 		db.close();
 	}
+
+
+	public ObservableList<Paciente> capturarPacientes() {
+		resultPaciente = db.query(Paciente.class);
+		ObservableList<Paciente> lista = null;
+		
+//		for (Paciente p : resultPaciente) {
+//		 lista.add(p);
+//		}
+		
+		return lista;	
+	}
+	
 	
 }
+	
+	

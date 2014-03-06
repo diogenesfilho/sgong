@@ -262,7 +262,7 @@ public class CaSocioGUI extends BorderPane {
 				new TelaAvisoCadastro();
 				limpaCampos();
 
-				System.out.println(banco.listaSocios());
+				System.out.println(banco.listaObjeto(Socio.class));
 			}
 
 			private void limpaCampos() {

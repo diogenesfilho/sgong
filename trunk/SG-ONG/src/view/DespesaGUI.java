@@ -98,7 +98,7 @@ public class DespesaGUI extends BorderPane {
 				limpaCampos();
 				
 
-				System.out.println(banco.listaDespesas());
+				System.out.println(banco.listaObjeto(Despesa.class));
 				}
 
 			private void limpaCampos() {

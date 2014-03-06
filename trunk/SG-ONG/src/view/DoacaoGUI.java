@@ -103,7 +103,7 @@ public class DoacaoGUI extends BorderPane {
 				limpaCampos();
 				
 
-				System.out.println(banco.listaDoacoes());
+				System.out.println(banco.listaObjeto(Doacao.class));
 				}
 
 			private void limpaCampos() {
