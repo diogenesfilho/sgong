@@ -2,6 +2,7 @@ package view;
 
 
 import banco.Banco;
+import banco.InfoBD;
 import model.Paciente;
 import app.Main;
 import javafx.collections.FXCollections;
@@ -31,6 +32,7 @@ public class CaPacienteGUI extends BorderPane {
 	nasciField,celularField,telefoneField;
 	private TextArea observacoesField;
 	private ChoiceBox<String> choiceEstado;
+	private ObservableList<String> TpEstado;
 		
 	
 	public CaPacienteGUI(){
@@ -55,7 +57,7 @@ public class CaPacienteGUI extends BorderPane {
 		Label telefoneTexto = new Label("Telefone: ");
 		Label observacoesTexto = new Label("Observações: ");
 
-		ObservableList<String>TpEstado = FXCollections.observableArrayList();
+		TpEstado = FXCollections.observableArrayList();
 		TpEstado.addAll(" ", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO");
 		
 		choiceEstado = new ChoiceBox<String>();
@@ -216,10 +218,11 @@ public class CaPacienteGUI extends BorderPane {
 			
 				banco.addObjeto(paciente);
 				new TelaAvisoCadastro();
+				
 				limpaCampos();
 				
 
-				System.out.println(banco.listaObjeto(Paciente.class));
+				System.out.println(banco.listaObjeto(Paciente.class));   // apenas controle, apagar depois
 				}
 			
 			public void limpaCampos(){

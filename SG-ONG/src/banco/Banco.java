@@ -33,16 +33,17 @@ public class Banco {
 	}
 
 
-	public ObservableList<Paciente> capturarPacientes() {
-		resultPaciente = db.query(Paciente.class);
-		ObservableList<Paciente> lista = null;
-		
+//	public ObservableList<Paciente> capturarPacientes() {
+//		resultPaciente = db.query(Paciente.class);
+//		ObservableList<Paciente> lista = null;
+//		
 //		for (Paciente p : resultPaciente) {
 //		 lista.add(p);
 //		}
-		
-		return lista;	
-	}
+//		
+//		return lista;	
+//	}
+	
 	
 	
 }

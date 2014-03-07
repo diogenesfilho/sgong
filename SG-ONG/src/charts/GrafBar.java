@@ -1,5 +1,8 @@
 package charts;
 
+import app.Main;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
@@ -8,7 +11,9 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import view.DoacaoGUI;
 import view.MeuMenu;
+import view.TelaValoresExatos;
 
 public class GrafBar extends BorderPane {
 	public GrafBar(){
@@ -65,7 +70,17 @@ public class GrafBar extends BorderPane {
         series2.getData().add(new XYChart.Data("Dezembro", 5100));
 
         
+        // Valores Exatos
         Button valores = new Button("Valores Exatos");
+        valores.setOnAction(new EventHandler<ActionEvent>() {
+			
+			@Override
+			public void handle(ActionEvent arg0) {
+				Main.mudarTela(new TelaValoresExatos());
+				
+			}
+		});
+        
 
         balanco.getData().addAll(series1, series2);
         
