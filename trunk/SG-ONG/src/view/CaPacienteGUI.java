@@ -28,8 +28,8 @@ import javafx.scene.text.Font;
 
 public class CaPacienteGUI extends BorderPane {
 	
-	private TextField nomeField, enderecoField,bairroField,nField,cidadeField,rgField,cpfField,
-	nasciField,celularField,telefoneField;
+	private TextField nomeField, enderecoField,cidadeField,rgField,cpfField,
+	nasciField,telefoneCelularField;
 	private TextArea observacoesField;
 	private ChoiceBox<String> choiceEstado;
 	private ObservableList<String> TpEstado;
@@ -46,15 +46,12 @@ public class CaPacienteGUI extends BorderPane {
 		
 		Label nomeTexto = new Label("Nome: ");
 		Label enderecoTexto = new Label("Endereço: ");
-		Label bairroTexto = new Label("Bairro: ");
-		Label nTexto = new Label("     Nº: ");
 		Label cidadeTexto = new Label("      Cidade: ");
 		Label estadoTexto = new Label("      Estado: ");
 		Label rgTexto = new Label("RG: ");
 		Label cpfTexto = new Label("CPF: ");
 		Label nasciTexto = new Label("Data de" +"\n"+ " nascimento: ");
-		Label celularTexto = new Label("   Celular: ");
-		Label telefoneTexto = new Label("Telefone: ");
+		Label telefoneCelularTexto = new Label("Telefone/Celular: ");
 		Label observacoesTexto = new Label("Observações: ");
 
 		TpEstado = FXCollections.observableArrayList();
@@ -70,12 +67,6 @@ public class CaPacienteGUI extends BorderPane {
 		enderecoField = new TextField();
 		enderecoField.setPrefSize(540.0, 27.0);
 		
-		bairroField = new TextField();
-		bairroField.setPrefSize(200.0, 27.0 );
-		
-		nField = new TextField();
-		nField.setPrefSize(150.0, 27.0);
-		
 		cidadeField = new TextField();
 		cidadeField.setPrefSize(150.0, 27.0);
 		
@@ -88,11 +79,8 @@ public class CaPacienteGUI extends BorderPane {
 		nasciField = new TextField();
 		nasciField.setPrefSize(150.0, 27.0);
 		
-		celularField = new TextField();
-		celularField.setPrefSize(150.0, 27.0);
-		
-		telefoneField = new TextField();
-		telefoneField.setPrefSize(200.0, 27.0);		
+		telefoneCelularField = new TextField();
+		telefoneCelularField.setPrefSize(200.0, 27.0);		
 
 		observacoesField = new TextArea();
 		observacoesField.setPrefSize(350.0, 80.0);
@@ -100,7 +88,7 @@ public class CaPacienteGUI extends BorderPane {
 		Button cadastrar = new Button("Cadastrar");
 		Button cancelar = new Button("Cancelar");
 		
-	
+		
 		//Conjunto linha 1.
 		HBox hbox1 = new HBox(62);
 		hbox1.getChildren().addAll(nomeTexto,nomeField);
@@ -109,18 +97,10 @@ public class CaPacienteGUI extends BorderPane {
 		HBox hbox2E1 = new HBox(40);
 		hbox2E1.getChildren().addAll(enderecoTexto,enderecoField);
 		
-		HBox hbox2E2 = new HBox(10);
-		hbox2E2.getChildren().addAll(bairroTexto,bairroField);
-		
-		HBox hbox2E3 = new HBox(62);
-		hbox2E3.getChildren().addAll(nTexto,nField);
-		
 		HBox hbox2 = new HBox(55);
-		hbox2.getChildren().addAll(hbox2E1,hbox2E2,hbox2E3);
+		hbox2.getChildren().addAll(hbox2E1);
 		
-		//Conjunto Linha 3.		
-		HBox hbox3eE1 = new HBox(62);
-		hbox3eE1.getChildren().addAll(bairroTexto,bairroField);
+		//Conjunto Linha 3.
 		
 		HBox hbox3E2 = new HBox(64);
 		hbox3E2.getChildren().addAll(cidadeTexto,cidadeField);
@@ -129,7 +109,7 @@ public class CaPacienteGUI extends BorderPane {
 		hbox3E3.getChildren().addAll(estadoTexto,choiceEstado);
 
 		HBox hbox3 = new HBox(70);
-		hbox3.getChildren().addAll(hbox3eE1,hbox3E2,hbox3E3);
+		hbox3.getChildren().addAll(hbox3E2,hbox3E3);
 		
 		//Conjunto Linha 4.
 		HBox hbox4E1 = new HBox(81);
@@ -146,15 +126,11 @@ public class CaPacienteGUI extends BorderPane {
 		
 		//Conjunto linha 5.
 		HBox hbox5E1 = new HBox(45);
-		hbox5E1.getChildren().addAll(telefoneTexto,telefoneField);
-		
-		HBox hbox5E2 = new HBox(65);
-		hbox5E2.getChildren().addAll(celularTexto,celularField);
+		hbox5E1.getChildren().addAll(telefoneCelularTexto,telefoneCelularField);
 		
 		HBox hbox5 = new HBox(70);
-		hbox5.getChildren().addAll(hbox5E1,hbox5E2);
+		hbox5.getChildren().addAll(hbox5E1);
 
-		
 		//Conjunto linha 6.
 		HBox hbox6 = new HBox(10);
 		hbox6.getChildren().addAll(cadastrar,cancelar);
@@ -210,9 +186,9 @@ public class CaPacienteGUI extends BorderPane {
 					
 			@Override
 			public void handle(ActionEvent event) {
-				Paciente paciente = new Paciente(nomeField.getText(),enderecoField.getText(),nField.getText(),bairroField.getText(),
+				Paciente paciente = new Paciente(nomeField.getText(),enderecoField.getText(),
 						cidadeField.getText(),choiceEstado.getSelectionModel().getSelectedItem(),rgField.getText(),cpfField.getText(),
-						nasciField.getText(),celularField.getText(),telefoneField.getText(),observacoesField.getText());
+						nasciField.getText(),telefoneCelularField.getText(),observacoesField.getText());
 				
 				Banco banco = Main.getBanco();
 			
@@ -223,20 +199,16 @@ public class CaPacienteGUI extends BorderPane {
 				
 
 				System.out.println(banco.listaObjeto(Paciente.class));   // apenas controle, apagar depois
+		
 				}
 			
 			public void limpaCampos(){
-				
 				nomeField.setText("");
 				enderecoField.setText("");
-				bairroField.setText("");
-				nField.setText("");
 				cidadeField.setText("");
 				rgField.setText("");
 				cpfField.setText("");
 				nasciField.setText("");
-				celularField.setText("");
-				telefoneField.setText("");	
 				observacoesField.setText("");
 				choiceEstado.setValue(" ");
 			}
