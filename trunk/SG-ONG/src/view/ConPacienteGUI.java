@@ -25,7 +25,7 @@ public class ConPacienteGUI extends VBox{
 		setAlignment(Pos.CENTER);
 		setPadding(new Insets(100,300,100,300));
 		
-		listaPaciente.setItems(Main.getBanco().capturarPacientes());
+//		listaPaciente.setItems(Main.getBanco().capturarPacientes());
 		listaPaciente.setOpacity(0.75);
 		getChildren().addAll(titulo,listaPaciente,botao);
 		
