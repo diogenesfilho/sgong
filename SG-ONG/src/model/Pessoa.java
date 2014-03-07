@@ -1,20 +1,17 @@
 package model;
 
 public abstract class Pessoa {
-	private String nome,endereco,compleN,bairro,cidade,estado,rG,cPF,nascimento,celular,telefone;
+	private String nome,endereco,cidade,estado,rG,cPF,nascimento,telefoneCelular;
 
-	public Pessoa(String nome, String endereco,String compleN, String bairro, String cidade, String estado,String rG, String cPF, String nascimento,String celular, String telefone){
+	public Pessoa(String nome, String endereco, String cidade, String estado,String rG, String cPF, String nascimento,String TelefoneCelular){
 		this.nome = nome;
 		this.endereco = endereco;
-		this.bairro = bairro;
 		this.cidade = cidade;
 		this.estado = estado;
 		this.rG = rG;
 		this.cPF = cPF;
-		this.nascimento = nascimento;
-		this.celular = celular;
-		this.telefone = telefone;
-		this.compleN = compleN;
+		this.nascimento = nascimento;;
+		this.telefoneCelular = telefoneCelular;
 		
 	}
 
@@ -51,22 +48,6 @@ public abstract class Pessoa {
 	 */
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
-	}
-	
-	/**
-	 * 
-	 * @return informacao armazenada em bairro.
-	 */
-	public String getBairro() {
-		return bairro;
-	}
-
-	/**
-	 * Este metodo sera chamado quando for necessario ser armazenado o bairro.
-	 * @param bairro
-	 */
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
 	}
 	
 	
@@ -152,48 +133,19 @@ public abstract class Pessoa {
 
 	/**
 	 * 
-	 * @return informacao armazenada em celular.
+	 * @return informacao armazenada em TelefoneCelular.
 	 */
-	public String getCelular() {
-		return celular;
+
+	public String getTelefoneCelular() {
+		return telefoneCelular;
 	}
 
 	/**
-	 * Este metodo sera chamado quando for necessario ser armazenado o celular.
-	 * @param celular
+	 * Este metodo sera chamado quando for necessario ser armazenado o telefone/celular.
+	 * @param telefoneCelular
 	 */
-	public void setCelular(String celular) {
-		this.celular = celular;
+	public void setTelefoneCelular(String telefoneCelular) {
+		this.telefoneCelular = telefoneCelular;
 	}
 
-	/**
-	 * 
-	 * @return  informacao armazenada em telefone.
-	 */
-	public String getTelefone() {
-		return telefone;
-	}
-
-	/**
-	 * Este metodo sera chamado quando for necessario ser armazenado o telefone.
-	 * @param telefone
-	 */
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
-
-	/**
-	 * 
-	 * @return  informacao armazenada em complemento Número..
-	 */
-	public String getCompleN() {
-		return compleN;
-	}
-	/**
-	 * Este metodo sera chamado quando for necessario ser armazenado o complemento relativo ao Endereço.
-	 * @param telefone
-	 */
-	public void setCompleN(String compleN) {
-		this.compleN = compleN;
-	}
 }

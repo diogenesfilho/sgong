@@ -2,28 +2,25 @@ package model;
 
 public class Socio extends Pessoa {
 
-	private String tipoSocio,dataArrecada,profissao,dataFili,email;
-	private double valorContri;
+	private String tipoSocio,dataArrecada,profissao,dataFiliacao,email;
+	private double valorContribuicao;
 	
-	public Socio(String nome, String endereco,String compleN, String bairro, String cidade, String estado,String rG, String cPF, String nascimento,String celular, String telefone,String dataFili,String tipoSocio, String dataArrecada, String profissao,String email, double valorContri) {
-		super(nome,endereco,compleN,bairro,cidade,estado,rG,cPF,nascimento,celular,telefone);
+	public Socio(String nome, String endereco, String cidade, String estado,String rG, String cPF, String nascimento, String telefoneCelular,String tipoSocio, String dataFiliacao, String email, double valorContribuicao) {
+		super(nome, endereco, cidade, estado, rG, cPF, nascimento, telefoneCelular);
 		this.tipoSocio = tipoSocio;
-		this.dataFili = dataFili;
-		this.dataArrecada = dataArrecada;
-		this.profissao = profissao;
-		this.valorContri = valorContri;
+		this.dataFiliacao = dataFiliacao;
+		this.valorContribuicao = valorContribuicao;
 		this.email = email;
 	}
 
 
 	//Gets e Sets;
-	public String getDataFili() {
-		return dataFili;
+	public String getDataFiliacao() {
+		return dataFiliacao;
 	}
 
-
-	public void setDataFili(String dataFili) {
-		this.dataFili = dataFili;
+	public void setDataFiliacao(String dataFiliacao) {
+		this.dataFiliacao = dataFiliacao;
 	}
 
 	public String getTipoSocio() {
@@ -34,28 +31,12 @@ public class Socio extends Pessoa {
 		this.tipoSocio = tipoSocio;
 	}
 
-	public String getDataArrecada() {
-		return dataArrecada;
+	public double getValorContribuicao() {
+		return valorContribuicao;
 	}
 
-	public void setDataArrecada(String dataArrecada) {
-		this.dataArrecada = dataArrecada;
-	}
-
-	public String getProfissao() {
-		return profissao;
-	}
-
-	public void setProfissao(String profissao) {
-		this.profissao = profissao;
-	}
-
-	public double getValorContri() {
-		return valorContri;
-	}
-
-	public void setValorContri(double valorContri) {
-		this.valorContri = valorContri;
+	public void setValorContribuicao(double valorContribuicao) {
+		this.valorContribuicao = valorContribuicao;
 	}
 	
 

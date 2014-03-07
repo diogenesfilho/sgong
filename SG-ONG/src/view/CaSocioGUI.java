@@ -34,9 +34,8 @@ import app.Main;
 public class CaSocioGUI extends BorderPane {
 	
 	private ChoiceBox<String> choiceSocio, choiceEstado;
-	private TextField nomeField,enderecoField,bairroField,nField,cidadeField,rgField,cpfField,
-	nasciField,celularField,telefoneField,dataFiliField,emailField,valorArreField,dataArreField,
-	profissaoField;
+	private TextField nomeField,enderecoField,cidadeField,rgField,cpfField,
+	nasciField,telefoneCelularField,dataFiliacaoField,emailField,valorContribuicaoField;
 	
 	public CaSocioGUI(){
 		
@@ -49,21 +48,16 @@ public class CaSocioGUI extends BorderPane {
 		
 		Label nomeTexto = new Label("Nome: ");
 		Label enderecoTexto = new Label("Endereço: ");
-		Label bairroTexto = new Label("Bairro: ");
-		Label nTexto = new Label("Nº: ");
 		Label cidadeTexto = new Label("Cidade: ");	
 		Label estadoTexto = new Label("Estado: ");
 		Label rgTexto = new Label("RG: ");
 		Label cpfTexto = new Label("CPF: ");
 		Label nasciTexto = new Label("Nascimento: ");
-		Label celularTexto = new Label("Celular: ");
-		Label telefoneTexto = new Label("Telefone: ");
-		Label dataFiliTexto = new Label("Data Filiacão: ");
+		Label telefoneCelularTexto = new Label("Telefone: ");
 		Label emailTexto = new Label("Email: ");
 		Label tipoSocioTexto = new Label("Tipo de Sócio: ");
-		Label valorArreTexto = new Label("Valor arrecadação: ");
-		Label dataArrecaTexto = new Label("Data Arrecadação: ");
-		Label profissaoTexto = new Label("Profissão: ");
+		Label dataFiliacaoTexto = new Label("Data de Filiação: ");
+		Label valorContribuicaoTexto = new Label("Valor arrecadação: ");
 			
 		ObservableList<String>TpSocio = FXCollections.observableArrayList();
 		TpSocio.addAll("Contribuinte","Voluntário");
@@ -85,12 +79,6 @@ public class CaSocioGUI extends BorderPane {
 		enderecoField = new TextField();
 		enderecoField.setPrefSize(540.0, 27.0);
 		
-		bairroField = new TextField();
-		bairroField.setPrefSize(200.0, 27.0 );
-		
-		nField = new TextField();
-		nField.setPrefSize(170.0, 27.0);
-		
 		cidadeField = new TextField();
 		cidadeField.setPrefSize(170.0, 27.0);
 		
@@ -103,26 +91,17 @@ public class CaSocioGUI extends BorderPane {
 		nasciField = new TextField();
 		nasciField.setPrefSize(170.0, 27.0);
 
-		celularField = new TextField();
-		celularField.setPrefSize(170.0, 27.0);
+		telefoneCelularField = new TextField();
+		telefoneCelularField.setPrefSize(200.0, 27.0);
 		
-		telefoneField = new TextField();
-		telefoneField.setPrefSize(200.0, 27.0);
-		
-		dataFiliField = new TextField();
-		dataFiliField.setPrefSize(200.0, 27.0);
+		dataFiliacaoField = new TextField();
+		dataFiliacaoField.setPrefSize(200.0, 27.0);
 		
 		emailField = new TextField();
 		emailField.setPrefSize(170.0, 27.0);
 		
-		valorArreField = new TextField();
-		valorArreField.setPrefSize(170.0, 27.0);
-		
-		dataArreField = new TextField();
-		dataArreField.setPrefSize(170.0, 27.0);
-		
-		profissaoField = new TextField();
-		profissaoField.setPrefSize(170.0, 27.0);
+		valorContribuicaoField = new TextField();
+		valorContribuicaoField.setPrefSize(170.0, 27.0);
 		
 		Button cadastrar = new Button("Cadastrar");
 		Button cancelar = new Button("Cancelar");
@@ -135,18 +114,10 @@ public class CaSocioGUI extends BorderPane {
 		HBox hbox2E1 = new HBox(40);
 		hbox2E1.getChildren().addAll(enderecoTexto,enderecoField);
 		
-		HBox hbox2E2 = new HBox(10);
-		hbox2E2.getChildren().addAll(bairroTexto,bairroField);
-		
-		HBox hbox2E3 = new HBox(62);
-		hbox2E3.getChildren().addAll(nTexto,nField);
-		
 		HBox hbox2 = new HBox(55);
-		hbox2.getChildren().addAll(hbox2E1,hbox2E2,hbox2E3);
+		hbox2.getChildren().addAll(hbox2E1);
 		
 		//Conjunto Linha 3.		
-		HBox hbox3eE1 = new HBox(62);
-		hbox3eE1.getChildren().addAll(bairroTexto,bairroField);
 		
 		HBox hbox3E2 = new HBox(45);
 		hbox3E2.getChildren().addAll(cidadeTexto,cidadeField);
@@ -155,7 +126,7 @@ public class CaSocioGUI extends BorderPane {
 		hbox3E3.getChildren().addAll(estadoTexto,choiceEstado);
 
 		HBox hbox3 = new HBox(70);
-		hbox3.getChildren().addAll(hbox3eE1,hbox3E2,hbox3E3);
+		hbox3.getChildren().addAll(hbox3E2,hbox3E3);
 		
 		//Conjunto Linha 4.
 		HBox hbox4E1 = new HBox(81);
@@ -172,56 +143,37 @@ public class CaSocioGUI extends BorderPane {
 		
 		
 		//Conjunto linha 5.
-		HBox hbox5E1 = new HBox(45);
-		hbox5E1.getChildren().addAll(telefoneTexto,telefoneField);
 		
-		HBox hbox5E2 = new HBox(30);
-		hbox5E2.getChildren().addAll(celularTexto,celularField);
+		HBox hbox5E2 = new HBox(60);
+		hbox5E2.getChildren().addAll(dataFiliacaoTexto,dataFiliacaoField);
 		
 		HBox hbox5E3 = new HBox(60);
 		hbox5E3.getChildren().addAll(emailTexto,emailField);
 		
 		HBox hbox5 = new HBox(82);
-		hbox5.getChildren().addAll(hbox5E1,hbox5E2,hbox5E3);
+		hbox5.getChildren().addAll(hbox5E2,hbox5E3);
 		
 		//Conjunto linha 6.
 		HBox hbox6E1 = new HBox(15);
 		hbox6E1.getChildren().addAll(tipoSocioTexto,choiceSocio);
 		
-		HBox hbox6E2 = new HBox(10);
-		hbox6E2.getChildren().addAll(valorArreTexto,valorArreField);
-
-		HBox hbox6E3 = new HBox(30);
-		hbox6E3.getChildren().addAll(dataArrecaTexto,dataArreField);
-		
 		HBox hbox6 = new HBox(30);
-		hbox6.getChildren().addAll(hbox6E1,hbox6E2,hbox6E3);
-	
-		//Conjunto linha 7.
-		HBox hbox7E1 = new HBox(16);
-		hbox7E1.getChildren().addAll(dataFiliTexto,dataFiliField);
-		
-		HBox hbox7E2 = new HBox(50);
-		hbox7E2.getChildren().addAll(profissaoTexto,profissaoField);
-		
-		HBox hbox7 = new HBox(50);		
-		hbox7.getChildren().addAll(hbox7E1,hbox7E2);
+		hbox6.getChildren().addAll(hbox6E1);
 
 		
-		//Conjunto linha 8.
-		HBox hbox8 = new HBox(10);
-		hbox8.getChildren().addAll(cadastrar,cancelar);
-		
+		//Conjunto linha 7.
+		HBox hbox7 = new HBox(10);
+		hbox7.getChildren().addAll(cadastrar,cancelar);
 		
 		VBox vboxTitulo = new VBox(30);
 		vboxTitulo.getChildren().addAll(titulo);
 		
 		VBox vbox = new VBox(15);
-		vbox.getChildren().addAll(vboxTitulo,hbox1,hbox2,hbox3,hbox4,hbox5,hbox6,hbox7,hbox8);
+		vbox.getChildren().addAll(vboxTitulo,hbox1,hbox2,hbox3,hbox4,hbox5,hbox6,hbox7);
 		
 		//Sets Alinhamento
 		vboxTitulo.setAlignment(Pos.CENTER);
-		hbox8.setAlignment(Pos.BOTTOM_RIGHT);
+		hbox7.setAlignment(Pos.BOTTOM_RIGHT);
 		
 		//Distância da borda.
 		vbox.setPadding(new Insets(50,100,10,100));
@@ -252,10 +204,7 @@ public class CaSocioGUI extends BorderPane {
 			
 			@Override
 			public void handle(ActionEvent event) {
-				Socio socio = new Socio(nomeField.getText(), enderecoField.getText(), nField.getText(),bairroField.getText(),
-						cidadeField.getText(), choiceEstado.getSelectionModel().getSelectedItem(), rgField.getText(), cpfField.getText(), nasciField.getText(), celularField.getText(),
-						telefoneField.getText(), dataFiliField.getText(), choiceSocio.getSelectionModel().getSelectedItem()+"", dataArreField.getText(), profissaoField.getText(),
-						emailField.getText(),Double.parseDouble(valorArreField.getText()));
+				Socio socio = new Socio(nomeField.getText(), enderecoField.getText(), cidadeField.getText(), choiceEstado.getSelectionModel().getSelectedItem(), rgField.getText(), cpfField.getText(), nasciField.getText(), telefoneCelularField.getText(), choiceSocio.getSelectionModel().getSelectedItem()+"",valorContribuicaoField.getText(), emailField.getText(), Double.parseDouble(valorContribuicaoField.getText()));
 				Banco banco = Main.getBanco();
 				
 				banco.addObjeto(socio);
@@ -268,19 +217,14 @@ public class CaSocioGUI extends BorderPane {
 			private void limpaCampos() {
 				nomeField.setText("");
 				enderecoField.setText("");
-				bairroField.setText("");
-				nField.setText("");
 				cidadeField.setText("");
 				rgField.setText("");
 				cpfField.setText("");
 				nasciField.setText("");
 				emailField.setText("");
-				celularField.setText("");
-				telefoneField.setText("");
-				dataFiliField.setText("");
-				dataArreField.setText("");
-				profissaoField.setText("");
-				valorArreField.setText("");
+				valorContribuicaoField.setText("");
+				telefoneCelularField.setText("");
+				valorContribuicaoField.setText("");
 //				choiceEstado.setItems(null);
 				
 			}
