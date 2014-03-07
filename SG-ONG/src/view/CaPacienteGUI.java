@@ -1,13 +1,6 @@
 package view;
 
 
-import javax.swing.JOptionPane;
-
-import com.db4o.Db4oEmbedded;
-import com.db4o.ObjectContainer;
-import com.db4o.ObjectSet;
-import com.db4o.query.Query;
-
 import banco.Banco;
 import model.Paciente;
 import app.Main;
