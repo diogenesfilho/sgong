@@ -15,20 +15,20 @@ import javafx.stage.Stage;
 public class TelaAvisoCadastro extends Stage {
 	public TelaAvisoCadastro() {
 		BorderPane root = new BorderPane();
-		Scene scene = new Scene(root,550,50,Color.LINEN);
+		Scene scene = new Scene(root,300,50,Color.LIGHTGRAY);
 		
 		HBox boxtexto = new HBox();
 		
-		Label texto = new Label("Cadastrado efetuado com sucesso!");
+		Label texto = new Label("Cadastrado realizado com sucesso!");
 		
         boxtexto.getChildren().addAll(texto);
         boxtexto.setAlignment(Pos.CENTER);
         
         root.setCenter(boxtexto);
-		texto.setFont(new Font(20));
+		texto.setFont(new Font(15));
 		setScene(scene);
 		setOpacity(0.9);
-		initModality(Modality.APPLICATION_MODAL);//Responsável por só ser possível voltar ao sg ong se fechar a janela.
+		initModality(Modality.APPLICATION_MODAL);//Responsï¿½vel por sï¿½ ser possï¿½vel voltar ao sg ong se fechar a janela.
 		show();
 		
 	}
