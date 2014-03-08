@@ -1,17 +1,17 @@
 package model;
 
 public abstract class Pessoa {
-	private String nome,endereco,cidade,estado,rg,cpf,nascimento,telefoneCelular;
+	private String nome,endereco,cidade,estado,rg,cpf,nascimento,telefone;
 
-	public Pessoa(String nome, String endereco, String cidade, String estado,String rg, String cpf, String nascimento,String TelefoneCelular){
+	public Pessoa(String nome, String endereco, String cidade, String estado,String rg, String cpf, String nascimento,String telefone){
 		this.nome = nome;
 		this.endereco = endereco;
 		this.cidade = cidade;
 		this.estado = estado;
 		this.rg = rg;
 		this.cpf = cpf;
-		this.nascimento = nascimento;;
-		this.telefoneCelular = telefoneCelular;
+		this.nascimento = nascimento;
+		this.telefone = telefone;
 		
 	}
 
@@ -87,7 +87,7 @@ public abstract class Pessoa {
 	 * 
 	 * @return informacao armazenada rg.
 	 */
-	public String getrg() {
+	public String getRg() {
 		return rg;
 	}
 
@@ -95,7 +95,7 @@ public abstract class Pessoa {
 	 * Este metodo sera chamado quando for necessario ser armazenado o rg.
 	 * @param rg
 	 */
-	public void setrg(String rg) {
+	public void setRg(String rg) {
 		this.rg = rg;
 	}
 
@@ -103,7 +103,7 @@ public abstract class Pessoa {
 	 * 
 	 * @return  informacao armazenada em cpf.
 	 */
-	public String getcpf() {
+	public String getCpf() {
 		return cpf;
 	}
 
@@ -111,7 +111,7 @@ public abstract class Pessoa {
 	 * Este metodo sera chamado quando for necessario ser armazenado o cpf.
 	 * @param cpf
 	 */
-	public void setcpf(String cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 
@@ -136,16 +136,16 @@ public abstract class Pessoa {
 	 * @return informacao armazenada em TelefoneCelular.
 	 */
 
-	public String getTelefoneCelular() {
-		return telefoneCelular;
+	public String getTelefone() {
+		return telefone;
 	}
 
 	/**
 	 * Este metodo sera chamado quando for necessario ser armazenado o telefone/celular.
 	 * @param telefoneCelular
 	 */
-	public void setTelefoneCelular(String telefoneCelular) {
-		this.telefoneCelular = telefoneCelular;
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
 	}
 
 }

@@ -4,8 +4,8 @@ public class Paciente extends Pessoa {
 
 	private String observacoes;
 	
-	public Paciente(String nome, String endereco, String cidade, String estado,String rG, String cPF, String nascimento, String telefoneCelular,String observacoes) {
-		super(nome,endereco,cidade,estado,rG,cPF,nascimento,telefoneCelular);
+	public Paciente(String nome, String endereco, String cidade, String estado,String rg, String cpf, String nascimento, String telefone,String observacoes) {
+		super(nome,endereco,cidade,estado,rg,cpf,nascimento,telefone);
 		this.observacoes = observacoes;
 				
 	}
@@ -21,6 +21,6 @@ public class Paciente extends Pessoa {
 	
 	
 	public String toString(){
-		return getNome()+"%"+getEndereco()+"%"+getEstado()+"%"+getrg()+"%"+getcpf()+"%"+getNascimento()+"%"+getTelefoneCelular()+"%"+getObservacoes();
+		return getNome()+"%"+getEndereco()+"%"+getEstado()+"%"+getRg()+"%"+getCpf()+"%"+getNascimento()+"%"+getTelefone()+"%"+getObservacoes();
 	}
 }

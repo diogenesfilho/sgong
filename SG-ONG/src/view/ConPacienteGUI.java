@@ -67,12 +67,12 @@ public class ConPacienteGUI extends BorderPane {
 	        TableColumn rgCol = new TableColumn();
 	        rgCol.setText("RG");
 	        rgCol.setMinWidth(100);
-	        rgCol.setCellValueFactory(new PropertyValueFactory("rG"));
+	        rgCol.setCellValueFactory(new PropertyValueFactory("rg"));
 	        
 	        TableColumn cpfCol = new TableColumn();
 	        cpfCol.setText("CPF");
 	        cpfCol.setMinWidth(100);
-	        cpfCol.setCellValueFactory(new PropertyValueFactory("cPF"));
+	        cpfCol.setCellValueFactory(new PropertyValueFactory("cpf"));
 	        
 	        TableColumn nascCol = new TableColumn();
 	        nascCol.setText("Data de Nascimento");
@@ -82,18 +82,18 @@ public class ConPacienteGUI extends BorderPane {
 	        TableColumn telCol = new TableColumn();
 	        telCol.setText("Telefone");
 	        telCol.setMinWidth(100);
-	        telCol.setCellValueFactory(new PropertyValueFactory("telefoneCelular"));
+	        telCol.setCellValueFactory(new PropertyValueFactory("telefone"));
 	        
 	        TableColumn obsCol = new TableColumn();
 	        obsCol.setText("Observações");
-	        obsCol.setMinWidth(100);
+	        obsCol.setMinWidth(120);
 	        obsCol.setCellValueFactory(new PropertyValueFactory("observacoes"));
 
 	   
 	        tabela = new TableView();
 	        tabela.setItems(listaPacientes);
 	        tabela.setMaxHeight(400);
-	        tabela.setMaxWidth(700);
+	        tabela.setMaxWidth(920);
 	        tabela.getColumns().addAll(nomeCol, endCol, cidadeCol, estadoCol, rgCol, cpfCol, nascCol, telCol, obsCol);
 
 	        
