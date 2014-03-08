@@ -5,10 +5,16 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.geometry.Side;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -28,6 +34,7 @@ public class DoacaoGUI extends BorderPane {
 	public DoacaoGUI(){
 	
 		//Criando os objetos
+		
 		Label textoAux = new Label("Caso a doação seja em ITENS, informe 0 e uma descrição.");
 		textoAux.setFont(new Font(15));
 
