@@ -17,6 +17,7 @@ import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -55,9 +56,12 @@ public class Main extends Application {
 		});
 		primaryStage.setTitle("SG ONG - Sistema Gerenciador de ONG");
 		primaryStage.setScene(SCENE);
+		primaryStage.getIcons().add(new Image("/image/icone.png"));
 		primaryStage.show();
-
+		
 	}
+	
+	
 	
 	public static void main(String[] args) {
 		launch(args);
