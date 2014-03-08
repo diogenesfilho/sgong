@@ -1,15 +1,15 @@
 package model;
 
 public abstract class Pessoa {
-	private String nome,endereco,cidade,estado,rG,cPF,nascimento,telefoneCelular;
+	private String nome,endereco,cidade,estado,rg,cpf,nascimento,telefoneCelular;
 
-	public Pessoa(String nome, String endereco, String cidade, String estado,String rG, String cPF, String nascimento,String TelefoneCelular){
+	public Pessoa(String nome, String endereco, String cidade, String estado,String rg, String cpf, String nascimento,String TelefoneCelular){
 		this.nome = nome;
 		this.endereco = endereco;
 		this.cidade = cidade;
 		this.estado = estado;
-		this.rG = rG;
-		this.cPF = cPF;
+		this.rg = rg;
+		this.cpf = cpf;
 		this.nascimento = nascimento;;
 		this.telefoneCelular = telefoneCelular;
 		
@@ -87,32 +87,32 @@ public abstract class Pessoa {
 	 * 
 	 * @return informacao armazenada rg.
 	 */
-	public String getrG() {
-		return rG;
+	public String getrg() {
+		return rg;
 	}
 
 	/**
 	 * Este metodo sera chamado quando for necessario ser armazenado o rg.
-	 * @param rG
+	 * @param rg
 	 */
-	public void setrG(String rG) {
-		this.rG = rG;
+	public void setrg(String rg) {
+		this.rg = rg;
 	}
 
 	/**
 	 * 
 	 * @return  informacao armazenada em cpf.
 	 */
-	public String getcPF() {
-		return cPF;
+	public String getcpf() {
+		return cpf;
 	}
 
 	/**
 	 * Este metodo sera chamado quando for necessario ser armazenado o cpf.
-	 * @param cPF
+	 * @param cpf
 	 */
-	public void setcPF(String cPF) {
-		this.cPF = cPF;
+	public void setcpf(String cpf) {
+		this.cpf = cpf;
 	}
 
 	/**
