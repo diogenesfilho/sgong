@@ -1,11 +1,13 @@
 package model;
 
+import excecoes.DadosException;
+
 public class Socio extends Pessoa {
 
 	private String tipoSocio,dataArrecada,profissao,dataFiliacao,email;
 	private double valorContribuicao;
 	
-	public Socio(String nome, String endereco, String cidade, String estado,String rg, String cpf, String nascimento, String telefonecelular, String tipoSocio,String dataFiliacao, String email, double valorContribuicao) {
+	public Socio(String nome, String endereco, String cidade, String estado,String rg, String cpf, String nascimento, String telefonecelular, String tipoSocio,String dataFiliacao, String email, double valorContribuicao) throws Exception{
 		super(nome, endereco, cidade, estado, rg, cpf, nascimento, telefonecelular);
 		this.tipoSocio = tipoSocio;
 		this.dataFiliacao = dataFiliacao;

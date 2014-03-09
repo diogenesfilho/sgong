@@ -186,29 +186,32 @@ public class CaPacienteGUI extends BorderPane {
 					
 			@Override
 			public void handle(ActionEvent event) {
-				Paciente paciente = new Paciente(nomeField.getText(),enderecoField.getText(),
-						cidadeField.getText(),choiceEstado.getSelectionModel().getSelectedItem(),rgField.getText(),cpfField.getText(),
-						nasciField.getText(),telefoneCelularField.getText(),observacoesField.getText());
 				
-				Banco banco = Main.getBanco();
-			
-				banco.addObjeto(paciente);
-				new TelaAvisoCadastro();
-				
-				limpaCampos();
-			
+				if(nomeField.getText().toString().equals("")){
+					new TelaErro();
+				}else{
+				Paciente paciente;
+
+					try {
+						paciente = new Paciente(nomeField.getText(),enderecoField.getText(),cidadeField.getText(),choiceEstado.getSelectionModel().getSelectedItem(),rgField.getText(),cpfField.getText(),nasciField.getText(),telefoneCelularField.getText(),observacoesField.getText());
+						
+						Banco banco = Main.getBanco();
+						banco.addObjeto(paciente);
+						new TelaAvisoCadastro();
+						limpaCampos();
+						
+					} catch (Exception e) {
+						new TelaErro();
+						e.printStackTrace();
+					}
 				}
+
+			}
 			
 			public void limpaCampos(){
-				nomeField.setText("");
-				enderecoField.setText("");
-				cidadeField.setText("");
-				rgField.setText("");
-				cpfField.setText("");
-				nasciField.setText("");
-				observacoesField.setText("");
-				telefoneCelularField.setText("");
-				choiceEstado.setValue(" ");
+				nomeField.setText("");enderecoField.setText("");cidadeField.setText("");
+				rgField.setText("");cpfField.setText("");nasciField.setText("");
+				observacoesField.setText("");telefoneCelularField.setText("");choiceEstado.setValue(" ");
 			}
 		});	
 	}
