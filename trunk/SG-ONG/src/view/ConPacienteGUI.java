@@ -27,13 +27,12 @@ import javafx.scene.text.Font;
 public class ConPacienteGUI extends BorderPane {
 	
 	public TextField procuraField;
-	private ObservableList<Paciente> listaPacientes;
+	private ObservableList<Paciente> listaPacientesTabela;
 	private TableView tabela;
 	
-	@SuppressWarnings("unchecked")
 	public ConPacienteGUI(){
 		
-		Label titulo = new Label("Relação de Paciente");
+		Label titulo = new Label("Relação de Pacientes");
 		titulo.setFont(new Font(30));
 		
 		Label procuraText = new Label("Procurar por nome:");
@@ -47,7 +46,7 @@ public class ConPacienteGUI extends BorderPane {
 		Banco banco = Main.getBanco();
 		
 		
-		listaPacientes = FXCollections.observableArrayList(
+		listaPacientesTabela = FXCollections.observableArrayList(
 	            
 				banco.listarPacientes()
 	            
@@ -99,9 +98,9 @@ public class ConPacienteGUI extends BorderPane {
 
 	   
 	        tabela = new TableView();
-	        tabela.setItems(listaPacientes);
+	        tabela.setItems(listaPacientesTabela);
 	        tabela.setMaxHeight(400);
-	        tabela.setMaxWidth(920);
+	        tabela.setMaxWidth(1000);
 	        tabela.getColumns().addAll(nomeCol, endCol, cidadeCol, estadoCol, rgCol, cpfCol, nascCol, telCol, obsCol);
 
 	        
