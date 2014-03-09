@@ -35,7 +35,7 @@ public class GrafBar extends BorderPane {
         
         //Representa todas as barras De entrada ou seja doação.
         XYChart.Series series1 = new XYChart.Series();
-        series1.setName("Entrada");
+        series1.setName("Doações");
         
         series1.getData().add(new XYChart.Data("Janeiro", 4500));
         series1.getData().add(new XYChart.Data("Fevereiro", 4600));
@@ -54,7 +54,7 @@ public class GrafBar extends BorderPane {
         
         //Representa todas as barras De saída ou seja despesa.
         XYChart.Series series2 = new XYChart.Series();
-        series2.setName("Saida");
+        series2.setName("Despesas");
         
         series2.getData().add(new XYChart.Data("Janeiro", 5200));
         series2.getData().add(new XYChart.Data("Fevereiro", 5500));
