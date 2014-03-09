@@ -198,8 +198,9 @@ public class CaPacienteGUI extends BorderPane {
 				limpaCampos();
 				
 
-				System.out.println(banco.listaObjeto(Paciente.class));   // apenas controle, apagar depois
-		
+//				System.out.println(banco.listaObjeto(Paciente.class));   // apenas controle, apagar depois
+				System.out.println(banco.listarPacientes());
+				
 				}
 			
 			public void limpaCampos(){

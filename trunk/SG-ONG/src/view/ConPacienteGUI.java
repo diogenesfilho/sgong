@@ -1,6 +1,9 @@
 package view;
 
 
+import java.util.ArrayList;
+
+import app.Main;
 import banco.Banco;
 import banco.InfoBD;
 import model.Paciente;
@@ -41,8 +44,13 @@ public class ConPacienteGUI extends BorderPane {
 		HBox hboxProcu = new HBox(20);
 		hboxProcu.getChildren().addAll(procuraText,procuraField,procurar);
 		
+		Banco banco = Main.getBanco();
+		
+		
 		listaPacientes = FXCollections.observableArrayList(
-	            new Paciente("nome", "end", "cid", "est", "rg", "cpf", "nasc", "tel", "obs")
+	            
+				banco.listarPacientes()
+	            
 	        );
 	        TableColumn nomeCol = new TableColumn();
 	        nomeCol.setText("Nome");

@@ -21,6 +21,6 @@ public class Paciente extends Pessoa {
 	
 	
 	public String toString(){
-		return getNome()+"%"+getEndereco()+"%"+getEstado()+"%"+getRg()+"%"+getCpf()+"%"+getNascimento()+"%"+getTelefone()+"%"+getObservacoes();
+		return getNome() + " " + getCpf();
 	}
 }
