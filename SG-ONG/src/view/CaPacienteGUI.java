@@ -196,11 +196,7 @@ public class CaPacienteGUI extends BorderPane {
 				new TelaAvisoCadastro();
 				
 				limpaCampos();
-				
-
-//				System.out.println(banco.listaObjeto(Paciente.class));   // apenas controle, apagar depois
-				System.out.println(banco.listarPacientes());
-				
+			
 				}
 			
 			public void limpaCampos(){
@@ -211,6 +207,7 @@ public class CaPacienteGUI extends BorderPane {
 				cpfField.setText("");
 				nasciField.setText("");
 				observacoesField.setText("");
+				telefoneCelularField.setText("");
 				choiceEstado.setValue(" ");
 			}
 		});	

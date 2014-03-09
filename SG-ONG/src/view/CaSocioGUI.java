@@ -124,9 +124,12 @@ public class CaSocioGUI extends BorderPane {
 		
 		HBox hbox3E3 = new HBox(61);
 		hbox3E3.getChildren().addAll(estadoTexto,choiceEstado);
+		
+		HBox hbox3E4 = new HBox(61);
+		hbox3E3.getChildren().addAll(telefoneCelularTexto,telefoneCelularField);
 
 		HBox hbox3 = new HBox(70);
-		hbox3.getChildren().addAll(hbox3E2,hbox3E3);
+		hbox3.getChildren().addAll(hbox3E2,hbox3E3, hbox3E4);
 		
 		//Conjunto Linha 4.
 		HBox hbox4E1 = new HBox(81);
@@ -157,8 +160,11 @@ public class CaSocioGUI extends BorderPane {
 		HBox hbox6E1 = new HBox(15);
 		hbox6E1.getChildren().addAll(tipoSocioTexto,choiceSocio);
 		
+		HBox hbox6E2 = new HBox(15);
+		hbox6E1.getChildren().addAll(valorContribuicaoTexto,valorContribuicaoField);
+		
 		HBox hbox6 = new HBox(30);
-		hbox6.getChildren().addAll(hbox6E1);
+		hbox6.getChildren().addAll(hbox6E1,hbox6E2);
 
 		
 		//Conjunto linha 7.
@@ -204,14 +210,12 @@ public class CaSocioGUI extends BorderPane {
 			
 			@Override
 			public void handle(ActionEvent event) {
-				Socio socio = new Socio(nomeField.getText(), enderecoField.getText(), cidadeField.getText(), choiceEstado.getSelectionModel().getSelectedItem(), rgField.getText(), cpfField.getText(), nasciField.getText(), telefoneCelularField.getText(), choiceSocio.getSelectionModel().getSelectedItem()+"",valorContribuicaoField.getText(), emailField.getText(), Double.parseDouble(valorContribuicaoField.getText()));
+				Socio socio = new Socio(nomeField.getText(), enderecoField.getText(), cidadeField.getText(), choiceEstado.getSelectionModel().getSelectedItem(), rgField.getText(), cpfField.getText(), nasciField.getText(), telefoneCelularField.getText(), choiceSocio.getSelectionModel().getSelectedItem()+"", dataFiliacaoField.getText(), emailField.getText(),Double.parseDouble(valorContribuicaoField.getText()));
 				Banco banco = Main.getBanco();
 				
 				banco.addObjeto(socio);
 				new TelaAvisoCadastro();
 				limpaCampos();
-
-				System.out.println(banco.listaObjeto(Socio.class));
 			}
 
 			private void limpaCampos() {
@@ -224,7 +228,7 @@ public class CaSocioGUI extends BorderPane {
 				emailField.setText("");
 				valorContribuicaoField.setText("");
 				telefoneCelularField.setText("");
-				valorContribuicaoField.setText("");
+				dataFiliacaoField.setText("");
 //				choiceEstado.setItems(null);
 				
 			}

@@ -5,6 +5,7 @@ import java.util.List;
 
 import javafx.collections.ObservableList;
 import model.Paciente;
+import model.Socio;
 
 import com.db4o.Db4oEmbedded;
 import com.db4o.ObjectContainer;
@@ -41,6 +42,19 @@ public class Banco {
 		
 	}
 
+	public ArrayList<Socio> listarSocios(){
+
+		ObjectSet listaDoBanco = db.query(Socio.class);
+		ArrayList<Socio> listaSocios = new ArrayList<>();
+		
+		for (int i = 0; i < listaDoBanco.size(); i++) {
+			listaSocios.add((Socio) listaDoBanco.get(i));
+		}
+		
+		return listaSocios;
+		
+	}
+	
 	public void close() {
 		db.close();
 	}

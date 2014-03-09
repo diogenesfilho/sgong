@@ -5,12 +5,12 @@ public class Socio extends Pessoa {
 	private String tipoSocio,dataArrecada,profissao,dataFiliacao,email;
 	private double valorContribuicao;
 	
-	public Socio(String nome, String endereco, String cidade, String estado,String rG, String cPF, String nascimento, String telefoneCelular,String tipoSocio, String dataFiliacao, String email, double valorContribuicao) {
-		super(nome, endereco, cidade, estado, rG, cPF, nascimento, telefoneCelular);
+	public Socio(String nome, String endereco, String cidade, String estado,String rg, String cpf, String nascimento, String telefonecelular, String tipoSocio,String dataFiliacao, String email, double valorContribuicao) {
+		super(nome, endereco, cidade, estado, rg, cpf, nascimento, telefonecelular);
 		this.tipoSocio = tipoSocio;
 		this.dataFiliacao = dataFiliacao;
-		this.valorContribuicao = valorContribuicao;
 		this.email = email;
+		this.valorContribuicao = valorContribuicao;
 	}
 
 
