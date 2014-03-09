@@ -210,29 +210,29 @@ public class CaSocioGUI extends BorderPane {
 			
 			@Override
 			public void handle(ActionEvent event) {
-				Socio socio = new Socio(nomeField.getText(), enderecoField.getText(), cidadeField.getText(), choiceEstado.getSelectionModel().getSelectedItem(), rgField.getText(), cpfField.getText(), nasciField.getText(), telefoneCelularField.getText(), choiceSocio.getSelectionModel().getSelectedItem()+"", dataFiliacaoField.getText(), emailField.getText(),Double.parseDouble(valorContribuicaoField.getText()));
-				Banco banco = Main.getBanco();
-				
-				banco.addObjeto(socio);
-				new TelaAvisoCadastro();
-				limpaCampos();
+				if(nomeField.getText().toString().equals("")){
+					new TelaErro();
+				}else{
+					Socio socio;
+					try {
+						socio = new Socio(nomeField.getText(), enderecoField.getText(), cidadeField.getText(), choiceEstado.getSelectionModel().getSelectedItem(), rgField.getText(), cpfField.getText(), nasciField.getText(), telefoneCelularField.getText(), choiceSocio.getSelectionModel().getSelectedItem()+"", dataFiliacaoField.getText(), emailField.getText(),Double.parseDouble(valorContribuicaoField.getText()));
+						Banco banco = Main.getBanco();
+						banco.addObjeto(socio);
+						new TelaAvisoCadastro();
+						limpaCampos();
+						
+					} catch (Exception ex) {
+						new TelaErro();
+						ex.printStackTrace();
+					}
+				}
 			}
 
 			private void limpaCampos() {
-				nomeField.setText("");
-				enderecoField.setText("");
-				cidadeField.setText("");
-				rgField.setText("");
-				cpfField.setText("");
-				nasciField.setText("");
-				emailField.setText("");
-				valorContribuicaoField.setText("");
-				telefoneCelularField.setText("");
-				dataFiliacaoField.setText("");
-//				choiceEstado.setItems(null);
-				
+				nomeField.setText("");enderecoField.setText("");cidadeField.setText("");rgField.setText("");
+				cpfField.setText("");nasciField.setText("");emailField.setText("");valorContribuicaoField.setText("");
+				telefoneCelularField.setText("");dataFiliacaoField.setText("");//choiceEstado.setItems(null);
 			}
-			
 			
 		});
 	}

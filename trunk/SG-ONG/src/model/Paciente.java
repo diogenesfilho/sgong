@@ -4,7 +4,7 @@ public class Paciente extends Pessoa {
 
 	private String observacoes;
 	
-	public Paciente(String nome, String endereco, String cidade, String estado,String rg, String cpf, String nascimento, String telefone,String observacoes) {
+	public Paciente(String nome, String endereco, String cidade, String estado,String rg, String cpf, String nascimento, String telefone,String observacoes) throws Exception {
 		super(nome,endereco,cidade,estado,rg,cpf,nascimento,telefone);
 		this.observacoes = observacoes;
 				
