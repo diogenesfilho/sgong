@@ -1,10 +1,12 @@
 package model;
 
+import excecoes.DadosException;
+
 public class Despesa {
 	private double valor;
 	private String descricao;
 	
-	public Despesa(double valor, String descricao){
+	public Despesa(double valor, String descricao) throws NumberFormatException{
 		this.valor = valor;
 		this.descricao = descricao;
 		

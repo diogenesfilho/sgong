@@ -1,5 +1,6 @@
 package view;
 
+import excecoes.DadosException;
 import banco.Banco;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -89,17 +90,29 @@ public class DespesaGUI extends BorderPane {
 			
 			@Override
 			public void handle(ActionEvent event) {
-				Despesa despesa  = new Despesa(Double.parseDouble(valorField.getText()),descField.getText());
 				
-				Banco banco = Main.getBanco();
-				
-				banco.addObjeto(despesa);
-				new TelaAux("Despesa Cadastrada Com Sucesso!");
-				limpaCampos();
-				
-
-				System.out.println(banco.listaObjeto(Despesa.class));
+				if(valorField.getText().equals("") && descField.getText().equals("")){
+					new TelaAux("Informe todos os campos!");
+				}else if(valorField.getText().equals("")){
+					new TelaAux("Insira um valor!");
+				}else if(descField.getText().equals("")){
+					new TelaAux("Adicione uma descrição!");
+				}else{
+					Despesa despesa;
+					try {
+						despesa = new Despesa(Double.parseDouble(valorField.getText()),descField.getText());
+						Banco banco = Main.getBanco();
+						banco.addObjeto(despesa);
+						new TelaAux("Despesa Cadastrada Com Sucesso!");
+						limpaCampos();
+						System.out.println(banco.listaObjeto(Despesa.class));
+						
+					} catch (NumberFormatException de) {
+						new TelaAux("Valor Inválidos!");
+						de.printStackTrace();
+					}
 				}
+			}
 
 			private void limpaCampos() {
 				valorField.setText(null);
