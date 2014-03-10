@@ -110,8 +110,9 @@ public class DoacaoGUI extends BorderPane {
 			
 			@Override
 			public void handle(ActionEvent event) {
-				
-				if(valorField.getText().equals("")){
+				if(valorField.getText().equals("") && dataField.getText().equals("") && descField.getText().equals("")){
+					new TelaAux("Informe todos os campos!");
+				}else if(valorField.getText().equals("")){
 					new TelaAux("Informe o valor.");
 				}else if(dataField.getText().equals("")){
 					new TelaAux("Informe a data.");
