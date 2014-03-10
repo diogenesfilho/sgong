@@ -28,8 +28,6 @@ public class LoginGUI extends BorderPane {
 		final PasswordField senhaField = new PasswordField();
 		
 		Button entrar = new Button("Entrar");
-		
-		final Label informacao = new Label();
 
 		HBox hbox1 = new HBox(35);
 		hbox1.getChildren().addAll(nome,nomeField);
@@ -38,7 +36,7 @@ public class LoginGUI extends BorderPane {
 		hbox2.getChildren().addAll(senha,senhaField);
 		
 		VBox vbox = new VBox(30);
-		vbox.getChildren().addAll(hbox1,hbox2,entrar,informacao);
+		vbox.getChildren().addAll(hbox1,hbox2,entrar);
 		
 		hbox1.setAlignment(Pos.CENTER);
 		hbox2.setAlignment(Pos.CENTER);

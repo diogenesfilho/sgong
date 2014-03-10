@@ -188,7 +188,7 @@ public class CaPacienteGUI extends BorderPane {
 			@Override
 			public void handle(ActionEvent event) {
 				
-				if(nomeField.getText().toString().equals("") || cpfField.getText().toString().equals("") || enderecoField.getText().toString().equals("") || rgField.getText().toString().equals("") || telefoneCelularField.getText().toString().equals("")){
+				if(nomeField.getText().equals("") || cpfField.getText().equals("") || enderecoField.getText().equals("") || rgField.getText().equals("") || telefoneCelularField.getText().equals("") || cidadeField.getText().equals("") || nasciField.getText().equals("")){
 					new TelaAux("Por Favor informe todos os dados!");
 				}else{
 					Paciente paciente;
