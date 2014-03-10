@@ -1,5 +1,14 @@
 package view;
 
+
+/**
+ * 
+ * Deverá ser passado como paramêtro a mensagem a ser passada na janela.
+ * @param String
+ * 
+ */
+
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
