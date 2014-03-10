@@ -9,6 +9,7 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
+import javafx.scene.control.ToolBar;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import view.DoacaoGUI;
@@ -69,23 +70,12 @@ public class GrafBar extends BorderPane {
         series2.getData().add(new XYChart.Data("Novembro", 5300));
         series2.getData().add(new XYChart.Data("Dezembro", 5100));
 
-        
-        // Valores Exatos
-        Button valores = new Button("Valores Exatos");
-        valores.setOnAction(new EventHandler<ActionEvent>() {
-			
-			@Override
-			public void handle(ActionEvent arg0) {
-				Main.mudarTela(new TelaValoresExatos());
-				
-			}
-		});
-        
 
         balanco.getData().addAll(series1, series2);
         
+        
         VBox vbox = new VBox();
-        vbox.getChildren().addAll(balanco,valores);
+        vbox.getChildren().addAll(balanco);
         vbox.setAlignment(Pos.CENTER);
         setCenter(vbox);
 	}

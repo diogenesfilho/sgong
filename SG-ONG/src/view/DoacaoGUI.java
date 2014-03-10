@@ -28,7 +28,7 @@ import app.Main;
 
 public class DoacaoGUI extends BorderPane {
 	
-	private TextField valorField;
+	private TextField valorField, dataField;
 	private TextArea descField;
 	
 	public DoacaoGUI(){
@@ -40,11 +40,14 @@ public class DoacaoGUI extends BorderPane {
 
 		Label valor = new Label("Valor:");
 		Label descri = new Label("Descrição:");
+		Label data = new Label("Data:");
 		
 		Label titulo = new Label("Cadastrar Doação");
 		titulo.setFont(new Font(40));
 		
-		valorField = new TextField();
+		valorField = new TextField();		
+		dataField = new TextField();		
+		
 		descField = new TextArea();
 		descField.setPrefSize(400, 100);
 		
@@ -55,6 +58,9 @@ public class DoacaoGUI extends BorderPane {
 
 		HBox hbox1 = new HBox(30);
 		hbox1.getChildren().addAll(valor, valorField);
+		
+		HBox hbox2 = new HBox(30);
+		hbox2.getChildren().addAll(data,dataField);
 			
 		HBox hbox3 = new HBox(30);
 		hbox3.getChildren().addAll(cadastrar,cancelar);
@@ -63,7 +69,7 @@ public class DoacaoGUI extends BorderPane {
 		hbox4.getChildren().addAll(descri,descField);
 				
 		VBox vbox = new VBox(30);
-		vbox.getChildren().addAll(titulo,hbox1,textoAux,hbox4,hbox3);
+		vbox.getChildren().addAll(titulo,hbox1,hbox2,textoAux,hbox4,hbox3);
 				
 		VBox vboxP = new VBox(30);
 		vboxP.getChildren().addAll(vbox,vboxtop);
@@ -97,18 +103,28 @@ public class DoacaoGUI extends BorderPane {
 			}
 		});
 		
+		
+		
 		cadastrar.setOnAction(new EventHandler<ActionEvent>() {
-
+			
+			
 			@Override
 			public void handle(ActionEvent event) {
-				Doacao doacao = new Doacao(Double.parseDouble(valorField.getText()),descField.getText());
+				
+				String texto = dataField.getText();				
+				int dia = Integer.parseInt(texto.split("/")[0]);
+				int mes = Integer.parseInt(texto.split("/")[1]);
+				int ano = Integer.parseInt(texto.split("/")[2]);
+				
+				Doacao doacao = new Doacao(Double.parseDouble(valorField.getText()),descField.getText(), ano,mes,dia);
+				
+				System.out.println(doacao.getData());
 				
 				Banco banco = Main.getBanco();
 				
 				banco.addObjeto(doacao);
 				new TelaAvisoCadastro();
 				limpaCampos();
-				
 
 				System.out.println(banco.listaObjeto(Doacao.class));
 				}
