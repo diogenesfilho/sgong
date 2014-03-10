@@ -111,32 +111,39 @@ public class DoacaoGUI extends BorderPane {
 			@Override
 			public void handle(ActionEvent event) {
 				
-				String texto = dataField.getText();				
-				int dia = Integer.parseInt(texto.split("/")[0]);
-				int mes = Integer.parseInt(texto.split("/")[1]);
-				int ano = Integer.parseInt(texto.split("/")[2]);
+				if(valorField.getText().equals("")){
+					new TelaAux("Informe o valor.");
+				}else if(dataField.getText().equals("")){
+					new TelaAux("Informe a data.");
+				}else if(descField.getText().equals("")){
+					new TelaAux("Adicione uma descrição.");
+				}else{
 				
-				Doacao doacao = new Doacao(Double.parseDouble(valorField.getText()),descField.getText(), ano,mes,dia);
-				
-				System.out.println(doacao.getData());
-				
-				Banco banco = Main.getBanco();
-				
-				banco.addObjeto(doacao);
-				new TelaAvisoCadastro();
-				limpaCampos();
-
-				System.out.println(banco.listaObjeto(Doacao.class));
+					try{
+						String texto = dataField.getText();				
+						int dia = Integer.parseInt(texto.split("/")[0]);
+						int mes = Integer.parseInt(texto.split("/")[1]);
+						int ano = Integer.parseInt(texto.split("/")[2]);
+						
+						Doacao doacao = new Doacao(Double.parseDouble(valorField.getText()),descField.getText(), ano,mes,dia);
+						
+						System.out.println(doacao.getData());
+						Banco banco = Main.getBanco();
+						banco.addObjeto(doacao);
+						new TelaAux("Cadastro Efetuado Com Sucesso!");
+						limpaCampos();
+		
+						System.out.println(banco.listaObjeto(Doacao.class));
+					}catch(NumberFormatException nfe){
+						new TelaAux("Valores informados inválidos!");
+					}
 				}
-
+			}
 			private void limpaCampos() {
 				valorField.setText(null);
 				descField.setText(null);
 				
 			}
-				
-
-			
 		});
 	}
 }
