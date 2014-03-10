@@ -3,7 +3,7 @@ package view;
 
 /**
  * 
- * Deverá ser passado como paramêtro a mensagem a ser passada na janela.
+ * Deverï¿½ ser passado como paramï¿½tro a mensagem a ser passada na janela.
  * @param String
  * 
  */
@@ -47,14 +47,14 @@ public class TelaAux extends Stage {
 		texto.setFont(new Font(15));
 		setScene(scene);
 		setOpacity(0.9);
-		initModality(Modality.APPLICATION_MODAL); //Responsável por só ser possível voltar ao sg ong se fechar a janela.
+		initModality(Modality.APPLICATION_MODAL); //Responsï¿½vel por sï¿½ ser possï¿½vel voltar ao sg ong se fechar a janela.
 		show();
 		
 		ok.setOnAction(new EventHandler<ActionEvent>() {
 			
 			@Override
 			public void handle(ActionEvent arg0) {
-				//Comando pra fechar este cabrumco.
+				//Comando pra fechar.
 			}
 		});
 		

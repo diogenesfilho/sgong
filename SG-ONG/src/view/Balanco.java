@@ -1,7 +1,5 @@
 package view;
 
-import java.awt.event.ActionEvent;
-import java.beans.EventHandler;
 
 import app.Main;
 import javafx.geometry.Pos;
@@ -14,20 +12,23 @@ import javafx.scene.layout.StackPane;
 
 public class Balanco extends BorderPane {
 	
+	private Button doacoes, despesas, grafico, infoGeral, x;
+	
 	public Balanco(){
 		
-		Button doacoes = new Button("Doações");
-	    Button despesas = new Button("Despesas");
-	    Button grafico = new Button("Gráfico");
-	    Button infoGeral = new Button("Informações Gerais");
+		doacoes = new Button("Doações");
+	    despesas = new Button("Despesas");
+	    grafico = new Button("Gráfico");
+	    infoGeral = new Button("Informações Gerais");
 	    
-	    ToolBar toolbar = new ToolBar();
-	    toolbar.getItems().add(doacoes);
-	    toolbar.getItems().add(despesas);
-	    toolbar.getItems().add(grafico);
-	    toolbar.getItems().add(infoGeral);
+	    ToolBar toolbar = new ToolBar(
+	    		doacoes, despesas, grafico, infoGeral);
 	    
-	  
+	    toolbar.setMinSize(1240, 60);
+	    
+	    x = new Button("x");
+	    
+	    
 	    
 		HBox barra = new HBox(20);
 		barra.getChildren().addAll(toolbar);

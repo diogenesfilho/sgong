@@ -47,8 +47,8 @@ public class CaPacienteGUI extends BorderPane {
 		
 		Label nomeTexto = new Label("Nome: ");
 		Label enderecoTexto = new Label("Endereço: ");
-		Label cidadeTexto = new Label("      Cidade: ");
-		Label estadoTexto = new Label("      Estado: ");
+		Label cidadeTexto = new Label("Cidade: ");
+		Label estadoTexto = new Label("Estado: ");
 		Label rgTexto = new Label("RG: ");
 		Label cpfTexto = new Label("CPF: ");
 		Label nasciTexto = new Label("Data de" +"\n"+ " nascimento: ");
@@ -63,22 +63,22 @@ public class CaPacienteGUI extends BorderPane {
 		choiceEstado.setPrefSize(200.0, 27.0);
 		
 		nomeField = new TextField();
-		nomeField.setPrefSize(540.0, 27.0);
+		nomeField.setPrefSize(560.0, 27.0);
 		
 		enderecoField = new TextField();
-		enderecoField.setPrefSize(540.0, 27.0);
+		enderecoField.setPrefSize(560.0, 27.0);
 		
 		cidadeField = new TextField();
-		cidadeField.setPrefSize(150.0, 27.0);
+		cidadeField.setPrefSize(200.0, 27.0);
 		
 		rgField = new TextField();
 		rgField.setPrefSize(200.0, 27.0);
 		
 		cpfField = new TextField();
-		cpfField.setPrefSize(150.0, 27.0);
+		cpfField.setPrefSize(200.0, 27.0);
 		
 		nasciField = new TextField();
-		nasciField.setPrefSize(150.0, 27.0);
+		nasciField.setPrefSize(200.0, 27.0);
 		
 		telefoneCelularField = new TextField();
 		telefoneCelularField.setPrefSize(200.0, 27.0);		
@@ -98,12 +98,10 @@ public class CaPacienteGUI extends BorderPane {
 		HBox hbox2E1 = new HBox(40);
 		hbox2E1.getChildren().addAll(enderecoTexto,enderecoField);
 		
-		HBox hbox2 = new HBox(55);
-		hbox2.getChildren().addAll(hbox2E1);
 		
 		//Conjunto Linha 3.
 		
-		HBox hbox3E2 = new HBox(64);
+		HBox hbox3E2 = new HBox(58);
 		hbox3E2.getChildren().addAll(cidadeTexto,cidadeField);
 		
 		HBox hbox3E3 = new HBox(39);
@@ -116,21 +114,21 @@ public class CaPacienteGUI extends BorderPane {
 		HBox hbox4E1 = new HBox(81);
 		hbox4E1.getChildren().addAll(rgTexto,rgField);
 		
-		HBox hbox4E2 = new HBox(82);
+		HBox hbox4E2 = new HBox(39);
 		hbox4E2.getChildren().addAll(cpfTexto,cpfField);
+		
+		HBox hbox4 = new HBox(97);
+		hbox4.getChildren().addAll(hbox4E1,hbox4E2);
+		
+		//Conjunto linha 5.
+		HBox hbox5E1 = new HBox(5);
+		hbox5E1.getChildren().addAll(telefoneCelularTexto,telefoneCelularField);
 		
 		HBox hbox4E3 = new HBox(5);
 		hbox4E3.getChildren().addAll(nasciTexto,nasciField);
 		
-		HBox hbox4 = new HBox(97);
-		hbox4.getChildren().addAll(hbox4E1,hbox4E2,hbox4E3);
-		
-		//Conjunto linha 5.
-		HBox hbox5E1 = new HBox(45);
-		hbox5E1.getChildren().addAll(telefoneCelularTexto,telefoneCelularField);
-		
 		HBox hbox5 = new HBox(70);
-		hbox5.getChildren().addAll(hbox5E1);
+		hbox5.getChildren().addAll(hbox5E1, hbox4E3);
 
 		//Conjunto linha 6.
 		HBox hbox6 = new HBox(10);
@@ -146,7 +144,7 @@ public class CaPacienteGUI extends BorderPane {
 		vboxTitulo.getChildren().addAll(titulo);
 		
 		VBox vboxAtributos = new VBox(20);
-		vboxAtributos.getChildren().addAll(hbox1,hbox2,hbox3,hbox4,hbox5,hbox7,hbox6);
+		vboxAtributos.getChildren().addAll(hbox1,hbox2E1,hbox3,hbox4,hbox5,hbox7,hbox6);
 		
 		VBox vbox = new VBox(40);
 		vbox.getChildren().addAll(vboxTitulo,vboxAtributos);
@@ -188,7 +186,7 @@ public class CaPacienteGUI extends BorderPane {
 			@Override
 			public void handle(ActionEvent event) {
 				
-				if(nomeField.getText().equals("") || cpfField.getText().equals("") || enderecoField.getText().equals("") || rgField.getText().equals("") || telefoneCelularField.getText().equals("") || cidadeField.getText().equals("") || nasciField.getText().equals("")){
+				if(nomeField.getText().toString().equals("") || cpfField.getText().toString().equals("") || enderecoField.getText().toString().equals("") || rgField.getText().toString().equals("") || telefoneCelularField.getText().toString().equals("")){
 					new TelaAux("Por Favor informe todos os dados!");
 				}else{
 					Paciente paciente;

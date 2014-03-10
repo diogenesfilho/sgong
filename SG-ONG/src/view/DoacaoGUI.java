@@ -28,7 +28,7 @@ import app.Main;
 
 public class DoacaoGUI extends BorderPane {
 	
-	private TextField valorField, dataField;
+	private TextField valorField, mesField;
 	private TextArea descField;
 	
 	public DoacaoGUI(){
@@ -40,13 +40,13 @@ public class DoacaoGUI extends BorderPane {
 
 		Label valor = new Label("Valor:");
 		Label descri = new Label("Descrição:");
-		Label data = new Label("Data:");
+		Label mes = new Label("Mês:");
 		
 		Label titulo = new Label("Cadastrar Doação");
 		titulo.setFont(new Font(40));
 		
 		valorField = new TextField();		
-		dataField = new TextField();		
+		mesField = new TextField();		
 		
 		descField = new TextArea();
 		descField.setPrefSize(400, 100);
@@ -60,7 +60,7 @@ public class DoacaoGUI extends BorderPane {
 		hbox1.getChildren().addAll(valor, valorField);
 		
 		HBox hbox2 = new HBox(30);
-		hbox2.getChildren().addAll(data,dataField);
+		hbox2.getChildren().addAll(mes,mesField);
 			
 		HBox hbox3 = new HBox(30);
 		hbox3.getChildren().addAll(cadastrar,cancelar);
@@ -110,25 +110,20 @@ public class DoacaoGUI extends BorderPane {
 			
 			@Override
 			public void handle(ActionEvent event) {
-				if(valorField.getText().equals("") && dataField.getText().equals("") && descField.getText().equals("")){
+				if(valorField.getText().equals("") && mesField.getText().equals("") && descField.getText().equals("")){
 					new TelaAux("Informe todos os campos!");
 				}else if(valorField.getText().equals("")){
 					new TelaAux("Informe o valor.");
-				}else if(dataField.getText().equals("")){
+				}else if(mesField.getText().equals("")){
 					new TelaAux("Informe a data.");
 				}else if(descField.getText().equals("")){
-					new TelaAux("Adicione uma descri��o.");
+					new TelaAux("Adicione uma descri��o.");
 				}else{
 				
 					try{
-						String texto = dataField.getText();				
-						int dia = Integer.parseInt(texto.split("/")[0]);
-						int mes = Integer.parseInt(texto.split("/")[1]);
-						int ano = Integer.parseInt(texto.split("/")[2]);
 						
-						Doacao doacao = new Doacao(Double.parseDouble(valorField.getText()),descField.getText(), ano,mes,dia);
+						Doacao doacao = new Doacao(Double.parseDouble(valorField.getText()),descField.getText(), Integer.parseInt(mesField.getText()));
 						
-						System.out.println(doacao.getData());
 						Banco banco = Main.getBanco();
 						banco.addObjeto(doacao);
 						new TelaAux("Cadastro Efetuado Com Sucesso!");
@@ -136,7 +131,7 @@ public class DoacaoGUI extends BorderPane {
 		
 						System.out.println(banco.listaObjeto(Doacao.class));
 					}catch(NumberFormatException nfe){
-						new TelaAux("Valores informados inv�lidos!");
+						new TelaAux("Valores informados inválidos!");
 					}
 				}
 			}
