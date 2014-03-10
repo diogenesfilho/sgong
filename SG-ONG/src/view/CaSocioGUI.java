@@ -211,7 +211,7 @@ public class CaSocioGUI extends BorderPane {
 			
 			@Override
 			public void handle(ActionEvent event) {
-				if(nomeField.getText().equals("") || cpfField.getText().equals("") || enderecoField.getText().equals("") || rgField.getText().equals("") || telefoneCelularField.getText().equals("")){
+				if(nomeField.getText().equals("") || cpfField.getText().equals("") || enderecoField.getText().equals("") || rgField.getText().equals("") || telefoneCelularField.getText().equals("") || nasciField.getText().equals("") || cidadeField.getText().equals("") || dataFiliacaoField.getText().equals("") || valorContribuicaoField.getText().equals("")){
 					new TelaAux("Por Favor informe todos os dados!");
 				}else{
 					Socio socio;
