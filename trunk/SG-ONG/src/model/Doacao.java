@@ -8,13 +8,13 @@ public class Doacao {
 	
 	private double valor;
 	private String descricao;
-	private Date data;
+	private int mes;
 	
-	public Doacao(double valor, String descricao, int ano, int mes, int dia) throws NumberFormatException{
+	public Doacao(double valor, String descricao, int mes) throws NumberFormatException{
 		
 		this.valor = valor;
 		this.descricao = descricao;
-		this.data = new Date(ano, mes, dia);
+		this.mes = mes;
 	}
 
 	public double getValor() {
@@ -32,15 +32,13 @@ public class Doacao {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	
-	
-	
-	public Date getData() {
-		return data;
+
+	public int getMes() {
+		return mes;
 	}
 
-	public void setData(Date data) {
-		this.data = data;
+	public void setMes(int mes) {
+		this.mes = mes;
 	}
 
 	public String toString(){

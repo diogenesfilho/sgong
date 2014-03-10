@@ -81,16 +81,16 @@ public class CaSocioGUI extends BorderPane {
 		enderecoField.setPrefSize(540.0, 27.0);
 		
 		cidadeField = new TextField();
-		cidadeField.setPrefSize(170.0, 27.0);
+		cidadeField.setPrefSize(200.0, 27.0);
 		
 		rgField = new TextField();
 		rgField.setPrefSize(200.0, 27.0);
 		
 		cpfField = new TextField();
-		cpfField.setPrefSize(170.0, 27.0);
+		cpfField.setPrefSize(200.0, 27.0);
 		
 		nasciField = new TextField();
-		nasciField.setPrefSize(170.0, 27.0);
+		nasciField.setPrefSize(200.0, 27.0);
 
 		telefoneCelularField = new TextField();
 		telefoneCelularField.setPrefSize(200.0, 27.0);
@@ -99,10 +99,10 @@ public class CaSocioGUI extends BorderPane {
 		dataFiliacaoField.setPrefSize(200.0, 27.0);
 		
 		emailField = new TextField();
-		emailField.setPrefSize(170.0, 27.0);
+		emailField.setPrefSize(200.0, 27.0);
 		
 		valorContribuicaoField = new TextField();
-		valorContribuicaoField.setPrefSize(170.0, 27.0);
+		valorContribuicaoField.setPrefSize(200.0, 27.0);
 		
 		Button cadastrar = new Button("Cadastrar");
 		Button cancelar = new Button("Cancelar");
@@ -115,57 +115,59 @@ public class CaSocioGUI extends BorderPane {
 		HBox hbox2E1 = new HBox(40);
 		hbox2E1.getChildren().addAll(enderecoTexto,enderecoField);
 		
+		HBox hbox5E3 = new HBox(70);
+		hbox5E3.getChildren().addAll(emailTexto,emailField);
+		
 		HBox hbox2 = new HBox(55);
-		hbox2.getChildren().addAll(hbox2E1);
+		hbox2.getChildren().addAll(hbox2E1, hbox5E3);
 		
 		//Conjunto Linha 3.		
 		
-		HBox hbox3E2 = new HBox(45);
+		HBox hbox3E2 = new HBox(60);
 		hbox3E2.getChildren().addAll(cidadeTexto,cidadeField);
 		
 		HBox hbox3E3 = new HBox(61);
 		hbox3E3.getChildren().addAll(estadoTexto,choiceEstado);
 		
-		HBox hbox3E4 = new HBox(61);
+		HBox hbox3E4 = new HBox();
 		hbox3E3.getChildren().addAll(telefoneCelularTexto,telefoneCelularField);
 
-		HBox hbox3 = new HBox(70);
+		HBox hbox3 = new HBox(10);
 		hbox3.getChildren().addAll(hbox3E2,hbox3E3, hbox3E4);
 		
 		//Conjunto Linha 4.
 		HBox hbox4E1 = new HBox(81);
 		hbox4E1.getChildren().addAll(rgTexto,rgField);
 		
-		HBox hbox4E2 = new HBox(38);
+		HBox hbox4E2 = new HBox(78);
 		hbox4E2.getChildren().addAll(cpfTexto,cpfField);
 		
-		HBox hbox4E3 = new HBox(5);
+		HBox hbox4E3 = new HBox(55);
 		hbox4E3.getChildren().addAll(nasciTexto,nasciField);
 		
-		HBox hbox4 = new HBox(97);
+		HBox hbox4 = new HBox(30);
 		hbox4.getChildren().addAll(hbox4E1,hbox4E2,hbox4E3);
 		
 		
 		//Conjunto linha 5.
 		
-		HBox hbox5E2 = new HBox(60);
+		HBox hbox5E2 = new HBox(1);
 		hbox5E2.getChildren().addAll(dataFiliacaoTexto,dataFiliacaoField);
 		
-		HBox hbox5E3 = new HBox(60);
-		hbox5E3.getChildren().addAll(emailTexto,emailField);
-		
-		HBox hbox5 = new HBox(82);
-		hbox5.getChildren().addAll(hbox5E2,hbox5E3);
-		
-		//Conjunto linha 6.
-		HBox hbox6E1 = new HBox(15);
+		HBox hbox6E1 = new HBox(35);
 		hbox6E1.getChildren().addAll(tipoSocioTexto,choiceSocio);
 		
-		HBox hbox6E2 = new HBox(15);
-		hbox6E1.getChildren().addAll(valorContribuicaoTexto,valorContribuicaoField);
+		HBox hbox5 = new HBox(1);
+		hbox5.getChildren().addAll(hbox5E2, hbox6E1);
 		
-		HBox hbox6 = new HBox(30);
-		hbox6.getChildren().addAll(hbox6E1,hbox6E2);
+
+		
+		//Conjunto linha 6.
+		//HBox hbox6E2 = new HBox(15);
+		//hbox6E1.getChildren().addAll(valorContribuicaoTexto,valorContribuicaoField);
+		
+		//HBox hbox6 = new HBox(30);
+		//hbox6.getChildren().addAll(hbox6E2);
 
 		
 		//Conjunto linha 7.
@@ -176,7 +178,7 @@ public class CaSocioGUI extends BorderPane {
 		vboxTitulo.getChildren().addAll(titulo);
 		
 		VBox vbox = new VBox(15);
-		vbox.getChildren().addAll(vboxTitulo,hbox1,hbox2,hbox3,hbox4,hbox5,hbox6,hbox7);
+		vbox.getChildren().addAll(vboxTitulo,hbox1,hbox2,hbox3,hbox4,hbox5,hbox7);
 		
 		//Sets Alinhamento
 		vboxTitulo.setAlignment(Pos.CENTER);
@@ -211,7 +213,7 @@ public class CaSocioGUI extends BorderPane {
 			
 			@Override
 			public void handle(ActionEvent event) {
-				if(nomeField.getText().equals("") || cpfField.getText().equals("") || enderecoField.getText().equals("") || rgField.getText().equals("") || telefoneCelularField.getText().equals("") || nasciField.getText().equals("") || cidadeField.getText().equals("") || dataFiliacaoField.getText().equals("") || valorContribuicaoField.getText().equals("")){
+				if(nomeField.getText().equals("") || cpfField.getText().equals("") || enderecoField.getText().equals("") || rgField.getText().equals("") || telefoneCelularField.getText().equals("")){
 					new TelaAux("Por Favor informe todos os dados!");
 				}else{
 					Socio socio;
@@ -219,15 +221,15 @@ public class CaSocioGUI extends BorderPane {
 						socio = new Socio(nomeField.getText(), enderecoField.getText(), cidadeField.getText(), choiceEstado.getSelectionModel().getSelectedItem(), rgField.getText(), cpfField.getText(), nasciField.getText(), telefoneCelularField.getText(), choiceSocio.getSelectionModel().getSelectedItem()+"", dataFiliacaoField.getText(), emailField.getText(),Double.parseDouble(valorContribuicaoField.getText()));
 						Banco banco = Main.getBanco();
 						banco.addObjeto(socio);
-						new TelaAux("Sócio Cadastrado Com Sucesso!");
+						new TelaAux("Sï¿½cio Cadastrado Com Sucesso!");
 						limpaCampos();
 						
 					} catch (NumberFormatException nfex) {
-						new TelaAux("Valor Arrecadação Inválido!");//new TelaErro(ex.getMessage().toString());
+						new TelaAux("Valor Arrecadaï¿½ï¿½o Invï¿½lido!");//new TelaErro(ex.getMessage().toString());
 						nfex.printStackTrace();
 						
 					} catch (Exception ex) {
-						new TelaAux("Dados Informados inválidos");//new TelaErro(ex.getMessage().toString());
+						new TelaAux("Dados Informados invï¿½lidos");//new TelaErro(ex.getMessage().toString());
 						ex.printStackTrace();
 					}
 				}
