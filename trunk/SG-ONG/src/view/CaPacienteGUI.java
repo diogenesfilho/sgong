@@ -1,6 +1,7 @@
 package view;
 
 
+import excecoes.DadosException;
 import banco.Banco;
 import banco.InfoBD;
 import model.Paciente;
@@ -188,22 +189,15 @@ public class CaPacienteGUI extends BorderPane {
 			public void handle(ActionEvent event) {
 				
 				if(nomeField.getText().toString().equals("") || cpfField.getText().toString().equals("") || enderecoField.getText().toString().equals("") || rgField.getText().toString().equals("") || telefoneCelularField.getText().toString().equals("")){
-					new TelaErro();
+					new TelaAux("Por Favor informe todos os dados!");
 				}else{
-				Paciente paciente;
-
-					try {
-						paciente = new Paciente(nomeField.getText(),enderecoField.getText(),cidadeField.getText(),choiceEstado.getSelectionModel().getSelectedItem(),rgField.getText(),cpfField.getText(),nasciField.getText(),telefoneCelularField.getText(),observacoesField.getText());
-						
-						Banco banco = Main.getBanco();
-						banco.addObjeto(paciente);
-						new TelaAvisoCadastro();
-						limpaCampos();
-						
-					} catch (Exception e) {
-						new TelaErro();
-						e.printStackTrace();
-					}
+					Paciente paciente;
+					paciente = new Paciente(nomeField.getText(),enderecoField.getText(),cidadeField.getText(),choiceEstado.getSelectionModel().getSelectedItem(),rgField.getText(),cpfField.getText(),nasciField.getText(),telefoneCelularField.getText(),observacoesField.getText());
+							
+					Banco banco = Main.getBanco();
+					banco.addObjeto(paciente);
+					new TelaAux("Paciente Cadastrado Com Sucesso!");
+					limpaCampos();
 				}
 
 			}

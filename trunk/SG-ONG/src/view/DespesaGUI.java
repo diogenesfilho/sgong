@@ -94,7 +94,7 @@ public class DespesaGUI extends BorderPane {
 				Banco banco = Main.getBanco();
 				
 				banco.addObjeto(despesa);
-				new TelaAvisoCadastro();
+				new TelaAux("Despesa Cadastrada Com Sucesso!");
 				limpaCampos();
 				
 

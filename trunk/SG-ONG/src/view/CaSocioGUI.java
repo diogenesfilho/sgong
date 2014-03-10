@@ -9,6 +9,7 @@ import com.db4o.Db4oEmbedded;
 import com.db4o.ObjectContainer;
 import com.db4o.ObjectSet;
 
+import excecoes.DadosException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -210,19 +211,23 @@ public class CaSocioGUI extends BorderPane {
 			
 			@Override
 			public void handle(ActionEvent event) {
-				if(nomeField.getText().toString().equals("") || cpfField.getText().toString().equals("") || enderecoField.getText().toString().equals("") || rgField.getText().toString().equals("") || telefoneCelularField.getText().toString().equals("")){
-					new TelaErro();
+				if(nomeField.getText().equals("") || cpfField.getText().equals("") || enderecoField.getText().equals("") || rgField.getText().equals("") || telefoneCelularField.getText().equals("")){
+					new TelaAux("Por Favor informe todos os dados!");
 				}else{
 					Socio socio;
 					try {
 						socio = new Socio(nomeField.getText(), enderecoField.getText(), cidadeField.getText(), choiceEstado.getSelectionModel().getSelectedItem(), rgField.getText(), cpfField.getText(), nasciField.getText(), telefoneCelularField.getText(), choiceSocio.getSelectionModel().getSelectedItem()+"", dataFiliacaoField.getText(), emailField.getText(),Double.parseDouble(valorContribuicaoField.getText()));
 						Banco banco = Main.getBanco();
 						banco.addObjeto(socio);
-						new TelaAvisoCadastro();
+						new TelaAux("Sócio Cadastrado Com Sucesso!");
 						limpaCampos();
 						
+					} catch (NumberFormatException nfex) {
+						new TelaAux("Valor Arrecadação Inválido!");//new TelaErro(ex.getMessage().toString());
+						nfex.printStackTrace();
+						
 					} catch (Exception ex) {
-						new TelaErro();
+						new TelaAux("Dados Informados inválidos");//new TelaErro(ex.getMessage().toString());
 						ex.printStackTrace();
 					}
 				}

@@ -60,10 +60,10 @@ public class LoginGUI extends BorderPane {
 				if (nomeField.getText().equals("adm") &&  (senhaField.getText().equals("adm"))){
 					Main.mudarTela(new TelaPrincipal());
 				}else if(nomeField.getText().equals("") || senhaField.getText().equals("")){
-					informacao.setText("Digite usu√°rio e senha!");
+					new TelaAux("Por Favor entre com login e senha");
 				}
 				else {
-					informacao.setText("Usu√°rio e/ou senha inv√°lido(s)!");
+					new TelaAux("Usu·rio n„o permitido!");
 				}
 			}
 		});

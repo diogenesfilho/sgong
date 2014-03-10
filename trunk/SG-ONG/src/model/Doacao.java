@@ -10,7 +10,7 @@ public class Doacao {
 	private String descricao;
 	private Date data;
 	
-	public Doacao(double valor, String descricao, int ano, int mes, int dia){
+	public Doacao(double valor, String descricao, int ano, int mes, int dia) throws NumberFormatException{
 		
 		this.valor = valor;
 		this.descricao = descricao;
