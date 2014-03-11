@@ -64,7 +64,7 @@ public class ConDoacaoGUI extends BorderPane {
 	        
 	        TableColumn descCol = new TableColumn();
 	        descCol.setText("Descrição");
-	        descCol.setMinWidth(100);
+	        descCol.setMinWidth(300);
 	        descCol.setCellValueFactory(new PropertyValueFactory("descricao"));
 	        
 	        
@@ -72,7 +72,7 @@ public class ConDoacaoGUI extends BorderPane {
 	        tabela = new TableView();
 	        tabela.setItems(listaDoacoesTabela);
 	        tabela.setMaxHeight(400);
-	        tabela.setMaxWidth(1000);
+	        tabela.setMaxWidth(502);
 	        tabela.getColumns().addAll(valorCol, mesCol, descCol);
 
 	        

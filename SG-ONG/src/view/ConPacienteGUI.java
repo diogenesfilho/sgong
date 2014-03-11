@@ -83,7 +83,7 @@ public class ConPacienteGUI extends BorderPane {
 	        
 	        TableColumn nascCol = new TableColumn();
 	        nascCol.setText("Data de Nascimento");
-	        nascCol.setMinWidth(100);
+	        nascCol.setMinWidth(150);
 	        nascCol.setCellValueFactory(new PropertyValueFactory("nascimento"));
 	        
 	        TableColumn telCol = new TableColumn();
