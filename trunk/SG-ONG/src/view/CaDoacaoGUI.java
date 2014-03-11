@@ -120,26 +120,38 @@ public class CaDoacaoGUI extends BorderPane {
 					new TelaAux("Informe o mÃªs.");
 				}else if(descField.getText().equals("")){
 					new TelaAux("Adicione uma descriÃ§Ã£o.");
-				}else{
+				}
 				
 					try{
 						
-						Doacao doacao = new Doacao(Double.parseDouble(valorField.getText()),descField.getText(), Integer.parseInt(mesField.getText()));
+						if(Integer.parseInt(mesField.getText()) > 12 ||Integer.parseInt(mesField.getText()) < 0){
+							new TelaAux("Mês Inválido!");
+						}else{
 						
-						Banco banco = Main.getBanco();
-						banco.addObjeto(doacao);
-						new TelaAux("Cadastro Efetuado Com Sucesso!");
-						limpaCampos();
+							Doacao doacao = new Doacao(Double.parseDouble(valorField.getText()),descField.getText(), Integer.parseInt(mesField.getText()));
+							
+							Banco banco = Main.getBanco();
+							banco.addObjeto(doacao);
+							new TelaAux("Cadastro Efetuado Com Sucesso!");
+							limpaCampos();
+						}
 		
 					}catch(NumberFormatException nfe){
 						new TelaAux("Valores informados invÃ¡lidos!");
 					}
-				}
 			}
+			
 			private void limpaCampos() {
 				valorField.setText(null);
 				descField.setText(null);
 				mesField.setText(null);
+				
+			}
+			
+			public void confirMes(int mes){
+				if(mes > 12 || mes < 0){
+					new TelaAux("Mês Inválido!");
+				}
 				
 			}
 		});
