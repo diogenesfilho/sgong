@@ -121,7 +121,7 @@ public class CaDespesaGUI extends BorderPane {
 				
 					try{
 						
-						Despesa despesa = new Despesa(Double.parseDouble(valorField.getText()),descField.getText(), mesField.getText());
+						Despesa despesa = new Despesa(Double.parseDouble(valorField.getText()),descField.getText(), Integer.parseInt(mesField.getText()));
 						
 						Banco banco = Main.getBanco();
 						banco.addObjeto(despesa);

@@ -1,5 +1,6 @@
 package charts;
 
+import banco.InfoBD;
 import app.Main;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -17,7 +18,15 @@ import view.MeuMenu;
 import view.TelaValoresExatos;
 
 public class GrafBar extends BorderPane {
+	
+	private InfoBD info;
+	
+	
 	public GrafBar(){
+		
+		info = new InfoBD();
+		info.compoeDoacoes();
+		info.compoeDespesas();
 		
 		VBox vboxTop = new VBox();
 		MeuMenu menu = new MeuMenu();
@@ -38,18 +47,18 @@ public class GrafBar extends BorderPane {
         XYChart.Series series1 = new XYChart.Series();
         series1.setName("Doações");
         
-        series1.getData().add(new XYChart.Data("Janeiro", 4500));
-        series1.getData().add(new XYChart.Data("Fevereiro", 4600));
-        series1.getData().add(new XYChart.Data("Março", 4300));
-        series1.getData().add(new XYChart.Data("Abril", 4150));
-        series1.getData().add(new XYChart.Data("Maio", 3800));  
-        series1.getData().add(new XYChart.Data("Junho", 4500));
-        series1.getData().add(new XYChart.Data("Julho", 4600));
-        series1.getData().add(new XYChart.Data("Agosto", 4300));
-        series1.getData().add(new XYChart.Data("Setembro", 4150));
-        series1.getData().add(new XYChart.Data("Outubro", 3800));
-        series1.getData().add(new XYChart.Data("Novembro", 4500));
-        series1.getData().add(new XYChart.Data("Dezembro", 4600));
+        series1.getData().add(new XYChart.Data("Janeiro", info.getDoacoesJan()));
+        series1.getData().add(new XYChart.Data("Fevereiro", info.getDoacoesFev()));
+        series1.getData().add(new XYChart.Data("Março", info.getDoacoesMar()));
+        series1.getData().add(new XYChart.Data("Abril", info.getDoacoesAbr()));
+        series1.getData().add(new XYChart.Data("Maio", info.getDoacoesMai()));  
+        series1.getData().add(new XYChart.Data("Junho", info.getDoacoesJun()));
+        series1.getData().add(new XYChart.Data("Julho", info.getDoacoesJul()));
+        series1.getData().add(new XYChart.Data("Agosto", info.getDoacoesAgo()));
+        series1.getData().add(new XYChart.Data("Setembro", info.getDoacoesSet()));
+        series1.getData().add(new XYChart.Data("Outubro", info.getDoacoesOut()));
+        series1.getData().add(new XYChart.Data("Novembro", info.getDoacoesNov()));
+        series1.getData().add(new XYChart.Data("Dezembro", info.getDoacoesDez()));
 
         
         
@@ -57,18 +66,18 @@ public class GrafBar extends BorderPane {
         XYChart.Series series2 = new XYChart.Series();
         series2.setName("Despesas");
         
-        series2.getData().add(new XYChart.Data("Janeiro", 5200));
-        series2.getData().add(new XYChart.Data("Fevereiro", 5500));
-        series2.getData().add(new XYChart.Data("Março", 4800));
-        series2.getData().add(new XYChart.Data("Abril", 4500));
-        series2.getData().add(new XYChart.Data("Maio", 4802)); 
-        series2.getData().add(new XYChart.Data("Junho", 5200));
-        series2.getData().add(new XYChart.Data("Julho", 5500));
-        series2.getData().add(new XYChart.Data("Agosto", 4800));
-        series2.getData().add(new XYChart.Data("Setembro", 4500));
-        series2.getData().add(new XYChart.Data("Outubro", 4802)); 
-        series2.getData().add(new XYChart.Data("Novembro", 5300));
-        series2.getData().add(new XYChart.Data("Dezembro", 5100));
+        series2.getData().add(new XYChart.Data("Janeiro", info.getDespesasJan()));
+        series2.getData().add(new XYChart.Data("Fevereiro", info.getDespesasFev()));
+        series2.getData().add(new XYChart.Data("Março", info.getDespesasMar()));
+        series2.getData().add(new XYChart.Data("Abril", info.getDespesasAbr()));
+        series2.getData().add(new XYChart.Data("Maio", info.getDespesasMai())); 
+        series2.getData().add(new XYChart.Data("Junho", info.getDespesasJun()));
+        series2.getData().add(new XYChart.Data("Julho", info.getDespesasJul()));
+        series2.getData().add(new XYChart.Data("Agosto", info.getDespesasAgo()));
+        series2.getData().add(new XYChart.Data("Setembro", info.getDespesasSet()));
+        series2.getData().add(new XYChart.Data("Outubro", info.getDespesasOut())); 
+        series2.getData().add(new XYChart.Data("Novembro", info.getDespesasNov()));
+        series2.getData().add(new XYChart.Data("Dezembro", info.getDespesasDez()));
 
 
         balanco.getData().addAll(series1, series2);

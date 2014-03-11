@@ -83,7 +83,7 @@ public class ConSocioGUI extends BorderPane {
 	        
 	        TableColumn nascCol = new TableColumn();
 	        nascCol.setText("Data de Nascimento");
-	        nascCol.setMinWidth(100);
+	        nascCol.setMinWidth(150);
 	        nascCol.setCellValueFactory(new PropertyValueFactory("nascimento"));
 	        
 	        TableColumn telCol = new TableColumn();
@@ -108,14 +108,14 @@ public class ConSocioGUI extends BorderPane {
 	        
 	        TableColumn valorCol = new TableColumn();
 	        valorCol.setText("Valor de contribuição");
-	        valorCol.setMinWidth(120);
+	        valorCol.setMinWidth(170);
 	        valorCol.setCellValueFactory(new PropertyValueFactory("valorContribuicao"));
 
 	   
 	        tabela = new TableView();
 	        tabela.setItems(listaSociosTabela);
 	        tabela.setMaxHeight(400);
-	        tabela.setMaxWidth(1000);
+	        tabela.setMaxWidth(1050);
 	        tabela.getColumns().addAll(nomeCol, endCol, cidadeCol, estadoCol, rgCol, cpfCol, nascCol, telCol, tipoCol,dataCol, emailCol, valorCol);
 
 	        
