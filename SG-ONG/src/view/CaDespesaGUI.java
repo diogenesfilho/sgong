@@ -109,6 +109,7 @@ public class CaDespesaGUI extends BorderPane {
 			
 			@Override
 			public void handle(ActionEvent event) {
+								
 				if(valorField.getText().equals("") && mesField.getText().equals("") && descField.getText().equals("")){
 					new TelaAux("Informe todos os campos!");
 				}else if(valorField.getText().equals("")){
@@ -117,22 +118,26 @@ public class CaDespesaGUI extends BorderPane {
 					new TelaAux("Informe o mês.");
 				}else if(descField.getText().equals("")){
 					new TelaAux("Adicione uma descrição.");
-				}else{
+				}
 				
 					try{
 						
-						Despesa despesa = new Despesa(Double.parseDouble(valorField.getText()),descField.getText(), Integer.parseInt(mesField.getText()));
-						
-						Banco banco = Main.getBanco();
-						banco.addObjeto(despesa);
-						new TelaAux("Cadastro Efetuado Com Sucesso!");
-						limpaCampos();
-		
+						if(Integer.parseInt(mesField.getText()) > 12 ||Integer.parseInt(mesField.getText()) < 0){
+							new TelaAux("M�s Inv�lido!");
+						}else{
+							Despesa despesa = new Despesa(Double.parseDouble(valorField.getText()),descField.getText(), Integer.parseInt(mesField.getText()));
+							
+							Banco banco = Main.getBanco();
+							banco.addObjeto(despesa);
+							new TelaAux("Cadastro Efetuado Com Sucesso!");
+							limpaCampos();
+						}
+							
 					}catch(NumberFormatException nfe){
 						new TelaAux("Valores informados inválidos!");
 					}
-				}
 			}
+			
 			private void limpaCampos() {
 				valorField.setText(null);
 				descField.setText(null);
