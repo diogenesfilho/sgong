@@ -83,6 +83,8 @@ public class Banco {
 		
 	}
 	
+
+	
 	public void close() {
 		db.close();
 	}

@@ -22,27 +22,25 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
+import model.Despesa;
 import model.Doacao;
 import app.Main;
 
 
-public class DoacaoGUI extends BorderPane {
+public class CaDespesaGUI extends BorderPane {
 	
 	private TextField valorField, mesField;
 	private TextArea descField;
 	
-	public DoacaoGUI(){
+	public CaDespesaGUI(){
 	
 		//Criando os objetos
-		
-		Label textoAux = new Label("Caso a doação seja em ITENS, informe 0 e uma descrição.");
-		textoAux.setFont(new Font(15));
 
 		Label valor = new Label("Valor:");
 		Label descri = new Label("Descrição:");
 		Label mes = new Label("Mês:");
 		
-		Label titulo = new Label("Cadastrar Doação");
+		Label titulo = new Label("Cadastrar Despesa");
 		titulo.setFont(new Font(40));
 		
 		valorField = new TextField();		
@@ -58,23 +56,22 @@ public class DoacaoGUI extends BorderPane {
 
 		HBox hbox1 = new HBox(30);
 		hbox1.getChildren().addAll(valor, valorField);
-		
-		HBox hbox2 = new HBox(30);
-		hbox2.getChildren().addAll(mes,mesField);
 			
-		HBox hbox3 = new HBox(30);
-		hbox3.getChildren().addAll(cadastrar,cancelar);
+		HBox hbox2 = new HBox(30);
+		hbox2.getChildren().addAll(mes, mesField);
 				
+		HBox hbox3 = new HBox(30);
+		hbox3.getChildren().addAll(descri,descField);
+		
 		HBox hbox4 = new HBox(30);
-		hbox4.getChildren().addAll(descri,descField);
+		hbox4.getChildren().addAll(cadastrar,cancelar);
 				
 		VBox vbox = new VBox(30);
-		vbox.getChildren().addAll(titulo,textoAux,hbox1,hbox2,hbox4,hbox3);
+		vbox.getChildren().addAll(titulo,hbox1,hbox2,hbox3,hbox4);
 				
 		VBox vboxP = new VBox(30);
 		vboxP.getChildren().addAll(vbox,vboxtop);
 				
-		textoAux.setAlignment(Pos.CENTER);
 		hbox1.setAlignment(Pos.CENTER);
 		hbox2.setAlignment(Pos.CENTER);
 		hbox3.setAlignment(Pos.CENTER);
@@ -124,14 +121,13 @@ public class DoacaoGUI extends BorderPane {
 				
 					try{
 						
-						Doacao doacao = new Doacao(Double.parseDouble(valorField.getText()),descField.getText(), Integer.parseInt(mesField.getText()));
+						Despesa despesa = new Despesa(Double.parseDouble(valorField.getText()),descField.getText(), mesField.getText());
 						
 						Banco banco = Main.getBanco();
-						banco.addObjeto(doacao);
+						banco.addObjeto(despesa);
 						new TelaAux("Cadastro Efetuado Com Sucesso!");
 						limpaCampos();
 		
-						System.out.println(banco.listaObjeto(Doacao.class));
 					}catch(NumberFormatException nfe){
 						new TelaAux("Valores informados inválidos!");
 					}
