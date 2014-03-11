@@ -12,6 +12,7 @@ package app;
  * @version 1.5
  * 
  */
+import model.Doacao;
 import banco.Banco;
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -39,6 +40,7 @@ public class Main extends Application {
  
 	@Override
 	public void start(Stage primaryStage) throws Exception {
+	
 		
 		if(bd == null){
 			bd = new Banco();	

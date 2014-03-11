@@ -12,7 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ToolBar;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-import view.DoacaoGUI;
+import view.CaDoacaoGUI;
 import view.MeuMenu;
 import view.TelaValoresExatos;
 

@@ -52,7 +52,7 @@ public class MeuMenu extends MenuBar {
 			
 			@Override
 			public void handle(ActionEvent arg0) {
-				Main.mudarTela(new DoacaoGUI());
+				Main.mudarTela(new CaDoacaoGUI());
 				
 			}
 		}); 
@@ -79,7 +79,7 @@ public class MeuMenu extends MenuBar {
 			
 			@Override
 			public void handle(ActionEvent arg0) {
-				Main.mudarTela(new DespesaGUI());
+				Main.mudarTela(new CaDespesaGUI());
 				
 			}
 		});
