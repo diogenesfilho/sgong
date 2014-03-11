@@ -1,6 +1,5 @@
 package model;
 
-import excecoes.DadosException;
 
 public class Paciente extends Pessoa {
 

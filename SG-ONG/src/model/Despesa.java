@@ -1,14 +1,14 @@
 package model;
 
-import excecoes.DadosException;
-
 public class Despesa {
 	private double valor;
 	private String descricao;
+	private String mes;
 	
-	public Despesa(double valor, String descricao) throws NumberFormatException{
+	public Despesa(double valor, String descricao, String mes) throws NumberFormatException{
 		this.valor = valor;
 		this.descricao = descricao;
+		this.mes = mes;
 		
 	}
 	
@@ -25,6 +25,14 @@ public class Despesa {
 		this.descricao = descricao;
 	}
 	
+	public String getMes() {
+		return mes;
+	}
+
+	public void setMes(String mes) {
+		this.mes = mes;
+	}
+
 	public String toString(){
 		return "Valor: " + valor + " Descrição: " + descricao;
 	}

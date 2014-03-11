@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javafx.collections.ObservableList;
+import model.Despesa;
+import model.Doacao;
 import model.Paciente;
 import model.Socio;
 
@@ -52,6 +54,32 @@ public class Banco {
 		}
 		
 		return listaSocios;
+		
+	}
+	
+	public ArrayList<Doacao> listarDoacoes(){
+
+		ObjectSet listaDoBanco = db.query(Doacao.class);
+		ArrayList<Doacao> listaDoacoes = new ArrayList<>();
+		
+		for (int i = 0; i < listaDoBanco.size(); i++) {
+			listaDoacoes.add((Doacao) listaDoBanco.get(i));
+		}
+		
+		return listaDoacoes;
+		
+	}
+	
+	public ArrayList<Despesa> listarDespesas(){
+
+		ObjectSet listaDoBanco = db.query(Despesa.class);
+		ArrayList<Despesa> listaDespesas = new ArrayList<>();
+		
+		for (int i = 0; i < listaDoBanco.size(); i++) {
+			listaDespesas.add((Despesa) listaDoBanco.get(i));
+		}
+		
+		return listaDespesas;
 		
 	}
 	

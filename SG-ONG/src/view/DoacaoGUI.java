@@ -69,12 +69,14 @@ public class DoacaoGUI extends BorderPane {
 		hbox4.getChildren().addAll(descri,descField);
 				
 		VBox vbox = new VBox(30);
-		vbox.getChildren().addAll(titulo,hbox1,hbox2,textoAux,hbox4,hbox3);
+		vbox.getChildren().addAll(titulo,textoAux,hbox1,hbox2,hbox4,hbox3);
 				
 		VBox vboxP = new VBox(30);
 		vboxP.getChildren().addAll(vbox,vboxtop);
 				
+		textoAux.setAlignment(Pos.CENTER);
 		hbox1.setAlignment(Pos.CENTER);
+		hbox2.setAlignment(Pos.CENTER);
 		hbox3.setAlignment(Pos.CENTER);
 		hbox4.setAlignment(Pos.CENTER);
 		vbox.setAlignment(Pos.CENTER);
@@ -115,9 +117,9 @@ public class DoacaoGUI extends BorderPane {
 				}else if(valorField.getText().equals("")){
 					new TelaAux("Informe o valor.");
 				}else if(mesField.getText().equals("")){
-					new TelaAux("Informe a data.");
+					new TelaAux("Informe o mês.");
 				}else if(descField.getText().equals("")){
-					new TelaAux("Adicione uma descri��o.");
+					new TelaAux("Adicione uma descrição.");
 				}else{
 				
 					try{
@@ -138,6 +140,7 @@ public class DoacaoGUI extends BorderPane {
 			private void limpaCampos() {
 				valorField.setText(null);
 				descField.setText(null);
+				mesField.setText(null);
 				
 			}
 		});

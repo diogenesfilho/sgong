@@ -13,7 +13,7 @@ public class MeuMenu extends MenuBar {
 		
 		Menu cadastrar = new Menu("Cadastrar");
 		Menu consultar = new Menu("Consultar");
-		Menu financas = new Menu("Balanço");
+		Menu balanco = new Menu("Balanço");
 		Menu ajuda = new Menu("Ajuda");
 
 		
@@ -29,18 +29,21 @@ public class MeuMenu extends MenuBar {
 		MenuItem cPaciente = new MenuItem("Paciente");
 		
 		//Parte de Balanço.
-		MenuItem gerarBalanco = new MenuItem("Gerar Balanço");	
-		
+		MenuItem listarDoacoes = new MenuItem("Doações");
+		MenuItem listarDespesas = new MenuItem("Despesas");	
+		MenuItem geraGrafico = new MenuItem("Gráfico");	
+		MenuItem geraInfo = new MenuItem("Informações gerais");	
+
 		//Parte de Ajuda.
 		MenuItem ajudaD = new MenuItem("Ajuda Dinâmica");
 		MenuItem sobre = new MenuItem("Sobre");		
 		
 		cadastrar.getItems().addAll(paciente,socio, doacao, despesas);
 		consultar.getItems().addAll(cPaciente,cSocio);
-		financas.getItems().addAll(gerarBalanco);
+		balanco.getItems().addAll(listarDoacoes, listarDespesas, geraGrafico, geraInfo);
 		ajuda.getItems().addAll(ajudaD,sobre);
 		
-		getMenus().addAll(cadastrar,consultar,financas,ajuda);
+		getMenus().addAll(cadastrar,consultar,balanco,ajuda);
 		
 		//Funções de cada atalho no Menu -> Definição: NOMEDOBOTÃO.setOnAction(new EventHandler<ActionEvent>() {.
 		
@@ -81,11 +84,41 @@ public class MeuMenu extends MenuBar {
 			}
 		});
 		
-		gerarBalanco.setOnAction(new EventHandler<ActionEvent>() {
+		listarDespesas.setOnAction(new EventHandler<ActionEvent>() {
 			
 			@Override
 			public void handle(ActionEvent arg0) {
-				Main.mudarTela(new Balanco());
+				Main.mudarTela(new ConDespesaGUI());
+				
+			}
+		});
+		
+		
+		listarDoacoes.setOnAction(new EventHandler<ActionEvent>() {
+			
+			@Override
+			public void handle(ActionEvent arg0) {
+				Main.mudarTela(new ConDoacaoGUI());
+				
+			}
+		});
+		
+		
+		geraInfo.setOnAction(new EventHandler<ActionEvent>() {
+			
+			@Override
+			public void handle(ActionEvent arg0) {
+				Main.mudarTela(new TelaValoresExatos());
+				
+			}
+		});
+		
+		
+		geraGrafico.setOnAction(new EventHandler<ActionEvent>() {
+			
+			@Override
+			public void handle(ActionEvent arg0) {
+				Main.mudarTela(new GrafBar());
 				
 			}
 		});
