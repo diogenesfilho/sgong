@@ -120,7 +120,7 @@ public class CaDoacaoGUI extends BorderPane {
 					new TelaAux("Informe o mês.");
 				}else if(descField.getText().equals("")){
 					new TelaAux("Adicione uma descrição.");
-				}
+				}else{
 				
 					try{
 						
@@ -139,6 +139,7 @@ public class CaDoacaoGUI extends BorderPane {
 					}catch(NumberFormatException nfe){
 						new TelaAux("Valores informados inválidos!");
 					}
+				}	
 			}
 			
 			private void limpaCampos() {

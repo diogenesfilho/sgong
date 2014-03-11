@@ -118,7 +118,7 @@ public class CaDespesaGUI extends BorderPane {
 					new TelaAux("Informe o mês.");
 				}else if(descField.getText().equals("")){
 					new TelaAux("Adicione uma descrição.");
-				}
+				}else{
 				
 					try{
 						
@@ -136,6 +136,7 @@ public class CaDespesaGUI extends BorderPane {
 					}catch(NumberFormatException nfe){
 						new TelaAux("Valores informados inválidos!");
 					}
+				}	
 			}
 			
 			private void limpaCampos() {
