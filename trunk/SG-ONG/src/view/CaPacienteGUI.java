@@ -1,7 +1,7 @@
 package view;
 
 
-import excecoes.DadosException;
+
 import banco.Banco;
 import banco.InfoBD;
 import model.Paciente;
@@ -56,7 +56,7 @@ public class CaPacienteGUI extends BorderPane {
 		Label observacoesTexto = new Label("Observações: ");
 
 		TpEstado = FXCollections.observableArrayList();
-		TpEstado.addAll(" ", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO");
+		TpEstado.addAll("AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO");
 		
 		choiceEstado = new ChoiceBox<String>();
 		choiceEstado.setItems(TpEstado);
@@ -180,17 +180,18 @@ public class CaPacienteGUI extends BorderPane {
 			}
 		});
 	
+		
 		//Função Botão cadastrar.
 		cadastrar.setOnAction(new EventHandler<ActionEvent>() {
 					
 			@Override
 			public void handle(ActionEvent event) {
 				
-				if(nomeField.getText().toString().equals("") || cpfField.getText().toString().equals("") || enderecoField.getText().toString().equals("") || rgField.getText().toString().equals("") || telefoneCelularField.getText().toString().equals("")){
+				if(nomeField.getText().toString().equals("") || cpfField.getText().toString().equals(null) || choiceEstado.getSelectionModel().getSelectedItem().equals("") || rgField.getText().toString().equals("") || cidadeField.getText().toString().equals("") || nasciField.getText().toString().equals("")){
 					new TelaAux("Por Favor informe todos os dados!");
 				}else{
 					Paciente paciente;
-					paciente = new Paciente(nomeField.getText(),enderecoField.getText(),cidadeField.getText(),choiceEstado.getSelectionModel().getSelectedItem(),rgField.getText(),cpfField.getText(),nasciField.getText(),telefoneCelularField.getText(),observacoesField.getText());
+					paciente = new Paciente(nomeField.getText(),enderecoField.getText(),cidadeField.getText(),choiceEstado.getSelectionModel().getSelectedItem()+"",rgField.getText(),cpfField.getText(),nasciField.getText(),telefoneCelularField.getText(),observacoesField.getText());
 							
 					Banco banco = Main.getBanco();
 					banco.addObjeto(paciente);
@@ -203,7 +204,7 @@ public class CaPacienteGUI extends BorderPane {
 			public void limpaCampos(){
 				nomeField.setText("");enderecoField.setText("");cidadeField.setText("");
 				rgField.setText("");cpfField.setText("");nasciField.setText("");
-				observacoesField.setText("");telefoneCelularField.setText("");choiceEstado.setValue(" ");
+				observacoesField.setText("");telefoneCelularField.setText("");choiceEstado.setSelectionModel(null);
 			}
 		});	
 	}

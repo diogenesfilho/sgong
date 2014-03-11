@@ -1,18 +1,14 @@
 package model;
 
-import excecoes.DadosException;
-
 public class Socio extends Pessoa {
 
 	private String tipoSocio,dataArrecada,profissao,dataFiliacao,email;
-	private double valorContribuicao;
 	
-	public Socio(String nome, String endereco, String cidade, String estado,String rg, String cpf, String nascimento, String telefonecelular, String tipoSocio,String dataFiliacao, String email, double valorContribuicao) throws DadosException,NumberFormatException{
+	public Socio(String nome, String endereco, String cidade, String estado,String rg, String cpf, String nascimento, String telefonecelular, String tipoSocio,String dataFiliacao, String email) throws NumberFormatException{
 		super(nome, endereco, cidade, estado, rg, cpf, nascimento, telefonecelular);
 		this.tipoSocio = tipoSocio;
 		this.dataFiliacao = dataFiliacao;
 		this.email = email;
-		this.valorContribuicao = valorContribuicao;
 	}
 
 
@@ -31,16 +27,7 @@ public class Socio extends Pessoa {
 
 	public void setTipoSocio(String tipoSocio) {
 		this.tipoSocio = tipoSocio;
-	}
-
-	public double getValorContribuicao() {
-		return valorContribuicao;
-	}
-
-	public void setValorContribuicao(double valorContribuicao) {
-		this.valorContribuicao = valorContribuicao;
-	}
-	
+	}	
 
 	public String getEmail() {
 		return email;
