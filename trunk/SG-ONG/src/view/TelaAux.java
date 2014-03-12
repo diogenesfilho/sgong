@@ -47,14 +47,14 @@ public class TelaAux extends Stage {
 		texto.setFont(new Font(15));
 		setScene(scene);
 		setOpacity(0.9);
-		initModality(Modality.APPLICATION_MODAL); //Respons�vel por s� ser poss�vel voltar ao sg ong se fechar a janela.
+		initModality(Modality.APPLICATION_MODAL); //Responsável por só ser possível voltar ao sg ong se fechar a janela.
 		show();
 		
 		ok.setOnAction(new EventHandler<ActionEvent>() {
 			
 			@Override
 			public void handle(ActionEvent arg0) {
-				//Comando pra fechar.
+				close();
 			}
 		});
 		

@@ -1,7 +1,5 @@
 package app;
 
-
-
 /**
  * Aqui serao organizados os elementos que serao executados com inicio do programa bem como suas definicoes.
  * 
