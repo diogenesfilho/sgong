@@ -38,7 +38,7 @@ public class InfoBD {
 	public String getQuantidadeDespesas() {
 		return "Despesas cadastradas: " + listaDeDespesas.size();
 	}
-	
+
 	public void compoeDoacoes(){
 		ObjectSet doacoes = banco.listaObjeto(Doacao.class);
 		

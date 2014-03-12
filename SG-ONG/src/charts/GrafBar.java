@@ -60,8 +60,7 @@ public class GrafBar extends BorderPane {
         series1.getData().add(new XYChart.Data("Novembro", info.getDoacoesNov()));
         series1.getData().add(new XYChart.Data("Dezembro", info.getDoacoesDez()));
 
-        
-        
+   
         //Representa todas as barras De saída ou seja despesa.
         XYChart.Series series2 = new XYChart.Series();
         series2.setName("Despesas");
