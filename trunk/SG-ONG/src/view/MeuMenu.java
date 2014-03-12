@@ -13,7 +13,7 @@ public class MeuMenu extends MenuBar {
 		
 		Menu cadastrar = new Menu("Cadastrar");
 		Menu consultar = new Menu("Consultar");
-		Menu balanco = new Menu("Balanço");
+		Menu financas = new Menu("Finanças");
 		Menu ajuda = new Menu("Ajuda");
 
 		
@@ -40,10 +40,10 @@ public class MeuMenu extends MenuBar {
 		
 		cadastrar.getItems().addAll(paciente,socio, doacao, despesas);
 		consultar.getItems().addAll(cPaciente,cSocio);
-		balanco.getItems().addAll(listarDoacoes, listarDespesas, geraGrafico, geraInfo);
+		financas.getItems().addAll(listarDoacoes, listarDespesas, geraGrafico, geraInfo);
 		ajuda.getItems().addAll(ajudaD,sobre);
 		
-		getMenus().addAll(cadastrar,consultar,balanco,ajuda);
+		getMenus().addAll(cadastrar,consultar,financas,ajuda);
 		
 		//Funções de cada atalho no Menu -> Definição: NOMEDOBOTÃO.setOnAction(new EventHandler<ActionEvent>() {.
 		

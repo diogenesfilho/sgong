@@ -61,7 +61,7 @@ public class LoginGUI extends BorderPane {
 					new TelaAux("Por Favor entre com login e senha");
 				}
 				else {
-					new TelaAux("Usu·rio n„o permitido!");
+					new TelaAux("Usu√°rio n√£o permitido!");
 				}
 			}
 		});

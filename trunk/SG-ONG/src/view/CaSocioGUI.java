@@ -74,10 +74,10 @@ public class CaSocioGUI extends BorderPane {
 		comboEstado.setPrefSize(200.0, 27.0);
 		
 		nomeField = new TextField();
-		nomeField.setPrefSize(700.0, 27.0);
+		nomeField.setPrefSize(560.0, 27.0);
 		
 		enderecoField = new TextField();
-		enderecoField.setPrefSize(540.0, 27.0);
+		enderecoField.setPrefSize(560.0, 27.0);
 		
 		cidadeField = new TextField();
 		cidadeField.setPrefSize(200.0, 27.0);
@@ -111,65 +111,70 @@ public class CaSocioGUI extends BorderPane {
 		HBox hbox2E1 = new HBox(40);
 		hbox2E1.getChildren().addAll(enderecoTexto,enderecoField);
 		
-		HBox hbox5E3 = new HBox(70);
-		hbox5E3.getChildren().addAll(emailTexto,emailField);
-		
-		HBox hbox2 = new HBox(55);
-		hbox2.getChildren().addAll(hbox2E1, hbox5E3);
-		
-		//Conjunto Linha 3.		
-		
-		HBox hbox3E2 = new HBox(60);
+		//Conjunto Linha 3.
+		HBox hbox3E2 = new HBox(55);
 		hbox3E2.getChildren().addAll(cidadeTexto,cidadeField);
 		
-		HBox hbox3E3 = new HBox(61);
+		HBox hbox3E3 = new HBox(75);
 		hbox3E3.getChildren().addAll(estadoTexto,comboEstado);
-		
-		HBox hbox3E4 = new HBox();
-		hbox3E3.getChildren().addAll(telefoneCelularTexto,telefoneCelularField);
 
-		HBox hbox3 = new HBox(10);
-		hbox3.getChildren().addAll(hbox3E2,hbox3E3, hbox3E4);
+		HBox hbox3 = new HBox(70);
+		hbox3.getChildren().addAll(hbox3E2,hbox3E3);
 		
 		//Conjunto Linha 4.
 		HBox hbox4E1 = new HBox(81);
 		hbox4E1.getChildren().addAll(rgTexto,rgField);
 		
-		HBox hbox4E2 = new HBox(78);
+		HBox hbox4E2 = new HBox(95);
 		hbox4E2.getChildren().addAll(cpfTexto,cpfField);
 		
-		HBox hbox4E3 = new HBox(55);
-		hbox4E3.getChildren().addAll(nasciTexto,nasciField);
-		
-		HBox hbox4 = new HBox(30);
-		hbox4.getChildren().addAll(hbox4E1,hbox4E2,hbox4E3);
-		
+		HBox hbox4 = new HBox(70);
+		hbox4.getChildren().addAll(hbox4E1,hbox4E2);
 		
 		//Conjunto linha 5.
+		HBox hbox5E1 = new HBox(45);
+		hbox5E1.getChildren().addAll(telefoneCelularTexto,telefoneCelularField);
 		
-		HBox hbox5E2 = new HBox(1);
-		hbox5E2.getChildren().addAll(dataFiliacaoTexto,dataFiliacaoField);
+		HBox hbox4E3 = new HBox(40);
+		hbox4E3.getChildren().addAll(nasciTexto,nasciField);
 		
-		HBox hbox6E1 = new HBox(35);
-		hbox6E1.getChildren().addAll(tipoSocioTexto,comboSocio);
-		
-		HBox hbox5 = new HBox(1);
-		hbox5.getChildren().addAll(hbox5E2, hbox6E1);
+		HBox hbox5 = new HBox(70);
+		hbox5.getChildren().addAll(hbox5E1, hbox4E3);
 
+		//Conjunto linha 6
+		HBox hbox6E1 = new HBox(20);
+		hbox6E1.getChildren().addAll(tipoSocioTexto, comboSocio);
 		
-		//Conjunto linha 6.
-		HBox hbox6 = new HBox(10);
-		hbox6.getChildren().addAll(cadastrar,cancelar);
+		HBox hbox6 = new HBox(20);
+		hbox6.getChildren().addAll(hbox6E1);
 		
+		//Conjunto linha 7
+		HBox hbox7E1 = new HBox(5);
+		hbox7E1.getChildren().addAll(dataFiliacaoTexto, dataFiliacaoField);
+		
+		HBox hbox7E2 = new HBox(20);
+		hbox7E2.getChildren().addAll(emailTexto, emailField);
+		
+		HBox hbox7 = new HBox(120);
+		hbox7.getChildren().addAll(hbox7E1, hbox7E2);
+		
+		//Conjunto botoes
+		HBox hboxBotoes = new HBox(10);
+		hboxBotoes.getChildren().addAll(cadastrar,cancelar);
+				
+		// Vboxe's
 		VBox vboxTitulo = new VBox(30);
 		vboxTitulo.getChildren().addAll(titulo);
 		
-		VBox vbox = new VBox(15);
-		vbox.getChildren().addAll(vboxTitulo,hbox1,hbox2,hbox3,hbox4,hbox5,hbox6);
+		VBox vboxAtributos = new VBox(20);
+		vboxAtributos.getChildren().addAll(hbox1,hbox2E1,hbox3,hbox4,hbox5,hbox7,hbox6,hboxBotoes);
+		
+		VBox vbox = new VBox(40);
+		vbox.getChildren().addAll(vboxTitulo,vboxAtributos);
 		
 		//Sets Alinhamento
 		vboxTitulo.setAlignment(Pos.CENTER);
-		hbox6.setAlignment(Pos.BOTTOM_RIGHT);
+		hboxBotoes.setAlignment(Pos.BOTTOM_RIGHT);
 		
 		//Distância da borda.
 		vbox.setPadding(new Insets(50,100,10,100));
