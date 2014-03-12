@@ -21,7 +21,6 @@ public class Banco {
 		db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), "db");
 	}
 	
-	
 	public void addObjeto(Object o){
 		db.store(o);
 	}
@@ -83,6 +82,9 @@ public class Banco {
 		
 	}
 	
+	public void excluirObjeto(Object o){
+		db.delete(o);
+	}
 
 	
 	public void close() {

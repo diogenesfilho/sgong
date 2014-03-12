@@ -123,9 +123,9 @@ public class CaDespesaGUI extends BorderPane {
 					try{
 						
 						if(Integer.parseInt(mesField.getText()) > 12 ||Integer.parseInt(mesField.getText()) < 0){
-							new TelaAux("Mês Inválido!");
+							new TelaAux("Mï¿½s Invï¿½lido!");
 						}else{
-							Despesa despesa = new Despesa(Double.parseDouble(valorField.getText()),descField.getText(), Integer.parseInt(mesField.getText()));
+							Despesa despesa = new Despesa(Double.parseDouble(valorField.getText()),descField.getText(), mesField.getText());
 							
 							Banco banco = Main.getBanco();
 							banco.addObjeto(despesa);
