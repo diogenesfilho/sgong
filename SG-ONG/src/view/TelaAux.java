@@ -3,7 +3,7 @@ package view;
 
 /**
  * 
- * Dever� ser passado como param�tro a mensagem a ser passada na janela.
+ * Deverá ser passado como paramêtro a mensagem a ser passada na janela.
  * @param String
  * 
  */
@@ -34,6 +34,7 @@ public class TelaAux extends Stage {
 
 		BorderPane root = new BorderPane();
 		Scene scene = new Scene(root,450,60,Color.LIGHTGRAY);
+
 		
 		VBox boxtexto = new VBox(10);
 		

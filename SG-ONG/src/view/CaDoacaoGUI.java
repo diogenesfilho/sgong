@@ -51,7 +51,7 @@ public class CaDoacaoGUI extends BorderPane {
 		listaDeMeses.addAll("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");
 		mesCombo = new ComboBox<>();
 		mesCombo.setItems(listaDeMeses);
-		mesCombo.setMinSize(160, 20);
+		mesCombo.setMinSize(170, 20);
 		
 		Label titulo = new Label("Cadastrar Doação");
 		titulo.setFont(new Font(40));
@@ -131,7 +131,7 @@ public class CaDoacaoGUI extends BorderPane {
 				}else if(descField.getText().equals("")){
 					new TelaAux("Adicione uma descrição!");
 				}else if(Integer.parseInt(valorField.getText()) <= 0){
-					new TelaAux("Valor Inv�lido!");
+					new TelaAux("Valor Inv�lido!");
 				}else{
 					try{
 

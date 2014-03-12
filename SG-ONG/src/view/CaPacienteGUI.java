@@ -103,10 +103,10 @@ public class CaPacienteGUI extends BorderPane {
 		
 		//Conjunto Linha 3.
 		
-		HBox hbox3E2 = new HBox(58);
+		HBox hbox3E2 = new HBox(55);
 		hbox3E2.getChildren().addAll(cidadeTexto,cidadeField);
 		
-		HBox hbox3E3 = new HBox(39);
+		HBox hbox3E3 = new HBox(75);
 		hbox3E3.getChildren().addAll(estadoTexto,comboEstado);
 
 		HBox hbox3 = new HBox(70);
@@ -116,20 +116,20 @@ public class CaPacienteGUI extends BorderPane {
 		HBox hbox4E1 = new HBox(81);
 		hbox4E1.getChildren().addAll(rgTexto,rgField);
 		
-		HBox hbox4E2 = new HBox(39);
+		HBox hbox4E2 = new HBox(95);
 		hbox4E2.getChildren().addAll(cpfTexto,cpfField);
 		
-		HBox hbox4 = new HBox(97);
+		HBox hbox4 = new HBox(70);
 		hbox4.getChildren().addAll(hbox4E1,hbox4E2);
 		
 		//Conjunto linha 5.
 		HBox hbox5E1 = new HBox(5);
 		hbox5E1.getChildren().addAll(telefoneCelularTexto,telefoneCelularField);
 		
-		HBox hbox4E3 = new HBox(5);
+		HBox hbox4E3 = new HBox(40);
 		hbox4E3.getChildren().addAll(nasciTexto,nasciField);
 		
-		HBox hbox5 = new HBox(70);
+		HBox hbox5 = new HBox(58);
 		hbox5.getChildren().addAll(hbox5E1, hbox4E3);
 
 		//Conjunto linha 6.
@@ -137,7 +137,6 @@ public class CaPacienteGUI extends BorderPane {
 		hbox6.getChildren().addAll(cadastrar,cancelar);
 		
 		//Conjunto linha 7
-		
 		HBox hbox7 = new HBox(20);
 		hbox7.getChildren().addAll(observacoesTexto, observacoesField);
 		
