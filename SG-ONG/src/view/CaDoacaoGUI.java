@@ -11,6 +11,7 @@ import javafx.geometry.Side;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextArea;
@@ -31,7 +32,7 @@ import app.Main;
 public class CaDoacaoGUI extends BorderPane {
 	
 	private TextField valorField;
-	private ComboBox mesCombo;
+	private ComboBox<String> mesCombo;
 	private TextArea descField;
 	private ObservableList<String> listaDeMeses;
 	
@@ -106,33 +107,33 @@ public class CaDoacaoGUI extends BorderPane {
 		cancelar.setOnAction(new EventHandler<ActionEvent>() {
 			
 			@Override
-			public void handle(ActionEvent event) {
+			public void handle(ActionEvent event) {				
 				Main.mudarTela(new TelaPrincipal());
 				
 			}
 		});
 		
 		
-		
 		cadastrar.setOnAction(new EventHandler<ActionEvent>() {
 			
-			String mes = mesCombo.getSelectionModel().getSelectedItem()+"";
+			
 			
 			@Override
 			public void handle(ActionEvent event) {
-				if(valorField.getText().equals("") && mes.equals("") && descField.getText().equals("")){
+				
+				if(valorField.getText().equals("") && mesCombo.getSelectionModel().getSelectedItem() == null && descField.getText().equals("")){
 					new TelaAux("Informe todos os campos!");
 				}else if(valorField.getText().equals("")){
-					new TelaAux("Informe o valor.");
-				}else if(mes.equals("")){
-					new TelaAux("Informe o mês.");
+					new TelaAux("Informe o valor!");
+				}else if(mesCombo.getSelectionModel().getSelectedItem() == null){
+					new TelaAux("Informe o mês!");
 				}else if(descField.getText().equals("")){
-					new TelaAux("Adicione uma descrição.");
+					new TelaAux("Adicione uma descrição!");
 				}else{
-				
+
 					try{
 						
-						Doacao doacao = new Doacao(Double.parseDouble(valorField.getText()),descField.getText(), mes);
+						Doacao doacao = new Doacao(Double.parseDouble(valorField.getText()), descField.getText(), mesCombo.getSelectionModel().getSelectedItem());
 							
 						Banco banco = Main.getBanco();
 						banco.addObjeto(doacao);
@@ -149,7 +150,7 @@ public class CaDoacaoGUI extends BorderPane {
 			private void limpaCampos() {
 				valorField.setText(null);
 				descField.setText(null);
-//				mesField.setText(null);
+				mesCombo.getSelectionModel().clearSelection();
 				
 			}
 			
