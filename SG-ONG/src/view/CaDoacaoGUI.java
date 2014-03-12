@@ -130,10 +130,11 @@ public class CaDoacaoGUI extends BorderPane {
 					new TelaAux("Informe o mês!");
 				}else if(descField.getText().equals("")){
 					new TelaAux("Adicione uma descrição!");
+				}else if(Integer.parseInt(valorField.getText()) <= 0){
+					new TelaAux("Valor Inv�lido!");
 				}else{
-
 					try{
-						
+
 						Doacao doacao = new Doacao(Double.parseDouble(valorField.getText()), descField.getText(), mesCombo.getSelectionModel().getSelectedItem());
 							
 						Banco banco = Main.getBanco();

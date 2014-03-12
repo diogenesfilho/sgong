@@ -126,6 +126,8 @@ public class CaDespesaGUI extends BorderPane {
 					new TelaAux("Informe o mês.");
 				}else if(descField.getText().equals("")){
 					new TelaAux("Adicione uma descrição.");
+				}else if(Integer.parseInt(valorField.getText()) <= 0){
+					new TelaAux("Valor Inv�lido!");
 				}else{
 				
 					try{
