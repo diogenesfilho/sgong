@@ -153,12 +153,6 @@ public class CaDoacaoGUI extends BorderPane {
 				
 			}
 			
-			public void confirMes(int mes){
-				if(mes > 12 || mes < 0){
-					new TelaAux("M�s Inv�lido!");
-				}
-				
-			}
 		});
 	}
 }

@@ -30,11 +30,11 @@ public class ConPacienteGUI extends BorderPane {
 	private ObservableList<Paciente> listaPacientesTabela;
 	private TableView tabela;
 	private Button procurar,excluir;
-	private Banco bd;
+//	private Banco bd;
 	
 	public ConPacienteGUI(){
 		
-		bd = new Banco();
+//		bd = new Banco();
 		
 		Label titulo = new Label("Relação de Pacientes");
 		titulo.setFont(new Font(30));
@@ -132,15 +132,15 @@ public class ConPacienteGUI extends BorderPane {
 		});
 		
 
-		excluir.setOnAction(new EventHandler<ActionEvent>() {
-
-			@Override
-			public void handle(ActionEvent arg0) {
-				Paciente p = (Paciente) tabela.getSelectionModel().getSelectedItem();
-				bd.excluirObjeto(p);
-				
-			}
-		});
+//		excluir.setOnAction(new EventHandler<ActionEvent>() {
+//
+//			@Override
+//			public void handle(ActionEvent arg0) {
+//				Paciente p = (Paciente) tabela.getSelectionModel().getSelectedItem();
+//				bd.excluirObjeto(p);
+//				
+//			}
+//		});
 		
 		
 	}
