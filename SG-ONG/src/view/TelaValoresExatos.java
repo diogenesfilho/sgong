@@ -22,30 +22,20 @@ public class TelaValoresExatos extends BorderPane {
 	
 	private ListView dados;
 	private ObservableList<String> infoBanco;
-	private Button botaoVoltar;
 	private InfoBD banco;
 	
 	public TelaValoresExatos(){
 		
 		dados = new ListView<>();
-		botaoVoltar = new Button("Voltar");
 		banco = new InfoBD();
 		
 		infoBanco = FXCollections.observableArrayList();
 		infoBanco.addAll(banco.getQuantidadePacientes(), banco.getQuantidadeSocios(), banco.getQuantidadeDoacoes(), banco.getQuantidadeDespesas());
 		dados.setItems(infoBanco);
 		
-		botaoVoltar.setOnAction(new EventHandler<ActionEvent>() {
-			
-			@Override
-			public void handle(ActionEvent arg0) {
-				Main.mudarTela(new GrafBar());
-				
-			}
-		});
 		
 		VBox vbox = new VBox(30);
-		vbox.getChildren().addAll(dados, botaoVoltar);
+		vbox.getChildren().addAll(dados);
 		vbox.setPadding(new Insets(100,300,100,300));
 		setCenter(vbox);
 		

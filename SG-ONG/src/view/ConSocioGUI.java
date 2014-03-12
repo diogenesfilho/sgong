@@ -115,12 +115,9 @@ public class ConSocioGUI extends BorderPane {
 	        tabela = new TableView();
 	        tabela.setItems(listaSociosTabela);
 	        tabela.setMaxHeight(400);
-	        tabela.setMaxWidth(1050);
+	        tabela.setMaxWidth(1100);
 	        tabela.getColumns().addAll(nomeCol, endCol, cidadeCol, estadoCol, rgCol, cpfCol, nascCol, telCol, tipoCol,dataCol, emailCol, valorCol);
 
-	        
-	        
-	        
 		HBox hbox = new HBox(20);
 		hbox.setAlignment(Pos.BASELINE_CENTER);
 

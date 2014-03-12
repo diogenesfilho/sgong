@@ -44,40 +44,40 @@ public class InfoBD {
 		
 		for (int i = 0; i < doacoes.size(); i++) {
 			Doacao d = (Doacao) doacoes.get(i);
-			if (d.getMes() == 1) {
+			if (d.getMes().equals("Janeiro")) {
 				doacoesJan += d.getValor();
 			}
-			else if (d.getMes() == 2) {
+			else if (d.getMes().equals("Fevereiro")) {
 				doacoesFev += d.getValor();
 			}
-			else if (d.getMes() == 3) {
+			else if (d.getMes().equals("Março")) {
 				doacoesMar += d.getValor();
 			}
-			else if (d.getMes() == 4) {
+			else if (d.getMes().equals("Abril")) {
 				doacoesAbr += d.getValor();
 			}
-			else if (d.getMes() == 5) {
+			else if (d.getMes().equals("Maio")) {
 				doacoesMai += d.getValor();
 			}
-			else if (d.getMes() == 6) {
+			else if (d.getMes().equals("Junho")) {
 				doacoesJun += d.getValor();
 			}
-			else if (d.getMes() == 7) {
+			else if (d.getMes().equals("Julho")) {
 				doacoesJul += d.getValor();
 			}
-			else if (d.getMes() == 8) {
+			else if (d.getMes().equals("Agosto")) {
 				doacoesAgo += d.getValor();
 			}
-			else if (d.getMes() == 9) {
+			else if (d.getMes().equals("Setembro")) {
 				doacoesSet += d.getValor();
 			}
-			else if (d.getMes() == 10) {
+			else if (d.getMes().equals("Outubro")) {
 				doacoesOut += d.getValor();
 			}
-			else if (d.getMes() == 11) {
+			else if (d.getMes().equals("Novembro")) {
 				doacoesNov += d.getValor();
 			}
-			else if (d.getMes() == 12) {
+			else if (d.getMes().equals("Dezembro")) {
 				doacoesDez += d.getValor();
 			}
 		}
@@ -88,40 +88,40 @@ public class InfoBD {
 		
 		for (int i = 0; i < despesas.size(); i++) {
 			Despesa d = (Despesa) despesas.get(i);
-			if (d.getMes() == 1) {
+			if (d.getMes().equals("Janeiro")) {
 				despesasJan += d.getValor();
 			}
-			else if (d.getMes() == 2) {
+			else if (d.getMes().equals("Fevereiro")) {
 				despesasFev += d.getValor();
 			}
-			else if (d.getMes() == 3) {
+			else if (d.getMes().equals("Março")) {
 				despesasMar += d.getValor();
 			}
-			else if (d.getMes() == 4) {
+			else if (d.getMes().equals("Abril")) {
 				despesasAbr += d.getValor();
 			}
-			else if (d.getMes() == 5) {
+			else if (d.getMes().equals("Maio")) {
 				despesasMai += d.getValor();
 			}
-			else if (d.getMes() == 6) {
+			else if (d.getMes().equals("Junho")) {
 				despesasJun += d.getValor();
 			}
-			else if (d.getMes() == 7) {
+			else if (d.getMes().equals("Julho")) {
 				despesasJul += d.getValor();
 			}
-			else if (d.getMes() == 8) {
+			else if (d.getMes().equals("Agosto")) {
 				despesasAgo += d.getValor();
 			}
-			else if (d.getMes() == 9) {
+			else if (d.getMes().equals("Setembro")) {
 				despesasSet += d.getValor();
 			}
-			else if (d.getMes() == 10) {
+			else if (d.getMes().equals("Outubro")) {
 				despesasOut += d.getValor();
 			}
-			else if (d.getMes() == 11) {
+			else if (d.getMes().equals("Novembro")) {
 				despesasNov += d.getValor();
 			}
-			else if (d.getMes() == 12) {
+			else if (d.getMes().equals("Dezembro")) {
 				despesasDez += d.getValor();
 			}
 		}

@@ -1,6 +1,8 @@
 package view;
 
 import banco.Banco;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -28,8 +30,10 @@ import app.Main;
 
 public class CaDoacaoGUI extends BorderPane {
 	
-	private TextField valorField, mesField;
+	private TextField valorField;
+	private ComboBox mesCombo;
 	private TextArea descField;
+	private ObservableList<String> listaDeMeses;
 	
 	public CaDoacaoGUI(){
 	
@@ -42,12 +46,15 @@ public class CaDoacaoGUI extends BorderPane {
 		Label descri = new Label("Descrição:");
 		Label mes = new Label("Mês:");
 		
+		listaDeMeses = FXCollections.observableArrayList();
+		listaDeMeses.addAll("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");
+		mesCombo = new ComboBox<>();
+		mesCombo.setItems(listaDeMeses);
+		
 		Label titulo = new Label("Cadastrar Doação");
 		titulo.setFont(new Font(40));
 		
-		valorField = new TextField();		
-		mesField = new TextField();		
-		
+		valorField = new TextField();				
 		descField = new TextArea();
 		descField.setPrefSize(400, 100);
 		
@@ -60,7 +67,7 @@ public class CaDoacaoGUI extends BorderPane {
 		hbox1.getChildren().addAll(valor, valorField);
 		
 		HBox hbox2 = new HBox(30);
-		hbox2.getChildren().addAll(mes,mesField);
+		hbox2.getChildren().addAll(mes,mesCombo);
 			
 		HBox hbox3 = new HBox(30);
 		hbox3.getChildren().addAll(cadastrar,cancelar);
@@ -109,14 +116,15 @@ public class CaDoacaoGUI extends BorderPane {
 		
 		cadastrar.setOnAction(new EventHandler<ActionEvent>() {
 			
+			String mes = mesCombo.getSelectionModel().getSelectedItem()+"";
 			
 			@Override
 			public void handle(ActionEvent event) {
-				if(valorField.getText().equals("") && mesField.getText().equals("") && descField.getText().equals("")){
+				if(valorField.getText().equals("") && mes.equals("") && descField.getText().equals("")){
 					new TelaAux("Informe todos os campos!");
 				}else if(valorField.getText().equals("")){
 					new TelaAux("Informe o valor.");
-				}else if(mesField.getText().equals("")){
+				}else if(mes.equals("")){
 					new TelaAux("Informe o mês.");
 				}else if(descField.getText().equals("")){
 					new TelaAux("Adicione uma descrição.");
@@ -124,17 +132,13 @@ public class CaDoacaoGUI extends BorderPane {
 				
 					try{
 						
-						if(Integer.parseInt(mesField.getText()) > 12 ||Integer.parseInt(mesField.getText()) < 0){
-							new TelaAux("M�s Inv�lido!");
-						}else{
-						
-							Doacao doacao = new Doacao(Double.parseDouble(valorField.getText()),descField.getText(), Integer.parseInt(mesField.getText()));
+						Doacao doacao = new Doacao(Double.parseDouble(valorField.getText()),descField.getText(), mes);
 							
-							Banco banco = Main.getBanco();
-							banco.addObjeto(doacao);
-							new TelaAux("Cadastro Efetuado Com Sucesso!");
-							limpaCampos();
-						}
+						Banco banco = Main.getBanco();
+						banco.addObjeto(doacao);
+						new TelaAux("Cadastro Efetuado Com Sucesso!");
+						limpaCampos();
+			
 		
 					}catch(NumberFormatException nfe){
 						new TelaAux("Valores informados inválidos!");
@@ -145,13 +149,13 @@ public class CaDoacaoGUI extends BorderPane {
 			private void limpaCampos() {
 				valorField.setText(null);
 				descField.setText(null);
-				mesField.setText(null);
+//				mesField.setText(null);
 				
 			}
 			
 			public void confirMes(int mes){
 				if(mes > 12 || mes < 0){
-					new TelaAux("M�s Inv�lido!");
+					new TelaAux("M�s Inv�lido!");
 				}
 				
 			}

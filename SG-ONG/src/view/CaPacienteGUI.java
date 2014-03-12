@@ -34,6 +34,7 @@ public class CaPacienteGUI extends BorderPane {
 	private TextArea observacoesField;
 	private ChoiceBox<String> choiceEstado;
 	private ObservableList<String> TpEstado;
+	private Button cadastrar, cancelar;
 		
 	
 	public CaPacienteGUI(){
@@ -86,8 +87,8 @@ public class CaPacienteGUI extends BorderPane {
 		observacoesField = new TextArea();
 		observacoesField.setPrefSize(350.0, 80.0);
 
-		Button cadastrar = new Button("Cadastrar");
-		Button cancelar = new Button("Cancelar");
+		cadastrar = new Button("Cadastrar");
+		cancelar = new Button("Cancelar");
 		
 		
 		//Conjunto linha 1.

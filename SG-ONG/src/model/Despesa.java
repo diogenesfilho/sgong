@@ -3,9 +3,9 @@ package model;
 public class Despesa {
 	private double valor;
 	private String descricao;
-	private int mes;
+	private String mes;
 	
-	public Despesa(double valor, String descricao, int mes) throws NumberFormatException{
+	public Despesa(double valor, String descricao, String mes) throws NumberFormatException{
 		this.valor = valor;
 		this.descricao = descricao;
 		this.mes = mes;
@@ -25,11 +25,11 @@ public class Despesa {
 		this.descricao = descricao;
 	}
 	
-	public int getMes() {
+	public String getMes() {
 		return mes;
 	}
 
-	public void setMes(int mes) {
+	public void setMes(String mes) {
 		this.mes = mes;
 	}
 

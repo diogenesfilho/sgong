@@ -29,8 +29,12 @@ public class ConPacienteGUI extends BorderPane {
 	public TextField procuraField;
 	private ObservableList<Paciente> listaPacientesTabela;
 	private TableView tabela;
+	private Button procurar,excluir;
+	private Banco bd;
 	
 	public ConPacienteGUI(){
+		
+		bd = new Banco();
 		
 		Label titulo = new Label("Relação de Pacientes");
 		titulo.setFont(new Font(30));
@@ -38,10 +42,11 @@ public class ConPacienteGUI extends BorderPane {
 		Label procuraText = new Label("Procurar por nome:");
 		procuraField = new TextField();
 		procuraField.setPrefSize(620.0, 27.0); 
-		Button procurar = new Button("Procurar");
+		procurar = new Button("Procurar");
+		excluir = new Button("Excluir paciente");
 		
 		HBox hboxProcu = new HBox(20);
-		hboxProcu.getChildren().addAll(procuraText,procuraField,procurar);
+		hboxProcu.getChildren().addAll(procuraText,procuraField,procurar,excluir);
 		
 		Banco banco = Main.getBanco();
 		
@@ -122,23 +127,20 @@ public class ConPacienteGUI extends BorderPane {
 			
 			@Override
 			public void handle(ActionEvent event) {
-				String nomeProcurar = procuraField.getText();
-				// Método que será responsável por fazer a procura no banco. SELECT *
-				
+				String nomeProcurar = procuraField.getText();			
 			}
 		});
 		
-//		//Função Double Click para editar.
-//		tabela.setOnMouseClicked(new EventHandler<MouseEvent>() {
-//            @Override
-//            public void handle(MouseEvent mouseEvent) {
-//                if(mouseEvent.getButton().equals(MouseButton.PRIMARY)){
-//                    if(mouseEvent.getClickCount() == 2){
-//                        System.out.println("Double clicked");
-//                    }
-//                }
-//            }
-//        });
+
+		excluir.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent arg0) {
+				Paciente p = (Paciente) tabela.getSelectionModel().getSelectedItem();
+				bd.excluirObjeto(p);
+				
+			}
+		});
 		
 		
 	}
