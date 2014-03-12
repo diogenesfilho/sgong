@@ -14,6 +14,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -32,7 +33,7 @@ public class CaPacienteGUI extends BorderPane {
 	private TextField nomeField, enderecoField,cidadeField,rgField,cpfField,
 	nasciField,telefoneCelularField;
 	private TextArea observacoesField;
-	private ChoiceBox<String> choiceEstado;
+	private ComboBox<String> comboEstado;
 	private ObservableList<String> TpEstado;
 	private Button cadastrar, cancelar;
 		
@@ -59,9 +60,9 @@ public class CaPacienteGUI extends BorderPane {
 		TpEstado = FXCollections.observableArrayList();
 		TpEstado.addAll("AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO");
 		
-		choiceEstado = new ChoiceBox<String>();
-		choiceEstado.setItems(TpEstado);
-		choiceEstado.setPrefSize(200.0, 27.0);
+		comboEstado = new ComboBox<String>();
+		comboEstado.setItems(TpEstado);
+		comboEstado.setPrefSize(200.0, 27.0);
 		
 		nomeField = new TextField();
 		nomeField.setPrefSize(560.0, 27.0);
@@ -106,7 +107,7 @@ public class CaPacienteGUI extends BorderPane {
 		hbox3E2.getChildren().addAll(cidadeTexto,cidadeField);
 		
 		HBox hbox3E3 = new HBox(39);
-		hbox3E3.getChildren().addAll(estadoTexto,choiceEstado);
+		hbox3E3.getChildren().addAll(estadoTexto,comboEstado);
 
 		HBox hbox3 = new HBox(70);
 		hbox3.getChildren().addAll(hbox3E2,hbox3E3);
@@ -187,12 +188,13 @@ public class CaPacienteGUI extends BorderPane {
 					
 			@Override
 			public void handle(ActionEvent event) {
+	
 				
-				if(nomeField.getText().toString().equals("") || cpfField.getText().toString().equals(null) || choiceEstado.getSelectionModel().getSelectedItem().equals("") || rgField.getText().toString().equals("") || cidadeField.getText().toString().equals("") || nasciField.getText().toString().equals("")){
+				if(nomeField.getText().toString().isEmpty() || comboEstado.getSelectionModel().getSelectedItem() == null || cpfField.getText().toString().isEmpty()  || rgField.getText().toString().isEmpty() || cidadeField.getText().toString().isEmpty() || nasciField.getText().toString().isEmpty()){
 					new TelaAux("Por Favor informe todos os dados!");
 				}else{
 					Paciente paciente;
-					paciente = new Paciente(nomeField.getText(),enderecoField.getText(),cidadeField.getText(),choiceEstado.getSelectionModel().getSelectedItem()+"",rgField.getText(),cpfField.getText(),nasciField.getText(),telefoneCelularField.getText(),observacoesField.getText());
+					paciente = new Paciente(nomeField.getText(),enderecoField.getText(),cidadeField.getText(),comboEstado.getSelectionModel().getSelectedItem(),rgField.getText(),cpfField.getText(),nasciField.getText(),telefoneCelularField.getText(),observacoesField.getText());
 							
 					Banco banco = Main.getBanco();
 					banco.addObjeto(paciente);
@@ -205,7 +207,7 @@ public class CaPacienteGUI extends BorderPane {
 			public void limpaCampos(){
 				nomeField.setText("");enderecoField.setText("");cidadeField.setText("");
 				rgField.setText("");cpfField.setText("");nasciField.setText("");
-				observacoesField.setText("");telefoneCelularField.setText("");choiceEstado.setSelectionModel(null);
+				observacoesField.setText("");telefoneCelularField.setText("");comboEstado.getSelectionModel().clearSelection();
 			}
 		});	
 	}

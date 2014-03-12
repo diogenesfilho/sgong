@@ -1,6 +1,8 @@
 package view;
 
 import banco.Banco;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -29,8 +31,10 @@ import app.Main;
 
 public class CaDespesaGUI extends BorderPane {
 	
-	private TextField valorField, mesField;
+	private TextField valorField;
 	private TextArea descField;
+	private ComboBox<String> mesCombo;
+	private ObservableList<String> listaDeMeses;
 	
 	public CaDespesaGUI(){
 	
@@ -44,7 +48,11 @@ public class CaDespesaGUI extends BorderPane {
 		titulo.setFont(new Font(40));
 		
 		valorField = new TextField();		
-		mesField = new TextField();		
+		
+		listaDeMeses = FXCollections.observableArrayList();
+		listaDeMeses.addAll("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");
+		mesCombo = new ComboBox<>();
+		mesCombo.setItems(listaDeMeses);
 		
 		descField = new TextArea();
 		descField.setPrefSize(400, 100);
@@ -58,7 +66,7 @@ public class CaDespesaGUI extends BorderPane {
 		hbox1.getChildren().addAll(valor, valorField);
 			
 		HBox hbox2 = new HBox(30);
-		hbox2.getChildren().addAll(mes, mesField);
+		hbox2.getChildren().addAll(mes, mesCombo);
 				
 		HBox hbox3 = new HBox(30);
 		hbox3.getChildren().addAll(descri,descField);
@@ -110,28 +118,24 @@ public class CaDespesaGUI extends BorderPane {
 			@Override
 			public void handle(ActionEvent event) {
 								
-				if(valorField.getText().equals("") && mesField.getText().equals("") && descField.getText().equals("")){
+				if(valorField.getText().equals("") && mesCombo.getSelectionModel().getSelectedItem() == null && descField.getText().equals("")){
 					new TelaAux("Informe todos os campos!");
 				}else if(valorField.getText().equals("")){
 					new TelaAux("Informe o valor.");
-				}else if(mesField.getText().equals("")){
+				}else if(mesCombo.getSelectionModel().getSelectedItem() == null){
 					new TelaAux("Informe o mês.");
 				}else if(descField.getText().equals("")){
 					new TelaAux("Adicione uma descrição.");
 				}else{
 				
 					try{
-						
-						if(Integer.parseInt(mesField.getText()) > 12 ||Integer.parseInt(mesField.getText()) < 0){
-							new TelaAux("M�s Inv�lido!");
-						}else{
-							Despesa despesa = new Despesa(Double.parseDouble(valorField.getText()),descField.getText(), mesField.getText());
+					
+						Despesa despesa = new Despesa(Double.parseDouble(valorField.getText()),descField.getText(), mesCombo.getSelectionModel().getSelectedItem());
 							
-							Banco banco = Main.getBanco();
-							banco.addObjeto(despesa);
-							new TelaAux("Cadastro Efetuado Com Sucesso!");
-							limpaCampos();
-						}
+						Banco banco = Main.getBanco();
+						banco.addObjeto(despesa);
+						new TelaAux("Cadastro Efetuado Com Sucesso!");
+						limpaCampos();
 							
 					}catch(NumberFormatException nfe){
 						new TelaAux("Valores informados inválidos!");
@@ -142,7 +146,7 @@ public class CaDespesaGUI extends BorderPane {
 			private void limpaCampos() {
 				valorField.setText(null);
 				descField.setText(null);
-				mesField.setText(null);
+				mesCombo.getSelectionModel().clearSelection();
 				
 			}
 		});
