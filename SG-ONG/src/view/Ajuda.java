@@ -19,8 +19,8 @@ public class Ajuda extends BorderPane {
 		TitledPane t2 = new TitledPane("Consultar", new Text("Com esta função você consulta os pacientes ou sócios cadastrados e suas respectivas informações."+"\n"+"\n"
 				+ "Instruções: " + "\n" + "\n" + "- Clique na opção consultar "+"\n"+"- Escolha entre Paciente ou Sócio "+"\n"+"- Busque o desejado"));
      
-		TitledPane t3 = new TitledPane("Finanças", new Text("        Aqui você pode listar as doações e despesas com seus valores, descrições e meses, acessar um gráfico financeiro" + "\n" + " anual ou visualizar as informações gerais da ONG."+"\n"+"\n"
-				+ "Instruções: " + "\n" + "\n" + "- Clique na opção cadastrar "+"\n"+"- Escolha uma das possibilidades "+"\n"+"- Veja o controle financeiro"));
+		TitledPane t3 = new TitledPane("Finanças", new Text("			Aqui você pode listar as doações e despesas com seus valores, descrições e meses, acessar um gráfico financeiro			" + "\n" + "	    anual ou visualizar as informações gerais da ONG."+"\n"+"\n"
+				+ "            Instruções: " + "\n" + "\n" + "            - Clique na opção Finanças "+"\n"+"            - Escolha uma das opções "+"\n"+"            - Veja o controle financeiro"));
      
 		Accordion accordion = new Accordion();
         accordion.getPanes().add(t1);
@@ -28,12 +28,12 @@ public class Ajuda extends BorderPane {
         accordion.getPanes().add(t3);
         
         accordion.setMaxSize(500, 500);
-		
+        
 		MeuMenu menu = new MeuMenu();
 		ImageView verFundo = new ImageView("/image/telaprinc.png");
 		StackPane stack = new StackPane();
 		
-		stack.getChildren().addAll(verFundo,accordion,menu );
+		stack.getChildren().addAll(verFundo,menu, accordion);
 		setCenter(stack);
 		setTop(menu);
 
