@@ -1,5 +1,8 @@
 package view;
 
+import java.awt.Color;
+import java.awt.Label;
+
 import charts.GrafBar;
 import app.Main;
 import banco.InfoBD;
@@ -18,19 +21,22 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
-public class TelaValoresExatos extends BorderPane {
+public class TelaInfoGerais extends BorderPane {
 	
 	private ListView dados;
 	private ObservableList<String> infoBanco;
 	private InfoBD banco;
 	
-	public TelaValoresExatos(){
+	public TelaInfoGerais(){
 		
 		dados = new ListView<>();
 		banco = new InfoBD();
+		banco.compoeDoacoes();banco.compoeDespesas();
 		
+			
 		infoBanco = FXCollections.observableArrayList();
-		infoBanco.addAll(banco.getQuantidadePacientes(), banco.getQuantidadeSocios(), banco.getQuantidadeDoacoes(), banco.getQuantidadeDespesas());
+		infoBanco.addAll("Sócios Cadastrados: " + banco.getQuantidadeSocios(), "Pacientes cadastrados: " + banco.getQuantidadeSocios(),"Doações cadastradas: " +  banco.getQuantidadeDoacoes(),"Despesas cadastradas: " + banco.getQuantidadeDespesas(), "",
+				"Total de arrecadações: R$ " + banco.geraArrecadacoes(), "Total de Despesas: R$ " + banco.geraGastos(), "Saldo da ONG: R$ " + banco.geraSaldo());
 		dados.setItems(infoBanco);
 		
 		

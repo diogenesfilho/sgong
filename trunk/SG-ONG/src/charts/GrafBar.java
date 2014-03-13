@@ -15,7 +15,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import view.CaDoacaoGUI;
 import view.MeuMenu;
-import view.TelaValoresExatos;
+import view.TelaInfoGerais;
 
 public class GrafBar extends BorderPane {
 	
@@ -46,6 +46,7 @@ public class GrafBar extends BorderPane {
         //Representa todas as barras De entrada ou seja doação.
         XYChart.Series series1 = new XYChart.Series();
         series1.setName("Doações");
+
         
         series1.getData().add(new XYChart.Data("Janeiro", info.getDoacoesJan()));
         series1.getData().add(new XYChart.Data("Fevereiro", info.getDoacoesFev()));

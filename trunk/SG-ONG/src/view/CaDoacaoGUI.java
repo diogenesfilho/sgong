@@ -40,7 +40,7 @@ public class CaDoacaoGUI extends BorderPane {
 	
 		//Criando os objetos
 		
-		Label textoAux = new Label("Caso a doação seja em ITENS, informe 0 e uma descrição.");
+		Label textoAux = new Label("Caso a doação seja em ITENS, informe 0 no campo 'Valor'");
 		textoAux.setFont(new Font(15));
 
 		Label valor = new Label("Valor:");
@@ -131,7 +131,7 @@ public class CaDoacaoGUI extends BorderPane {
 				}else if(descField.getText().equals("")){
 					new TelaAux("Adicione uma descrição!");
 				}else if(Integer.parseInt(valorField.getText()) <= 0){
-					new TelaAux("Valor Inv�lido!");
+					new TelaAux("Valor Inválido!");
 				}else{
 					try{
 

@@ -108,7 +108,7 @@ public class MeuMenu extends MenuBar {
 			
 			@Override
 			public void handle(ActionEvent arg0) {
-				Main.mudarTela(new TelaValoresExatos());
+				Main.mudarTela(new TelaInfoGerais());
 				
 			}
 		});

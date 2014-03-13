@@ -152,10 +152,10 @@ public class CaSocioGUI extends BorderPane {
 		HBox hbox7E1 = new HBox(5);
 		hbox7E1.getChildren().addAll(dataFiliacaoTexto, dataFiliacaoField);
 		
-		HBox hbox7E2 = new HBox(20);
+		HBox hbox7E2 = new HBox(85);
 		hbox7E2.getChildren().addAll(emailTexto, emailField);
 		
-		HBox hbox7 = new HBox(120);
+		HBox hbox7 = new HBox(60);
 		hbox7.getChildren().addAll(hbox7E1, hbox7E2);
 		
 		//Conjunto botoes
