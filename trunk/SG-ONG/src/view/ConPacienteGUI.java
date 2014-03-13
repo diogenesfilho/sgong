@@ -27,7 +27,7 @@ import javafx.scene.text.Font;
 public class ConPacienteGUI extends BorderPane {
 	
 	public TextField procuraField;
-	private ObservableList<Paciente> listaPacientesTabela;
+	private ObservableList<Paciente> listaPacientesTabela, busca;
 	private TableView tabela;
 	private Button procurar,excluir;
 //	private Banco bd;
@@ -48,7 +48,7 @@ public class ConPacienteGUI extends BorderPane {
 		HBox hboxProcu = new HBox(20);
 		hboxProcu.getChildren().addAll(procuraText,procuraField,procurar,excluir);
 		
-		Banco banco = Main.getBanco();
+		final Banco banco = Main.getBanco();
 		
 		
 		listaPacientesTabela = FXCollections.observableArrayList(
@@ -127,7 +127,10 @@ public class ConPacienteGUI extends BorderPane {
 			
 			@Override
 			public void handle(ActionEvent event) {
-				String nomeProcurar = procuraField.getText();			
+				String nomeProcurar = procuraField.getText();
+				Paciente pacienteBusca = new Paciente(nomeProcurar, null, null, null, null, null, null, null, null);
+				busca = FXCollections.observableArrayList(banco.listarPacientes(pacienteBusca));
+			    tabela.setItems(busca);
 			}
 		});
 		

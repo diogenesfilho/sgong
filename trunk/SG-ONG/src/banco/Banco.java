@@ -30,6 +30,20 @@ public class Banco {
 		return lista;
 	}
 	
+	// Sobrecarga de método
+	public ArrayList<Paciente> listarPacientes(Paciente p){
+
+		ObjectSet listaDoBanco = db.queryByExample(p);
+		ArrayList<Paciente> listaPacientes = new ArrayList<>();
+		
+		for (int i = 0; i < listaDoBanco.size(); i++) {
+			listaPacientes.add((Paciente) listaDoBanco.get(i));
+		}
+		
+		return listaPacientes;
+		
+	} 
+	
 	public ArrayList<Paciente> listarPacientes(){
 
 		ObjectSet listaDoBanco = db.query(Paciente.class);
