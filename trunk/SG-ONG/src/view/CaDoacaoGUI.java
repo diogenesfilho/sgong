@@ -68,7 +68,7 @@ public class CaDoacaoGUI extends BorderPane {
 		HBox hbox1 = new HBox(30);
 		hbox1.getChildren().addAll(valor, valorField);
 		
-		HBox hbox2 = new HBox(30);
+		HBox hbox2 = new HBox(38);
 		hbox2.getChildren().addAll(mes,mesCombo);
 			
 		HBox hbox3 = new HBox(30);
@@ -121,6 +121,8 @@ public class CaDoacaoGUI extends BorderPane {
 			
 			@Override
 			public void handle(ActionEvent event) {
+				
+				
 				
 				if(valorField.getText().equals("") && mesCombo.getSelectionModel().getSelectedItem() == null && descField.getText().equals("")){
 					new TelaAux("Informe todos os campos!");

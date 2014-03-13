@@ -35,7 +35,7 @@ public class MeuMenu extends MenuBar {
 		MenuItem geraInfo = new MenuItem("Informações gerais");	
 
 		//Parte de Ajuda.
-		MenuItem ajudaD = new MenuItem("Ajuda Dinâmica");
+		MenuItem ajudaD = new MenuItem("Ajuda SG ONG");
 		MenuItem sobre = new MenuItem("Sobre");		
 		
 		cadastrar.getItems().addAll(paciente,socio, doacao, despesas);
