@@ -66,7 +66,7 @@ public class CaDespesaGUI extends BorderPane {
 		HBox hbox1 = new HBox(30);
 		hbox1.getChildren().addAll(valor, valorField);
 			
-		HBox hbox2 = new HBox(30);
+		HBox hbox2 = new HBox(38);
 		hbox2.getChildren().addAll(mes, mesCombo);
 				
 		HBox hbox3 = new HBox(30);
@@ -128,7 +128,7 @@ public class CaDespesaGUI extends BorderPane {
 				}else if(descField.getText().equals("")){
 					new TelaAux("Adicione uma descrição.");
 				}else if(Integer.parseInt(valorField.getText()) <= 0){
-					new TelaAux("Valor Inv�lido!");
+					new TelaAux("Valor Inválido!");
 				}else{
 				
 					try{
