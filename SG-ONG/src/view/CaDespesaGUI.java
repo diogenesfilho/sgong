@@ -53,6 +53,7 @@ public class CaDespesaGUI extends BorderPane {
 		listaDeMeses.addAll("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");
 		mesCombo = new ComboBox<>();
 		mesCombo.setItems(listaDeMeses);
+		mesCombo.setMinSize(170, 20);
 		
 		descField = new TextArea();
 		descField.setPrefSize(400, 100);
@@ -127,7 +128,7 @@ public class CaDespesaGUI extends BorderPane {
 				}else if(descField.getText().equals("")){
 					new TelaAux("Adicione uma descrição.");
 				}else if(Integer.parseInt(valorField.getText()) <= 0){
-					new TelaAux("Valor Inv�lido!");
+					new TelaAux("Valor Inv�lido!");
 				}else{
 				
 					try{

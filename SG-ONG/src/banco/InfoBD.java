@@ -16,6 +16,7 @@ public class InfoBD {
 	
 	private float doacoesJan, doacoesFev, doacoesMar, doacoesAbr, doacoesMai, doacoesJun, doacoesJul, doacoesAgo, doacoesSet, doacoesOut, doacoesNov, doacoesDez = 0;
 	private float despesasJan, despesasFev, despesasMar, despesasAbr, despesasMai, despesasJun, despesasJul, despesasAgo, despesasSet, despesasOut, despesasNov, despesasDez = 0;
+	private float arrecadacoes, gastos, saldo = 0;
 	
 	
 	private ObjectSet listaDeSocios = banco.listaObjeto(Socio.class);
@@ -23,20 +24,39 @@ public class InfoBD {
 	private ObjectSet listaDeDoacoes = banco.listaObjeto(Doacao.class);
 	private ObjectSet listaDeDespesas = banco.listaObjeto(Despesa.class);
 	
-	public String getQuantidadeSocios() {
-		return "Sócios cadastrados: " + listaDeSocios.size();
+	public int getQuantidadeSocios() {
+		return listaDeSocios.size();
 	}
 
-	public String getQuantidadePacientes() {
-		return "Pacientes cadastrados: " + listaDePacientes.size();
+	public int getQuantidadePacientes() {
+		return listaDePacientes.size();
 	}
 	
-	public String getQuantidadeDoacoes() {
-		return "Doações cadastradas: " + listaDeDoacoes.size();
+	public int getQuantidadeDoacoes() {
+		return listaDeDoacoes.size();
 	}
 
-	public String getQuantidadeDespesas() {
-		return "Despesas cadastradas: " + listaDeDespesas.size();
+	public int getQuantidadeDespesas() {
+		return listaDeDespesas.size();
+	}
+	
+	public float geraArrecadacoes(){
+		arrecadacoes = doacoesJan + doacoesFev + doacoesMar + doacoesAbr +
+				doacoesMai + doacoesJun + doacoesJul + doacoesAgo +
+				doacoesSet + doacoesOut + doacoesNov + doacoesDez;
+		return arrecadacoes;
+	}
+	
+	public float geraGastos(){
+		gastos = despesasJan + despesasFev + despesasMar + despesasAbr +
+				despesasMai + despesasJun + despesasJul + despesasAgo +
+				despesasSet + despesasOut + despesasNov + despesasDez;
+		return gastos;
+	}	
+	
+	public float geraSaldo(){
+		saldo = arrecadacoes - gastos;
+		return saldo;
 	}
 
 	public void compoeDoacoes(){

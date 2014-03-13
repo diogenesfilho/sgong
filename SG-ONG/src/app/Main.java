@@ -1,13 +1,13 @@
 package app;
 
 /**
- * Aqui serao organizados os elementos que serao executados com inicio do programa bem como suas definicoes.
+ * Aqui são organizados os elementos que serão executados com início do programa.
  * 
  * @author Diogenes Laertius Silva de Oliveira Filho
  * @author José Arnóbio de Oliveira Júnior
  * @author João Vitor Silva Oliveira
  * 
- * @version 1.5
+ * @version 2.0
  * 
  */
 import banco.Banco;
