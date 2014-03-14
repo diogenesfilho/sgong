@@ -30,6 +30,7 @@ public class ConPacienteGUI extends BorderPane {
 	private ObservableList<Paciente> listaPacientesTabela, busca;
 	private TableView tabela;
 	private Button procurar,excluir, cancelarBusca;
+	private Banco banco;
 	
 	public ConPacienteGUI(){
 				
@@ -47,7 +48,7 @@ public class ConPacienteGUI extends BorderPane {
 		HBox hboxProcu = new HBox(20);
 		hboxProcu.getChildren().addAll(procuraText,procuraField,procurar,cancelarBusca);
 		
-		final Banco banco = Main.getBanco();
+		banco = Main.getBanco();
 		
 		
 		listaPacientesTabela = FXCollections.observableArrayList(
@@ -116,15 +117,19 @@ public class ConPacienteGUI extends BorderPane {
 		hboxProcu.setAlignment(Pos.CENTER);
 		
 		VBox boxTable = new VBox();
-		boxTop.getChildren().addAll(new MeuMenu(), titulo, hboxProcu, tabela, boxTable, hbox);
+		boxTop.getChildren().addAll(new MeuMenu(), titulo, hboxProcu, tabela, boxTable, hbox, excluir);
 
 		setTop(boxTop);
+		excluir.setAlignment(Pos.BASELINE_RIGHT);
 		
 		procurar.setOnAction(new EventHandler<ActionEvent>() {
 			
 			@Override
 			public void handle(ActionEvent event) {
+				
 				String nomeProcurar = procuraField.getText();
+				
+				
 				Paciente pacienteBusca = new Paciente(nomeProcurar, null, null, null, null, null, null, null, null);
 				busca = FXCollections.observableArrayList(banco.listarPacientes(pacienteBusca));
 			    tabela.setItems(busca);
@@ -141,15 +146,22 @@ public class ConPacienteGUI extends BorderPane {
 			}
 		});
 
-//		excluir.setOnAction(new EventHandler<ActionEvent>() {
-//
-//			@Override
-//			public void handle(ActionEvent arg0) {
-//				Paciente p = (Paciente) tabela.getSelectionModel().getSelectedItem();
-//				bd.excluirObjeto(p);
-//				
-//			}
-//		});
+		excluir.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent arg0) {
+				
+				if (tabela.getSelectionModel().getSelectedItem() == null) {
+					new TelaAux("Selecione o paciente que deseja excluir");
+				}else{
+					Paciente p = (Paciente) tabela.getSelectionModel().getSelectedItem();
+					banco.excluirObjeto(p);
+					tabela.setVisible(false);
+					new TelaAux("Paciente removido");
+					tabela.setVisible(true);
+				}
+			}
+		});
 		
 		
 	}
