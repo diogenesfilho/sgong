@@ -1,18 +1,13 @@
 package view;
 
-
-import java.util.ArrayList;
-
 import app.Main;
 import banco.Banco;
-import banco.InfoBD;
 import model.Paciente;
 import model.Socio;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -28,9 +23,10 @@ import javafx.scene.text.Font;
 public class ConSocioGUI extends BorderPane {
 	
 	public TextField procuraField;
-	private ObservableList<Socio> listaSociosTabela, busca;
-	private TableView tabela;
+	private ObservableList<Socio> listaSociosTabela, listaSociosRefresh, busca;
+	private TableView<Socio> tabela;
 	private Button procurar, excluir, cancelarBusca;
+	private Banco banco;
 	
 	public ConSocioGUI(){
 		
@@ -48,101 +44,106 @@ public class ConSocioGUI extends BorderPane {
 		HBox hboxProcu = new HBox(20);
 		hboxProcu.getChildren().addAll(procuraText,procuraField,procurar, cancelarBusca);
 		
-		final Banco banco = Main.getBanco();
+		banco = Main.getBanco();
 		
 		listaSociosTabela = FXCollections.observableArrayList(
 	            
 				banco.listarSocios()
 	            
 	        );
-	        TableColumn nomeCol = new TableColumn();
-	        nomeCol.setText("Nome");
-	        nomeCol.setMinWidth(100);
-	        nomeCol.setCellValueFactory(new PropertyValueFactory("nome"));
+		TableColumn nomeCol = new TableColumn();
+	    nomeCol.setText("Nome");
+	    nomeCol.setMinWidth(100);
+	    nomeCol.setCellValueFactory(new PropertyValueFactory("nome"));
+	      
+	    TableColumn endCol = new TableColumn();
+	    endCol.setText("Endereço");
+	    endCol.setMinWidth(100);
+	    endCol.setCellValueFactory(new PropertyValueFactory("endereco"));
+	       
+	    TableColumn cidadeCol = new TableColumn();
+	    cidadeCol.setText("Cidade");
+	    cidadeCol.setMinWidth(100);
+	    cidadeCol.setCellValueFactory(new PropertyValueFactory("cidade"));
 	        
-	        TableColumn endCol = new TableColumn();
-	        endCol.setText("Endereço");
-	        endCol.setMinWidth(100);
-	        endCol.setCellValueFactory(new PropertyValueFactory("endereco"));
+	    TableColumn estadoCol = new TableColumn();
+	    estadoCol.setText("Estado");
+	    estadoCol.setMinWidth(100);
+	    estadoCol.setCellValueFactory(new PropertyValueFactory("estado"));
 	        
-	        TableColumn cidadeCol = new TableColumn();
-	        cidadeCol.setText("Cidade");
-	        cidadeCol.setMinWidth(100);
-	        cidadeCol.setCellValueFactory(new PropertyValueFactory("cidade"));
+	    TableColumn rgCol = new TableColumn();
+	    rgCol.setText("RG");
+	    rgCol.setMinWidth(100);
+	    rgCol.setCellValueFactory(new PropertyValueFactory("rg"));
+	      
+	    TableColumn cpfCol = new TableColumn();
+	    cpfCol.setText("CPF");
+	    cpfCol.setMinWidth(100);
+	    cpfCol.setCellValueFactory(new PropertyValueFactory("cpf"));
 	        
-	        TableColumn estadoCol = new TableColumn();
-	        estadoCol.setText("Estado");
-	        estadoCol.setMinWidth(100);
-	        estadoCol.setCellValueFactory(new PropertyValueFactory("estado"));
+	    TableColumn nascCol = new TableColumn();
+	    nascCol.setText("Data de Nascimento");
+	    nascCol.setMinWidth(150);
+	    nascCol.setCellValueFactory(new PropertyValueFactory("nascimento"));
 	        
-	        TableColumn rgCol = new TableColumn();
-	        rgCol.setText("RG");
-	        rgCol.setMinWidth(100);
-	        rgCol.setCellValueFactory(new PropertyValueFactory("rg"));
+	    TableColumn telCol = new TableColumn();
+	    telCol.setText("Telefone");
+	    telCol.setMinWidth(100);
+	    telCol.setCellValueFactory(new PropertyValueFactory("telefone"));
 	        
-	        TableColumn cpfCol = new TableColumn();
-	        cpfCol.setText("CPF");
-	        cpfCol.setMinWidth(100);
-	        cpfCol.setCellValueFactory(new PropertyValueFactory("cpf"));
+	    TableColumn tipoCol = new TableColumn();
+	    tipoCol.setText("Tipo");
+	    tipoCol.setMinWidth(120);
+	    tipoCol.setCellValueFactory(new PropertyValueFactory("tipoSocio"));
+	      
+	    TableColumn dataCol = new TableColumn();
+	    dataCol.setText("Data de Filiação");
+	    dataCol.setMinWidth(120);
+	    dataCol.setCellValueFactory(new PropertyValueFactory("dataFiliacao"));
 	        
-	        TableColumn nascCol = new TableColumn();
-	        nascCol.setText("Data de Nascimento");
-	        nascCol.setMinWidth(150);
-	        nascCol.setCellValueFactory(new PropertyValueFactory("nascimento"));
+	    TableColumn emailCol = new TableColumn();
+	    emailCol.setText("Email");
+	    emailCol.setMinWidth(120);
+	    emailCol.setCellValueFactory(new PropertyValueFactory("email"));
 	        
-	        TableColumn telCol = new TableColumn();
-	        telCol.setText("Telefone");
-	        telCol.setMinWidth(100);
-	        telCol.setCellValueFactory(new PropertyValueFactory("telefone"));
-	        
-	        TableColumn tipoCol = new TableColumn();
-	        tipoCol.setText("Tipo");
-	        tipoCol.setMinWidth(120);
-	        tipoCol.setCellValueFactory(new PropertyValueFactory("tipoSocio"));
-	        
-	        TableColumn dataCol = new TableColumn();
-	        dataCol.setText("Data de Filiação");
-	        dataCol.setMinWidth(120);
-	        dataCol.setCellValueFactory(new PropertyValueFactory("dataFiliacao"));
-	        
-	        TableColumn emailCol = new TableColumn();
-	        emailCol.setText("Email");
-	        emailCol.setMinWidth(120);
-	        emailCol.setCellValueFactory(new PropertyValueFactory("email"));
-	        
-	        TableColumn valorCol = new TableColumn();
-	        valorCol.setText("Valor de contribuição");
-	        valorCol.setMinWidth(170);
-	        valorCol.setCellValueFactory(new PropertyValueFactory("valorContribuicao"));
+	    TableColumn valorCol = new TableColumn();
+	    valorCol.setText("Valor de contribuição");
+	    valorCol.setMinWidth(170);
+	    valorCol.setCellValueFactory(new PropertyValueFactory("valorContribuicao"));
 
 	   
-	        tabela = new TableView();
-	        tabela.setItems(listaSociosTabela);
-	        tabela.setMaxHeight(400);
-	        tabela.setMaxWidth(1100);
-	        tabela.getColumns().addAll(nomeCol, endCol, cidadeCol, estadoCol, rgCol, cpfCol, nascCol, telCol, tipoCol,dataCol, emailCol, valorCol);
+	    tabela = new TableView();
+	    tabela.setItems(listaSociosTabela);
+	    tabela.setMaxHeight(400);
+	    tabela.setMaxWidth(1100);
+	    tabela.getColumns().addAll(nomeCol, endCol, cidadeCol, estadoCol, rgCol, cpfCol, nascCol, telCol, tipoCol,dataCol, emailCol, valorCol);
 
-		HBox hbox = new HBox(20);
-		hbox.setAlignment(Pos.BASELINE_CENTER);
+	    HBox rodape = new HBox(20);
+		rodape.getChildren().addAll(excluir);
+		rodape.setTranslateX(120);
 
 		VBox boxTop = new VBox(20);
-		boxTop.setAlignment(Pos.CENTER);
-		hboxProcu.setAlignment(Pos.CENTER);
-		
-		VBox boxTable = new VBox();
-		boxTop.getChildren().addAll(new MeuMenu(), titulo, hboxProcu, tabela, boxTable, hbox);
+		boxTop.getChildren().addAll(new MeuMenu(), titulo, hboxProcu, tabela, rodape);
 
 		setTop(boxTop);
+		boxTop.setAlignment(Pos.CENTER);
+		hboxProcu.setAlignment(Pos.CENTER);
 		
 		procurar.setOnAction(new EventHandler<ActionEvent>() {
 			
 			@Override
 			public void handle(ActionEvent event) {
 				String nomeProcurar = procuraField.getText();
-				Socio socioBusca = new Socio(nomeProcurar, null, null, null, null, null, null, null, null, null, null);
-				busca = FXCollections.observableArrayList(banco.listarSocios(socioBusca));
-			    tabela.setItems(busca);
-			    cancelarBusca.setVisible(true);
+				
+				if (nomeProcurar.isEmpty() == false) {
+					Socio socioBusca = new Socio(nomeProcurar, null, null, null, null, null, null, null, null, null, null);
+					busca = FXCollections.observableArrayList(banco.listarSocios(socioBusca));
+					tabela.setItems(busca);
+					cancelarBusca.setVisible(true);
+				} else {
+					new TelaAux("Digite um nome para buscar");
+				}
+				
 				
 			}
 		});
@@ -151,11 +152,30 @@ public class ConSocioGUI extends BorderPane {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				tabela.setItems(listaSociosTabela);
+				listaSociosRefresh = FXCollections.observableArrayList(
+				banco.listarSocios());
+				tabela.setItems(listaSociosRefresh);
 				cancelarBusca.setVisible(false);
 			}
 		});
 		
+		
+		excluir.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent arg0) {
+				
+				if (tabela.getSelectionModel().getSelectedItem() == null) {
+					new TelaAux("Selecione o sócio que deseja excluir");
+				}else{
+					Socio s = (Socio) tabela.getSelectionModel().getSelectedItem();
+					banco.excluirObjeto(s);
+					new TelaAux("Sócio removido");
+					listaSociosRefresh = FXCollections.observableArrayList(banco.listarSocios());     
+					tabela.setItems(listaSociosRefresh);
+				}
+			}
+		});
 		
 	}
 
