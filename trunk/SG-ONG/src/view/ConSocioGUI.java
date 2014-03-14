@@ -28,8 +28,9 @@ import javafx.scene.text.Font;
 public class ConSocioGUI extends BorderPane {
 	
 	public TextField procuraField;
-	private ObservableList<Socio> listaSociosTabela;
+	private ObservableList<Socio> listaSociosTabela, busca;
 	private TableView tabela;
+	private Button procurar, excluir, cancelarBusca;
 	
 	public ConSocioGUI(){
 		
@@ -39,12 +40,15 @@ public class ConSocioGUI extends BorderPane {
 		Label procuraText = new Label("Procurar por nome:");
 		procuraField = new TextField();
 		procuraField.setPrefSize(620.0, 27.0); 
-		Button procurar = new Button("Procurar");
+		procurar = new Button("Procurar");
+		excluir = new Button("Excluir sócio");
+		cancelarBusca = new Button("Cancelar busca");
+		cancelarBusca.setVisible(false);
 		
 		HBox hboxProcu = new HBox(20);
-		hboxProcu.getChildren().addAll(procuraText,procuraField,procurar);
+		hboxProcu.getChildren().addAll(procuraText,procuraField,procurar, cancelarBusca);
 		
-		Banco banco = Main.getBanco();
+		final Banco banco = Main.getBanco();
 		
 		listaSociosTabela = FXCollections.observableArrayList(
 	            
@@ -135,22 +139,22 @@ public class ConSocioGUI extends BorderPane {
 			@Override
 			public void handle(ActionEvent event) {
 				String nomeProcurar = procuraField.getText();
-				// Método que será responsável por fazer a procura no banco. SELECT *
+				Socio socioBusca = new Socio(nomeProcurar, null, null, null, null, null, null, null, null, null, null);
+				busca = FXCollections.observableArrayList(banco.listarSocios(socioBusca));
+			    tabela.setItems(busca);
+			    cancelarBusca.setVisible(true);
 				
 			}
 		});
 		
-//		//Função Double Click para editar.
-//		tabela.setOnMouseClicked(new EventHandler<MouseEvent>() {
-//            @Override
-//            public void handle(MouseEvent mouseEvent) {
-//                if(mouseEvent.getButton().equals(MouseButton.PRIMARY)){
-//                    if(mouseEvent.getClickCount() == 2){
-//                        System.out.println("Double clicked");
-//                    }
-//                }
-//            }
-//        });
+		cancelarBusca.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent arg0) {
+				tabela.setItems(listaSociosTabela);
+				cancelarBusca.setVisible(false);
+			}
+		});
 		
 		
 	}

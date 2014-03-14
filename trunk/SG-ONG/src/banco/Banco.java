@@ -56,6 +56,20 @@ public class Banco {
 		return listaPacientes;
 		
 	}
+	
+	// Sobrecarga de método
+	public ArrayList<Socio> listarSocios(Socio s){
+
+		ObjectSet listaDoBanco = db.queryByExample(s);
+		ArrayList<Socio> listaSocios = new ArrayList<>();
+		
+		for (int i = 0; i < listaDoBanco.size(); i++) {
+			listaSocios.add((Socio) listaDoBanco.get(i));
+		}
+		
+		return listaSocios;
+		
+	} 
 
 	public ArrayList<Socio> listarSocios(){
 
@@ -70,6 +84,24 @@ public class Banco {
 		
 	}
 	
+	
+	// Método especial para retornar a doação caso esta contenha a descrição solicitada
+	public ArrayList<Doacao> listarDoacoesBusca(Doacao doacao){
+
+		String descricaoBuscada = doacao.getDescricao();
+		ObjectSet<Doacao> listaDoBanco = db.query(Doacao.class);
+		ArrayList<Doacao> listaDoacoes = new ArrayList<>();
+		
+		for (int i = 0; i < listaDoBanco.size(); i++) {
+			if (listaDoBanco.get(i).getDescricao().contains(descricaoBuscada)) {
+				listaDoacoes.add(listaDoBanco.get(i));
+			}
+		}
+		return listaDoacoes;
+		
+	} 
+	
+	
 	public ArrayList<Doacao> listarDoacoes(){
 
 		ObjectSet listaDoBanco = db.query(Doacao.class);
@@ -82,6 +114,22 @@ public class Banco {
 		return listaDoacoes;
 		
 	}
+	
+	// Método especial para retornar a despesa caso esta contenha a descrição solicitada
+		public ArrayList<Despesa> listarDespesasBusca(Despesa despesa){
+
+			String descricaoBuscada = despesa.getDescricao();
+			ObjectSet<Despesa> listaDoBanco = db.query(Despesa.class);
+			ArrayList<Despesa> listaDespesas = new ArrayList<>();
+			
+			for (int i = 0; i < listaDoBanco.size(); i++) {
+				if (listaDoBanco.get(i).getDescricao().contains(descricaoBuscada)) {
+					listaDespesas.add(listaDoBanco.get(i));
+				}
+			}
+			return listaDespesas;
+			
+		} 
 	
 	public ArrayList<Despesa> listarDespesas(){
 
