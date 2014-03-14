@@ -29,13 +29,10 @@ public class ConPacienteGUI extends BorderPane {
 	public TextField procuraField;
 	private ObservableList<Paciente> listaPacientesTabela, busca;
 	private TableView tabela;
-	private Button procurar,excluir;
-//	private Banco bd;
+	private Button procurar,excluir, cancelarBusca;
 	
 	public ConPacienteGUI(){
-		
-//		bd = new Banco();
-		
+				
 		Label titulo = new Label("Relação de Pacientes");
 		titulo.setFont(new Font(30));
 		
@@ -44,9 +41,11 @@ public class ConPacienteGUI extends BorderPane {
 		procuraField.setPrefSize(620.0, 27.0); 
 		procurar = new Button("Procurar");
 		excluir = new Button("Excluir paciente");
+		cancelarBusca = new Button("Cancelar busca");
+		cancelarBusca.setVisible(false);
 		
 		HBox hboxProcu = new HBox(20);
-		hboxProcu.getChildren().addAll(procuraText,procuraField,procurar,excluir);
+		hboxProcu.getChildren().addAll(procuraText,procuraField,procurar,cancelarBusca);
 		
 		final Banco banco = Main.getBanco();
 		
@@ -108,9 +107,7 @@ public class ConPacienteGUI extends BorderPane {
 	        tabela.setMaxWidth(1000);
 	        tabela.getColumns().addAll(nomeCol, endCol, cidadeCol, estadoCol, rgCol, cpfCol, nascCol, telCol, obsCol);
 
-	        
-	        
-	        
+
 		HBox hbox = new HBox(20);
 		hbox.setAlignment(Pos.BASELINE_CENTER);
 
@@ -131,9 +128,18 @@ public class ConPacienteGUI extends BorderPane {
 				Paciente pacienteBusca = new Paciente(nomeProcurar, null, null, null, null, null, null, null, null);
 				busca = FXCollections.observableArrayList(banco.listarPacientes(pacienteBusca));
 			    tabela.setItems(busca);
+			    cancelarBusca.setVisible(true);
 			}
 		});
 		
+		cancelarBusca.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent arg0) {
+				tabela.setItems(listaPacientesTabela);
+				cancelarBusca.setVisible(false);
+			}
+		});
 
 //		excluir.setOnAction(new EventHandler<ActionEvent>() {
 //
