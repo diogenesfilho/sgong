@@ -30,6 +30,7 @@ public class ConSocioGUI extends BorderPane {
 	
 	public ConSocioGUI(){
 		
+		// Criando labels, botões, Hboxes, Tabela
 		Label titulo = new Label("Relação de Sócios");
 		titulo.setFont(new Font(30));
 		
@@ -44,13 +45,10 @@ public class ConSocioGUI extends BorderPane {
 		HBox hboxProcu = new HBox(20);
 		hboxProcu.getChildren().addAll(procuraText,procuraField,procurar, cancelarBusca);
 		
+		// Acessando o banco e compondo a tabela com cada atributo
 		banco = Main.getBanco();
+		listaSociosTabela = FXCollections.observableArrayList(banco.listarSocios());
 		
-		listaSociosTabela = FXCollections.observableArrayList(
-	            
-				banco.listarSocios()
-	            
-	        );
 		TableColumn nomeCol = new TableColumn();
 	    nomeCol.setText("Nome");
 	    nomeCol.setMinWidth(100);
