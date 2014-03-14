@@ -29,9 +29,10 @@ import javafx.scene.text.Font;
 public class ConDoacaoGUI extends BorderPane {
 	
 	public TextField procuraField;
-	private ObservableList<Doacao> listaDoacoesTabela, busca;
+	private ObservableList<Doacao> listaDoacoesTabela, listaDoacoesRefresh, busca;
 	private TableView tabela;
 	private Button procurar, excluir, cancelarBusca;
+	private Banco banco;
 	
 	public ConDoacaoGUI(){
 		
@@ -49,14 +50,9 @@ public class ConDoacaoGUI extends BorderPane {
 		HBox hboxProcu = new HBox(20);
 		hboxProcu.getChildren().addAll(procuraText,procuraField,procurar, cancelarBusca);
 		
-		final Banco banco = Main.getBanco();
+		banco = Main.getBanco();
+		listaDoacoesTabela = FXCollections.observableArrayList(banco.listarDoacoes());
 		
-		
-		listaDoacoesTabela = FXCollections.observableArrayList(
-	            
-				banco.listarDoacoes()
-	            
-	        );
 	        TableColumn valorCol = new TableColumn();
 	        valorCol.setText("Valor");
 	        valorCol.setMinWidth(100);
@@ -81,30 +77,32 @@ public class ConDoacaoGUI extends BorderPane {
 	        tabela.getColumns().addAll(valorCol, mesCol, descCol);
 
 	        
-	        
-	        
-		HBox hbox = new HBox(20);
-		hbox.setAlignment(Pos.BASELINE_CENTER);
+	    HBox rodape = new HBox(20);
+		rodape.getChildren().addAll(excluir);
 
 		VBox boxTop = new VBox(20);
-		boxTop.setAlignment(Pos.CENTER);
-		hboxProcu.setAlignment(Pos.CENTER);
-		
-		VBox boxTable = new VBox();
-		boxTop.getChildren().addAll(new MeuMenu(), titulo, hboxProcu, tabela, boxTable, hbox);
+		boxTop.getChildren().addAll(new MeuMenu(), titulo, hboxProcu, tabela, rodape);
 
 		setTop(boxTop);
+		boxTop.setAlignment(Pos.CENTER);
+		hboxProcu.setAlignment(Pos.CENTER);
+		rodape.setAlignment(Pos.CENTER);
 		
 		procurar.setOnAction(new EventHandler<ActionEvent>() {
 			
 			@Override
 			public void handle(ActionEvent event) {
 				String nomeProcurar = procuraField.getText();
-				Doacao doacaoBusca = new Doacao(0, nomeProcurar, null);
-				busca = FXCollections.observableArrayList(banco.listarDoacoesBusca(doacaoBusca));
-			    tabela.setItems(busca);
-			    cancelarBusca.setVisible(true);
 				
+				if (nomeProcurar.isEmpty() == false) {
+					Doacao doacaoBusca = new Doacao(0, nomeProcurar, null);
+					busca = FXCollections.observableArrayList(banco.listarDoacoesBusca(doacaoBusca));
+					tabela.setItems(busca);
+					cancelarBusca.setVisible(true);
+				} else {
+					new TelaAux("Digite uma descrição para buscar");
+				}
+	
 			}
 		});
 		
@@ -112,8 +110,27 @@ public class ConDoacaoGUI extends BorderPane {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				tabela.setItems(listaDoacoesTabela);
+				listaDoacoesRefresh = FXCollections.observableArrayList(
+				banco.listarDoacoes());
+				tabela.setItems(listaDoacoesRefresh);
 				cancelarBusca.setVisible(false);
+			}
+		});
+		
+		excluir.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent arg0) {
+				
+				if (tabela.getSelectionModel().getSelectedItem() == null) {
+					new TelaAux("Selecione a doação que deseja excluir");
+				}else{
+					Doacao doa = (Doacao) tabela.getSelectionModel().getSelectedItem();
+					banco.excluirObjeto(doa);
+					new TelaAux("Doação removida");
+					listaDoacoesRefresh = FXCollections.observableArrayList(banco.listarDoacoes());     
+					tabela.setItems(listaDoacoesRefresh);
+				}
 			}
 		});
 		
