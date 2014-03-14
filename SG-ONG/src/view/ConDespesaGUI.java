@@ -29,8 +29,9 @@ import javafx.scene.text.Font;
 public class ConDespesaGUI extends BorderPane {
 	
 	public TextField procuraField;
-	private ObservableList<Despesa> listaDespesasTabela;
+	private ObservableList<Despesa> listaDespesasTabela, busca;
 	private TableView tabela;
+	private Button procurar, excluir, cancelarBusca;
 	
 	public ConDespesaGUI(){
 		
@@ -40,12 +41,15 @@ public class ConDespesaGUI extends BorderPane {
 		Label procuraText = new Label("Procurar por descrição:");
 		procuraField = new TextField();
 		procuraField.setPrefSize(620.0, 27.0); 
-		Button procurar = new Button("Procurar");
+		procurar = new Button("Procurar");
+		excluir = new Button("Excluir despesa");
+		cancelarBusca = new Button("Cancelar busca");
+		cancelarBusca.setVisible(false);
 		
 		HBox hboxProcu = new HBox(20);
-		hboxProcu.getChildren().addAll(procuraText,procuraField,procurar);
+		hboxProcu.getChildren().addAll(procuraText,procuraField,procurar, cancelarBusca);
 		
-		Banco banco = Main.getBanco();
+		final Banco banco = Main.getBanco();
 		
 		
 		listaDespesasTabela = FXCollections.observableArrayList(
@@ -96,8 +100,19 @@ public class ConDespesaGUI extends BorderPane {
 			@Override
 			public void handle(ActionEvent event) {
 				String nomeProcurar = procuraField.getText();
-				// Método que será responsável por fazer a procura no banco. SELECT *
-				
+				Despesa despesaBusca = new Despesa(0, nomeProcurar, null);
+				busca = FXCollections.observableArrayList(banco.listarDespesasBusca(despesaBusca));
+			    tabela.setItems(busca);
+			    cancelarBusca.setVisible(true);				
+			}
+		});
+		
+		cancelarBusca.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent arg0) {
+				tabela.setItems(listaDespesasTabela);
+				cancelarBusca.setVisible(false);
 			}
 		});
 		

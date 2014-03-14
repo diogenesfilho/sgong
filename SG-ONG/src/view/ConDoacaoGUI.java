@@ -8,6 +8,7 @@ import banco.Banco;
 import banco.InfoBD;
 import model.Doacao;
 import model.Paciente;
+import model.Socio;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -28,8 +29,9 @@ import javafx.scene.text.Font;
 public class ConDoacaoGUI extends BorderPane {
 	
 	public TextField procuraField;
-	private ObservableList<Doacao> listaDoacoesTabela;
+	private ObservableList<Doacao> listaDoacoesTabela, busca;
 	private TableView tabela;
+	private Button procurar, excluir, cancelarBusca;
 	
 	public ConDoacaoGUI(){
 		
@@ -39,12 +41,15 @@ public class ConDoacaoGUI extends BorderPane {
 		Label procuraText = new Label("Procurar por descrição:");
 		procuraField = new TextField();
 		procuraField.setPrefSize(620.0, 27.0); 
-		Button procurar = new Button("Procurar");
+		procurar = new Button("Procurar");
+		excluir = new Button("Excluir doação");
+		cancelarBusca = new Button("Cancelar busca");
+		cancelarBusca.setVisible(false);
 		
 		HBox hboxProcu = new HBox(20);
-		hboxProcu.getChildren().addAll(procuraText,procuraField,procurar);
+		hboxProcu.getChildren().addAll(procuraText,procuraField,procurar, cancelarBusca);
 		
-		Banco banco = Main.getBanco();
+		final Banco banco = Main.getBanco();
 		
 		
 		listaDoacoesTabela = FXCollections.observableArrayList(
@@ -95,8 +100,20 @@ public class ConDoacaoGUI extends BorderPane {
 			@Override
 			public void handle(ActionEvent event) {
 				String nomeProcurar = procuraField.getText();
-				// Método que será responsável por fazer a procura no banco. SELECT *
+				Doacao doacaoBusca = new Doacao(0, nomeProcurar, null);
+				busca = FXCollections.observableArrayList(banco.listarDoacoesBusca(doacaoBusca));
+			    tabela.setItems(busca);
+			    cancelarBusca.setVisible(true);
 				
+			}
+		});
+		
+		cancelarBusca.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent arg0) {
+				tabela.setItems(listaDoacoesTabela);
+				cancelarBusca.setVisible(false);
 			}
 		});
 		
