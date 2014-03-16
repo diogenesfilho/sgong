@@ -54,7 +54,7 @@ public class ConDespesaGUI extends BorderPane {
 		listaDespesasTabela = FXCollections.observableArrayList(banco.listarDespesas());
 		
 	        TableColumn valorCol = new TableColumn();
-	        valorCol.setText("Valor");
+	        valorCol.setText("Valor (R$)");
 	        valorCol.setMinWidth(100);
 	        valorCol.setCellValueFactory(new PropertyValueFactory("valor"));
 	        
