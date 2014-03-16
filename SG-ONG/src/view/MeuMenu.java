@@ -17,21 +17,19 @@ public class MeuMenu extends MenuBar {
 		Menu consultar = new Menu("Consultar");
 		Menu financas = new Menu("Finanças");
 		Menu ajuda = new Menu("Ajuda");
-
 		
 		//Parte de Cadastro
 		MenuItem paciente = new MenuItem("Paciente");
 		MenuItem socio = new MenuItem("Sócio");
-		MenuItem doacao = new MenuItem("Doação"); //Entra como Menu pois tem duas opções dentro dele.
+		MenuItem doacao = new MenuItem("Doação");
 		MenuItem despesas = new MenuItem("Despesas");
-		
 		
 		//Parte de Consulta.
 		MenuItem cSocio = new MenuItem("Sócio");
 		MenuItem cPaciente = new MenuItem("Paciente");
 		
-		//Parte de Balanço.
-		MenuItem listarDoacoes = new MenuItem("Doações");
+		//Parte de Finanças.
+		MenuItem listarDoacoes = new MenuItem("Despesas");	
 		MenuItem listarDespesas = new MenuItem("Despesas");	
 		MenuItem geraGrafico = new MenuItem("Gráfico");	
 		MenuItem geraInfo = new MenuItem("Informações gerais");	
@@ -40,15 +38,20 @@ public class MeuMenu extends MenuBar {
 		MenuItem ajudaD = new MenuItem("Ajuda SG ONG");
 		MenuItem sobre = new MenuItem("Sobre");		
 		
+		//Parte de Doações (dentro de cadastro)
+		MenuItem valor = new MenuItem("Valor");
+		MenuItem itens = new MenuItem("Itens");
+		
 		cadastrar.getItems().addAll(paciente,socio, doacao, despesas);
 		consultar.getItems().addAll(cPaciente,cSocio);
 		financas.getItems().addAll(listarDoacoes, listarDespesas, geraGrafico, geraInfo);
 		ajuda.getItems().addAll(ajudaD,sobre);
 		
+		
 		getMenus().addAll(cadastrar,consultar,financas,ajuda);
 		
-		//Funções de cada atalho no Menu -> Definição: NOMEDOBOTÃO.setOnAction(new EventHandler<ActionEvent>() {.
 		
+		//Funções de cada atalho no Menu
 		
 		doacao.setOnAction(new EventHandler<ActionEvent>() {
 			
@@ -165,6 +168,7 @@ public class MeuMenu extends MenuBar {
 				
 			}
 		}); 
+		
 		
 	}
 }
