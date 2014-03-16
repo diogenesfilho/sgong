@@ -119,31 +119,32 @@ public class CaDespesaGUI extends BorderPane {
 			@Override
 			public void handle(ActionEvent event) {
 								
-				if(valorField.getText().equals("") && mesCombo.getSelectionModel().getSelectedItem() == null && descField.getText().equals("")){
-					new TelaAux("Informe todos os campos!");
-				}else if(valorField.getText().equals("")){
-					new TelaAux("Informe o valor.");
-				}else if(mesCombo.getSelectionModel().getSelectedItem() == null){
-					new TelaAux("Informe o mês.");
-				}else if(descField.getText().equals("")){
-					new TelaAux("Adicione uma descrição.");
-				}else if(Integer.parseInt(valorField.getText()) <= 0){
-					new TelaAux("Valor Inválido!");
-				}else{
-				
-					try{
+				try{
 					
-						Despesa despesa = new Despesa(Double.parseDouble(valorField.getText()),descField.getText(), mesCombo.getSelectionModel().getSelectedItem());
+					String s = valorField.getText();
+					Double valor = Double.parseDouble(s);
 							
-						Banco banco = Main.getBanco();
-						banco.addObjeto(despesa);
-						new TelaAux("Cadastro Efetuado Com Sucesso!");
-						limpaCampos();
-							
-					}catch(NumberFormatException nfe){
-						new TelaAux("Valores informados inválidos!");
-					}
-				}	
+					if(Integer.parseInt(valorField.getText()) <= 0){
+						new TelaAux("Valor inválido!");
+					}else if(mesCombo.getSelectionModel().getSelectedItem() == null){
+						new TelaAux("Informe o mês!");
+					}else if(descField.getText().equals("")){
+						new TelaAux("Adicione uma descrição!");
+					}else{
+						
+					Despesa despesa = new Despesa(valor, descField.getText(), mesCombo.getSelectionModel().getSelectedItem());
+								
+					Banco banco = Main.getBanco();
+					banco.addObjeto(despesa);
+					new TelaAux("Despesa cadastrada com sucesso!");
+					limpaCampos();
+				
+				}
+				
+				} catch (NumberFormatException nfe){
+					new TelaAux("Dados inválidos!");
+				}
+				
 			}
 			
 			private void limpaCampos() {
