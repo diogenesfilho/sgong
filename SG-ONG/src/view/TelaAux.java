@@ -42,6 +42,7 @@ public class TelaAux extends Stage {
 		
 		Label texto = new Label(getMensagem());
 		Button ok = new Button("OK");
+//		ok.setStyle("-fx-cursor: hand;");
 		
         boxtexto.getChildren().addAll(texto,ok);
         boxtexto.setAlignment(Pos.CENTER);

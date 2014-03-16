@@ -1,16 +1,24 @@
 package charts;
 
+import javax.print.DocFlavor.STRING;
+
+import com.sun.javafx.geom.BaseBounds;
+import com.sun.javafx.geom.transform.BaseTransform;
+import com.sun.javafx.scene.BoundsAccessor;
+
 import banco.InfoBD;
 import app.Main;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.ToolBar;
+import javafx.scene.effect.Effect;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import view.CaDoacaoGUI;
@@ -36,17 +44,17 @@ public class GrafBar extends BorderPane {
 		
 		final CategoryAxis xAxis = new CategoryAxis();
         final NumberAxis yAxis = new NumberAxis();
-        final BarChart<String,Number> balanco = new BarChart<String,Number>(xAxis,yAxis);
+        final BarChart<String,Number> grafico = new BarChart<String,Number>(xAxis,yAxis);
         
-        balanco.setTitle("Balanço Anual");
+        
+        grafico.setTitle("Balanço Anual");
         xAxis.setLabel("Meses");        //Nome que fica na horizontal.
         yAxis.setLabel("Valores(R$) "); // Nome que fica na vertical.
  
         
-        //Representa todas as barras De entrada ou seja doação.
+        //Representa todas as barras de entrada (doação).
         XYChart.Series series1 = new XYChart.Series();
         series1.setName("Doações");
-
         
         series1.getData().add(new XYChart.Data("Janeiro", info.getDoacoesJan()));
         series1.getData().add(new XYChart.Data("Fevereiro", info.getDoacoesFev()));
@@ -62,7 +70,7 @@ public class GrafBar extends BorderPane {
         series1.getData().add(new XYChart.Data("Dezembro", info.getDoacoesDez()));
 
    
-        //Representa todas as barras De saída ou seja despesa.
+        //Representa todas as barras de saida (despesa).
         XYChart.Series series2 = new XYChart.Series();
         series2.setName("Despesas");
         
@@ -80,11 +88,11 @@ public class GrafBar extends BorderPane {
         series2.getData().add(new XYChart.Data("Dezembro", info.getDespesasDez()));
 
 
-        balanco.getData().addAll(series1, series2);
-        
+        grafico.getData().addAll(series1, series2);
+        grafico.setMaxSize(1200, 800);
         
         VBox vbox = new VBox();
-        vbox.getChildren().addAll(balanco);
+        vbox.getChildren().addAll(grafico);
         vbox.setAlignment(Pos.CENTER);
         setCenter(vbox);
 	}

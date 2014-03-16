@@ -20,14 +20,21 @@ public class LoginGUI extends BorderPane {
 	
 	public  LoginGUI(){
 		
+		//Deixando o cursor sem focar, inicialmente, em nenhum campo
+		setFocusTraversable(true);
 		
-		Label nome = new Label("Usuário:");
+		
+		Label nome = new Label("Usuário:");		
 		Label senha = new Label("Senha:");
 		
 		final TextField nomeField = new TextField();
+		nomeField.setPromptText("Digite seu login");
+		
 		final PasswordField senhaField = new PasswordField();
+		senhaField.setPromptText("Digite sua senha");
 		
 		Button entrar = new Button("Entrar");
+		entrar.setStyle("-fx-cursor: hand;");
 
 		HBox hbox1 = new HBox(35);
 		hbox1.getChildren().addAll(nome,nomeField);
@@ -58,7 +65,7 @@ public class LoginGUI extends BorderPane {
 				if (nomeField.getText().equals("adm") &&  (senhaField.getText().equals("adm"))){
 					Main.mudarTela(new TelaPrincipal());
 				}else if(nomeField.getText().equals("") || senhaField.getText().equals("")){
-					new TelaAux("Por Favor entre com login e senha");
+					new TelaAux("Digite login e senha!");
 				}
 				else {
 					new TelaAux("Usuário não permitido!");

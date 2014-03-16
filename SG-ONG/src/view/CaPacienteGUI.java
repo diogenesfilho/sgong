@@ -193,17 +193,25 @@ public class CaPacienteGUI extends BorderPane {
 			public void handle(ActionEvent event) {
 	
 				
-				if(nomeField.getText().toString().isEmpty() || comboEstado.getSelectionModel().getSelectedItem() == null || cpfField.getText().toString().isEmpty()  || rgField.getText().toString().isEmpty() || cidadeField.getText().toString().isEmpty() || nasciField.getText().toString().isEmpty()){
-					new TelaAux("Por Favor informe todos os dados!");
-				}else{
-					Paciente paciente;
-					paciente = new Paciente(nomeField.getText(),enderecoField.getText(),cidadeField.getText(),comboEstado.getSelectionModel().getSelectedItem(),rgField.getText(),cpfField.getText(),nasciField.getText(),telefoneCelularField.getText(),observacoesField.getText());
-							
-					Banco banco = Main.getBanco();
-					banco.addObjeto(paciente);
-					new TelaAux("Paciente Cadastrado Com Sucesso!");
-					limpaCampos();
+				try {
+					
+					if(nomeField.getText().toString().isEmpty() || comboEstado.getSelectionModel().getSelectedItem() == null || cpfField.getText().toString().isEmpty()  || rgField.getText().toString().isEmpty() || cidadeField.getText().toString().isEmpty() || nasciField.getText().toString().isEmpty()){
+						new TelaAux("Por Favor informe todos os dados!");
+//					}else if (cidade.contains(s)) {
+//						new TelaAux("Cidade inválida!");   // PAREI AQUI
+//					} else{
+						Paciente paciente;
+						paciente = new Paciente(nomeField.getText(),enderecoField.getText(),cidadeField.getText(),comboEstado.getSelectionModel().getSelectedItem(),rgField.getText(),cpfField.getText(),nasciField.getText(),telefoneCelularField.getText(),observacoesField.getText());
+								
+						Banco banco = Main.getBanco();
+						banco.addObjeto(paciente);
+						new TelaAux("Paciente Cadastrado Com Sucesso!");
+						limpaCampos();
+					}
+				} catch (NumberFormatException nfe) {
+					new TelaAux("Dados inválidos!");
 				}
+				
 
 			}
 			

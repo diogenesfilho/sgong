@@ -116,33 +116,31 @@ public class CaDoacaoGUI extends BorderPane {
 		
 		
 		cadastrar.setOnAction(new EventHandler<ActionEvent>() {
-			
-			
-			
+
 			@Override
 			public void handle(ActionEvent event) {
 			
 				try{
 						
-				String s = valorField.getText();
-				Double valor = Double.parseDouble(s);
-						
-				if(Integer.parseInt(valorField.getText()) <= 0){
-					new TelaAux("Valor inválido!");
-				}else if(mesCombo.getSelectionModel().getSelectedItem() == null){
-					new TelaAux("Informe o mês!");
-				}else if(descField.getText().equals("")){
-					new TelaAux("Adicione uma descrição!");
-				}else{
-					
-				Doacao doacao = new Doacao(valor, descField.getText(), mesCombo.getSelectionModel().getSelectedItem());
+					String s = valorField.getText();
+					Double valor = Double.parseDouble(s);
 							
-				Banco banco = Main.getBanco();
-				banco.addObjeto(doacao);
-				new TelaAux("Cadastro Efetuado Com Sucesso!");
-				limpaCampos();
-			
-					}
+					if(Integer.parseInt(valorField.getText()) <= 0){
+						new TelaAux("Valor inválido!");
+					}else if(mesCombo.getSelectionModel().getSelectedItem() == null){
+						new TelaAux("Informe o mês!");
+					}else if(descField.getText().equals("")){
+						new TelaAux("Adicione uma descrição!");
+					}else{
+						
+					Doacao doacao = new Doacao(valor, descField.getText(), mesCombo.getSelectionModel().getSelectedItem());
+								
+					Banco banco = Main.getBanco();
+					banco.addObjeto(doacao);
+					new TelaAux("Doação cadastrada com sucesso!");
+					limpaCampos();
+				
+				}
 				
 				} catch (NumberFormatException nfe){
 					new TelaAux("Dados inválidos!");
