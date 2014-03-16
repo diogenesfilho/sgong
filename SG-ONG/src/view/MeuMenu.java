@@ -1,5 +1,7 @@
 package view;
 
+import java.text.ParseException;
+
 import charts.GrafBar;
 import app.Main;
 import javafx.event.ActionEvent;
@@ -71,7 +73,12 @@ public class MeuMenu extends MenuBar {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				Main.mudarTela(new CaPacienteGUI());
+				try {
+					Main.mudarTela(new CaPacienteGUI());
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		});
 		

@@ -224,9 +224,9 @@ public class CaSocioGUI extends BorderPane {
 			}
 
 			private void limpaCampos() {
-				nomeField.setText("");enderecoField.setText("");cidadeField.setText("");rgField.setText("");
-				cpfField.setText("");nasciField.setText("");emailField.setText("");
-				telefoneCelularField.setText("");dataFiliacaoField.setText("");comboEstado.getSelectionModel().clearSelection();
+				nomeField.setText(null);enderecoField.setText(null);cidadeField.setText(null);rgField.setText(null);
+				cpfField.setText(null);nasciField.setText(null);emailField.setText(null);
+				telefoneCelularField.setText(null);dataFiliacaoField.setText(null);comboEstado.getSelectionModel().clearSelection();
 				comboSocio.getSelectionModel().clearSelection();
 			}
 			

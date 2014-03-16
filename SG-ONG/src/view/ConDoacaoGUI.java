@@ -53,28 +53,26 @@ public class ConDoacaoGUI extends BorderPane {
 		banco = Main.getBanco();
 		listaDoacoesTabela = FXCollections.observableArrayList(banco.listarDoacoes());
 		
-	        TableColumn valorCol = new TableColumn();
-	        valorCol.setText("Valor");
-	        valorCol.setMinWidth(100);
-	        valorCol.setCellValueFactory(new PropertyValueFactory("valor"));
+	    TableColumn valorCol = new TableColumn();
+	    valorCol.setText("Valor (R$)");
+        valorCol.setMinWidth(100);
+        valorCol.setCellValueFactory(new PropertyValueFactory("valor"));
 	        
-	        TableColumn mesCol = new TableColumn();
-	        mesCol.setText("Mês");
-	        mesCol.setMinWidth(100);
-	        mesCol.setCellValueFactory(new PropertyValueFactory("mes"));
+	    TableColumn mesCol = new TableColumn();
+	    mesCol.setText("Mês");
+	    mesCol.setMinWidth(100);
+	    mesCol.setCellValueFactory(new PropertyValueFactory("mes"));
+	      
+	    TableColumn descCol = new TableColumn();
+	    descCol.setText("Descrição");
+	    descCol.setMinWidth(300);
+	    descCol.setCellValueFactory(new PropertyValueFactory("descricao"));
 	        
-	        TableColumn descCol = new TableColumn();
-	        descCol.setText("Descrição");
-	        descCol.setMinWidth(300);
-	        descCol.setCellValueFactory(new PropertyValueFactory("descricao"));
-	        
-	        
-	   
-	        tabela = new TableView();
-	        tabela.setItems(listaDoacoesTabela);
-	        tabela.setMaxHeight(400);
-	        tabela.setMaxWidth(502);
-	        tabela.getColumns().addAll(valorCol, mesCol, descCol);
+	    tabela = new TableView();
+	    tabela.setItems(listaDoacoesTabela);
+	    tabela.setMaxHeight(400);
+	    tabela.setMaxWidth(502);
+	    tabela.getColumns().addAll(valorCol, mesCol, descCol);
 
 	        
 	    HBox rodape = new HBox(20);

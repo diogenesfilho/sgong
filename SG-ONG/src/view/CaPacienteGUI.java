@@ -2,6 +2,12 @@ package view;
 
 
 
+import java.text.ParseException;
+
+import javax.swing.JFormattedTextField;
+import javax.swing.JFrame;
+import javax.swing.text.MaskFormatter;
+
 import banco.Banco;
 import banco.InfoBD;
 import model.Paciente;
@@ -36,10 +42,8 @@ public class CaPacienteGUI extends BorderPane {
 	private ComboBox<String> comboEstado;
 	private ObservableList<String> TpEstado;
 	private Button cadastrar, cancelar;
-		
 	
-	public CaPacienteGUI(){
-		
+	public CaPacienteGUI() throws ParseException{
 		
 		//Set Título
 		Label titulo = new Label("Cadastrar Paciente");
@@ -204,9 +208,9 @@ public class CaPacienteGUI extends BorderPane {
 			}
 			
 			public void limpaCampos(){
-				nomeField.setText("");enderecoField.setText("");cidadeField.setText("");
-				rgField.setText("");cpfField.setText("");nasciField.setText("");
-				observacoesField.setText("");telefoneCelularField.setText("");comboEstado.getSelectionModel().clearSelection();
+				nomeField.setText(null);enderecoField.setText(null);cidadeField.setText(null);
+				rgField.setText(null);cpfField.setText(null);nasciField.setText(null);
+				observacoesField.setText(null);telefoneCelularField.setText(null);comboEstado.getSelectionModel().clearSelection();
 			}
 		});	
 	}

@@ -21,7 +21,6 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import view.LoginGUI;
 
-
 public class Main extends Application {
 	
 	private static Banco bd;
