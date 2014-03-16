@@ -1,6 +1,8 @@
 package view;
 
 import banco.Banco;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,11 +18,13 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -35,17 +39,50 @@ public class CaDoacaoGUI extends BorderPane {
 	private ComboBox<String> mesCombo;
 	private TextArea descField;
 	private ObservableList<String> listaDeMeses;
-	
+	private Label valor, descri, mes;
+
 	public CaDoacaoGUI(){
+		
+		valor = new Label("Valor:");
+		descri = new Label("Descrição:");
+		mes = new Label("Mês:");
+		
+		final ToggleButton tb1 = new ToggleButton("Valor");
+	    final ToggleButton tb2 = new ToggleButton("Item");
+	    final ToggleGroup group = new ToggleGroup();
+	    tb1.setToggleGroup(group);
+	    tb2.setToggleGroup(group);
+	    
+	    group.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
+
+			@Override
+			public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle selectedToggle) {
+	
+				if (selectedToggle == tb2) {
+					valorField.setText("0");
+					valorField.setVisible(false);
+					valor.setVisible(false);
+					
+				}else {
+					valorField.setVisible(true);
+					valor.setVisible(true);
+				}
+				
+			}
+	    	
+		});
+	    
+	        
+	    HBox seletor = new HBox(20);
+	    seletor.getChildren().addAll(tb1,tb2);
+
 	
 		//Criando os objetos
 		
-		Label textoAux = new Label("Caso a doação seja em ITENS, informe 0 no campo 'Valor'");
+		Label textoAux = new Label("Selecione o campo 'Valor' para cadastrar uma doação em dinheiro. Ex: R$ 100");
 		textoAux.setFont(new Font(15));
 
-		Label valor = new Label("Valor:");
-		Label descri = new Label("Descrição:");
-		Label mes = new Label("Mês:");
+		
 		
 		listaDeMeses = FXCollections.observableArrayList();
 		listaDeMeses.addAll("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");
@@ -78,12 +115,13 @@ public class CaDoacaoGUI extends BorderPane {
 		hbox4.getChildren().addAll(descri,descField);
 				
 		VBox vbox = new VBox(30);
-		vbox.getChildren().addAll(titulo,textoAux,hbox1,hbox2,hbox4,hbox3);
+		vbox.getChildren().addAll(titulo,textoAux, seletor,hbox1,hbox2,hbox4,hbox3);
 				
 		VBox vboxP = new VBox(30);
 		vboxP.getChildren().addAll(vbox,vboxtop);
 				
 		textoAux.setAlignment(Pos.CENTER);
+		seletor.setAlignment(Pos.CENTER);
 		hbox1.setAlignment(Pos.CENTER);
 		hbox2.setAlignment(Pos.CENTER);
 		hbox3.setAlignment(Pos.CENTER);
@@ -119,38 +157,69 @@ public class CaDoacaoGUI extends BorderPane {
 
 			@Override
 			public void handle(ActionEvent event) {
-			
-				try{
+				
+				if (group.getSelectedToggle() == null) {
+					new TelaAux("Escolha um tipo de doação! (Valor ou Item)");
+				}
+				
+				else if (group.getSelectedToggle() == tb1) {
+					try{
 						
-					String s = valorField.getText();
-					Double valor = Double.parseDouble(s);
+						String s = valorField.getText();
+						Double valor = Double.parseDouble(s);
+						
+						if(Integer.parseInt(valorField.getText()) <= 0){
+							new TelaAux("Valor inválido!");
+						}else if(mesCombo.getSelectionModel().getSelectedItem() == null){
+							new TelaAux("Informe o mês!");
+						}else if(descField.getText().equals("")){
+							new TelaAux("Adicione uma descrição!");
+						}else{
 							
-					if(Integer.parseInt(valorField.getText()) <= 0){
-						new TelaAux("Valor inválido!");
-					}else if(mesCombo.getSelectionModel().getSelectedItem() == null){
-						new TelaAux("Informe o mês!");
-					}else if(descField.getText().equals("")){
-						new TelaAux("Adicione uma descrição!");
-					}else{
-						
-					Doacao doacao = new Doacao(valor, descField.getText(), mesCombo.getSelectionModel().getSelectedItem());
-								
-					Banco banco = Main.getBanco();
-					banco.addObjeto(doacao);
-					new TelaAux("Doação cadastrada com sucesso!");
-					limpaCampos();
-				
+						Doacao doacao = new Doacao(valor, descField.getText(), mesCombo.getSelectionModel().getSelectedItem());
+									
+						Banco banco = Main.getBanco();
+						banco.addObjeto(doacao);
+						new TelaAux("Doação cadastrada com sucesso!");
+						limpaCampos();
+					
+					}
+					
+					} catch (NumberFormatException nfe){
+						new TelaAux("Dados inválidos!");
+					}
 				}
 				
-				} catch (NumberFormatException nfe){
-					new TelaAux("Dados inválidos!");
+				else if (group.getSelectedToggle() == tb2) {
+					try{
+			
+						if(mesCombo.getSelectionModel().getSelectedItem() == null){
+							new TelaAux("Informe o mês!");
+						}else if(descField.getText().equals("")){
+							new TelaAux("Adicione uma descrição!");
+						}else{
+							
+						Doacao doacao = new Doacao(descField.getText(), mesCombo.getSelectionModel().getSelectedItem());
+									
+						Banco banco = Main.getBanco();
+						banco.addObjeto(doacao);
+						new TelaAux("Doação cadastrada com sucesso!");
+						limpaCampos();
+					
+					}
+					
+					} catch (NumberFormatException nfe){
+						new TelaAux("Dados inválidos!");
+					}
 				}
+			
+				
 				
 			}
 			
 			private void limpaCampos() {
-				valorField.setText(null);
-				descField.setText(null);
+				valorField.setText("");
+				descField.setText("");
 				mesCombo.getSelectionModel().clearSelection();
 				
 			}

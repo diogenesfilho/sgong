@@ -115,9 +115,9 @@ public class Banco {
 		
 	} 
 
-	public ArrayList<Doacao> listarDoacoes(){
+	public ArrayList<Doacao> listarDoacoes(Doacao doacao){
 
-		ObjectSet listaDoBanco = db.query(Doacao.class);
+		ObjectSet listaDoBanco = db.queryByExample(doacao);	
 		ArrayList<Doacao> listaDoacoes = new ArrayList<>();
 		
 		for (int i = 0; i < listaDoBanco.size(); i++) {

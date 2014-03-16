@@ -16,6 +16,11 @@ public class Doacao {
 		this.descricao = descricao;
 		this.mes = mes;
 	}
+	
+	public Doacao(String descricao, String mes){
+		this.descricao = descricao;
+		this.mes = mes;
+	}
 
 	public double getValor() {
 		return valor;

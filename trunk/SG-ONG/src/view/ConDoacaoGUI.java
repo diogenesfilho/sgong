@@ -36,7 +36,7 @@ public class ConDoacaoGUI extends BorderPane {
 	
 	public ConDoacaoGUI(){
 		
-		Label titulo = new Label("Relação de Doações");
+		Label titulo = new Label("Relação de Doações em valor");
 		titulo.setFont(new Font(30));
 		
 		Label procuraText = new Label("Procurar por descrição:");
@@ -51,7 +51,8 @@ public class ConDoacaoGUI extends BorderPane {
 		hboxProcu.getChildren().addAll(procuraText,procuraField,procurar, cancelarBusca);
 		
 		banco = Main.getBanco();
-		listaDoacoesTabela = FXCollections.observableArrayList(banco.listarDoacoes());
+		final Doacao doacaoValor = new Doacao(0, null, null);
+		listaDoacoesTabela = FXCollections.observableArrayList(banco.listarDoacoes(doacaoValor));
 		
 	    TableColumn valorCol = new TableColumn();
 	    valorCol.setText("Valor (R$)");
@@ -109,7 +110,7 @@ public class ConDoacaoGUI extends BorderPane {
 			@Override
 			public void handle(ActionEvent arg0) {
 				listaDoacoesRefresh = FXCollections.observableArrayList(
-				banco.listarDoacoes());
+				banco.listarDoacoes(doacaoValor));
 				tabela.setItems(listaDoacoesRefresh);
 				cancelarBusca.setVisible(false);
 			}
@@ -126,7 +127,7 @@ public class ConDoacaoGUI extends BorderPane {
 					Doacao doa = (Doacao) tabela.getSelectionModel().getSelectedItem();
 					banco.excluirObjeto(doa);
 					new TelaAux("Doação removida");
-					listaDoacoesRefresh = FXCollections.observableArrayList(banco.listarDoacoes());     
+					listaDoacoesRefresh = FXCollections.observableArrayList(banco.listarDoacoes(doacaoValor));     
 					tabela.setItems(listaDoacoesRefresh);
 				}
 			}
