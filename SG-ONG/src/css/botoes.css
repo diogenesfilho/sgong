@@ -1,6 +1,7 @@
 .cadastrar, .cancelar{
 	
 	-fx-cursor: hand;
+	-fx-background-image: url("image/add.png");	
 	
 }
 

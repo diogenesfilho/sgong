@@ -105,7 +105,9 @@ public class CaPacienteGUI extends BorderPane {
 		cadastrar = new Button("Cadastrar");
 		cancelar = new Button("Cancelar");
 		cadastrar.getStyleClass().add("cadastrar");
+		
 		cancelar.getStyleClass().add("cancelar");
+		
 		
 		//Conjunto linha 1.
 		HBox hbox1 = new HBox(62);
