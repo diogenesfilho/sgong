@@ -118,7 +118,6 @@ public class ConSocioGUI extends BorderPane {
 
 	    HBox rodape = new HBox(20);
 		rodape.getChildren().addAll(excluir);
-		rodape.setTranslateX(120);
 
 		VBox boxTop = new VBox(20);
 		boxTop.getChildren().addAll(new MeuMenu(), titulo, hboxProcu, tabela, rodape);
@@ -126,6 +125,7 @@ public class ConSocioGUI extends BorderPane {
 		setTop(boxTop);
 		boxTop.setAlignment(Pos.CENTER);
 		hboxProcu.setAlignment(Pos.CENTER);
+		rodape.setAlignment(Pos.CENTER);
 		
 		procurar.setOnAction(new EventHandler<ActionEvent>() {
 			
