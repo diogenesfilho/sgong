@@ -27,16 +27,21 @@ public class ConSocioGUI extends BorderPane {
 	private TableView<Socio> tabela;
 	private Button procurar, excluir, cancelarBusca;
 	private Banco banco;
+	private Label titulo, procuraText;
 	
 	public ConSocioGUI(){
 		
+		setFocusTraversable(true);
+		
 		// Criando labels, botões, Hboxes, Tabela
-		Label titulo = new Label("Relação de Sócios");
+		titulo = new Label("Relação de Sócios");
 		titulo.setFont(new Font(30));
 		
-		Label procuraText = new Label("Procurar por nome:");
+		procuraText = new Label("Procurar por nome:");
 		procuraField = new TextField();
+		procuraField.setPromptText("Ex.: João Paulo Ferreira da Silva");
 		procuraField.setPrefSize(620.0, 27.0); 
+		
 		procurar = new Button("Procurar");
 		excluir = new Button("Excluir sócio");
 		cancelarBusca = new Button("Cancelar busca");

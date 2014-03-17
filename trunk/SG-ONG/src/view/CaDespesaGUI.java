@@ -35,19 +35,22 @@ public class CaDespesaGUI extends BorderPane {
 	private TextArea descField;
 	private ComboBox<String> mesCombo;
 	private ObservableList<String> listaDeMeses;
+	private Label valor, descri, mes, titulo;
+	private Button cadastrar, cancelar;
 	
 	public CaDespesaGUI(){
 	
 		//Criando os objetos
 
-		Label valor = new Label("Valor:");
-		Label descri = new Label("Descrição:");
-		Label mes = new Label("Mês:");
+		valor = new Label("Valor:");
+		descri = new Label("Descrição:");
+		mes = new Label("Mês:");
 		
-		Label titulo = new Label("Cadastrar Despesa");
+		titulo = new Label("Cadastrar Despesa");
 		titulo.setFont(new Font(40));
 		
 		valorField = new TextField();		
+		valorField.setPromptText("Ex.: 100");
 		
 		listaDeMeses = FXCollections.observableArrayList();
 		listaDeMeses.addAll("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");
@@ -57,9 +60,10 @@ public class CaDespesaGUI extends BorderPane {
 		
 		descField = new TextArea();
 		descField.setPrefSize(400, 100);
+		descField.setPromptText("Ex.: Conta de energia");
 		
-		Button cadastrar = new Button("Cadastrar");
-		Button cancelar = new Button("Cancelar");
+		cadastrar = new Button("Cadastrar");
+		cancelar = new Button("Cancelar");
 		
 		MeuMenu vboxtop = new MeuMenu(); 
 

@@ -27,18 +27,24 @@ public class ConPacienteGUI extends BorderPane {
 	private TableView<Paciente> tabela;
 	private Button procurar,excluir, cancelarBusca;
 	private Banco banco;
+	private Label titulo, procuraText;
 	
 	public ConPacienteGUI(){
+		
+		setFocusTraversable(true);
 				
-		Label titulo = new Label("Relação de Pacientes");
+		titulo = new Label("Relação de Pacientes");
 		titulo.setFont(new Font(30));
 		
-		Label procuraText = new Label("Procurar por nome:");
+		procuraText = new Label("Procurar por nome:");
 		procuraField = new TextField();
+		procuraField.setPromptText("Ex.: Pedro Victor");
 		procuraField.setPrefSize(620.0, 27.0); 
+		
 		procurar = new Button("Procurar");
 		excluir = new Button("Excluir paciente");
 		cancelarBusca = new Button("Cancelar busca");
+		
 		cancelarBusca.setVisible(false);
 		
 		HBox hboxProcu = new HBox(20);

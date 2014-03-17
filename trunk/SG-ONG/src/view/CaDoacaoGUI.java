@@ -39,15 +39,21 @@ public class CaDoacaoGUI extends BorderPane {
 	private ComboBox<String> mesCombo;
 	private TextArea descField;
 	private ObservableList<String> listaDeMeses;
-	private Label valor, descri, mes;
+	private Label valor, descri, mes, textoAux, titulo;
 	private ToggleButton tb1, tb2;
 	private ToggleGroup group;
+	private Button cadastrar, cancelar;
 
 	public CaDoacaoGUI(){
+		
+		//Criando os objetos
 		
 		valor = new Label("Valor:");
 		descri = new Label("Descrição:");
 		mes = new Label("Mês:");
+		
+		textoAux = new Label("Selecione um tipo de doação:"+"\n"+"'Valor' para cadastrar uma doação em dinheiro. Ex: R$ 100"+"\n"+"'Item' para cadastrar uma doação em itens. Ex: Cesta Básica");
+		textoAux.setFont(new Font(15));
 		
 		tb1 = new ToggleButton("Valor");
 	    tb2 = new ToggleButton("Item");
@@ -78,14 +84,6 @@ public class CaDoacaoGUI extends BorderPane {
 	        
 	    HBox seletor = new HBox(20);
 	    seletor.getChildren().addAll(tb1,tb2);
-
-	
-		//Criando os objetos
-		
-		Label textoAux = new Label("Selecione um tipo de doação:"+"\n"+"'Valor' para cadastrar uma doação em dinheiro. Ex: R$ 100"+"\n"+"'Item' para cadastrar uma doação em itens. Ex: Cesta Básica");
-		textoAux.setFont(new Font(15));
-
-		
 		
 		listaDeMeses = FXCollections.observableArrayList();
 		listaDeMeses.addAll("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");
@@ -93,15 +91,18 @@ public class CaDoacaoGUI extends BorderPane {
 		mesCombo.setItems(listaDeMeses);
 		mesCombo.setMinSize(170, 20);
 		
-		Label titulo = new Label("Cadastrar Doação");
+		titulo = new Label("Cadastrar Doação");
 		titulo.setFont(new Font(40));
 		
-		valorField = new TextField();				
+		valorField = new TextField();
+		valorField.setPromptText("Ex.: 100");
+		
 		descField = new TextArea();
+		descField.setPromptText("Ex.: Doado por José");
 		descField.setPrefSize(400, 100);
 		
-		Button cadastrar = new Button("Cadastrar");
-		Button cancelar = new Button("Cancelar");
+		cadastrar = new Button("Cadastrar");
+		cancelar = new Button("Cancelar");
 		
 		MeuMenu vboxtop = new MeuMenu(); 
 
