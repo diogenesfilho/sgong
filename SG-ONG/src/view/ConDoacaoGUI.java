@@ -33,15 +33,20 @@ public class ConDoacaoGUI extends BorderPane {
 	private TableView tabela;
 	private Button procurar, excluir, cancelarBusca;
 	private Banco banco;
+	private Label titulo, procuraText;
 	
 	public ConDoacaoGUI(){
 		
-		Label titulo = new Label("Relação de Doações");
+		setFocusTraversable(true);
+		
+		titulo = new Label("Relação de Doações");
 		titulo.setFont(new Font(30));
 		
-		Label procuraText = new Label("Procurar por descrição:");
+		procuraText = new Label("Procurar por descrição:");
 		procuraField = new TextField();
 		procuraField.setPrefSize(620.0, 27.0); 
+		procuraField.setPromptText("Ex.: Cesta básica");		
+		
 		procurar = new Button("Procurar");
 		excluir = new Button("Excluir doação");
 		cancelarBusca = new Button("Cancelar busca");

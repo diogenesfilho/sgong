@@ -33,18 +33,24 @@ public class ConDespesaGUI extends BorderPane {
 	private TableView tabela;
 	private Button procurar, excluir, cancelarBusca;
 	private Banco banco;
+	private Label titulo, procuraText;
 	
 	public ConDespesaGUI(){
 		
-		Label titulo = new Label("Relação de Despesas");
+		setFocusTraversable(true);
+		
+		titulo = new Label("Relação de Despesas");
 		titulo.setFont(new Font(30));
 		
-		Label procuraText = new Label("Procurar por descrição:");
+		procuraText = new Label("Procurar por descrição:");
 		procuraField = new TextField();
 		procuraField.setPrefSize(620.0, 27.0); 
+		procuraField.setPromptText("Ex.: Conta de água");
+		
 		procurar = new Button("Procurar");
 		excluir = new Button("Excluir despesa");
 		cancelarBusca = new Button("Cancelar busca");
+		
 		cancelarBusca.setVisible(false);
 		
 		HBox hboxProcu = new HBox(20);
