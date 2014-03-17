@@ -1,0 +1,13 @@
+.cadastrar, .cancelar{
+	
+	-fx-cursor: hand;
+	
+}
+
+.cadastrar:hover, .cancelar:hover{
+
+	-fx-background-color: white;
+
+}
+
+

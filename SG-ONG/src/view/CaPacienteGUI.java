@@ -45,6 +45,9 @@ public class CaPacienteGUI extends BorderPane {
 	
 	public CaPacienteGUI() throws ParseException{
 		
+		//Adicionando arquivo css
+		getStylesheets().add("css/botoes.css");		
+		
 		//Set Título
 		Label titulo = new Label("Cadastrar Paciente");
 		titulo.setFont(new Font(30));
@@ -101,7 +104,8 @@ public class CaPacienteGUI extends BorderPane {
 
 		cadastrar = new Button("Cadastrar");
 		cancelar = new Button("Cancelar");
-		
+		cadastrar.getStyleClass().add("cadastrar");
+		cancelar.getStyleClass().add("cancelar");
 		
 		//Conjunto linha 1.
 		HBox hbox1 = new HBox(62);
