@@ -46,12 +46,7 @@ public class ConPacienteGUI extends BorderPane {
 		
 		banco = Main.getBanco();
 		
-		
-		listaPacientesTabela = FXCollections.observableArrayList(
-	            
-				banco.listarPacientes()
-	            
-	        );
+		listaPacientesTabela = FXCollections.observableArrayList(banco.listarPacientes());
 	    TableColumn nomeCol = new TableColumn();
 	    nomeCol.setText("Nome");
 	    nomeCol.setMinWidth(100);
@@ -107,17 +102,14 @@ public class ConPacienteGUI extends BorderPane {
 
 		HBox rodape = new HBox(20);
 		rodape.getChildren().addAll(excluir);
-		rodape.setTranslateX(120);
 		
 		VBox boxTop = new VBox(20);
 		boxTop.getChildren().addAll(new MeuMenu(), titulo, hboxProcu, tabela, rodape);
 		
+		setTop(boxTop);
 		boxTop.setAlignment(Pos.CENTER);
 		hboxProcu.setAlignment(Pos.CENTER);
-		
-
-		setTop(boxTop);
-		excluir.setAlignment(Pos.BOTTOM_RIGHT);
+		rodape.setAlignment(Pos.CENTER);
 		
 		
 		procurar.setOnAction(new EventHandler<ActionEvent>() {

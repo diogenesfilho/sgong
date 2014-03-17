@@ -197,9 +197,7 @@ public class CaPacienteGUI extends BorderPane {
 					
 					if(nomeField.getText().toString().isEmpty() || comboEstado.getSelectionModel().getSelectedItem() == null || cpfField.getText().toString().isEmpty()  || rgField.getText().toString().isEmpty() || cidadeField.getText().toString().isEmpty() || nasciField.getText().toString().isEmpty()){
 						new TelaAux("Por Favor informe todos os dados!");
-//					}else if (cidade.contains(s)) {
-//						new TelaAux("Cidade inválida!");   // PAREI AQUI
-//					} else{
+					}else{
 						Paciente paciente;
 						paciente = new Paciente(nomeField.getText(),enderecoField.getText(),cidadeField.getText(),comboEstado.getSelectionModel().getSelectedItem(),rgField.getText(),cpfField.getText(),nasciField.getText(),telefoneCelularField.getText(),observacoesField.getText());
 								
@@ -208,7 +206,7 @@ public class CaPacienteGUI extends BorderPane {
 						new TelaAux("Paciente Cadastrado Com Sucesso!");
 						limpaCampos();
 					}
-				} catch (NumberFormatException nfe) {
+				} catch (Exception e) {
 					new TelaAux("Dados inválidos!");
 				}
 				
