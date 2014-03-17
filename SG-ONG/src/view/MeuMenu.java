@@ -29,7 +29,7 @@ public class MeuMenu extends MenuBar {
 		MenuItem cPaciente = new MenuItem("Paciente");
 		
 		//Parte de Finanças.
-		MenuItem listarDoacoes = new MenuItem("Despesas");	
+		MenuItem listarDoacoes = new MenuItem("Doações");	
 		MenuItem listarDespesas = new MenuItem("Despesas");	
 		MenuItem geraGrafico = new MenuItem("Gráfico");	
 		MenuItem geraInfo = new MenuItem("Informações gerais");	
@@ -37,10 +37,6 @@ public class MeuMenu extends MenuBar {
 		//Parte de Ajuda.
 		MenuItem ajudaD = new MenuItem("Ajuda SG ONG");
 		MenuItem sobre = new MenuItem("Sobre");		
-		
-		//Parte de Doações (dentro de cadastro)
-		MenuItem valor = new MenuItem("Valor");
-		MenuItem itens = new MenuItem("Itens");
 		
 		cadastrar.getItems().addAll(paciente,socio, doacao, despesas);
 		consultar.getItems().addAll(cPaciente,cSocio);

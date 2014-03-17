@@ -40,6 +40,8 @@ public class CaDoacaoGUI extends BorderPane {
 	private TextArea descField;
 	private ObservableList<String> listaDeMeses;
 	private Label valor, descri, mes;
+	private ToggleButton tb1, tb2;
+	private ToggleGroup group;
 
 	public CaDoacaoGUI(){
 		
@@ -47,9 +49,9 @@ public class CaDoacaoGUI extends BorderPane {
 		descri = new Label("Descrição:");
 		mes = new Label("Mês:");
 		
-		final ToggleButton tb1 = new ToggleButton("Valor");
-	    final ToggleButton tb2 = new ToggleButton("Item");
-	    final ToggleGroup group = new ToggleGroup();
+		tb1 = new ToggleButton("Valor");
+	    tb2 = new ToggleButton("Item");
+	    group = new ToggleGroup();
 	    tb1.setToggleGroup(group);
 	    tb2.setToggleGroup(group);
 	    
@@ -64,6 +66,7 @@ public class CaDoacaoGUI extends BorderPane {
 					valor.setVisible(false);
 					
 				}else {
+					valorField.setText("");
 					valorField.setVisible(true);
 					valor.setVisible(true);
 				}
@@ -79,7 +82,7 @@ public class CaDoacaoGUI extends BorderPane {
 	
 		//Criando os objetos
 		
-		Label textoAux = new Label("Selecione o campo 'Valor' para cadastrar uma doação em dinheiro. Ex: R$ 100");
+		Label textoAux = new Label("Selecione um tipo de doação:"+"\n"+"'Valor' para cadastrar uma doação em dinheiro. Ex: R$ 100"+"\n"+"'Item' para cadastrar uma doação em itens. Ex: Cesta Básica");
 		textoAux.setFont(new Font(15));
 
 		
@@ -208,7 +211,7 @@ public class CaDoacaoGUI extends BorderPane {
 					
 					}
 					
-					} catch (NumberFormatException nfe){
+					} catch (Exception e){
 						new TelaAux("Dados inválidos!");
 					}
 				}
