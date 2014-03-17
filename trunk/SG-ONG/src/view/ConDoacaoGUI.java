@@ -36,7 +36,7 @@ public class ConDoacaoGUI extends BorderPane {
 	
 	public ConDoacaoGUI(){
 		
-		Label titulo = new Label("Relação de Doações em valor");
+		Label titulo = new Label("Relação de Doações");
 		titulo.setFont(new Font(30));
 		
 		Label procuraText = new Label("Procurar por descrição:");
