@@ -70,24 +70,31 @@ public class CaPacienteGUI extends BorderPane {
 		
 		nomeField = new TextField();
 		nomeField.setPrefSize(560.0, 27.0);
+		nomeField.setPromptText("Ex.: José Antônio da Silva");
 		
 		enderecoField = new TextField();
 		enderecoField.setPrefSize(560.0, 27.0);
+		enderecoField.setPromptText("Rua, Bairro, Número");
 		
 		cidadeField = new TextField();
 		cidadeField.setPrefSize(200.0, 27.0);
+		cidadeField.setPromptText("Ex.: Arapiraca");
 		
 		rgField = new TextField();
 		rgField.setPrefSize(200.0, 27.0);
+		rgField.setPromptText("Ex.: 34521445");
 		
 		cpfField = new TextField();
 		cpfField.setPrefSize(200.0, 27.0);
+		cpfField.setPromptText("Ex.: 09716948421");
 		
 		nasciField = new TextField();
 		nasciField.setPrefSize(200.0, 27.0);
+		nasciField.setPromptText("Ex.: 04091993");
 		
 		telefoneCelularField = new TextField();
-		telefoneCelularField.setPrefSize(200.0, 27.0);		
+		telefoneCelularField.setPrefSize(200.0, 27.0);
+		telefoneCelularField.setPromptText("Ex.: 99685213");
 
 		observacoesField = new TextArea();
 		observacoesField.setPrefSize(350.0, 80.0);
@@ -192,14 +199,18 @@ public class CaPacienteGUI extends BorderPane {
 			@Override
 			public void handle(ActionEvent event) {
 	
-				
 				try {
 					
 					if(nomeField.getText().toString().isEmpty() || comboEstado.getSelectionModel().getSelectedItem() == null || cpfField.getText().toString().isEmpty()  || rgField.getText().toString().isEmpty() || cidadeField.getText().toString().isEmpty() || nasciField.getText().toString().isEmpty()){
-						new TelaAux("Por Favor informe todos os dados!");
+						new TelaAux("Dados inválidos!");
 					}else{
-						Paciente paciente;
-						paciente = new Paciente(nomeField.getText(),enderecoField.getText(),cidadeField.getText(),comboEstado.getSelectionModel().getSelectedItem(),rgField.getText(),cpfField.getText(),nasciField.getText(),telefoneCelularField.getText(),observacoesField.getText());
+						
+						double rg = Double.parseDouble(rgField.getText());
+						double cpf = Double.parseDouble(cpfField.getText());
+						double tel = Double.parseDouble(telefoneCelularField.getText());
+						double data = Double.parseDouble(nasciField.getText());
+						
+						Paciente paciente = new Paciente(nomeField.getText(),enderecoField.getText(),cidadeField.getText(),comboEstado.getSelectionModel().getSelectedItem(),rgField.getText(),cpfField.getText(),nasciField.getText(),telefoneCelularField.getText(),observacoesField.getText());
 								
 						Banco banco = Main.getBanco();
 						banco.addObjeto(paciente);
@@ -207,7 +218,7 @@ public class CaPacienteGUI extends BorderPane {
 						limpaCampos();
 					}
 				} catch (Exception e) {
-					new TelaAux("Dados inválidos!");
+					new TelaAux("Nos campos de RG, CPF, telefone e "+"\n"+"data, digite apenas números!");
 				}
 				
 

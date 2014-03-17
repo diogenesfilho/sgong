@@ -103,18 +103,12 @@ public class ConSocioGUI extends BorderPane {
 	    emailCol.setText("Email");
 	    emailCol.setMinWidth(120);
 	    emailCol.setCellValueFactory(new PropertyValueFactory("email"));
-	        
-	    TableColumn valorCol = new TableColumn();
-	    valorCol.setText("Valor de contribuição");
-	    valorCol.setMinWidth(170);
-	    valorCol.setCellValueFactory(new PropertyValueFactory("valorContribuicao"));
-
-	   
+		   
 	    tabela = new TableView();
 	    tabela.setItems(listaSociosTabela);
 	    tabela.setMaxHeight(400);
 	    tabela.setMaxWidth(1100);
-	    tabela.getColumns().addAll(nomeCol, endCol, cidadeCol, estadoCol, rgCol, cpfCol, nascCol, telCol, tipoCol,dataCol, emailCol, valorCol);
+	    tabela.getColumns().addAll(nomeCol, endCol, cidadeCol, estadoCol, rgCol, cpfCol, nascCol, telCol, tipoCol,dataCol, emailCol);
 
 	    HBox rodape = new HBox(20);
 		rodape.getChildren().addAll(excluir);

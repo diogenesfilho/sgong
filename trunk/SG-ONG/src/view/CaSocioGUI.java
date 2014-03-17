@@ -34,16 +34,17 @@ import app.Main;
 
 public class CaSocioGUI extends BorderPane {
 	
-	private ComboBox<String> comboSocio, comboEstado;
 	private TextField nomeField,enderecoField,cidadeField,rgField,cpfField,
 	nasciField,telefoneCelularField,dataFiliacaoField,emailField;
+	private ComboBox<String> comboSocio, comboEstado;
+	private ObservableList<String> TpEstado, TpSocio;
+	private Button cadastrar, cancelar;
 	
 	public CaSocioGUI(){
 		
 		//Set Título
 		Label titulo = new Label("Cadastrar Sócio");
 		titulo.setFont(new Font(30));
-		
 		
 		MeuMenu menuBar = new MeuMenu(); 
 		
@@ -59,10 +60,10 @@ public class CaSocioGUI extends BorderPane {
 		Label tipoSocioTexto = new Label("Tipo de Sócio: ");
 		Label dataFiliacaoTexto = new Label("Data de Filiação: ");
 			
-		ObservableList<String>TpSocio = FXCollections.observableArrayList();
+		TpSocio = FXCollections.observableArrayList();
 		TpSocio.addAll("Contribuinte","Voluntário");
 		
-		ObservableList<String>TpEstado = FXCollections.observableArrayList();
+		TpEstado = FXCollections.observableArrayList();
 		TpEstado.addAll("AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO");
 		
 		comboSocio = new ComboBox<String>();
@@ -75,33 +76,42 @@ public class CaSocioGUI extends BorderPane {
 		
 		nomeField = new TextField();
 		nomeField.setPrefSize(560.0, 27.0);
+		nomeField.setPromptText("Ex.: José Antônio da Silva");
 		
 		enderecoField = new TextField();
 		enderecoField.setPrefSize(560.0, 27.0);
+		enderecoField.setPromptText("Rua, Bairro, Número");
 		
 		cidadeField = new TextField();
 		cidadeField.setPrefSize(200.0, 27.0);
+		cidadeField.setPromptText("Ex.: Arapiraca");
 		
 		rgField = new TextField();
 		rgField.setPrefSize(200.0, 27.0);
+		rgField.setPromptText("Ex.: 34521445");
 		
 		cpfField = new TextField();
 		cpfField.setPrefSize(200.0, 27.0);
+		cpfField.setPromptText("Ex.: 09716948421");
 		
 		nasciField = new TextField();
 		nasciField.setPrefSize(200.0, 27.0);
+		nasciField.setPromptText("Ex.: 04091993");
 
 		telefoneCelularField = new TextField();
 		telefoneCelularField.setPrefSize(200.0, 27.0);
+		telefoneCelularField.setPromptText("Ex.: 99685213");
 		
 		dataFiliacaoField = new TextField();
 		dataFiliacaoField.setPrefSize(200.0, 27.0);
+		dataFiliacaoField.setPromptText("Ex.: 01032014");
 		
 		emailField = new TextField();
 		emailField.setPrefSize(200.0, 27.0);
+		emailField.setPromptText("Ex.: jose@gmail.com");
 		
-		Button cadastrar = new Button("Cadastrar");
-		Button cancelar = new Button("Cancelar");
+		cadastrar = new Button("Cadastrar");
+		cancelar = new Button("Cancelar");
 	
 		//Conjunto linha 1.
 		HBox hbox1 = new HBox(62);
@@ -205,23 +215,30 @@ public class CaSocioGUI extends BorderPane {
 			
 			@Override
 			public void handle(ActionEvent event) {
-				if(nomeField.getText().equals("") || comboEstado.getSelectionModel().getSelectedItem() == null || comboSocio.getSelectionModel().getSelectedItem() == null || cpfField.getText().equals("") || cidadeField.getText().equals("") || enderecoField.getText().equals("") || dataFiliacaoField.getText().equals("") || rgField.getText().equals("") || nasciField.getText().equals("") ){
-					new TelaAux("Por Favor informe todos os dados!");
-				}else{
-					Socio socio;
-					try {
-						socio = new Socio(nomeField.getText(), enderecoField.getText(), cidadeField.getText(), comboEstado.getSelectionModel().getSelectedItem(), rgField.getText(), cpfField.getText(), nasciField.getText(), telefoneCelularField.getText(), comboSocio.getSelectionModel().getSelectedItem(), dataFiliacaoField.getText(), emailField.getText());
+				
+				try {
+					if(nomeField.getText().toString().isEmpty() || enderecoField.getText().toString().isEmpty() || comboEstado.getSelectionModel().getSelectedItem() == null || comboSocio.getSelectionModel().getSelectedItem() == null || cpfField.getText().toString().isEmpty()  || rgField.getText().toString().isEmpty() || cidadeField.getText().toString().isEmpty() || nasciField.getText().toString().isEmpty() || dataFiliacaoField.getText().toString().isEmpty() ){
+						new TelaAux("Dados inválidos vazio");
+					}else{
+		
+						Double rg = Double.parseDouble(rgField.getText());
+						Double cpf = Double.parseDouble(cpfField.getText());
+						Double tel = Double.parseDouble(telefoneCelularField.getText());
+						Double dataNasc = Double.parseDouble(nasciField.getText());
+						Double dataFili = Double.parseDouble(dataFiliacaoField.getText());
+						
+						Socio socio = new Socio(nomeField.getText(), enderecoField.getText(), cidadeField.getText(), comboEstado.getSelectionModel().getSelectedItem(), rgField.getText(), cpfField.getText(), nasciField.getText(), telefoneCelularField.getText(), comboSocio.getSelectionModel().getSelectedItem(), dataFiliacaoField.getText(), emailField.getText());
 						Banco banco = Main.getBanco();
 						banco.addObjeto(socio);
 						new TelaAux("Sócio Cadastrado Com Sucesso!");
 						limpaCampos();
-						
+					}
 					} catch (Exception ex) {
-						new TelaAux("Dados Informados inválidos");
+						new TelaAux("Dados inválidos int");
 						ex.printStackTrace();
 					}
 				}
-			}
+
 
 			private void limpaCampos() {
 				nomeField.setText(null);enderecoField.setText(null);cidadeField.setText(null);rgField.setText(null);

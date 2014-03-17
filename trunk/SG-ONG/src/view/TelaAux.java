@@ -36,7 +36,7 @@ public class TelaAux extends Stage {
 		this.mensagem = mensagem;
 
 		BorderPane root = new BorderPane();
-		Scene scene = new Scene(root,450,60,Color.LIGHTGRAY);
+		Scene scene = new Scene(root,450,80,Color.LIGHTGRAY);
 		
 		VBox boxtexto = new VBox(10);
 		
