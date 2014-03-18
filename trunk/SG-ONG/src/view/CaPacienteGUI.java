@@ -45,17 +45,16 @@ public class CaPacienteGUI extends BorderPane {
 	private ObservableList<String> TpEstado;
 	private Button cadastrar, cancelar;
 	
-	public CaPacienteGUI() throws ParseException{
-		
-		//Adicionando arquivo css
-		getStylesheets().add("css/botoes.css");		
+	public CaPacienteGUI() throws ParseException{		
 		
 		//Set Título
 		Label titulo = new Label("Cadastrar Paciente");
 		titulo.setFont(new Font(30));
 		
+		// Menu
 		MeuMenu menuBar = new MeuMenu();
 		
+		// Elementos
 		Label nomeTexto = new Label("Nome: ");
 		Label enderecoTexto = new Label("Endereço: ");
 		Label cidadeTexto = new Label("Cidade: ");
@@ -106,9 +105,6 @@ public class CaPacienteGUI extends BorderPane {
 
 		Button cadastrar = new Button("Cadastrar");
 		cancelar = new Button("Cancelar");
-		cadastrar.getStyleClass().add("cadastrar");		
-		cancelar.getStyleClass().add("cancelar");
-	
 		
 		//Conjunto linha 1.
 		HBox hbox1 = new HBox(62);
@@ -183,9 +179,7 @@ public class CaPacienteGUI extends BorderPane {
 		stack.getChildren().addAll(verFundo,vbox);
 		setCenter(stack);
 		setTop(menuBar);
-		
-		
-		
+
 		
 		//Função Botão cancelar.
 		cancelar.setOnAction(new EventHandler<ActionEvent>() {
@@ -206,10 +200,16 @@ public class CaPacienteGUI extends BorderPane {
 	
 				try {
 					
+					// Verificações
 					if(nomeField.getText().toString().isEmpty() || comboEstado.getSelectionModel().getSelectedItem() == null || cpfField.getText().toString().isEmpty()  || rgField.getText().toString().isEmpty() || cidadeField.getText().toString().isEmpty() || nasciField.getText().toString().isEmpty()){
 						new TelaAux("Dados inválidos!");
-					}else{
+					}else if (8 > rgField.getText().length() || cpfField.getText().length() != 11 || telefoneCelularField.getText(). length() != 8 || nasciField.getText().length() != 6 ) {
+						new TelaAux("Dados inválidos!");
+					}
+					
+					else{
 						
+						// Se algum desses não puder ser convertido, bloco catch é executado
 						double rg = Double.parseDouble(rgField.getText());
 						double cpf = Double.parseDouble(cpfField.getText());
 						double tel = Double.parseDouble(telefoneCelularField.getText());
@@ -229,6 +229,7 @@ public class CaPacienteGUI extends BorderPane {
 
 			}
 			
+			// Seta os campos como nulo após o cadastro
 			public void limpaCampos(){
 				nomeField.setText(null);enderecoField.setText(null);cidadeField.setText(null);
 				rgField.setText(null);cpfField.setText(null);nasciField.setText(null);

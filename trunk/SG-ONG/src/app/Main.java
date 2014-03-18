@@ -20,6 +20,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import view.LoginGUI;
+import view.TelaAux;
 
 public class Main extends Application {
 	
@@ -43,7 +44,9 @@ public class Main extends Application {
 		
 		LoginGUI root = new LoginGUI();
 		SCENE = new Scene(root,1240,600, Color.LIGHTGRAY);
-	
+		
+		SCENE.getStylesheets().add(getClass().getResource("/css/botoes.css").toExternalForm());
+		
 		primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
 			
 			@Override
@@ -55,6 +58,8 @@ public class Main extends Application {
 		primaryStage.setScene(SCENE);
 		primaryStage.getIcons().add(new Image("/image/icone.png"));
 		primaryStage.show();
+		
+		
 		
 	}
 	

@@ -1,14 +1,17 @@
-.cadastrar, .cancelar{
+
+.button{
 	
 	-fx-cursor: hand;
-	-fx-background-image: url("image/add.png");	
+	-fx-font-family: century;
 	
 }
 
-.cadastrar:hover, .cancelar:hover{
+.button:hover{
 
-	-fx-background-color: white;
+	-fx-body-color: white;
 
 }
+
+
 
 
