@@ -100,7 +100,7 @@ public class CaSocioGUI extends BorderPane {
 		
 		nasciField = new TextField();
 		nasciField.setPrefSize(200.0, 27.0);
-		nasciField.setPromptText("Ex.: 04091993");
+		nasciField.setPromptText("Ex.: 040979");
 
 		telefoneCelularField = new TextField();
 		telefoneCelularField.setPrefSize(200.0, 27.0);
@@ -108,7 +108,7 @@ public class CaSocioGUI extends BorderPane {
 		
 		dataFiliacaoField = new TextField();
 		dataFiliacaoField.setPrefSize(200.0, 27.0);
-		dataFiliacaoField.setPromptText("Ex.: 01032014");
+		dataFiliacaoField.setPromptText("Ex.: 010314");
 		
 		emailField = new TextField();
 		emailField.setPrefSize(200.0, 27.0);
