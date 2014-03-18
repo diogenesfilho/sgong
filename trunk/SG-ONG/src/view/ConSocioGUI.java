@@ -149,9 +149,7 @@ public class ConSocioGUI extends BorderPane {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				listaSociosRefresh = FXCollections.observableArrayList(
-				banco.listarSocios());
-				tabela.setItems(listaSociosRefresh);
+				atualizaTabela();
 				cancelarBusca.setVisible(false);
 			}
 		});
@@ -166,14 +164,15 @@ public class ConSocioGUI extends BorderPane {
 					new TelaAux("Selecione o sócio que deseja excluir");
 				}else{
 					Socio s = (Socio) tabela.getSelectionModel().getSelectedItem();
-					banco.excluirObjeto(s);
-					new TelaAux("Sócio removido");
-					listaSociosRefresh = FXCollections.observableArrayList(banco.listarSocios());     
-					tabela.setItems(listaSociosRefresh);
+					new TelaAux(s, "Deseja remover "+ s.getNome() +"?", tabela);
 				}
 			}
 		});
 		
+	}
+	public void atualizaTabela(){
+		listaSociosRefresh = FXCollections.observableArrayList(banco.listarSocios());
+		tabela.setItems(listaSociosRefresh);
 	}
 
 }

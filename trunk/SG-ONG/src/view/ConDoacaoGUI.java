@@ -57,7 +57,7 @@ public class ConDoacaoGUI extends BorderPane {
 		
 		banco = Main.getBanco();
 		final Doacao doacaoValor = new Doacao(0, null, null);
-		listaDoacoesTabela = FXCollections.observableArrayList(banco.listarDoacoes(doacaoValor));
+		listaDoacoesTabela = FXCollections.observableArrayList(banco.listarDoacoes());
 		
 	    TableColumn valorCol = new TableColumn();
 	    valorCol.setText("Valor (R$)");
@@ -114,9 +114,7 @@ public class ConDoacaoGUI extends BorderPane {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				listaDoacoesRefresh = FXCollections.observableArrayList(
-				banco.listarDoacoes(doacaoValor));
-				tabela.setItems(listaDoacoesRefresh);
+				atualizaTabela();
 				cancelarBusca.setVisible(false);
 			}
 		});
@@ -130,14 +128,17 @@ public class ConDoacaoGUI extends BorderPane {
 					new TelaAux("Selecione a doação que deseja excluir");
 				}else{
 					Doacao doa = (Doacao) tabela.getSelectionModel().getSelectedItem();
-					banco.excluirObjeto(doa);
-					new TelaAux("Doação removida");
-					listaDoacoesRefresh = FXCollections.observableArrayList(banco.listarDoacoes(doacaoValor));     
-					tabela.setItems(listaDoacoesRefresh);
+					new TelaAux(doa, "Deseja remover "+ doa.getDescricao() +"?", tabela);
 				}
 			}
 		});
 		
 	}
+	
+	public void atualizaTabela(){
+		listaDoacoesRefresh = FXCollections.observableArrayList(banco.listarDoacoes());
+		tabela.setItems(listaDoacoesRefresh);
+	}
+
 
 }

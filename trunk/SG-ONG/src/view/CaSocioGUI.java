@@ -218,14 +218,14 @@ public class CaSocioGUI extends BorderPane {
 				
 				try {
 					if(nomeField.getText().toString().isEmpty() || enderecoField.getText().toString().isEmpty() || comboEstado.getSelectionModel().getSelectedItem() == null || comboSocio.getSelectionModel().getSelectedItem() == null || cpfField.getText().toString().isEmpty()  || rgField.getText().toString().isEmpty() || cidadeField.getText().toString().isEmpty() || nasciField.getText().toString().isEmpty() || dataFiliacaoField.getText().toString().isEmpty() ){
-						new TelaAux("Dados inválidos vazio");
+						new TelaAux("Dados inválidos");
 					}else{
 		
-						Double rg = Double.parseDouble(rgField.getText());
-						Double cpf = Double.parseDouble(cpfField.getText());
-						Double tel = Double.parseDouble(telefoneCelularField.getText());
-						Double dataNasc = Double.parseDouble(nasciField.getText());
-						Double dataFili = Double.parseDouble(dataFiliacaoField.getText());
+						double rg = Double.parseDouble(rgField.getText());
+						double cpf = Double.parseDouble(cpfField.getText());
+						double tel = Double.parseDouble(telefoneCelularField.getText());
+						double dataNasc = Double.parseDouble(nasciField.getText());
+						double dataFili = Double.parseDouble(dataFiliacaoField.getText());
 						
 						Socio socio = new Socio(nomeField.getText(), enderecoField.getText(), cidadeField.getText(), comboEstado.getSelectionModel().getSelectedItem(), rgField.getText(), cpfField.getText(), nasciField.getText(), telefoneCelularField.getText(), comboSocio.getSelectionModel().getSelectedItem(), dataFiliacaoField.getText(), emailField.getText());
 						Banco banco = Main.getBanco();
@@ -233,9 +233,8 @@ public class CaSocioGUI extends BorderPane {
 						new TelaAux("Sócio Cadastrado Com Sucesso!");
 						limpaCampos();
 					}
-					} catch (Exception ex) {
-						new TelaAux("Dados inválidos int");
-						ex.printStackTrace();
+					} catch (Exception e) {
+						new TelaAux("Nos campos de RG, CPF, telefone"+"\n"+"e datas digite apenas números!");
 					}
 				}
 
