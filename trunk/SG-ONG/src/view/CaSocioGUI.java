@@ -236,7 +236,20 @@ public class CaSocioGUI extends BorderPane {
 						double dataNasc = Double.parseDouble(nasciField.getText());
 						double dataFili = Double.parseDouble(dataFiliacaoField.getText());
 						
-						Socio socio = new Socio(nomeField.getText(), enderecoField.getText(), cidadeField.getText(), comboEstado.getSelectionModel().getSelectedItem(), rgField.getText(), cpfField.getText(), nasciField.getText(), telefoneCelularField.getText(), comboSocio.getSelectionModel().getSelectedItem(), dataFiliacaoField.getText(), emailField.getText());
+						// Moldando datas
+						String dataNascimentoMolde = nasciField.getText();
+						String diaN = dataNascimentoMolde.substring(0, 2);
+						String mesN = dataNascimentoMolde.substring(2, 4);
+						String anoN = dataNascimentoMolde.substring(4, 6);
+						String dataNascimentoMoldada = diaN + "/" + mesN + "/" + anoN;
+
+						String dataFiliacaoMolde = dataFiliacaoField.getText();
+						String diaF = dataFiliacaoMolde.substring(0, 2);
+						String mesF = dataFiliacaoMolde.substring(2, 4);
+						String anoF = dataFiliacaoMolde.substring(4, 6);
+						String dataFiliacaoMoldada = diaF + "/" + mesF + "/" + anoF;
+						
+						Socio socio = new Socio(nomeField.getText(), enderecoField.getText(), cidadeField.getText(), comboEstado.getSelectionModel().getSelectedItem(), rgField.getText(), cpfField.getText(), dataNascimentoMoldada, telefoneCelularField.getText(), comboSocio.getSelectionModel().getSelectedItem(), dataFiliacaoMoldada, emailField.getText());
 						banco.addObjeto(socio);
 						new TelaAux("Sócio Cadastrado Com Sucesso!");
 						limpaCampos();

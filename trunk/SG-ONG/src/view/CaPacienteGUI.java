@@ -223,7 +223,14 @@ public class CaPacienteGUI extends BorderPane {
 						double tel = Double.parseDouble(telefoneCelularField.getText());
 						double data = Double.parseDouble(nasciField.getText());
 						
-						Paciente paciente = new Paciente(nomeField.getText(),enderecoField.getText(),cidadeField.getText(),comboEstado.getSelectionModel().getSelectedItem(),rgField.getText(),cpfField.getText(),nasciField.getText(),telefoneCelularField.getText(),observacoesField.getText());
+						// Moldando data
+						String dataNascimentoMolde = nasciField.getText();
+						String dia = dataNascimentoMolde.substring(0, 2);
+						String mes = dataNascimentoMolde.substring(2, 4);
+						String ano = dataNascimentoMolde.substring(4, 6);
+						String dataNascimentoMoldada = dia + "/" + mes + "/" + ano;
+						
+						Paciente paciente = new Paciente(nomeField.getText(),enderecoField.getText(),cidadeField.getText(),comboEstado.getSelectionModel().getSelectedItem(),rgField.getText(),cpfField.getText(),dataNascimentoMoldada,telefoneCelularField.getText(),observacoesField.getText());
 								
 						banco.addObjeto(paciente);
 						new TelaAux("Paciente Cadastrado Com Sucesso!");
