@@ -98,7 +98,7 @@ public class CaPacienteGUI extends BorderPane {
 		
 		nasciField = new TextField();
 		nasciField.setPrefSize(200.0, 27.0);
-		nasciField.setPromptText("Ex.: 04091993");
+		nasciField.setPromptText("Ex.: 040983");
 		
 		telefoneCelularField = new TextField();
 		telefoneCelularField.setPrefSize(200.0, 27.0);
