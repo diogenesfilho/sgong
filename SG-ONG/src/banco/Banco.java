@@ -15,33 +15,70 @@ import com.db4o.ObjectSet;
 
 public class Banco {
 	
+	// Em db são guardados os objetos
 	private ObjectContainer db;
 	
+	
+	// Criando o banco
 	public Banco() {
 		db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), "db");
 	}
 	
+	
+	// Adicionando no ObjectContainer
 	public void addObjeto(Object o){
 		db.store(o);
 	}
 
+	
+	// Listando todos os objetos de determinada classe
 	public ObjectSet listaObjeto(Class c){
 		ObjectSet lista = db.query(c);
 		return lista;
 	}
 	
+	
+	// Excluindo determinado objeto
 	public void excluirObjeto(Object o){
 		db.delete(o);
 	}
 
 	
+	// Fechando banco
 	public void close() {
 		db.close();
 	}
 	
 	
+	// Verificações de CPF
+	public boolean verificaCpfPacientes(String cpf){
+		ObjectSet <Paciente> lista = db.query(Paciente.class);
+		
+		for (int i = 0; i < lista.size(); i++) {
+			if (lista.get(i).getCpf().equals(cpf)) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	public boolean verificaCpfSocios(String cpf){
+		ObjectSet <Socio> lista = db.query(Socio.class);
+		
+		for (int i = 0; i < lista.size(); i++) {
+			if (lista.get(i).getCpf().equals(cpf)) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	// Os métodos abaixo fazem a query no db com o parâmetro solicitado. Alguns colocam os objetos num 
+	// ArrayList para serem aceitos em tableViews
+	
 	
 	// Sobrecarga de método
+	// Pesquisa de paciente - Botão buscar
 	public ArrayList<Paciente> listarPacientes(Paciente p){
 
 		String nomeBuscado = p.getNome();
@@ -71,6 +108,8 @@ public class Banco {
 	}
 	
 	// Sobrecarga de método
+	
+	// Pesquisa de Sócio - Botão buscar
 	public ArrayList<Socio> listarSocios(Socio s){
 
 		String nomeBuscado = s.getNome();
@@ -100,6 +139,8 @@ public class Banco {
 	
 	
 	// Sobrecarga de método
+	
+	// Pesquisa de Doação - Botão buscar
 	public ArrayList<Doacao> listarDoacoesBusca(Doacao doacao){
 
 		String descricaoBuscada = doacao.getDescricao();
@@ -129,6 +170,8 @@ public class Banco {
 	}
 	
 	// Sobrecarga de método
+	
+	// Pesquisa de Despesa - Botão buscar
 	public ArrayList<Despesa> listarDespesasBusca(Despesa despesa){
 		
 		String descricaoBuscada = despesa.getDescricao();
