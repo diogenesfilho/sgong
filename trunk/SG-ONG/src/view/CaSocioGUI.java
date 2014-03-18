@@ -39,8 +39,12 @@ public class CaSocioGUI extends BorderPane {
 	private ComboBox<String> comboSocio, comboEstado;
 	private ObservableList<String> TpEstado, TpSocio;
 	private Button cadastrar, cancelar;
+	private Banco banco;
 	
 	public CaSocioGUI(){
+		
+		//Localizando banco
+		banco = Main.getBanco();
 		
 		//Set Título
 		Label titulo = new Label("Cadastrar Sócio");
@@ -219,7 +223,12 @@ public class CaSocioGUI extends BorderPane {
 				try {
 					if(nomeField.getText().toString().isEmpty() || enderecoField.getText().toString().isEmpty() || comboEstado.getSelectionModel().getSelectedItem() == null || comboSocio.getSelectionModel().getSelectedItem() == null || cpfField.getText().toString().isEmpty()  || rgField.getText().toString().isEmpty() || cidadeField.getText().toString().isEmpty() || nasciField.getText().toString().isEmpty() || dataFiliacaoField.getText().toString().isEmpty() ){
 						new TelaAux("Dados inválidos");
-					}else{
+					}else if (8 > rgField.getText().length() || cpfField.getText().length() != 11 || telefoneCelularField.getText(). length() != 8 || nasciField.getText().length() != 6  || dataFiliacaoField.getText().length() != 6) {
+						new TelaAux("Dados inválidos, siga o exemplo de cada campo!");
+					} else if (!banco.verificaCpfSocios(cpfField.getText())) {
+						new TelaAux("Já existe um sócio com este CPF!");
+					}
+					else{
 		
 						double rg = Double.parseDouble(rgField.getText());
 						double cpf = Double.parseDouble(cpfField.getText());
@@ -228,7 +237,6 @@ public class CaSocioGUI extends BorderPane {
 						double dataFili = Double.parseDouble(dataFiliacaoField.getText());
 						
 						Socio socio = new Socio(nomeField.getText(), enderecoField.getText(), cidadeField.getText(), comboEstado.getSelectionModel().getSelectedItem(), rgField.getText(), cpfField.getText(), nasciField.getText(), telefoneCelularField.getText(), comboSocio.getSelectionModel().getSelectedItem(), dataFiliacaoField.getText(), emailField.getText());
-						Banco banco = Main.getBanco();
 						banco.addObjeto(socio);
 						new TelaAux("Sócio Cadastrado Com Sucesso!");
 						limpaCampos();

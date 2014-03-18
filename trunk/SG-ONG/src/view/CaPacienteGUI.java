@@ -44,8 +44,12 @@ public class CaPacienteGUI extends BorderPane {
 	private ComboBox<String> comboEstado;
 	private ObservableList<String> TpEstado;
 	private Button cadastrar, cancelar;
+	private Banco banco;
 	
-	public CaPacienteGUI() throws ParseException{		
+	public CaPacienteGUI() throws ParseException{	
+		
+		// Localizando banco
+		banco = Main.getBanco();
 		
 		//Set Título
 		Label titulo = new Label("Cadastrar Paciente");
@@ -186,6 +190,7 @@ public class CaPacienteGUI extends BorderPane {
 			
 			@Override
 			public void handle(ActionEvent event) {
+		
 				Main.mudarTela(new TelaPrincipal());
 				
 			}
@@ -197,14 +202,17 @@ public class CaPacienteGUI extends BorderPane {
 					
 			@Override
 			public void handle(ActionEvent event) {
-	
+				
+				
 				try {
 					
 					// Verificações
 					if(nomeField.getText().toString().isEmpty() || comboEstado.getSelectionModel().getSelectedItem() == null || cpfField.getText().toString().isEmpty()  || rgField.getText().toString().isEmpty() || cidadeField.getText().toString().isEmpty() || nasciField.getText().toString().isEmpty()){
 						new TelaAux("Dados inválidos!");
 					}else if (8 > rgField.getText().length() || cpfField.getText().length() != 11 || telefoneCelularField.getText(). length() != 8 || nasciField.getText().length() != 6 ) {
-						new TelaAux("Dados inválidos!");
+						new TelaAux("Dados inválidos, siga o exemplo de cada campo!");
+					} else if (!banco.verificaCpfPacientes(cpfField.getText())) {
+						new TelaAux("Já existe um paciente com este CPF!");
 					}
 					
 					else{
@@ -217,7 +225,6 @@ public class CaPacienteGUI extends BorderPane {
 						
 						Paciente paciente = new Paciente(nomeField.getText(),enderecoField.getText(),cidadeField.getText(),comboEstado.getSelectionModel().getSelectedItem(),rgField.getText(),cpfField.getText(),nasciField.getText(),telefoneCelularField.getText(),observacoesField.getText());
 								
-						Banco banco = Main.getBanco();
 						banco.addObjeto(paciente);
 						new TelaAux("Paciente Cadastrado Com Sucesso!");
 						limpaCampos();
