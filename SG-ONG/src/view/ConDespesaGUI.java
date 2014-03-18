@@ -115,9 +115,7 @@ public class ConDespesaGUI extends BorderPane {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				listaDespesasRefresh = FXCollections.observableArrayList(
-				banco.listarDespesas());
-				tabela.setItems(listaDespesasRefresh);
+				atualizaTabela();
 				cancelarBusca.setVisible(false);
 			}
 		});
@@ -131,14 +129,15 @@ public class ConDespesaGUI extends BorderPane {
 					new TelaAux("Selecione a despesa que deseja excluir");
 				}else{
 					Despesa des = (Despesa) tabela.getSelectionModel().getSelectedItem();
-					banco.excluirObjeto(des);
-					new TelaAux("Despesa removida");
-					listaDespesasRefresh = FXCollections.observableArrayList(banco.listarDespesas());     
-					tabela.setItems(listaDespesasRefresh);
+					new TelaAux(des, "Deseja remover "+ des.getDescricao() +"?", tabela);
 				}
 			}
 		});
 	}
 	
+	public void atualizaTabela(){
+		listaDespesasRefresh = FXCollections.observableArrayList(banco.listarDespesas());
+		tabela.setItems(listaDespesasRefresh);
+	}
 
 }

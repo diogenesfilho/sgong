@@ -36,7 +36,6 @@ public class Main extends Application {
  
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-	
 		
 		if(bd == null){
 			bd = new Banco();	
@@ -59,8 +58,7 @@ public class Main extends Application {
 		
 	}
 	
-	
-	
+
 	public static void main(String[] args) {
 		launch(args);
 

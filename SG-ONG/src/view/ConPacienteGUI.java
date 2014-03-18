@@ -33,6 +33,7 @@ public class ConPacienteGUI extends BorderPane {
 		
 		setFocusTraversable(true);
 				
+		
 		titulo = new Label("Relação de Pacientes");
 		titulo.setFont(new Font(30));
 		
@@ -104,7 +105,7 @@ public class ConPacienteGUI extends BorderPane {
 	    tabela.setMaxHeight(400);
 	    tabela.setMaxWidth(1000);
 	    tabela.getColumns().addAll(nomeCol, endCol, cidadeCol, estadoCol, rgCol, cpfCol, nascCol, telCol, obsCol);
-
+	    
 
 		HBox rodape = new HBox(20);
 		rodape.getChildren().addAll(excluir);
@@ -117,6 +118,8 @@ public class ConPacienteGUI extends BorderPane {
 		hboxProcu.setAlignment(Pos.CENTER);
 		rodape.setAlignment(Pos.CENTER);
 		
+		
+		// Eventos
 		
 		procurar.setOnAction(new EventHandler<ActionEvent>() {
 			
@@ -141,9 +144,7 @@ public class ConPacienteGUI extends BorderPane {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				listaPacientesRefresh = FXCollections.observableArrayList(        
-				banco.listarPacientes());
-				tabela.setItems(listaPacientesRefresh);
+				atualizaTabela();
 				cancelarBusca.setVisible(false);
 			}
 		});
@@ -157,16 +158,17 @@ public class ConPacienteGUI extends BorderPane {
 					new TelaAux("Selecione o paciente que deseja excluir");
 				}else{
 					Paciente p = tabela.getSelectionModel().getSelectedItem();
-					banco.excluirObjeto(p);
-					new TelaAux("Paciente removido");
-					listaPacientesRefresh = FXCollections.observableArrayList(banco.listarPacientes());     
-					tabela.setItems(listaPacientesRefresh);
+					new TelaAux(p, "Deseja remover "+ p.getNome() +"?", tabela);
 				}
 			}
 		});
-		
-		
+
 	}
 
+
+	public void atualizaTabela(){
+		listaPacientesRefresh = FXCollections.observableArrayList(banco.listarPacientes());
+		tabela.setItems(listaPacientesRefresh);
+	}
 
 }

@@ -216,9 +216,6 @@ public class CaDoacaoGUI extends BorderPane {
 						new TelaAux("Dados inválidos!");
 					}
 				}
-			
-				
-				
 			}
 			
 			private void limpaCampos() {
@@ -230,4 +227,6 @@ public class CaDoacaoGUI extends BorderPane {
 			
 		});
 	}
+	
+
 }

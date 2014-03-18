@@ -4,6 +4,8 @@ package view;
 
 import java.text.ParseException;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.text.MaskFormatter;
@@ -102,12 +104,11 @@ public class CaPacienteGUI extends BorderPane {
 		observacoesField = new TextArea();
 		observacoesField.setPrefSize(350.0, 80.0);
 
-		cadastrar = new Button("Cadastrar");
+		Button cadastrar = new Button("Cadastrar");
 		cancelar = new Button("Cancelar");
-		cadastrar.getStyleClass().add("cadastrar");
-		
+		cadastrar.getStyleClass().add("cadastrar");		
 		cancelar.getStyleClass().add("cancelar");
-		
+	
 		
 		//Conjunto linha 1.
 		HBox hbox1 = new HBox(62);
@@ -117,9 +118,7 @@ public class CaPacienteGUI extends BorderPane {
 		HBox hbox2E1 = new HBox(40);
 		hbox2E1.getChildren().addAll(enderecoTexto,enderecoField);
 		
-		
 		//Conjunto Linha 3.
-		
 		HBox hbox3E2 = new HBox(55);
 		hbox3E2.getChildren().addAll(cidadeTexto,cidadeField);
 		
