@@ -65,7 +65,7 @@ public class LoginGUI extends BorderPane {
 			@Override
 			public void handle(ActionEvent arg0) {
 				if (nomeField.getText().equals("adm") &&  (senhaField.getText().equals("adm"))){
-					Main.mudarTela(new TelaPrincipal());
+					getScene().setRoot(new TelaPrincipal());
 				}else if(nomeField.getText().equals("") || senhaField.getText().equals("")){
 					new TelaAux("Digite login e senha!");
 				}

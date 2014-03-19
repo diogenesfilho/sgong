@@ -25,14 +25,10 @@ import view.TelaAux;
 public class Main extends Application {
 	
 	private static Banco bd;
-	private static Scene SCENE;
+	private Scene SCENE;
 	
 	public static Banco getBanco(){
 		return bd;
-	}
-	
-	public static void mudarTela(Parent root){
-		Main.SCENE.setRoot(root);
 	}
  
 	@Override
