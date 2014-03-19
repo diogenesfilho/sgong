@@ -21,6 +21,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -47,8 +49,13 @@ public class ConDespesaGUI extends BorderPane {
 		procuraField.setPrefSize(620.0, 27.0); 
 		procuraField.setPromptText("Ex.: Conta de água");
 		
-		procurar = new Button("Procurar");
-		excluir = new Button("Excluir despesa");
+		Image iconeProcurar = new Image(getClass().getResourceAsStream("/image/procurar.png"));
+		procurar = new Button("Procurar", new ImageView(iconeProcurar));
+		
+		
+		Image iconeExcluir = new Image(getClass().getResourceAsStream("/image/delete.png"));
+		excluir = new Button("Excluir despesa", new ImageView(iconeExcluir));
+		
 		cancelarBusca = new Button("Cancelar busca");
 		
 		cancelarBusca.setVisible(false);

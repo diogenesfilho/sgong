@@ -21,6 +21,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -47,8 +49,12 @@ public class ConDoacaoGUI extends BorderPane {
 		procuraField.setPrefSize(620.0, 27.0); 
 		procuraField.setPromptText("Ex.: Cesta básica");		
 		
-		procurar = new Button("Procurar");
-		excluir = new Button("Excluir doação");
+		Image iconeProcurar = new Image(getClass().getResourceAsStream("/image/procurar.png"));
+		procurar = new Button("Procurar", new ImageView(iconeProcurar));
+		
+		Image iconeExcluir = new Image(getClass().getResourceAsStream("/image/delete.png"));
+		excluir = new Button("Excluir doação", new ImageView(iconeExcluir));
+		
 		cancelarBusca = new Button("Cancelar busca");
 		cancelarBusca.setVisible(false);
 		
