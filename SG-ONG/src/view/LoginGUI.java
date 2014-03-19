@@ -1,5 +1,8 @@
 package view;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -23,7 +26,6 @@ public class LoginGUI extends BorderPane {
 		//Deixando o cursor sem focar, inicialmente, em nenhum campo
 		setFocusTraversable(true);
 		
-		
 		Label nome = new Label("Usuário:");		
 		Label senha = new Label("Senha:");
 		
@@ -33,8 +35,8 @@ public class LoginGUI extends BorderPane {
 		final PasswordField senhaField = new PasswordField();
 		senhaField.setPromptText("Digite sua senha");
 		
-		Button entrar = new Button("Entrar");
-		entrar.setStyle("-fx-cursor: hand;");
+		Image icone = new Image(getClass().getResourceAsStream("/image/login.png"));
+		Button entrar = new Button("Entrar", new ImageView(icone));
 
 		HBox hbox1 = new HBox(35);
 		hbox1.getChildren().addAll(nome,nomeField);
