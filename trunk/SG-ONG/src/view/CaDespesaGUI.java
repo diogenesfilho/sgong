@@ -62,8 +62,11 @@ public class CaDespesaGUI extends BorderPane {
 		descField.setPrefSize(400, 100);
 		descField.setPromptText("Ex.: Conta de energia");
 		
-		cadastrar = new Button("Cadastrar");
-		cancelar = new Button("Cancelar");
+		Image iconeCadastrar = new Image(getClass().getResourceAsStream("/image/add.png"));
+		Button cadastrar = new Button("Cadastrar", new ImageView(iconeCadastrar));
+		
+		Image iconeCancelar = new Image(getClass().getResourceAsStream("/image/cancel.png"));
+		cancelar = new Button("Cancelar", new ImageView(iconeCancelar));
 		
 		MeuMenu vboxtop = new MeuMenu(); 
 

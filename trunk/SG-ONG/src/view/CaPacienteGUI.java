@@ -107,8 +107,11 @@ public class CaPacienteGUI extends BorderPane {
 		observacoesField = new TextArea();
 		observacoesField.setPrefSize(350.0, 80.0);
 
-		Button cadastrar = new Button("Cadastrar");
-		cancelar = new Button("Cancelar");
+		Image iconeCadastrar = new Image(getClass().getResourceAsStream("/image/add.png"));
+		Button cadastrar = new Button("Cadastrar", new ImageView(iconeCadastrar));
+		
+		Image iconeCancelar = new Image(getClass().getResourceAsStream("/image/cancel.png"));
+		cancelar = new Button("Cancelar", new ImageView(iconeCancelar));
 		
 		//Conjunto linha 1.
 		HBox hbox1 = new HBox(62);

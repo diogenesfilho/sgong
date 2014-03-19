@@ -45,7 +45,7 @@ public class Main extends Application {
 		LoginGUI root = new LoginGUI();
 		SCENE = new Scene(root,1240,600, Color.LIGHTGRAY);
 		
-		SCENE.getStylesheets().add(getClass().getResource("/css/botoes.css").toExternalForm());
+		SCENE.getStylesheets().add(getClass().getResource("/css/tema.css").toExternalForm());
 		
 		primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
 			

@@ -38,7 +38,12 @@ public class ConPacienteGUI extends BorderPane {
 		titulo.setFont(new Font(30));
 		
 		procuraText = new Label("Procurar por nome:");
+		
 		procuraField = new TextField();
+		procuraField.setStyle("procura");
+		
+		
+		
 		procuraField.setPromptText("Ex.: Pedro Victor");
 		procuraField.setPrefSize(620.0, 27.0); 
 		

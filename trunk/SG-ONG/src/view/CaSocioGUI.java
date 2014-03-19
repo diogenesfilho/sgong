@@ -114,8 +114,11 @@ public class CaSocioGUI extends BorderPane {
 		emailField.setPrefSize(200.0, 27.0);
 		emailField.setPromptText("Ex.: jose@gmail.com");
 		
-		cadastrar = new Button("Cadastrar");
-		cancelar = new Button("Cancelar");
+		Image iconeCadastrar = new Image(getClass().getResourceAsStream("/image/add.png"));
+		Button cadastrar = new Button("Cadastrar", new ImageView(iconeCadastrar));
+		
+		Image iconeCancelar = new Image(getClass().getResourceAsStream("/image/cancel.png"));
+		cancelar = new Button("Cancelar", new ImageView(iconeCancelar));
 	
 		//Conjunto linha 1.
 		HBox hbox1 = new HBox(62);

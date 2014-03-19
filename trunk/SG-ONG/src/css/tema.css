@@ -1,14 +1,18 @@
-
 .button{
 	
 	-fx-cursor: hand;
-	-fx-font-family: century;
 	
 }
 
 .button:hover{
 
 	-fx-body-color: white;
+
+}
+
+.procura{
+
+	-fx-background-color: blue;	
 
 }
 
