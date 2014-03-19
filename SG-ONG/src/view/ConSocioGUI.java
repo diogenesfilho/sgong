@@ -15,6 +15,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -42,8 +44,12 @@ public class ConSocioGUI extends BorderPane {
 		procuraField.setPromptText("Ex.: João Paulo Ferreira da Silva");
 		procuraField.setPrefSize(620.0, 27.0); 
 		
-		procurar = new Button("Procurar");
-		excluir = new Button("Excluir sócio");
+		Image iconeProcurar = new Image(getClass().getResourceAsStream("/image/procurar.png"));
+		procurar = new Button("Procurar", new ImageView(iconeProcurar));
+		
+		Image iconeExcluir = new Image(getClass().getResourceAsStream("/image/delete.png"));
+		excluir = new Button("Excluir sócio", new ImageView(iconeExcluir));
+		
 		cancelarBusca = new Button("Cancelar busca");
 		cancelarBusca.setVisible(false);
 		

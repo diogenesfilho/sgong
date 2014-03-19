@@ -114,6 +114,8 @@ public class CaSocioGUI extends BorderPane {
 		emailField.setPrefSize(200.0, 27.0);
 		emailField.setPromptText("Ex.: jose@gmail.com");
 		
+		//carregando ícones e colocando-os nos botões
+		
 		Image iconeCadastrar = new Image(getClass().getResourceAsStream("/image/add.png"));
 		Button cadastrar = new Button("Cadastrar", new ImageView(iconeCadastrar));
 		
