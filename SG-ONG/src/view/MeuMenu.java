@@ -53,7 +53,7 @@ public class MeuMenu extends MenuBar {
 			
 			@Override
 			public void handle(ActionEvent arg0) {
-				Main.mudarTela(new CaDoacaoGUI());
+				getScene().setRoot(new CaDoacaoGUI());
 				
 			}
 		}); 
@@ -63,7 +63,7 @@ public class MeuMenu extends MenuBar {
 			
 			@Override
 			public void handle(ActionEvent arg0) {
-				Main.mudarTela(new CaSocioGUI());
+				getScene().setRoot(new CaSocioGUI());
 				
 			}
 		});
@@ -73,7 +73,7 @@ public class MeuMenu extends MenuBar {
 			@Override
 			public void handle(ActionEvent arg0) {
 				try {
-					Main.mudarTela(new CaPacienteGUI());
+					getScene().setRoot(new CaPacienteGUI());
 				} catch (ParseException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -85,7 +85,7 @@ public class MeuMenu extends MenuBar {
 			
 			@Override
 			public void handle(ActionEvent arg0) {
-				Main.mudarTela(new CaDespesaGUI());
+				getScene().setRoot(new CaDespesaGUI());
 				
 			}
 		});
@@ -94,7 +94,7 @@ public class MeuMenu extends MenuBar {
 			
 			@Override
 			public void handle(ActionEvent arg0) {
-				Main.mudarTela(new ConDespesaGUI());
+				getScene().setRoot(new ConDespesaGUI());
 				
 			}
 		});
@@ -104,8 +104,7 @@ public class MeuMenu extends MenuBar {
 			
 			@Override
 			public void handle(ActionEvent arg0) {
-				Main.mudarTela(new ConDoacaoGUI());
-				
+				getScene().setRoot(new ConDoacaoGUI());				
 			}
 		});
 		
@@ -114,7 +113,7 @@ public class MeuMenu extends MenuBar {
 			
 			@Override
 			public void handle(ActionEvent arg0) {
-				Main.mudarTela(new TelaInfoGerais());
+				getScene().setRoot(new TelaInfoGerais());
 				
 			}
 		});
@@ -124,7 +123,7 @@ public class MeuMenu extends MenuBar {
 			
 			@Override
 			public void handle(ActionEvent arg0) {
-				Main.mudarTela(new GrafBar());
+				getScene().setRoot(new GrafBar());
 				
 			}
 		});
@@ -133,7 +132,7 @@ public class MeuMenu extends MenuBar {
 			
 			@Override
 			public void handle(ActionEvent arg0) {
-				Main.mudarTela(new ConSocioGUI());
+				getScene().setRoot(new ConSocioGUI());
 				
 			}
 		}); 
@@ -142,7 +141,7 @@ public class MeuMenu extends MenuBar {
 			
 			@Override
 			public void handle(ActionEvent arg0) {
-				Main.mudarTela(new ConPacienteGUI());
+				getScene().setRoot(new ConPacienteGUI());
 				
 			}
 		}); 
@@ -151,7 +150,7 @@ public class MeuMenu extends MenuBar {
 			
 			@Override
 			public void handle(ActionEvent arg0) {
-				Main.mudarTela(new Sobre());
+				getScene().setRoot(new Sobre());
 				
 			}
 		}); 
@@ -160,7 +159,7 @@ public class MeuMenu extends MenuBar {
 			
 			@Override
 			public void handle(ActionEvent arg0) {
-				Main.mudarTela(new Ajuda());
+				getScene().setRoot(new Ajuda());
 				
 			}
 		}); 

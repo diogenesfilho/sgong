@@ -154,7 +154,7 @@ public class CaDoacaoGUI extends BorderPane {
 			
 			@Override
 			public void handle(ActionEvent event) {				
-				Main.mudarTela(new TelaPrincipal());
+				getScene().setRoot(new TelaPrincipal());
 				
 			}
 		});
