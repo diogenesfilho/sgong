@@ -25,7 +25,7 @@ import view.TelaAux;
 public class Main extends Application {
 	
 	private static Banco bd;
-	private Scene SCENE;
+	private Scene scene;
 	
 	public static Banco getBanco(){
 		return bd;
@@ -39,9 +39,10 @@ public class Main extends Application {
 		}
 		
 		LoginGUI root = new LoginGUI();
-		SCENE = new Scene(root,1300,650, Color.LIGHTGRAY);
+		scene = new Scene(root,1300,650, Color.LIGHTGRAY);
 		
-		SCENE.getStylesheets().add(getClass().getResource("/css/tema.css").toExternalForm());
+		// CSS geral
+		scene.getStylesheets().add(getClass().getResource("/css/tema.css").toExternalForm());
 		
 		primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
 			
@@ -51,7 +52,7 @@ public class Main extends Application {
 			}
 		});
 		primaryStage.setTitle("SG ONG - Sistema Gerenciador de ONG");
-		primaryStage.setScene(SCENE);
+		primaryStage.setScene(scene);
 		primaryStage.getIcons().add(new Image("/image/icone.png"));
 		primaryStage.show();
 		

@@ -24,7 +24,6 @@ public class Banco {
 		db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), "db");
 	}
 	
-	
 	// Adicionando no ObjectContainer
 	public void addObjeto(Object o){
 		db.store(o);

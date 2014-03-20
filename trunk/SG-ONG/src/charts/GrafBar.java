@@ -32,6 +32,7 @@ public class GrafBar extends BorderPane {
 	
 	public GrafBar(){
 		
+		// Resgata as informações
 		info = new InfoBD();
 		info.compoeDoacoes();
 		info.compoeDespesas();
