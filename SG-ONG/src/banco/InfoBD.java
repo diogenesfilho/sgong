@@ -20,7 +20,7 @@ public class InfoBD {
 	
 	
 	private ObjectSet listaDeSocios = banco.listaObjeto(Socio.class);
-	private ObjectSet listaDePacientes = banco.listaObjeto(Socio.class);
+	private ObjectSet listaDePacientes = banco.listaObjeto(Paciente.class);
 	private ObjectSet listaDeDoacoes = banco.listaObjeto(Doacao.class);
 	private ObjectSet listaDeDespesas = banco.listaObjeto(Despesa.class);
 	
