@@ -227,7 +227,7 @@ public class CaSocioGUI extends BorderPane {
 				
 				try {
 					if(nomeField.getText().toString().isEmpty() || enderecoField.getText().toString().isEmpty() || comboEstado.getSelectionModel().getSelectedItem() == null || comboSocio.getSelectionModel().getSelectedItem() == null || cpfField.getText().toString().isEmpty()  || rgField.getText().toString().isEmpty() || cidadeField.getText().toString().isEmpty() || nasciField.getText().toString().isEmpty() || dataFiliacaoField.getText().toString().isEmpty() ){
-						new TelaAux("Dados inválidos");
+						new TelaAux("Dados inválidos!");
 					}else if (8 > rgField.getText().length() || cpfField.getText().length() != 11 || telefoneCelularField.getText(). length() != 8 || nasciField.getText().length() != 6  || dataFiliacaoField.getText().length() != 6) {
 						new TelaAux("Dados inválidos, siga o exemplo de cada campo!");
 					} else if (!banco.verificaCpfSocios(cpfField.getText())) {
@@ -266,9 +266,9 @@ public class CaSocioGUI extends BorderPane {
 
 
 			private void limpaCampos() {
-				nomeField.setText(null);enderecoField.setText(null);cidadeField.setText(null);rgField.setText(null);
-				cpfField.setText(null);nasciField.setText(null);emailField.setText(null);
-				telefoneCelularField.setText(null);dataFiliacaoField.setText(null);comboEstado.getSelectionModel().clearSelection();
+				nomeField.setText("");enderecoField.setText("");cidadeField.setText("");rgField.setText("");
+				cpfField.setText("");nasciField.setText("");emailField.setText("");
+				telefoneCelularField.setText("");dataFiliacaoField.setText("");comboEstado.getSelectionModel().clearSelection();
 				comboSocio.getSelectionModel().clearSelection();
 			}
 			

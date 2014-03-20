@@ -55,7 +55,8 @@ public class ConDoacaoGUI extends BorderPane {
 		Image iconeExcluir = new Image(getClass().getResourceAsStream("/image/delete.png"));
 		excluir = new Button("Excluir doação", new ImageView(iconeExcluir));
 		
-		cancelarBusca = new Button("Cancelar busca");
+		Image iconeCancelar = new Image(getClass().getResourceAsStream("/image/cancel.png"));
+		cancelarBusca = new Button("Cancelar busca", new ImageView(iconeCancelar));
 		cancelarBusca.setVisible(false);
 		
 		HBox hboxProcu = new HBox(20);
@@ -120,6 +121,7 @@ public class ConDoacaoGUI extends BorderPane {
 
 			@Override
 			public void handle(ActionEvent arg0) {
+				procuraField.setText("");
 				atualizaTabela();
 				cancelarBusca.setVisible(false);
 			}

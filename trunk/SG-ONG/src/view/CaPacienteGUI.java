@@ -248,9 +248,9 @@ public class CaPacienteGUI extends BorderPane {
 			
 			// Seta os campos como nulo após o cadastro
 			public void limpaCampos(){
-				nomeField.setText(null);enderecoField.setText(null);cidadeField.setText(null);
-				rgField.setText(null);cpfField.setText(null);nasciField.setText(null);
-				observacoesField.setText(null);telefoneCelularField.setText(null);comboEstado.getSelectionModel().clearSelection();
+				nomeField.setText("");enderecoField.setText("");cidadeField.setText("");
+				rgField.setText("");cpfField.setText("");nasciField.setText("");
+				observacoesField.setText("");telefoneCelularField.setText("");comboEstado.getSelectionModel().clearSelection();
 			}
 		});	
 	}

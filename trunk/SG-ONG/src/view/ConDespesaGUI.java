@@ -56,7 +56,8 @@ public class ConDespesaGUI extends BorderPane {
 		Image iconeExcluir = new Image(getClass().getResourceAsStream("/image/delete.png"));
 		excluir = new Button("Excluir despesa", new ImageView(iconeExcluir));
 		
-		cancelarBusca = new Button("Cancelar busca");
+		Image iconeCancelar = new Image(getClass().getResourceAsStream("/image/cancel.png"));
+		cancelarBusca = new Button("Cancelar busca", new ImageView(iconeCancelar));
 		
 		cancelarBusca.setVisible(false);
 		
@@ -122,6 +123,7 @@ public class ConDespesaGUI extends BorderPane {
 
 			@Override
 			public void handle(ActionEvent arg0) {
+				procuraField.setText("");
 				atualizaTabela();
 				cancelarBusca.setVisible(false);
 			}
