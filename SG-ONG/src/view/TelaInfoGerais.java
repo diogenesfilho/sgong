@@ -35,7 +35,7 @@ public class TelaInfoGerais extends BorderPane {
 		
 			
 		infoBanco = FXCollections.observableArrayList();
-		infoBanco.addAll("Sócios Cadastrados: " + banco.getQuantidadeSocios(), "Pacientes cadastrados: " + banco.getQuantidadeSocios(),"Doações cadastradas: " +  banco.getQuantidadeDoacoes(),"Despesas cadastradas: " + banco.getQuantidadeDespesas(), "",
+		infoBanco.addAll("Pacientes Cadastrados: " + banco.getQuantidadePacientes(), "Sócios cadastrados: " + banco.getQuantidadeSocios(),"Doações cadastradas: " +  banco.getQuantidadeDoacoes(),"Despesas cadastradas: " + banco.getQuantidadeDespesas(), "",
 				"Total de arrecadações: R$ " + banco.geraArrecadacoes(), "Total de Despesas: R$ " + banco.geraGastos(), "Saldo da ONG: R$ " + banco.geraSaldo());
 		dados.setItems(infoBanco);
 		

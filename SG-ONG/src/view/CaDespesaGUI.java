@@ -155,8 +155,8 @@ public class CaDespesaGUI extends BorderPane {
 			}
 			
 			private void limpaCampos() {
-				valorField.setText(null);
-				descField.setText(null);
+				valorField.setText("");
+				descField.setText("");
 				mesCombo.getSelectionModel().clearSelection();
 				
 			}
