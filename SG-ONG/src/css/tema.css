@@ -1,14 +1,16 @@
+
+
 .button{
 	
 	-fx-cursor: hand;
-	
+
 }
 
 .button:hover{
 
-	-fx-body-color: white;
-	
+	-fx-background-color: white;
 
 }
 
 
+ 

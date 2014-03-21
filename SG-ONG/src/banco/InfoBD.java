@@ -10,6 +10,10 @@ import model.Paciente;
 import model.Socio;
 import app.Main;
 
+// Esta classe recolhe todos os valores a partir do banco de dados. Estes dados são utilizados em telas como gráfico e 
+// info geral.
+
+
 public class InfoBD {
 
 	private Banco banco = Main.getBanco();

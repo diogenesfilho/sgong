@@ -46,8 +46,12 @@ public class CaDespesaGUI extends BorderPane {
 		descri = new Label("Descrição:");
 		mes = new Label("Mês:");
 		
-		titulo = new Label("Cadastrar Despesa");
-		titulo.setFont(new Font(40));
+		Label titulo = new Label("Cadastrar Despesa");
+		ImageView iconeAdd = new ImageView("/image/prancheta.png");
+		titulo.setFont(new Font(30));
+		
+		HBox cabecalho = new HBox(35);
+		cabecalho.getChildren().addAll(iconeAdd, titulo);
 		
 		valorField = new TextField();		
 		valorField.setPromptText("Ex.: 100");
@@ -83,11 +87,12 @@ public class CaDespesaGUI extends BorderPane {
 		hbox4.getChildren().addAll(cadastrar,cancelar);
 				
 		VBox vbox = new VBox(30);
-		vbox.getChildren().addAll(titulo,hbox1,hbox2,hbox3,hbox4);
+		vbox.getChildren().addAll(cabecalho,hbox1,hbox2,hbox3,hbox4);
 				
 		VBox vboxP = new VBox(30);
 		vboxP.getChildren().addAll(vbox,vboxtop);
-				
+		
+		cabecalho.setAlignment(Pos.CENTER);		
 		hbox1.setAlignment(Pos.CENTER);
 		hbox2.setAlignment(Pos.CENTER);
 		hbox3.setAlignment(Pos.CENTER);
