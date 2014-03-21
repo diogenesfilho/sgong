@@ -48,7 +48,11 @@ public class CaSocioGUI extends BorderPane {
 		
 		//Set Título
 		Label titulo = new Label("Cadastrar Sócio");
+		ImageView iconeAdd = new ImageView("/image/addPessoa.png");
 		titulo.setFont(new Font(30));
+		
+		HBox cabecalho = new HBox(35);
+		cabecalho.getChildren().addAll(iconeAdd, titulo);
 		
 		MeuMenu menuBar = new MeuMenu(); 
 		
@@ -183,7 +187,7 @@ public class CaSocioGUI extends BorderPane {
 				
 		// Vboxe's
 		VBox vboxTitulo = new VBox(30);
-		vboxTitulo.getChildren().addAll(titulo);
+		vboxTitulo.getChildren().addAll(cabecalho);
 		
 		VBox vboxAtributos = new VBox(20);
 		vboxAtributos.getChildren().addAll(hbox1,hbox2E1,hbox3,hbox4,hbox5,hbox7,hbox6,hboxBotoes);

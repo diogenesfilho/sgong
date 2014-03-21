@@ -91,8 +91,12 @@ public class CaDoacaoGUI extends BorderPane {
 		mesCombo.setItems(listaDeMeses);
 		mesCombo.setMinSize(170, 20);
 		
-		titulo = new Label("Cadastrar Doação");
-		titulo.setFont(new Font(40));
+		Label titulo = new Label("Cadastrar Doação");
+		ImageView iconeAdd = new ImageView("/image/prancheta.png");
+		titulo.setFont(new Font(30));
+		
+		HBox cabecalho = new HBox(35);
+		cabecalho.getChildren().addAll(iconeAdd, titulo);
 		
 		valorField = new TextField();
 		valorField.setPromptText("Ex.: 100");
@@ -122,11 +126,12 @@ public class CaDoacaoGUI extends BorderPane {
 		hbox4.getChildren().addAll(descri,descField);
 				
 		VBox vbox = new VBox(30);
-		vbox.getChildren().addAll(titulo,textoAux, seletor,hbox1,hbox2,hbox4,hbox3);
+		vbox.getChildren().addAll(cabecalho,textoAux, seletor,hbox1,hbox2,hbox4,hbox3);
 				
 		VBox vboxP = new VBox(30);
 		vboxP.getChildren().addAll(vbox,vboxtop);
-				
+		
+		cabecalho.setAlignment(Pos.CENTER);		
 		textoAux.setAlignment(Pos.CENTER);
 		seletor.setAlignment(Pos.CENTER);
 		hbox1.setAlignment(Pos.CENTER);

@@ -6,7 +6,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TitledPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 public class Ajuda extends BorderPane {
@@ -28,12 +30,23 @@ public class Ajuda extends BorderPane {
         accordion.getPanes().add(t3);
         
         accordion.setMaxSize(500, 500);
+        accordion.setTranslateY(getScaleY()+50);
+        
+        ImageView iconeAjuda = new ImageView("/image/ajuda.png");
+		Text ajuda = new Text("Ajuda");
+		ajuda.setFont(new Font(40));
+
+		HBox titulo = new HBox(35);
+		titulo.getChildren().addAll(iconeAjuda, ajuda);
+		
+		titulo.setTranslateY(getScaleY()+40);
+		titulo.setAlignment(Pos.TOP_CENTER);
         
 		MeuMenu menu = new MeuMenu();
 		ImageView verFundo = new ImageView("/image/telaprinc.png");
 		StackPane stack = new StackPane();
 		
-		stack.getChildren().addAll(verFundo,menu, accordion);
+		stack.getChildren().addAll(verFundo,titulo, menu, accordion);
 		setCenter(stack);
 		setTop(menu);
 
