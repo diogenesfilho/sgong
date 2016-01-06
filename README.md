@@ -9,8 +9,8 @@ Autores : Diogenes Laertius (diogeneslaertiussof@gmail.com)
           João Vitor (joao130693@gmail.com)
           José Arnóbio (arnobiojroliveira@gmail.com)
 
-Finalidade: Ajudar na gerência de ONGs de maneira a manter um cadastro atualizado de doadores e favorecidos, bem como doações, fornecendo ainda a visibilidade através de gráficos e tabelas.
+Finalidade: Ajudar na gerência de ONGs de maneira a manter um cadastro atualizado de doadores e favorecidos, bem como doações, fornecendo ainda a visibilidade através de gráficos e tabelas. <br>
 
-Linguagem : Java
-Interface: JavaFX
-Banco: DB4Objetcs.
+Linguagem : Java<br>
+Interface: JavaFX<br>
+Banco: DB4Objetcs.<br>
