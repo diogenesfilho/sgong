@@ -14,4 +14,4 @@ Finalidade: Ajudar na gerência de ONGs de maneira a manter um cadastro atualiza
 
 Linguagem : Java<br>
 Interface: JavaFX<br>
-Banco: DB4Objetcs.<br>
+Banco: DB4Objetc<br>
